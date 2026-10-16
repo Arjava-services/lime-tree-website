@@ -1,0 +1,23 @@
+{
+  "name": "limetree",
+  "version": "1.0.0",
+  "description": "LimeTree - Curated Lifestyle Marketplace (Riyaa Trends, Glow Home, Earkart)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "limetree",
+    "ecommerce",
+    "riyaa-trends",
+    "glow-home",
+    "earkart"
+  ],
+  "author": "LimeTree",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}

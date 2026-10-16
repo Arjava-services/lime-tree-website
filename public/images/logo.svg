@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 120" width="100%" height="100%">
+  <defs>
+    <!-- Lime Gradient -->
+    <linearGradient id="limeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#bef264" />
+      <stop offset="50%" stop-color="#65a30d" />
+      <stop offset="100%" stop-color="#365314" />
+    </linearGradient>
+
+    <!-- Leaf Glow Gradient -->
+    <linearGradient id="leafGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4ade80" />
+      <stop offset="100%" stop-color="#84cc16" />
+    </linearGradient>
+
+    <!-- Warm Amber Glow for Candles / Earkart Sparkle -->
+    <linearGradient id="sparkleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+
+    <!-- Drop Shadow -->
+    <filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#14532d" flood-opacity="0.18" />
+    </filter>
+  </defs>
+
+  <!-- Logo Icon Container Group -->
+  <g transform="translate(14, 12)" filter="url(#softShadow)">
+    <!-- Base Rounded Rounded Shield / Pebble -->
+    <rect x="0" y="0" width="96" height="96" rx="26" fill="url(#limeGrad)" />
+    
+    <!-- Inner Subtle Glow Ring -->
+    <rect x="2" y="2" width="92" height="92" rx="24" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.35" />
+
+    <!-- Stylized Citrus Slice / Tree Crown Motif -->
+    <!-- Center Trunk & Branch Line -->
+    <path d="M48 76 V38" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" />
+    <path d="M48 54 Q36 48 30 38" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round" fill="none" />
+    <path d="M48 46 Q60 40 66 32" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round" fill="none" />
+
+    <!-- Organic Leaves (Tree + Lime Botanical) -->
+    <!-- Top Leaf -->
+    <path d="M48 22 C40 28 42 38 48 38 C54 38 56 28 48 22 Z" fill="url(#leafGrad)" />
+    <!-- Left Leaf -->
+    <path d="M30 38 C22 40 24 50 32 48 C36 46 36 40 30 38 Z" fill="url(#leafGrad)" />
+    <!-- Right Leaf / Citrus Segment -->
+    <path d="M66 32 C74 34 72 44 64 42 C60 40 60 34 66 32 Z" fill="url(#leafGrad)" />
+
+    <!-- Radiating Citrus Seed / Sparkle Droplets (Ear Studs & Candle Flame Sparkle) -->
+    <!-- Sparkle 1: Stud Diamond Starburst (Earkart) -->
+    <path d="M68 58 L70 63 L75 65 L70 67 L68 72 L66 67 L61 65 L66 63 Z" fill="url(#sparkleGrad)" />
+    <!-- Candle Flame Aura (Glow Home) -->
+    <circle cx="27" cy="62" r="3.5" fill="url(#sparkleGrad)" />
+    <!-- Cotton Bloom Node (Riyaa Trends) -->
+    <circle cx="48" cy="38" r="4" fill="#ffffff" />
+  </g>
+
+  <!-- Typography: LimeTree -->
+  <g transform="translate(130, 22)">
+    <!-- "Lime" Text -->
+    <text x="0" y="48" font-family="'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif" font-size="46" font-weight="800" letter-spacing="-0.03em" fill="#0f172a">
+      Lime<tspan fill="#65a30d">Tree</tspan>
+    </text>
+
+    <!-- Subtitle / Nature of Businesses Tagline -->
+    <text x="2" y="74" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" letter-spacing="0.14em" text-transform="uppercase" fill="#64748b">
+      Clothing <tspan fill="#84cc16">•</tspan> Candles <tspan fill="#f59e0b">•</tspan> Ear Studs
+    </text>
+  </g>
+</svg>

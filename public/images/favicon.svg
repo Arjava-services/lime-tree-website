@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="limeFavGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#bef264" />
+      <stop offset="50%" stop-color="#65a30d" />
+      <stop offset="100%" stop-color="#365314" />
+    </linearGradient>
+    <linearGradient id="leafFavGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4ade80" />
+      <stop offset="100%" stop-color="#84cc16" />
+    </linearGradient>
+    <linearGradient id="sparkleFavGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+  </defs>
+
+  <rect x="2" y="2" width="96" height="96" rx="26" fill="url(#limeFavGrad)" />
+  <rect x="4" y="4" width="92" height="92" rx="24" fill="none" stroke="#ffffff" stroke-width="2" stroke-opacity="0.4" />
+
+  <path d="M50 78 V40" stroke="#ffffff" stroke-width="4" stroke-linecap="round" />
+  <path d="M50 56 Q38 50 32 40" stroke="#ffffff" stroke-width="3" stroke-linecap="round" fill="none" />
+  <path d="M50 48 Q62 42 68 34" stroke="#ffffff" stroke-width="3" stroke-linecap="round" fill="none" />
+
+  <path d="M50 24 C42 30 44 40 50 40 C56 40 58 30 50 24 Z" fill="url(#leafFavGrad)" />
+  <path d="M32 40 C24 42 26 52 34 50 C38 48 38 42 32 40 Z" fill="url(#leafFavGrad)" />
+  <path d="M68 34 C76 36 74 46 66 44 C62 42 62 36 68 34 Z" fill="url(#leafFavGrad)" />
+
+  <!-- Earkart Sparkle Stud -->
+  <path d="M70 60 L72 65 L77 67 L72 69 L70 74 L68 69 L63 67 L68 65 Z" fill="url(#sparkleFavGrad)" />
+  <!-- Glow Candle Flame -->
+  <circle cx="28" cy="64" r="4" fill="url(#sparkleFavGrad)" />
+  <circle cx="50" cy="40" r="4" fill="#ffffff" />
+</svg>

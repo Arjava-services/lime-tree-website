@@ -1,0 +1,587 @@
+[
+  {
+    "id": "RT-001",
+    "name": "Heavyweight Organic Relaxed Tee",
+    "brand": "Riyaa Trends",
+    "brandSlug": "riyaa-trends",
+    "category": "Clothing",
+    "subcategory": "T-shirts",
+    "price": 34.00,
+    "origPrice": 44.00,
+    "rating": 4.9,
+    "reviewCount": 128,
+    "image": "images/riyaa_tee_sage.jpg",
+    "images": [
+      "images/riyaa_tee_sage.jpg",
+      "images/riyaa_trends_cat.jpg",
+      "images/limetree_hero.jpg"
+    ],
+    "featured": true,
+    "bestseller": true,
+    "stock": 42,
+    "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+    "colors": [
+      { "name": "Sage Green", "hex": "#8FA382" },
+      { "name": "Sand Beige", "hex": "#D6C4B0" },
+      { "name": "Washed Slate", "hex": "#3A4550" },
+      { "name": "Chalk White", "hex": "#F3F1EC" }
+    ],
+    "details": {
+      "material": "100% GOTS-Certified Organic Combed Cotton (240 GSM)",
+      "fit": "Relaxed boxy cut with drop shoulder and reinforced collar",
+      "care": "Machine wash cold inside-out, tumble dry low or line dry"
+    },
+    "description": "Designed for everyday ease, this premium heavyweight t-shirt from Riyaa Trends delivers the ultimate combination of tailored drape and breathable softness. Pre-shrunk and garment-dyed for vintage charm and zero color fading."
+  },
+  {
+    "id": "RT-002",
+    "name": "French Terry Everyday Lounge Shorts",
+    "brand": "Riyaa Trends",
+    "brandSlug": "riyaa-trends",
+    "category": "Clothing",
+    "subcategory": "Shorts",
+    "price": 38.00,
+    "origPrice": 48.00,
+    "rating": 4.8,
+    "reviewCount": 94,
+    "image": "images/riyaa_shorts_sand.jpg",
+    "images": [
+      "images/riyaa_shorts_sand.jpg",
+      "images/riyaa_trends_cat.jpg"
+    ],
+    "featured": true,
+    "bestseller": false,
+    "stock": 35,
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "colors": [
+      { "name": "Warm Sand", "hex": "#C8B59E" },
+      { "name": "Olive Moss", "hex": "#6F7C63" },
+      { "name": "Midnight Navy", "hex": "#222B38" }
+    ],
+    "details": {
+      "material": "320 GSM Premium French Terry Cotton with loopback interior",
+      "fit": "Above-the-knee 6-inch inseam with custom-dyed metal-tipped drawcord",
+      "care": "Gentle cycle cold, flat air dry"
+    },
+    "description": "The signature Riyaa Trends lounge shorts strike the perfect balance between relaxed weekend lounging and city errands. Features deep slanted pockets, tailored side vents, and an ultra-soft brushed finish."
+  },
+  {
+    "id": "RT-003",
+    "name": "Performance Flex Tapered Track Pants",
+    "brand": "Riyaa Trends",
+    "brandSlug": "riyaa-trends",
+    "category": "Clothing",
+    "subcategory": "Track Pants",
+    "price": 54.00,
+    "origPrice": 68.00,
+    "rating": 4.9,
+    "reviewCount": 156,
+    "image": "images/riyaa_trackpants_slate.jpg",
+    "images": [
+      "images/riyaa_trackpants_slate.jpg",
+      "images/riyaa_trends_cat.jpg"
+    ],
+    "featured": true,
+    "bestseller": true,
+    "stock": 28,
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "colors": [
+      { "name": "Midnight Slate", "hex": "#2B3342" },
+      { "name": "Forest Olive", "hex": "#3D493A" },
+      { "name": "Melange Grey", "hex": "#6F757D" }
+    ],
+    "details": {
+      "material": "Four-way stretch breathable modal & recycled poly-blend with DWR finish",
+      "fit": "Tapered athletic fit with ribbed ankle cuffs and articulated knees",
+      "care": "Machine wash cold, air dry quickly"
+    },
+    "description": "Engineered for movement and all-day comfort. Features concealed YKK zip pockets, aerodynamic seam lines, and an ergonomic waistband that never digs in."
+  },
+  {
+    "id": "RT-004",
+    "name": "Mineral Wash Vintage Boxy Tee",
+    "brand": "Riyaa Trends",
+    "brandSlug": "riyaa-trends",
+    "category": "Clothing",
+    "subcategory": "T-shirts",
+    "price": 36.00,
+    "origPrice": 46.00,
+    "rating": 4.7,
+    "reviewCount": 83,
+    "image": "images/riyaa_trends_cat.jpg",
+    "images": [
+      "images/riyaa_trends_cat.jpg",
+      "images/riyaa_tee_sage.jpg"
+    ],
+    "featured": false,
+    "bestseller": false,
+    "stock": 19,
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Mineral Charcoal", "hex": "#43464B" },
+      { "name": "Bone White", "hex": "#EBE7DF" },
+      { "name": "Sage Mist", "hex": "#949F8F" }
+    ],
+    "details": {
+      "material": "100% Combed Compact Cotton (220 GSM) with natural stone wash",
+      "fit": "Streetwear oversized drop-shoulder silhouette",
+      "care": "Machine wash cold, avoid tumble dry"
+    },
+    "description": "Artisan mineral-washed tee providing that coveted lived-in aesthetic with buttery handfeel and shape retention through hundreds of wears."
+  },
+  {
+    "id": "RT-005",
+    "name": "Resort Linen Blend Drawstring Shorts",
+    "brand": "Riyaa Trends",
+    "brandSlug": "riyaa-trends",
+    "category": "Clothing",
+    "subcategory": "Shorts",
+    "price": 44.00,
+    "origPrice": 56.00,
+    "rating": 4.8,
+    "reviewCount": 67,
+    "image": "images/riyaa_shorts_sand.jpg",
+    "images": [
+      "images/riyaa_shorts_sand.jpg",
+      "images/riyaa_trends_cat.jpg"
+    ],
+    "featured": false,
+    "bestseller": false,
+    "stock": 24,
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Natural Flax", "hex": "#D8CDBC" },
+      { "name": "Washed Navy", "hex": "#303C4D" }
+    ],
+    "details": {
+      "material": "55% European Flax Linen, 45% Organic Cotton",
+      "fit": "Relaxed resort cut with breathable airy weave",
+      "care": "Hand wash or gentle machine wash cold"
+    },
+    "description": "Breezy luxury tailored for sunny afternoons, coastal holidays, or casual terrace lunches. Naturally thermoregulating fabric that keeps you effortlessly cool."
+  },
+  {
+    "id": "RT-006",
+    "name": "Heritage Heavy Fleece Track Pants",
+    "brand": "Riyaa Trends",
+    "brandSlug": "riyaa-trends",
+    "category": "Clothing",
+    "subcategory": "Track Pants",
+    "price": 58.00,
+    "origPrice": 72.00,
+    "rating": 4.9,
+    "reviewCount": 110,
+    "image": "images/riyaa_trackpants_slate.jpg",
+    "images": [
+      "images/riyaa_trackpants_slate.jpg"
+    ],
+    "featured": false,
+    "bestseller": true,
+    "stock": 31,
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "colors": [
+      { "name": "Oatmeal Heather", "hex": "#CBC6BD" },
+      { "name": "Pitch Black", "hex": "#1C1C1E" }
+    ],
+    "details": {
+      "material": "400 GSM Ultra-dense Cotton Fleece with brushed thermal interior",
+      "fit": "Classic cozy streetwear jogger fit",
+      "care": "Machine wash warm inside out"
+    },
+    "description": "Pure cocooning warmth. Crafted from heavyweight plush fleece with reinforced seams, back patch pocket, and thick ribbed cuffs."
+  },
+  {
+    "id": "GH-001",
+    "name": "French Lavender & Golden Amber Soy Candle",
+    "brand": "Glow Home",
+    "brandSlug": "glow-home",
+    "category": "Candles",
+    "subcategory": "Floral & Calming",
+    "price": 28.00,
+    "origPrice": 35.00,
+    "rating": 4.9,
+    "reviewCount": 142,
+    "image": "images/glow_candle_lavender.jpg",
+    "images": [
+      "images/glow_candle_lavender.jpg",
+      "images/glow_home_cat.jpg",
+      "images/limetree_hero.jpg"
+    ],
+    "featured": true,
+    "bestseller": true,
+    "stock": 50,
+    "fragrance": "French Lavender & Golden Amber",
+    "fragranceProfile": {
+      "family": "Floral & Herbal",
+      "top": "Wild Provence Lavender, Bergamot Blossom",
+      "heart": "Chamomile Petals, French Lilac",
+      "base": "Warm Amber, Tonka Bean, Creamy Vanilla"
+    },
+    "details": {
+      "wax": "100% Hand-Poured Natural Soy Wax",
+      "burnTime": "50-55 Hours",
+      "size": "8 oz / 226g",
+      "wick": "Pure cotton lead-free braided wick",
+      "vessel": "Amber apothecary glass jar with matte black lid"
+    },
+    "description": "Transform your sanctuary with this calming blend of sun-drenched French lavender fields softened by glowing golden amber and Madagascar vanilla. Hand-poured into an apothecary amber glass jar that casts a mesmerizing, soothing amber glow."
+  },
+  {
+    "id": "GH-002",
+    "name": "Calabrian Bergamot & Lime Zest Candle",
+    "brand": "Glow Home",
+    "brandSlug": "glow-home",
+    "category": "Candles",
+    "subcategory": "Citrus & Uplifting",
+    "price": 32.00,
+    "origPrice": 40.00,
+    "rating": 5.0,
+    "reviewCount": 98,
+    "image": "images/glow_candle_bergamot.jpg",
+    "images": [
+      "images/glow_candle_bergamot.jpg",
+      "images/glow_home_cat.jpg"
+    ],
+    "featured": true,
+    "bestseller": true,
+    "stock": 40,
+    "fragrance": "Bergamot & Lime Zest",
+    "fragranceProfile": {
+      "family": "Citrus & Fresh",
+      "top": "Crushed Lime Leaves, Sparkling Calabrian Bergamot, Mandarin",
+      "heart": "White Basil, Jasmine Sambac",
+      "base": "Vetiver, Blonde Woods, Sheer Musk"
+    },
+    "details": {
+      "wax": "Creamy Coconut & Soy Botanical Wax Blend",
+      "burnTime": "55-60 Hours",
+      "size": "8.5 oz / 241g",
+      "wick": "FSC-certified crackling wooden wick",
+      "vessel": "Textured off-white artisan ceramic tumbler"
+    },
+    "description": "An energizing, sun-filled citrus explosion. Notes of crisp kaffir lime zest and sun-ripened Italian bergamot nestled in an artisanal off-white matte ceramic vessel. The natural wooden wick crackles gently like an intimate hearth."
+  },
+  {
+    "id": "GH-003",
+    "name": "Mysore Sandalwood & Smoky Amber Candle",
+    "brand": "Glow Home",
+    "brandSlug": "glow-home",
+    "category": "Candles",
+    "subcategory": "Woody & Sensual",
+    "price": 34.00,
+    "origPrice": 42.00,
+    "rating": 4.9,
+    "reviewCount": 117,
+    "image": "images/glow_candle_sandalwood.jpg",
+    "images": [
+      "images/glow_candle_sandalwood.jpg",
+      "images/glow_home_cat.jpg"
+    ],
+    "featured": true,
+    "bestseller": false,
+    "stock": 34,
+    "fragrance": "Sandalwood & Smoky Amber",
+    "fragranceProfile": {
+      "family": "Woody & Earthy",
+      "top": "Smoked Cardamom, Pink Peppercorn",
+      "heart": "Cedarwood Atlas, Tuscan Leather, Iris",
+      "base": "Mysore Sandalwood, Raw Amber, Dark Musk"
+    },
+    "details": {
+      "wax": "100% Natural Soy Wax with essential oils",
+      "burnTime": "60 Hours",
+      "size": "9 oz / 255g",
+      "wick": "Dual acoustic crackling wood wicks",
+      "vessel": "Matte dark charcoal stone ceramic vessel"
+    },
+    "description": "Intensely luxurious and grounding. Housed in a handcrafted matte slate ceramic vessel, this fragrance envelops any room in meditative warmth, rich sandalwood, and glowing amber."
+  },
+  {
+    "id": "GH-004",
+    "name": "Bourbon Vanilla & Wild Honeycomb Candle",
+    "brand": "Glow Home",
+    "brandSlug": "glow-home",
+    "category": "Candles",
+    "subcategory": "Gourmand & Warm",
+    "price": 29.00,
+    "origPrice": 36.00,
+    "rating": 4.8,
+    "reviewCount": 89,
+    "image": "images/glow_home_cat.jpg",
+    "images": [
+      "images/glow_home_cat.jpg",
+      "images/glow_candle_lavender.jpg"
+    ],
+    "featured": false,
+    "bestseller": false,
+    "stock": 26,
+    "fragrance": "Bourbon Vanilla & Honey",
+    "fragranceProfile": {
+      "family": "Warm Gourmand",
+      "top": "Almond Milk, Whipped Buttercream",
+      "heart": "Wild Mountain Honey, Coconut Orchid",
+      "base": "Cured Bourbon Vanilla Beans, Soft Cashmere"
+    },
+    "details": {
+      "wax": "Pure Soy Wax in warm terracotta jar",
+      "burnTime": "50 Hours",
+      "size": "8 oz / 226g",
+      "wick": "Braided organic cotton wick",
+      "vessel": "Earthy terracotta vessel with raw rim"
+    },
+    "description": "A warm comforting hug in candle form. Rich, unctuous vanilla pods steeped in bourbon and wildflower nectar create an intoxicatingly sweet aroma that feels like coming home."
+  },
+  {
+    "id": "GH-005",
+    "name": "White Jasmine & Green Tea Mist Candle",
+    "brand": "Glow Home",
+    "brandSlug": "glow-home",
+    "category": "Candles",
+    "subcategory": "Floral & Calming",
+    "price": 30.00,
+    "origPrice": 38.00,
+    "rating": 4.7,
+    "reviewCount": 76,
+    "image": "images/glow_candle_lavender.jpg",
+    "images": [
+      "images/glow_candle_lavender.jpg"
+    ],
+    "featured": false,
+    "bestseller": false,
+    "stock": 22,
+    "fragrance": "White Jasmine & Green Tea",
+    "fragranceProfile": {
+      "family": "Fresh Floral",
+      "top": "Dewy Green Tea, Fresh Mint, Yuzu",
+      "heart": "Night-blooming Jasmine, White Lily",
+      "base": "Clean Cedar, Bamboo, Sheer Musk"
+    },
+    "details": {
+      "wax": "100% Plant-Based Soy Wax",
+      "burnTime": "48 Hours",
+      "size": "7.5 oz / 212g",
+      "wick": "Cotton core lead-free wick",
+      "vessel": "Ribbed frosted glass jar"
+    },
+    "description": "Delicate and ethereal, reminiscent of a quiet misty morning in a Kyoto botanical garden. Perfect for bedrooms, soothing baths, and mindfulness rituals."
+  },
+  {
+    "id": "GH-006",
+    "name": "Spiced Cinnamon & Clementine Apothecary Candle",
+    "brand": "Glow Home",
+    "brandSlug": "glow-home",
+    "category": "Candles",
+    "subcategory": "Spice & Festive",
+    "price": 31.00,
+    "origPrice": 38.00,
+    "rating": 4.9,
+    "reviewCount": 104,
+    "image": "images/glow_candle_bergamot.jpg",
+    "images": [
+      "images/glow_candle_bergamot.jpg"
+    ],
+    "featured": false,
+    "bestseller": false,
+    "stock": 38,
+    "fragrance": "Spiced Cinnamon & Clementine",
+    "fragranceProfile": {
+      "family": "Warm Spice",
+      "top": "Sparkling Clementine, Blood Orange Peel",
+      "heart": "Crushed Ceylon Cinnamon, Nutmeg, Star Anise",
+      "base": "Clove Bud, Warm Vanilla, Spiced Cedar"
+    },
+    "details": {
+      "wax": "Clean-burning Soy Wax Blend",
+      "burnTime": "52 Hours",
+      "size": "8 oz / 226g",
+      "wick": "FSC crackling wooden wick",
+      "vessel": "Classic amber glass apothecary jar"
+    },
+    "description": "A celebratory spice melody that infuses your space with festive cheer, crackling sounds, and heartwarming memories."
+  },
+  {
+    "id": "EK-001",
+    "name": "Solitaire Moissanite Brilliant Round Studs",
+    "brand": "Earkart",
+    "brandSlug": "earkart",
+    "category": "Studs",
+    "subcategory": "Solitaire & Classic",
+    "price": 65.00,
+    "origPrice": 85.00,
+    "rating": 5.0,
+    "reviewCount": 215,
+    "image": "images/earkart_stud_diamond.jpg",
+    "images": [
+      "images/earkart_stud_diamond.jpg",
+      "images/earkart_cat.jpg",
+      "images/limetree_hero.jpg"
+    ],
+    "featured": true,
+    "bestseller": true,
+    "stock": 45,
+    "design": "Classic 4-Prong Basket Solitaire (1.0 Carat DEW per ear)",
+    "material": "Solid 925 Sterling Silver with Rhodium Anti-Tarnish Plating",
+    "gemstone": "Color D, VVS1 Clarity Round Brilliant Lab Moissanite",
+    "backing": "Secure Double-Notch Friction Backs",
+    "details": {
+      "material": "Solid 925 Sterling Silver + Rhodium Finish",
+      "gemstone": "1.0ct DEW each (6.5mm) Lab-Grown Moissanite",
+      "hypoallergenic": "100% Nickel-free, Lead-free, Cadmium-free",
+      "closure": "Friction butterfly back with secure safety notch"
+    },
+    "description": "Unrivaled brilliance that outshines traditional diamonds with 2.4x the fire and dispersion. Each pair is handcrafted in genuine 925 sterling silver with protective rhodium finish for timeless everyday luxury that never tarnishes."
+  },
+  {
+    "id": "EK-002",
+    "name": "Vintage Emerald-Cut Gemstone Halo Studs",
+    "brand": "Earkart",
+    "brandSlug": "earkart",
+    "category": "Studs",
+    "subcategory": "Vintage & Statement",
+    "price": 78.00,
+    "origPrice": 98.00,
+    "rating": 4.9,
+    "reviewCount": 168,
+    "image": "images/earkart_stud_emerald.jpg",
+    "images": [
+      "images/earkart_stud_emerald.jpg",
+      "images/earkart_cat.jpg"
+    ],
+    "featured": true,
+    "bestseller": true,
+    "stock": 28,
+    "design": "Art Deco Emerald Cut with Micro-Pavé Halo Border",
+    "material": "18K Yellow Gold Vermeil (2.5 Micron) over 925 Silver",
+    "gemstone": "Lab-Grown Colombian Green Emerald Zirconia (8x6mm)",
+    "backing": "Custom Comfort Disk Push Backs",
+    "details": {
+      "material": "18K Yellow Gold Vermeil over 925 Sterling Silver",
+      "gemstone": "Emerald-cut Forest Green Crystal with Pavé Zirconia Halo",
+      "hypoallergenic": "Ultra-gentle on sensitive earlobes",
+      "closure": "Comfort silicone disc back with gold core"
+    },
+    "description": "A regal statement inspired by vintage heirloom jewelry. Deep forest green emeralds framed by glistening pavé accents and warm 18K gold vermeil settings. Perfect for special evenings or elevating daily attire."
+  },
+  {
+    "id": "EK-003",
+    "name": "Luminous Baroque Freshwater Pearl Blossom Studs",
+    "brand": "Earkart",
+    "brandSlug": "earkart",
+    "category": "Studs",
+    "subcategory": "Pearls & Organic",
+    "price": 52.00,
+    "origPrice": 68.00,
+    "rating": 4.9,
+    "reviewCount": 134,
+    "image": "images/earkart_stud_pearl.jpg",
+    "images": [
+      "images/earkart_stud_pearl.jpg",
+      "images/earkart_cat.jpg"
+    ],
+    "featured": true,
+    "bestseller": false,
+    "stock": 32,
+    "design": "Organic Sculpted Baroque Pearl Setting",
+    "material": "14K Solid Yellow Gold Posts & Cups",
+    "gemstone": "Hand-selected AAA Grade Natural Freshwater Baroque Pearls (9-10mm)",
+    "backing": "14K Gold Butterfly Backs",
+    "details": {
+      "material": "14K Solid Gold Posts with Hand-Polished Finish",
+      "gemstone": "Natural AAA Freshwater Baroque Pearl (9-10mm)",
+      "hypoallergenic": "Naturally biocompatible for everyday wear",
+      "closure": "14K Gold Butterfly Backing"
+    },
+    "description": "No two pearls are identical. Naturally iridescent baroque pearls with lustrous pink-champagne undertones set on solid 14K gold posts. Understated organic elegance for weddings, work, and every day."
+  },
+  {
+    "id": "EK-004",
+    "name": "Architectural Honeycomb Hexagon Studs",
+    "brand": "Earkart",
+    "brandSlug": "earkart",
+    "category": "Studs",
+    "subcategory": "Minimalist Geometric",
+    "price": 46.00,
+    "origPrice": 58.00,
+    "rating": 4.8,
+    "reviewCount": 91,
+    "image": "images/earkart_cat.jpg",
+    "images": [
+      "images/earkart_cat.jpg",
+      "images/earkart_stud_emerald.jpg"
+    ],
+    "featured": false,
+    "bestseller": false,
+    "stock": 38,
+    "design": "Open Honeycomb Hexagon with Center Bezel Sparkle",
+    "material": "18K Gold Plated Brass with Protective E-Coating",
+    "gemstone": "0.05ct Flawless Micro Cubic Zirconia accent",
+    "backing": "Silicone-cushioned Push Backs",
+    "details": {
+      "material": "18K Yellow Gold with Anti-Tarnish E-Shield",
+      "gemstone": "Micro-faceted Brilliant Zirconia",
+      "hypoallergenic": "Hypoallergenic titanium post core",
+      "closure": "Soft silicone comfort backs"
+    },
+    "description": "Clean modern lines inspired by sacred geometry. Light as air and designed to be worn solo or stacked along the ear lobe alongside your favorite hoops."
+  },
+  {
+    "id": "EK-005",
+    "name": "Celestial Starburst Pavé Diamond Studs",
+    "brand": "Earkart",
+    "brandSlug": "earkart",
+    "category": "Studs",
+    "subcategory": "Celestial & Whimsical",
+    "price": 49.00,
+    "origPrice": 62.00,
+    "rating": 4.8,
+    "reviewCount": 82,
+    "image": "images/earkart_stud_diamond.jpg",
+    "images": [
+      "images/earkart_stud_diamond.jpg"
+    ],
+    "featured": false,
+    "bestseller": false,
+    "stock": 25,
+    "design": "Eight-Point Polaris North Star Motif",
+    "material": "925 Sterling Silver with Micro-Pavé Setting",
+    "gemstone": "Brilliant White Topaz Zirconia stones",
+    "backing": "Screw Backs for Extra Security",
+    "details": {
+      "material": "925 Sterling Silver with Pure Rhodium Dip",
+      "gemstone": "Multi-stone Micro-Pavé Accent Array",
+      "hypoallergenic": "100% Nickel-free",
+      "closure": "Threaded screw back for worry-free security"
+    },
+    "description": "Wear the starlight. Intricate 8-point celestial starbursts sparkling with pavé-set gemstones that catch the light with every turn."
+  },
+  {
+    "id": "EK-006",
+    "name": "Midnight Noir Bezel-Set Onyx Studs",
+    "brand": "Earkart",
+    "brandSlug": "earkart",
+    "category": "Studs",
+    "subcategory": "Minimalist Geometric",
+    "price": 42.00,
+    "origPrice": 54.00,
+    "rating": 4.7,
+    "reviewCount": 74,
+    "image": "images/earkart_stud_emerald.jpg",
+    "images": [
+      "images/earkart_stud_emerald.jpg"
+    ],
+    "featured": false,
+    "bestseller": false,
+    "stock": 40,
+    "design": "Low-profile Bezel Round Studs (6mm)",
+    "material": "Surgical-grade 316L Stainless Steel with Black PVD",
+    "gemstone": "Natural Black Onyx Cabochon",
+    "backing": "Threaded Screw-back Post",
+    "details": {
+      "material": "316L Surgical Stainless Steel",
+      "gemstone": "Natural Polished Black Onyx",
+      "hypoallergenic": "Medical-grade hypoallergenic",
+      "closure": "Smooth screw back post"
+    },
+    "description": "Sleek, moody, and universally flattering. Genuine black onyx in a smooth protective bezel. Water-resistant, sweat-proof, and safe for 24/7 wear in gym, shower, or sleep."
+  }
+]

@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LimeTree — Curated Lifestyle Marketplace | Clothing, Candles & Ear Studs</title>
+  <meta name="description" content="Shop clothing from Riyaa Trends, hand-poured scented candles from Glow Home, and hypoallergenic ear studs from Earkart in one unified marketplace." />
+  
+  <!-- Favicon SVG -->
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <span class="announcement-badge">Special Offer</span>
+      <span>🌿 Free Express Shipping on orders over $50 | Use code <strong class="announcement-code" onclick="window.store.applyCoupon('LIMETREE10'); showToast('Coupon LIMETREE10 applied!');">LIMETREE10</strong> for 10% off</span>
+    </div>
+  </div>
+
+  <!-- Header & Navbar -->
+  <header class="navbar-wrapper" id="mainHeader">
+    <div class="container">
+      <nav class="navbar">
+        <!-- Brand Logo -->
+        <a href="#home" class="brand-logo" id="logoLink" title="LimeTree Home">
+          <img src="images/logo.svg" alt="LimeTree Logo" style="height: 48px; width: auto;" />
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="nav-links">
+          <a href="#home" class="nav-link active" id="navHome">Home</a>
+          <a href="#clothing" class="nav-link" id="navClothing">
+            Clothing <span class="nav-pill-badge badge-clothing">Riyaa</span>
+          </a>
+          <a href="#candles" class="nav-link" id="navCandles">
+            Candles <span class="nav-pill-badge badge-candles">Glow</span>
+          </a>
+          <a href="#studs" class="nav-link" id="navStuds">
+            Studs <span class="nav-pill-badge badge-studs">Earkart</span>
+          </a>
+          <a href="#about" class="nav-link" id="navAbout">About Us</a>
+          <a href="#contact" class="nav-link" id="navContact">Contact</a>
+        </div>
+
+        <!-- Search Bar with Keyboard Hint -->
+        <div class="nav-search-wrap">
+          <svg class="search-icon-left" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="nav-search-input" id="navSearchInput" placeholder="Search shirts, candles, studs..." />
+          <span class="search-kbd-hint">/</span>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="nav-actions">
+          <button class="action-btn" id="navWishlistBtn" onclick="window.location.hash='#catalog'" title="Wishlist">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+            <span class="action-badge" id="wishCounterBadge" style="display: none;">0</span>
+          </button>
+
+          <button class="action-btn" id="navCartBtn" title="Shopping Cart">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="action-badge" id="cartCounterBadge" style="display: none;">0</span>
+          </button>
+
+          <button class="action-btn" id="navUserBtn" title="Account / Sign In">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </button>
+
+          <button class="hamburger-btn" id="hamburgerBtn" title="Menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Navigation -->
+  <div class="cart-drawer-backdrop" id="mobileNavBackdrop"></div>
+  <aside class="cart-drawer" id="mobileNavDrawer" style="max-width: 320px;">
+    <div class="cart-header">
+      <div class="brand-logo">
+        <img src="images/logo.svg" alt="LimeTree Logo" style="height: 38px; width: auto;" />
+      </div>
+      <button class="cart-close-btn" id="mobileNavClose">✕</button>
+    </div>
+    <div style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
+      <div class="nav-search-wrap" style="max-width: 100%;">
+        <svg class="search-icon-left" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" class="nav-search-input" id="mobileSearchInput" placeholder="Search products..." />
+      </div>
+
+      <nav style="display: flex; flex-direction: column; gap: 0.5rem;">
+        <a href="#home" class="nav-link mobile-nav-link">Home</a>
+        <a href="#clothing" class="nav-link mobile-nav-link">Clothing (Riyaa Trends)</a>
+        <a href="#candles" class="nav-link mobile-nav-link">Candles (Glow Home)</a>
+        <a href="#studs" class="nav-link mobile-nav-link">Ear Studs (Earkart)</a>
+        <a href="#about" class="nav-link mobile-nav-link">About Us</a>
+        <a href="#contact" class="nav-link mobile-nav-link">Contact Us</a>
+        <a href="#account" class="nav-link mobile-nav-link">My Account</a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- =======================================================================
+       PAGE 1: HOME PAGE
+       ======================================================================= -->
+  <main id="homePage">
+    <!-- Hero Banner -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-tag">
+            <span class="hero-tag-pulse"></span>
+            One Marketplace • Three Signature Brands
+          </div>
+          <h1 class="hero-title">
+            Elegance in Every <span class="highlight">Layer, Glow,</span> and Sparkle.
+          </h1>
+          <p class="hero-subtitle">
+            Welcome to LimeTree. Discover effortless streetwear by <strong>Riyaa Trends</strong>, hand-poured soy candles by <strong>Glow Home</strong>, and hypoallergenic fine ear studs by <strong>Earkart</strong> — all in one unified shopping basket.
+          </p>
+
+          <div class="hero-brand-chips">
+            <a href="#clothing" class="brand-chip">
+              <span class="brand-chip-dot" style="background-color: var(--lime-600);"></span>
+              Riyaa Trends (Clothing)
+            </a>
+            <a href="#candles" class="brand-chip">
+              <span class="brand-chip-dot" style="background-color: var(--amber-500);"></span>
+              Glow Home (Candles)
+            </a>
+            <a href="#studs" class="brand-chip">
+              <span class="brand-chip-dot" style="background-color: var(--earkart-accent);"></span>
+              Earkart (Studs)
+            </a>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#catalog" class="btn-primary" id="heroShopAllBtn">
+              Explore All Collections
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#about" class="btn-secondary">Our Story</a>
+          </div>
+        </div>
+
+        <div class="hero-visual-wrap">
+          <div class="hero-image-card">
+            <img src="images/limetree_hero.jpg" alt="LimeTree curated lifestyle: clothing, scented candle, and ear studs" />
+          </div>
+
+          <!-- Floating Glass Pill 1 -->
+          <div class="hero-float-card float-top-left">
+            <div class="float-icon" style="background: var(--lime-100); color: var(--lime-800);">🌿</div>
+            <div class="float-text">
+              <h4>100% Organic & Pure</h4>
+              <p>Natural cotton & clean soy wax</p>
+            </div>
+          </div>
+
+          <!-- Floating Glass Pill 2 -->
+          <div class="hero-float-card float-bottom-right">
+            <div class="float-icon" style="background: var(--earkart-bg); color: var(--earkart-accent);">✨</div>
+            <div class="float-text">
+              <h4>Hypoallergenic</h4>
+              <p>925 Silver & 18K Gold Vermeil</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Strip -->
+    <div class="trust-strip">
+      <div class="container trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon-box">🚚</div>
+          <div class="trust-text">
+            <h4>Free Express Shipping</h4>
+            <p>On all orders over $50</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon-box">🛡️</div>
+          <div class="trust-text">
+            <h4>Direct Artisan Guarantee</h4>
+            <p>100% authentic craftsmanship</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon-box">🔄</div>
+          <div class="trust-text">
+            <h4>30-Day Easy Returns</h4>
+            <p>Hassle-free doorstep returns</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon-box">🛍️</div>
+          <div class="trust-text">
+            <h4>Unified Cart</h4>
+            <p>One checkout for all 3 stores</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The 3 Signature Businesses Showcase -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Distinct Experiences</span>
+          <h2 class="section-title">The Three Pillars of LimeTree</h2>
+          <p class="section-subtitle">
+            Curated specifically for individuals who appreciate premium textiles, serene ambiance, and delicate sparkling accents.
+          </p>
+        </div>
+
+        <div class="business-trio-grid">
+          <!-- Business 1: Clothing - Riyaa Trends -->
+          <div class="business-card" id="cardRiyaa">
+            <div class="business-card-media">
+              <img src="images/riyaa_trends_cat.jpg" alt="Riyaa Trends Clothing Collection" />
+              <span class="business-badge badge-clothing">Fashion</span>
+            </div>
+            <div class="business-card-body">
+              <div class="business-title-row">
+                <h3 class="business-name">Riyaa Trends</h3>
+                <span class="business-item-count">6 Styles</span>
+              </div>
+              <p class="business-tagline">Modern Casuals & Heavyweight Loungewear</p>
+              <p class="business-desc">
+                From relaxed organic cotton tees to loopback French terry shorts and performance flex track pants. Cut for contemporary ease and enduring quality.
+              </p>
+              <div class="business-pills">
+                <span class="business-pill">T-shirts</span>
+                <span class="business-pill">Shorts</span>
+                <span class="business-pill">Track Pants</span>
+                <span class="business-pill">Sizes XS–XXL</span>
+              </div>
+              <a href="#clothing" class="btn-card-cta">
+                <span>Explore Riyaa Trends</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Business 2: Scented Candles - Glow Home -->
+          <div class="business-card" id="cardGlow">
+            <div class="business-card-media">
+              <img src="images/glow_home_cat.jpg" alt="Glow Home Scented Candles Collection" />
+              <span class="business-badge badge-candles">Home Sanctuary</span>
+            </div>
+            <div class="business-card-body">
+              <div class="business-title-row">
+                <h3 class="business-name">Glow Home</h3>
+                <span class="business-item-count">6 Fragrances</span>
+              </div>
+              <p class="business-tagline">Artisanal Hand-Poured Scented Candles</p>
+              <p class="business-desc">
+                Infuse your spaces with peaceful French lavender, crisp Calabrian bergamot, smoky sandalwood, and warm bourbon vanilla. 100% natural soy wax with crackling wooden wicks.
+              </p>
+              <div class="business-pills">
+                <span class="business-pill">Natural Soy Wax</span>
+                <span class="business-pill">Wooden Wicks</span>
+                <span class="business-pill">50-60h Burn</span>
+                <span class="business-pill">Apothecary Vessels</span>
+              </div>
+              <a href="#candles" class="btn-card-cta">
+                <span>Discover Glow Home</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Business 3: Ear Studs - Earkart -->
+          <div class="business-card" id="cardEarkart">
+            <div class="business-card-media">
+              <img src="images/earkart_cat.jpg" alt="Earkart Ear Studs Collection" />
+              <span class="business-badge badge-studs">Fine Jewelry</span>
+            </div>
+            <div class="business-card-body">
+              <div class="business-title-row">
+                <h3 class="business-name">Earkart</h3>
+                <span class="business-item-count">6 Designs</span>
+              </div>
+              <p class="business-tagline">Hypoallergenic Gemstone & Modern Studs</p>
+              <p class="business-desc">
+                Sparkling D-color moissanites, vintage emerald-cut halos, natural freshwater baroque pearls, and sleek geometric honeycombs handcrafted for sensitive ears.
+              </p>
+              <div class="business-pills">
+                <span class="business-pill">Solid 925 Silver</span>
+                <span class="business-pill">18K Gold Vermeil</span>
+                <span class="business-pill">Moissanite & Pearls</span>
+                <span class="business-pill">Nickel-Free</span>
+              </div>
+              <a href="#studs" class="btn-card-cta">
+                <span>Browse Earkart Studs</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Curations / Bestsellers Grid -->
+    <section class="section" style="background: var(--white); border-top: 1px solid var(--beige-border); border-bottom: 1px solid var(--beige-border);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Handpicked For You</span>
+          <h2 class="section-title">Trending Market Curations</h2>
+          <p class="section-subtitle">
+            Most-loved clothing items, calming home scents, and sparkling ear studs selected by our community.
+          </p>
+        </div>
+
+        <div class="product-grid" id="featuredProductsGrid">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <div style="text-align: center; margin-top: 3.5rem;">
+          <a href="#catalog" class="btn-primary" style="padding: 1rem 2.5rem;">
+            View Full Marketplace Catalog
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Value Pillars / Brand Promise -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Why LimeTree</span>
+          <h2 class="section-title">The Unified Shopping Experience</h2>
+        </div>
+
+        <div class="about-pillars">
+          <div class="pillar-card">
+            <div class="pillar-icon">🧺</div>
+            <h3 style="font-family: var(--font-heading); font-size: 1.25rem;">One Consolidated Cart</h3>
+            <p style="color: var(--slate-600); font-size: 0.9rem;">
+              No need to place separate orders across multiple websites. Add shorts from Riyaa Trends, a candle from Glow Home, and studs from Earkart in a single unified checkout.
+            </p>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon">🌱</div>
+            <h3 style="font-family: var(--font-heading); font-size: 1.25rem;">Ethical & Sustainable</h3>
+            <p style="color: var(--slate-600); font-size: 0.9rem;">
+              We prioritize organic GOTS-certified cotton, clean-burning soy and coconut botanical wax, and conflict-free recycled precious metals.
+            </p>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon">✨</div>
+            <h3 style="font-family: var(--font-heading); font-size: 1.25rem;">Transparent Quality</h3>
+            <p style="color: var(--slate-600); font-size: 0.9rem;">
+              Every product page clearly lists fabric GSM, candle burn hours and fragrance notes, and jewelry metal purity and post hypoallergenic ratings.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter CTA -->
+    <section class="container">
+      <div class="newsletter-section">
+        <div class="newsletter-inner">
+          <span style="background: rgba(255, 255, 255, 0.2); padding: 0.3rem 0.9rem; border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">
+            LimeTree Perks
+          </span>
+          <h2 class="newsletter-title">Join the Inner Circle</h2>
+          <p style="color: rgba(255, 255, 255, 0.8); max-width: 500px; font-size: 0.95rem;">
+            Subscribe to receive private drops, early access to new scents and jewelry releases, and an instant 10% coupon for your first order.
+          </p>
+          <form class="newsletter-form" id="homeNewsletterForm">
+            <input type="email" class="newsletter-input" placeholder="Enter your email address" required />
+            <button type="submit" class="btn-primary" style="background: var(--lime-500); color: var(--slate-900); font-weight: 800;">
+              Get 10% Off
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =======================================================================
+       PAGE 2: CATALOG & CATEGORY PAGE
+       ======================================================================= -->
+  <main id="catalogPage" style="display: none; padding: 2.5rem 0 5rem;">
+    <div class="container">
+      <!-- Category Banner Card -->
+      <div id="catalogBannerWrap" style="margin-bottom: 2.5rem; border-radius: var(--radius-xl); overflow: hidden; position: relative; max-height: 280px; box-shadow: var(--shadow-md);">
+        <img id="catalogBannerImg" src="images/limetree_hero.jpg" alt="Category Banner" style="width: 100%; height: 280px; object-fit: cover;" />
+        <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.3) 100%); display: flex; flex-direction: column; justify-content: center; padding: 2.5rem; color: var(--white);">
+          <h1 id="catalogTitle" style="font-family: var(--font-heading); font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem;">Marketplace Catalog</h1>
+          <p id="catalogSubtitle" style="color: rgba(255,255,255,0.85); max-width: 600px; font-size: 1rem;">
+            Explore our curated collections with detailed specifications and instant cart additions.
+          </p>
+        </div>
+      </div>
+
+      <!-- Filter, Search & Sort Control Bar -->
+      <div class="filter-bar">
+        <div class="filter-top-row">
+          <!-- Category Tabs -->
+          <div class="category-tabs">
+            <button class="cat-tab active" data-category="all">All Items</button>
+            <button class="cat-tab" data-category="clothing">Riyaa Trends (Clothing)</button>
+            <button class="cat-tab" data-category="candles">Glow Home (Candles)</button>
+            <button class="cat-tab" data-category="studs">Earkart (Studs)</button>
+          </div>
+
+          <!-- Controls: Sort & Price -->
+          <div class="filter-controls">
+            <div class="price-filter-wrap">
+              <span>Max Price: <strong id="priceValueDisplay">$100</strong></span>
+              <input type="range" class="price-range-slider" id="priceRangeSlider" min="20" max="100" step="5" value="100" />
+            </div>
+
+            <div class="sort-select-wrap">
+              <select class="sort-select" id="sortSelect">
+                <option value="default">Sort: Featured</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="rating">Highest Rated</option>
+                <option value="name">Alphabetical</option>
+              </select>
+              <span class="sort-chevron">▾</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Subcategories row -->
+        <div class="filter-sub-row">
+          <div class="subcategory-pills" id="catalogSubcategories">
+            <!-- Populated dynamically via JS -->
+          </div>
+          <span class="results-count" id="catalogCount">Showing 18 products</span>
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="product-grid" id="catalogProductsGrid">
+        <!-- Populated dynamically via JS -->
+      </div>
+    </div>
+  </main>
+
+  <!-- =======================================================================
+       PAGE 3: ABOUT US
+       ======================================================================= -->
+  <main id="aboutPage" style="display: none; padding-bottom: 5rem;">
+    <section class="about-hero">
+      <div class="container" style="max-width: 800px;">
+        <span class="section-tag">Our Roots</span>
+        <h1 style="font-family: var(--font-heading); font-size: 3.2rem; font-weight: 800; color: var(--slate-900); margin-bottom: 1.25rem;">
+          A Refreshing Approach to Everyday Living
+        </h1>
+        <p style="font-size: 1.15rem; color: var(--slate-600); line-height: 1.8;">
+          LimeTree was founded with a singular conviction: discerning customers shouldn't have to visit three different websites and manage three separate deliveries just to curate their daily lifestyle essentials.
+        </p>
+      </div>
+    </section>
+
+    <div class="container" style="margin-top: 3.5rem;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; margin-bottom: 5rem;">
+        <div>
+          <span class="section-tag" style="background: var(--lime-100);">The Story</span>
+          <h2 style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; margin: 0.75rem 0 1.25rem;">
+            Three Crafts, One Unified Home
+          </h2>
+          <p style="color: var(--slate-600); line-height: 1.8; margin-bottom: 1rem;">
+            We brought together three dedicated specialist workshops:
+          </p>
+          <ul style="display: flex; flex-direction: column; gap: 0.75rem; color: var(--slate-700); font-size: 0.95rem;">
+            <li>👕 <strong>Riyaa Trends:</strong> Dedicated to organic textiles, comfortable relaxed silhouettes, durable stitching, and breathable loungewear.</li>
+            <li>🕯️ <strong>Glow Home:</strong> Focused on clean aromatherapy, hand-poured natural soy wax, and crackling wooden wicks in reusable artisan jars.</li>
+            <li>💎 <strong>Earkart:</strong> Committed to dermatologist-approved hypoallergenic metals, genuine 925 sterling silver, 18K gold vermeil, and certified lab moissanites.</li>
+          </ul>
+        </div>
+        <div style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg);">
+          <img src="images/limetree_hero.jpg" alt="LimeTree studio lifestyle" />
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- =======================================================================
+       PAGE 4: CONTACT US
+       ======================================================================= -->
+  <main id="contactPage" style="display: none; padding: 4rem 0 5rem;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Get In Touch</span>
+        <h1 class="section-title">We’d Love to Hear From You</h1>
+        <p class="section-subtitle">
+          Have a question about sizing, custom fragrances, or ear stud metal suitability? Our friendly team is ready to help.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact Info & FAQ -->
+        <div>
+          <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
+            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+              <div class="trust-icon-box" style="background: var(--lime-100); color: var(--lime-700);">📍</div>
+              <div>
+                <h4 style="font-family: var(--font-heading); font-weight: 700;">LimeTree Flagship Studio</h4>
+                <p style="color: var(--slate-600); font-size: 0.9rem;">452 Botanical Avenue, Suite 100<br />Seattle, WA 98101</p>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+              <div class="trust-icon-box" style="background: var(--lime-100); color: var(--lime-700);">✉️</div>
+              <div>
+                <h4 style="font-family: var(--font-heading); font-weight: 700;">Direct Email</h4>
+                <p style="color: var(--slate-600); font-size: 0.9rem;">concierge@limetree.shop<br />orders@limetree.shop</p>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+              <div class="trust-icon-box" style="background: var(--lime-100); color: var(--lime-700);">📞</div>
+              <div>
+                <h4 style="font-family: var(--font-heading); font-weight: 700;">Customer Care Hotline</h4>
+                <p style="color: var(--slate-600); font-size: 0.9rem;">+1 (800) 546-3873<br />Mon–Fri: 9 AM – 6 PM PST</p>
+              </div>
+            </div>
+          </div>
+
+          <h3 style="font-family: var(--font-heading); font-size: 1.35rem; margin-bottom: 1rem;">Frequently Asked Questions</h3>
+          <div class="faq-accordion">
+            <div class="faq-item open">
+              <div class="faq-question">
+                <span>Can I order products from all 3 brands together?</span>
+                <span>+</span>
+              </div>
+              <div class="faq-answer">
+                Yes! That is the core beauty of LimeTree. You can add clothing from Riyaa Trends, candles from Glow Home, and ear studs from Earkart into one single cart and receive them in one packaged shipment.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>Are the ear studs suitable for newly pierced or sensitive ears?</span>
+                <span>+</span>
+              </div>
+              <div class="faq-answer">
+                All Earkart ear studs are 100% hypoallergenic, nickel-free, and lead-free. We use solid 925 sterling silver with rhodium coating, 18k gold vermeil, and medical-grade titanium cores.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>How long do Glow Home candles burn?</span>
+                <span>+</span>
+              </div>
+              <div class="faq-answer">
+                Our 8 oz to 9 oz natural soy candles have a clean, slow burn of 50 to 60 hours. We recommend trimming the crackling wood wick to 1/4 inch before each burn.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form Card -->
+        <div class="contact-card">
+          <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 0.5rem;">Send a Message</h3>
+          <p style="color: var(--slate-500); font-size: 0.875rem; margin-bottom: 1.5rem;">
+            We usually reply within 4 to 12 hours.
+          </p>
+
+          <form id="contactForm">
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label>Your Name *</label>
+                <input type="text" class="form-input" id="contactName" placeholder="Alex Morgan" required />
+              </div>
+              <div class="form-group">
+                <label>Your Email *</label>
+                <input type="email" class="form-input" id="contactEmail" placeholder="alex@example.com" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Regarding Brand / Department</label>
+              <select class="form-input" id="contactBrand">
+                <option value="General">General Inquiries / LimeTree Order</option>
+                <option value="Riyaa Trends">Riyaa Trends (Clothing Sizing & Stock)</option>
+                <option value="Glow Home">Glow Home (Candle Fragrances & Gifting)</option>
+                <option value="Earkart">Earkart (Ear Stud Metals & Moissanite)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Subject</label>
+              <input type="text" class="form-input" id="contactSubject" placeholder="How can we help?" />
+            </div>
+
+            <div class="form-group">
+              <label>Message *</label>
+              <textarea class="form-input" id="contactMessage" rows="5" placeholder="Write your message here..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary" style="width: 100%;">
+              Send Message
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- =======================================================================
+       PAGE 5: USER ACCOUNT & ORDERS
+       ======================================================================= -->
+  <main id="accountPage" style="display: none; padding: 4rem 0 5rem;">
+    <div class="container" id="accountPageContent">
+      <!-- Populated dynamically via JS -->
+    </div>
+  </main>
+
+  <!-- =======================================================================
+       PRODUCT DETAILS MODAL
+       ======================================================================= -->
+  <div class="modal-backdrop" id="productModal">
+    <div class="modal-container">
+      <button class="modal-close-btn" id="modalCloseBtn" title="Close">✕</button>
+      
+      <div class="product-detail-grid">
+        <!-- Gallery -->
+        <div class="modal-gallery">
+          <div class="main-image-wrap">
+            <img id="modalMainImg" src="" alt="Product View" />
+          </div>
+          <div class="gallery-thumbs" id="modalThumbs"></div>
+        </div>
+
+        <!-- Info & Selectors -->
+        <div class="modal-info">
+          <span class="modal-brand-badge" id="modalBrandBadge">Riyaa Trends</span>
+          <h2 class="modal-title" id="modalTitle">Heavyweight Organic Relaxed Tee</h2>
+
+          <div class="modal-rating-row" id="modalRating">
+            ★ 4.9 (128 reviews)
+          </div>
+
+          <div class="modal-price-row">
+            <span class="modal-current-price" id="modalPrice">$34.00</span>
+            <span class="modal-orig-price" id="modalOrigPrice">$44.00</span>
+            <span class="modal-discount-pill" id="modalDiscount">20% OFF</span>
+          </div>
+
+          <p class="modal-desc" id="modalDesc"></p>
+
+          <!-- Clothing Size Selector -->
+          <div class="option-group" id="modalSizeGroup">
+            <label class="option-label">
+              Select Size: <span id="selectedSizeLabel">M</span>
+            </label>
+            <div class="size-selector-row" id="modalSizeButtons"></div>
+          </div>
+
+          <!-- Color Swatch Selector -->
+          <div class="option-group" id="modalColorGroup">
+            <label class="option-label">
+              Select Color: <span id="selectedColorLabel">Sage Green</span>
+            </label>
+            <div class="color-selector-row" id="modalColorSwatches"></div>
+          </div>
+
+          <!-- Specifications Card -->
+          <div class="specs-card" id="modalSpecsCard"></div>
+
+          <!-- Quantity Stepper & Add to Cart -->
+          <div class="modal-actions-row">
+            <div class="quantity-stepper">
+              <button class="step-btn" id="modalQtyMinus">-</button>
+              <span class="step-value" id="modalQtyVal">1</span>
+              <button class="step-btn" id="modalQtyPlus">+</button>
+            </div>
+
+            <button class="btn-add-modal" id="modalAddToCartBtn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+              Add to Cart
+            </button>
+
+            <button class="btn-wishlist-modal" id="modalWishlistBtn" title="Add to Wishlist">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       SHOPPING CART SLIDE-OUT DRAWER
+       ======================================================================= -->
+  <div class="cart-drawer-backdrop" id="cartDrawerBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        Shopping Cart
+      </h3>
+      <button class="cart-close-btn" id="cartCloseBtn">✕</button>
+    </div>
+
+    <!-- Free Shipping Progress -->
+    <div class="free-shipping-progress" id="freeShippingBar">
+      <p class="shipping-msg" id="freeShippingMsg">Add $16.00 more for FREE Shipping!</p>
+      <div class="progress-track">
+        <div class="progress-fill" id="freeShippingFill" style="width: 68%;"></div>
+      </div>
+    </div>
+
+    <!-- Items List Body -->
+    <div class="cart-items-body" id="cartItemsList"></div>
+
+    <!-- Cart Footer with Coupon & Checkout -->
+    <div class="cart-footer" id="cartFooter">
+      <!-- Coupon Box -->
+      <div class="active-coupon-tag" id="activeCouponBox" style="display: none;"></div>
+      <div class="coupon-input-wrap">
+        <input type="text" class="coupon-input" id="cartCouponInput" placeholder="Promo code (e.g. LIMETREE10)" />
+        <button class="coupon-btn" id="applyCouponBtn">Apply</button>
+      </div>
+
+      <div class="bill-row">
+        <span>Subtotal</span>
+        <strong id="cartSubtotalVal">$0.00</strong>
+      </div>
+      <div class="bill-row" id="cartDiscountRow" style="display: none; color: #dc2626;">
+        <span>Promo Discount</span>
+        <strong id="cartDiscountVal">-$0.00</strong>
+      </div>
+      <div class="bill-row">
+        <span>Estimated Shipping</span>
+        <strong id="cartShippingVal">$0.00</strong>
+      </div>
+      <div class="bill-row">
+        <span>Estimated Tax (8%)</span>
+        <strong id="cartTaxVal">$0.00</strong>
+      </div>
+      <div class="bill-row total">
+        <span>Total</span>
+        <strong id="cartTotalVal">$0.00</strong>
+      </div>
+
+      <button class="btn-checkout" id="cartCheckoutBtn">
+        Proceed to Checkout
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+    </div>
+  </aside>
+
+  <!-- =======================================================================
+       MULTI-STEP CHECKOUT MODAL
+       ======================================================================= -->
+  <div class="modal-backdrop" id="checkoutModal">
+    <div class="checkout-modal-container">
+      <button class="modal-close-btn" id="checkoutCloseBtn" title="Close">✕</button>
+      
+      <!-- Checkout Steps Indicator -->
+      <div class="checkout-steps-bar">
+        <div class="step-indicator active" id="stepInd1">
+          <span class="step-bubble">1</span>
+          <span>Shipping</span>
+        </div>
+        <div style="width: 30px; height: 1px; background: var(--slate-200);"></div>
+        <div class="step-indicator" id="stepInd2">
+          <span class="step-bubble">2</span>
+          <span>Payment</span>
+        </div>
+        <div style="width: 30px; height: 1px; background: var(--slate-200);"></div>
+        <div class="step-indicator" id="stepInd3">
+          <span class="step-bubble">3</span>
+          <span>Confirmation</span>
+        </div>
+      </div>
+
+      <!-- Step 1: Customer & Shipping Details -->
+      <div id="checkoutStep1">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+          <h3 style="font-family: var(--font-heading); font-size: 1.35rem;">Shipping Address</h3>
+          <button class="btn-secondary" id="autofillDemoBtn" style="padding: 0.35rem 0.85rem; font-size: 0.75rem;">
+            ⚡ Quick Autofill Demo
+          </button>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" class="form-input" id="shipName" placeholder="Alex Morgan" required />
+          </div>
+          <div class="form-group">
+            <label>Email Address *</label>
+            <input type="email" class="form-input" id="shipEmail" placeholder="alex@example.com" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" class="form-input" id="shipPhone" placeholder="+1 (555) 349-2910" />
+        </div>
+
+        <div class="form-group">
+          <label>Street Address *</label>
+          <input type="text" class="form-input" id="shipAddress" placeholder="742 Evergreen Terrace" required />
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label>City *</label>
+            <input type="text" class="form-input" id="shipCity" placeholder="Seattle" required />
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+            <div class="form-group">
+              <label>State *</label>
+              <input type="text" class="form-input" id="shipState" placeholder="WA" required />
+            </div>
+            <div class="form-group">
+              <label>ZIP Code *</label>
+              <input type="text" class="form-input" id="shipZip" placeholder="98101" required />
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-primary" id="checkoutNextBtn" style="width: 100%; margin-top: 1rem;">
+          Continue to Payment
+        </button>
+      </div>
+
+      <!-- Step 2: Payment & Review -->
+      <div id="checkoutStep2" style="display: none;">
+        <h3 style="font-family: var(--font-heading); font-size: 1.35rem; margin-bottom: 1.25rem;">Payment Method</h3>
+
+        <div class="payment-method-selector">
+          <button type="button" class="payment-option-btn active" data-method="card">
+            <span style="font-size: 1.3rem;">💳</span>
+            <span>Credit / Debit</span>
+          </button>
+          <button type="button" class="payment-option-btn" data-method="upi">
+            <span style="font-size: 1.3rem;">📱</span>
+            <span>Apple / UPI</span>
+          </button>
+          <button type="button" class="payment-option-btn" data-method="cod">
+            <span style="font-size: 1.3rem;">💵</span>
+            <span>Cash On Delivery</span>
+          </button>
+        </div>
+
+        <div id="cardPaymentFields">
+          <div class="form-group">
+            <label>Card Number</label>
+            <input type="text" class="form-input" placeholder="4242 •••• •••• 4242" value="4242 8492 1049 4242" />
+          </div>
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label>Expiry Date</label>
+              <input type="text" class="form-input" placeholder="MM/YY" value="12/28" />
+            </div>
+            <div class="form-group">
+              <label>Security Code (CVV)</label>
+              <input type="text" class="form-input" placeholder="CVC" value="382" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Order Summary Review -->
+        <div id="checkoutOrderReview" style="margin: 1.5rem 0;"></div>
+
+        <div style="display: flex; gap: 1rem;">
+          <button class="btn-secondary" id="checkoutPrevBtn" style="flex: 1;">Back</button>
+          <button class="btn-primary" id="placeOrderBtn" style="flex: 2;">Complete Order & Pay</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Success Confirmation -->
+      <div id="checkoutStep3" style="display: none;">
+        <div class="order-success-wrap">
+          <div class="success-icon-badge">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <h2 style="font-family: var(--font-heading); font-size: 2rem;">Order Confirmed!</h2>
+          <p style="color: var(--slate-600); max-width: 440px;">
+            Thank you for choosing LimeTree. Your order with Riyaa Trends, Glow Home, and Earkart has been received and is being prepared.
+          </p>
+
+          <div id="orderSuccessReceipt" style="width: 100%;"></div>
+
+          <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+            <button class="btn-primary" onclick="closeCheckoutModal(); window.location.hash='#account';">
+              View in My Orders
+            </button>
+            <button class="btn-secondary" onclick="closeCheckoutModal(); window.location.hash='#home';">
+              Back to Home
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       USER AUTH MODAL (LOGIN & REGISTER)
+       ======================================================================= -->
+  <div class="modal-backdrop" id="authModal">
+    <div class="auth-modal-container">
+      <button class="modal-close-btn" id="authCloseBtn">✕</button>
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="authLoginTab">Sign In</button>
+        <button class="auth-tab" id="authRegisterTab">Create Account</button>
+      </div>
+
+      <!-- 1-Click Demo Login Box -->
+      <div class="demo-account-box">
+        <p>⚡ Quick test account: <strong>alex@example.com</strong></p>
+        <button class="btn-fill-demo" id="fillDemoUserBtn">Autofill</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm">
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" class="form-input" id="loginEmail" placeholder="yourname@example.com" required />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-input" id="loginPassword" placeholder="••••••••" required />
+        </div>
+        <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem;">
+          Sign In to LimeTree
+        </button>
+      </form>
+
+      <!-- Register Form -->
+      <form id="registerForm" style="display: none;">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" class="form-input" id="regName" placeholder="Alex Morgan" required />
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" class="form-input" id="regEmail" placeholder="alex@example.com" required />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-input" id="regPassword" placeholder="••••••••" required />
+        </div>
+        <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem;">
+          Create My Account
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notifications Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- =======================================================================
+       FOOTER
+       ======================================================================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Info -->
+        <div class="footer-brand">
+          <div class="brand-logo" style="margin-bottom: 1rem;">
+            <img src="images/logo.svg" alt="LimeTree Logo" style="height: 44px; width: auto; filter: brightness(0) invert(1);" />
+          </div>
+          <p>
+            A unified lifestyle shopping sanctuary bringing together premium streetwear by <strong>Riyaa Trends</strong>, artisanal aromatherapy by <strong>Glow Home</strong>, and hypoallergenic studs by <strong>Earkart</strong>.
+          </p>
+          <div class="social-links">
+            <a href="#home" class="social-icon-btn" title="Instagram">📸</a>
+            <a href="#home" class="social-icon-btn" title="Pinterest">📌</a>
+            <a href="#home" class="social-icon-btn" title="TikTok">🎵</a>
+            <a href="#home" class="social-icon-btn" title="Twitter / X">𝕏</a>
+          </div>
+        </div>
+
+        <!-- Stores / Brands -->
+        <div>
+          <h4 class="footer-heading">Our Brands</h4>
+          <div class="footer-links">
+            <a href="#clothing" class="footer-link">Riyaa Trends (Clothing)</a>
+            <a href="#clothing" class="footer-link">Heavyweight Organic Tees</a>
+            <a href="#clothing" class="footer-link">French Terry Shorts</a>
+            <a href="#clothing" class="footer-link">Flex Track Pants</a>
+            <a href="#candles" class="footer-link">Glow Home (Candles)</a>
+            <a href="#studs" class="footer-link">Earkart (Ear Studs)</a>
+          </div>
+        </div>
+
+        <!-- Marketplace Links -->
+        <div>
+          <h4 class="footer-heading">Navigation</h4>
+          <div class="footer-links">
+            <a href="#home" class="footer-link">Home</a>
+            <a href="#catalog" class="footer-link">All Products</a>
+            <a href="#about" class="footer-link">About Us</a>
+            <a href="#contact" class="footer-link">Contact & Help</a>
+            <a href="#account" class="footer-link">My Account & Orders</a>
+            <a href="#contact" class="footer-link">FAQ & Shipping</a>
+          </div>
+        </div>
+
+        <!-- Newsletter & Promo -->
+        <div>
+          <h4 class="footer-heading">Stay Connected</h4>
+          <p style="font-size: 0.85rem; color: var(--slate-400); margin-bottom: 1rem;">
+            Sign up for 10% off your first order.
+          </p>
+          <form id="footerNewsletterForm" style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <input type="email" class="form-input" placeholder="Your email address" style="background: var(--slate-800); color: var(--white); border-color: var(--slate-700);" required />
+            <button type="submit" class="btn-primary" style="padding: 0.65rem;">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div>
+          © 2026 LimeTree Marketplace Inc. All rights reserved. Clothing, Scented Candles, and Ear Studs under one roof.
+        </div>
+        <div style="display: flex; gap: 1rem;">
+          <span>Privacy Policy</span>
+          <span>•</span>
+          <span>Terms of Service</span>
+          <span>•</span>
+          <span>Eco Packaging</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

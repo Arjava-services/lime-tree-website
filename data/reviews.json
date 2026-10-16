@@ -1,0 +1,82 @@
+[
+  {
+    "id": "rev-1",
+    "productId": "RT-001",
+    "author": "Marcus Thorne",
+    "rating": 5,
+    "title": "Substantial weight, incredible drape",
+    "comment": "Riyaa Trends nailed the heavyweight vintage feel. The collar stays crisp even after washing and the sage green color is gorgeous in person.",
+    "date": "Oct 12, 2026",
+    "verified": true
+  },
+  {
+    "id": "rev-2",
+    "productId": "RT-001",
+    "author": "Elena Rostova",
+    "rating": 5,
+    "title": "Best organic tee in my closet",
+    "comment": "I bought both Sage and Sand. The fabric is thick yet soft and breathable. Fits true to size with that relaxed street drape.",
+    "date": "Oct 08, 2026",
+    "verified": true
+  },
+  {
+    "id": "rev-3",
+    "productId": "GH-001",
+    "author": "Sophia Lin",
+    "rating": 5,
+    "title": "Calming, elegant, lasts forever",
+    "comment": "The amber glow from this candle is pure magic. French lavender combined with the warm vanilla amber note creates the most peaceful evening bedroom vibe.",
+    "date": "Oct 14, 2026",
+    "verified": true
+  },
+  {
+    "id": "rev-4",
+    "productId": "GH-002",
+    "author": "Julian Sterling",
+    "rating": 5,
+    "title": "The crackling wood wick is so cozy",
+    "comment": "Glow Home has won me over. The bergamot citrus is authentic and fresh, not synthetic. Love the heavy ceramic cup too, definitely repurposing it!",
+    "date": "Oct 10, 2026",
+    "verified": true
+  },
+  {
+    "id": "rev-5",
+    "productId": "EK-001",
+    "author": "Claire Vance",
+    "rating": 5,
+    "title": "Indistinguishable from mined diamonds",
+    "comment": "These Earkart moissanite studs have unbelievable sparkle. Zero ear irritation even with my hyper-sensitive ears. The double-notch post gives peace of mind.",
+    "date": "Oct 15, 2026",
+    "verified": true
+  },
+  {
+    "id": "rev-6",
+    "productId": "EK-002",
+    "author": "Priya Nair",
+    "rating": 5,
+    "title": "Pure vintage heirloom royalty",
+    "comment": "The emerald cut is so striking and the gold vermeil setting is rich and heavy. Received so many compliments at dinner last night!",
+    "date": "Oct 11, 2026",
+    "verified": true
+  },
+  {
+    "id": "rev-7",
+    "productId": "RT-002",
+    "author": "Devin Cole",
+    "rating": 5,
+    "title": "Ultimate weekend lounge shorts",
+    "comment": "The French terry is super soft and the length is just right, sits right above the knee. Deep pockets that actually hold my phone safely.",
+    "date": "Oct 04, 2026",
+    "verified": true
+  },
+  {
+    "id": "rev-8",
+    "productId": "EK-003",
+    "author": "Aria Montgomery",
+    "rating": 5,
+    "title": "Lustrous organic baroque pearls",
+    "comment": "Each pearl has unique organic curves and a pink champagne sheen that glows against the skin. Solid 14k gold posts are so comfortable.",
+    "date": "Oct 06, 2026",
+    "verified": true
+  }
+]
