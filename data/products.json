@@ -1,194 +1,329 @@
 [
   {
-    "id": "RT-001",
-    "name": "Heavyweight Organic Relaxed Tee",
-    "brand": "Riyaa Trends",
-    "brandSlug": "riyaa-trends",
+    "id": "RT-007",
+    "name": "Kids Daisy Floral Flutter Dress & Playwear Set",
+    "brand": "Riyaa Trends Kids",
+    "brandSlug": "clothing",
     "category": "Clothing",
-    "subcategory": "T-shirts",
-    "price": 34.00,
-    "origPrice": 44.00,
-    "rating": 4.9,
-    "reviewCount": 128,
-    "image": "images/riyaa_tee_sage.jpg",
+    "subcategory": "Dresses",
+    "price": 34,
+    "origPrice": 46,
+    "rating": 5,
+    "reviewCount": 78,
+    "image": "images/kids_banner.jpg",
     "images": [
-      "images/riyaa_tee_sage.jpg",
-      "images/riyaa_trends_cat.jpg",
-      "images/limetree_hero.jpg"
+      "images/kids_banner.jpg",
+      "images/kids_tee_sage.jpg"
     ],
     "featured": true,
     "bestseller": true,
-    "stock": 42,
-    "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+    "badge": "Main Page Highlight",
+    "stock": 30,
+    "sizes": [
+      "2-3Y",
+      "3-4Y",
+      "4-5Y",
+      "5-6Y",
+      "7-8Y"
+    ],
     "colors": [
-      { "name": "Sage Green", "hex": "#8FA382" },
-      { "name": "Sand Beige", "hex": "#D6C4B0" },
-      { "name": "Washed Slate", "hex": "#3A4550" },
-      { "name": "Chalk White", "hex": "#F3F1EC" }
+      {
+        "name": "Daisy Floral Yellow",
+        "hex": "#FEF08A"
+      },
+      {
+        "name": "Sage Blossom",
+        "hex": "#A4B89B"
+      }
     ],
     "details": {
-      "material": "100% GOTS-Certified Organic Combed Cotton (240 GSM)",
-      "fit": "Relaxed boxy cut with drop shoulder and reinforced collar",
-      "care": "Machine wash cold inside-out, tumble dry low or line dry"
+      "Fabric": "100% Breathable Organic Cotton with buttercup daisy floral print",
+      "Fit": "Easy breezy flutter sleeves with matching soft bloomers",
+      "Wash Care": "Machine wash gentle cold"
     },
-    "description": "Designed for everyday ease, this premium heavyweight t-shirt from Riyaa Trends delivers the ultimate combination of tailored drape and breathable softness. Pre-shrunk and garment-dyed for vintage charm and zero color fading."
+    "description": "The signature floral dress featured on our main page. Charming yellow daisies, flutter cap sleeves, elasticated comfort waist, and ultra-soft organic cotton gentle on sensitive skin."
+  },
+  {
+    "id": "RT-001",
+    "name": "Kids Organic Cotton Embroidered Sun Tee",
+    "brand": "Riyaa Trends Kids",
+    "brandSlug": "clothing",
+    "category": "Clothing",
+    "subcategory": "T-shirts",
+    "price": 24,
+    "origPrice": 32,
+    "rating": 4.9,
+    "reviewCount": 128,
+    "image": "images/kids_tee_sage.jpg",
+    "images": [
+      "images/kids_tee_sage.jpg",
+      "images/kids_banner.jpg"
+    ],
+    "featured": true,
+    "bestseller": true,
+    "badge": "Kids Favorite",
+    "stock": 42,
+    "sizes": [
+      "2-3Y",
+      "3-4Y",
+      "4-5Y",
+      "5-6Y",
+      "7-8Y",
+      "9-10Y"
+    ],
+    "colors": [
+      {
+        "name": "Pastel Sage",
+        "hex": "#A4B89B"
+      },
+      {
+        "name": "Sunshine Yellow",
+        "hex": "#FDE047"
+      },
+      {
+        "name": "Cotton Cloud",
+        "hex": "#F8FAFC"
+      }
+    ],
+    "details": {
+      "Fabric": "100% GOTS-Certified Gentle Organic Cotton (Ultra-soft for sensitive kids skin)",
+      "Fit": "Comfortable easy-movement play fit with tagless itch-free neck",
+      "Wash Care": "Machine wash gentle cold, tumble dry low"
+    },
+    "description": "Super soft, breathable organic cotton tee crafted specially for playtime and everyday giggles. Features a joyful embroidered sun on the chest and an itch-free tagless collar."
   },
   {
     "id": "RT-002",
-    "name": "French Terry Everyday Lounge Shorts",
-    "brand": "Riyaa Trends",
-    "brandSlug": "riyaa-trends",
+    "name": "Kids French Terry Drawstring Play Shorts",
+    "brand": "Riyaa Trends Kids",
+    "brandSlug": "clothing",
     "category": "Clothing",
     "subcategory": "Shorts",
-    "price": 38.00,
-    "origPrice": 48.00,
+    "price": 26,
+    "origPrice": 34,
     "rating": 4.8,
     "reviewCount": 94,
-    "image": "images/riyaa_shorts_sand.jpg",
+    "image": "images/kids_shorts_sand.jpg",
     "images": [
-      "images/riyaa_shorts_sand.jpg",
-      "images/riyaa_trends_cat.jpg"
+      "images/kids_shorts_sand.jpg",
+      "images/kids_banner.jpg"
     ],
     "featured": true,
     "bestseller": false,
+    "badge": "Trending Playwear",
     "stock": 35,
-    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "sizes": [
+      "2-3Y",
+      "3-4Y",
+      "4-5Y",
+      "5-6Y",
+      "7-8Y",
+      "9-10Y"
+    ],
     "colors": [
-      { "name": "Warm Sand", "hex": "#C8B59E" },
-      { "name": "Olive Moss", "hex": "#6F7C63" },
-      { "name": "Midnight Navy", "hex": "#222B38" }
+      {
+        "name": "Warm Sand",
+        "hex": "#CBB89E"
+      },
+      {
+        "name": "Soft Clay",
+        "hex": "#C27D60"
+      },
+      {
+        "name": "Olive Green",
+        "hex": "#7E8D6F"
+      }
     ],
     "details": {
-      "material": "320 GSM Premium French Terry Cotton with loopback interior",
-      "fit": "Above-the-knee 6-inch inseam with custom-dyed metal-tipped drawcord",
-      "care": "Gentle cycle cold, flat air dry"
+      "Fabric": "100% Brushed French Terry Cotton (Lightweight & durable)",
+      "Fit": "Gentle non-pinching elastic waistband with soft cotton drawcord",
+      "Wash Care": "Machine wash cold, easy tumble dry"
     },
-    "description": "The signature Riyaa Trends lounge shorts strike the perfect balance between relaxed weekend lounging and city errands. Features deep slanted pockets, tailored side vents, and an ultra-soft brushed finish."
+    "description": "Designed for active little explorers. Ultra-soft French terry with rolled cuffs and a gentle, non-pinching elastic waistband that stays comfy from morning playground trips to evening bedtime."
   },
   {
     "id": "RT-003",
-    "name": "Performance Flex Tapered Track Pants",
-    "brand": "Riyaa Trends",
-    "brandSlug": "riyaa-trends",
+    "name": "Kids Cozy Fleece Tapered Track Pants",
+    "brand": "Riyaa Trends Kids",
+    "brandSlug": "clothing",
     "category": "Clothing",
     "subcategory": "Track Pants",
-    "price": 54.00,
-    "origPrice": 68.00,
+    "price": 32,
+    "origPrice": 42,
     "rating": 4.9,
     "reviewCount": 156,
-    "image": "images/riyaa_trackpants_slate.jpg",
+    "image": "images/kids_trackpants_navy.jpg",
     "images": [
-      "images/riyaa_trackpants_slate.jpg",
-      "images/riyaa_trends_cat.jpg"
+      "images/kids_trackpants_navy.jpg",
+      "images/kids_banner.jpg"
     ],
     "featured": true,
     "bestseller": true,
+    "badge": "Bestseller",
     "stock": 28,
-    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "sizes": [
+      "2-3Y",
+      "3-4Y",
+      "4-5Y",
+      "5-6Y",
+      "7-8Y",
+      "9-10Y"
+    ],
     "colors": [
-      { "name": "Midnight Slate", "hex": "#2B3342" },
-      { "name": "Forest Olive", "hex": "#3D493A" },
-      { "name": "Melange Grey", "hex": "#6F757D" }
+      {
+        "name": "Slate Blue",
+        "hex": "#3D4F66"
+      },
+      {
+        "name": "Dusty Rose",
+        "hex": "#B87D8E"
+      },
+      {
+        "name": "Warm Oatmeal",
+        "hex": "#D6CABA"
+      }
     ],
     "details": {
-      "material": "Four-way stretch breathable modal & recycled poly-blend with DWR finish",
-      "fit": "Tapered athletic fit with ribbed ankle cuffs and articulated knees",
-      "care": "Machine wash cold, air dry quickly"
+      "Fabric": "Plush Organic Cotton Fleece with brushed cloud-soft interior",
+      "Fit": "Tapered joggers with snug ribbed ankle cuffs (prevents tripping)",
+      "Wash Care": "Machine wash cold inside-out"
     },
-    "description": "Engineered for movement and all-day comfort. Features concealed YKK zip pockets, aerodynamic seam lines, and an ergonomic waistband that never digs in."
+    "description": "The coziest joggers for little adventurers. Made with plush organic fleece, stretchy ankle cuffs that keep warmth in and won't get caught on shoes, and deep pockets for keeping found treasures."
   },
   {
     "id": "RT-004",
-    "name": "Mineral Wash Vintage Boxy Tee",
-    "brand": "Riyaa Trends",
-    "brandSlug": "riyaa-trends",
+    "name": "Kids Pastel Crewneck Play Tee",
+    "brand": "Riyaa Trends Kids",
+    "brandSlug": "clothing",
     "category": "Clothing",
     "subcategory": "T-shirts",
-    "price": 36.00,
-    "origPrice": 46.00,
+    "price": 22,
+    "origPrice": 28,
     "rating": 4.7,
     "reviewCount": 83,
-    "image": "images/riyaa_trends_cat.jpg",
+    "image": "images/kids_banner.jpg",
     "images": [
-      "images/riyaa_trends_cat.jpg",
-      "images/riyaa_tee_sage.jpg"
+      "images/kids_banner.jpg",
+      "images/kids_tee_sage.jpg"
     ],
     "featured": false,
     "bestseller": false,
+    "badge": "Pastel Rainbow",
     "stock": 19,
-    "sizes": ["XS", "S", "M", "L", "XL"],
+    "sizes": [
+      "2-3Y",
+      "3-4Y",
+      "4-5Y",
+      "5-6Y",
+      "7-8Y"
+    ],
     "colors": [
-      { "name": "Mineral Charcoal", "hex": "#43464B" },
-      { "name": "Bone White", "hex": "#EBE7DF" },
-      { "name": "Sage Mist", "hex": "#949F8F" }
+      {
+        "name": "Sky Blue",
+        "hex": "#93C5FD"
+      },
+      {
+        "name": "Peach Sorbet",
+        "hex": "#FDBA74"
+      },
+      {
+        "name": "Blush Pink",
+        "hex": "#F9A8D4"
+      }
     ],
     "details": {
-      "material": "100% Combed Compact Cotton (220 GSM) with natural stone wash",
-      "fit": "Streetwear oversized drop-shoulder silhouette",
-      "care": "Machine wash cold, avoid tumble dry"
+      "Fabric": "100% Pre-washed Ringspun Cotton (Zero shrinkage)",
+      "Fit": "Easy-on relaxed cut for quick dressing",
+      "Wash Care": "Machine wash cold"
     },
-    "description": "Artisan mineral-washed tee providing that coveted lived-in aesthetic with buttery handfeel and shape retention through hundreds of wears."
+    "description": "Everyday staple in cheerful pastel colorways. Pre-washed for cloud-like softness right out of the box."
   },
   {
     "id": "RT-005",
-    "name": "Resort Linen Blend Drawstring Shorts",
-    "brand": "Riyaa Trends",
-    "brandSlug": "riyaa-trends",
+    "name": "Kids Linen-Blend Adventure Shorts",
+    "brand": "Riyaa Trends Kids",
+    "brandSlug": "clothing",
     "category": "Clothing",
     "subcategory": "Shorts",
-    "price": 44.00,
-    "origPrice": 56.00,
+    "price": 28,
+    "origPrice": 36,
     "rating": 4.8,
     "reviewCount": 67,
-    "image": "images/riyaa_shorts_sand.jpg",
+    "image": "images/kids_shorts_sand.jpg",
     "images": [
-      "images/riyaa_shorts_sand.jpg",
-      "images/riyaa_trends_cat.jpg"
+      "images/kids_shorts_sand.jpg"
     ],
     "featured": false,
     "bestseller": false,
+    "badge": "Summer Breezy",
     "stock": 24,
-    "sizes": ["S", "M", "L", "XL"],
+    "sizes": [
+      "3-4Y",
+      "4-5Y",
+      "5-6Y",
+      "7-8Y",
+      "9-10Y"
+    ],
     "colors": [
-      { "name": "Natural Flax", "hex": "#D8CDBC" },
-      { "name": "Washed Navy", "hex": "#303C4D" }
+      {
+        "name": "Oatmeal Linen",
+        "hex": "#E5DDD0"
+      },
+      {
+        "name": "Terracotta",
+        "hex": "#B86548"
+      }
     ],
     "details": {
-      "material": "55% European Flax Linen, 45% Organic Cotton",
-      "fit": "Relaxed resort cut with breathable airy weave",
-      "care": "Hand wash or gentle machine wash cold"
+      "Fabric": "55% Natural European Flax Linen, 45% Organic Cotton",
+      "Fit": "Breathable airy cut for hot summer days",
+      "Wash Care": "Machine wash gentle cold"
     },
-    "description": "Breezy luxury tailored for sunny afternoons, coastal holidays, or casual terrace lunches. Naturally thermoregulating fabric that keeps you effortlessly cool."
+    "description": "Breezy summer shorts keeping kids cool during park visits, beach days, and family outings."
   },
   {
     "id": "RT-006",
-    "name": "Heritage Heavy Fleece Track Pants",
-    "brand": "Riyaa Trends",
-    "brandSlug": "riyaa-trends",
+    "name": "Kids Heavyweight Fleece Winter Joggers",
+    "brand": "Riyaa Trends Kids",
+    "brandSlug": "clothing",
     "category": "Clothing",
     "subcategory": "Track Pants",
-    "price": 58.00,
-    "origPrice": 72.00,
+    "price": 34,
+    "origPrice": 44,
     "rating": 4.9,
     "reviewCount": 110,
-    "image": "images/riyaa_trackpants_slate.jpg",
+    "image": "images/kids_trackpants_navy.jpg",
     "images": [
-      "images/riyaa_trackpants_slate.jpg"
+      "images/kids_trackpants_navy.jpg"
     ],
     "featured": false,
     "bestseller": true,
+    "badge": "Extra Cozy",
     "stock": 31,
-    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "sizes": [
+      "2-3Y",
+      "3-4Y",
+      "4-5Y",
+      "5-6Y",
+      "7-8Y",
+      "9-10Y"
+    ],
     "colors": [
-      { "name": "Oatmeal Heather", "hex": "#CBC6BD" },
-      { "name": "Pitch Black", "hex": "#1C1C1E" }
+      {
+        "name": "Heather Grey",
+        "hex": "#CBD5E1"
+      },
+      {
+        "name": "Forest Green",
+        "hex": "#3F6212"
+      }
     ],
     "details": {
-      "material": "400 GSM Ultra-dense Cotton Fleece with brushed thermal interior",
-      "fit": "Classic cozy streetwear jogger fit",
-      "care": "Machine wash warm inside out"
+      "Fabric": "Heavyweight 380 GSM Thermal Fleece",
+      "Fit": "Snug cozy jogger fit with reinforced knees",
+      "Wash Care": "Machine wash warm"
     },
-    "description": "Pure cocooning warmth. Crafted from heavyweight plush fleece with reinforced seams, back patch pocket, and thick ribbed cuffs."
+    "description": "Extra-warm fleece joggers reinforced at the knees for active crawlers and climbers through chilly autumn and winter days."
   },
   {
     "id": "GH-001",
@@ -197,8 +332,8 @@
     "brandSlug": "glow-home",
     "category": "Candles",
     "subcategory": "Floral & Calming",
-    "price": 28.00,
-    "origPrice": 35.00,
+    "price": 28,
+    "origPrice": 35,
     "rating": 4.9,
     "reviewCount": 142,
     "image": "images/glow_candle_lavender.jpg",
@@ -233,9 +368,9 @@
     "brandSlug": "glow-home",
     "category": "Candles",
     "subcategory": "Citrus & Uplifting",
-    "price": 32.00,
-    "origPrice": 40.00,
-    "rating": 5.0,
+    "price": 32,
+    "origPrice": 40,
+    "rating": 5,
     "reviewCount": 98,
     "image": "images/glow_candle_bergamot.jpg",
     "images": [
@@ -268,8 +403,8 @@
     "brandSlug": "glow-home",
     "category": "Candles",
     "subcategory": "Woody & Sensual",
-    "price": 34.00,
-    "origPrice": 42.00,
+    "price": 34,
+    "origPrice": 42,
     "rating": 4.9,
     "reviewCount": 117,
     "image": "images/glow_candle_sandalwood.jpg",
@@ -303,8 +438,8 @@
     "brandSlug": "glow-home",
     "category": "Candles",
     "subcategory": "Gourmand & Warm",
-    "price": 29.00,
-    "origPrice": 36.00,
+    "price": 29,
+    "origPrice": 36,
     "rating": 4.8,
     "reviewCount": 89,
     "image": "images/glow_home_cat.jpg",
@@ -338,8 +473,8 @@
     "brandSlug": "glow-home",
     "category": "Candles",
     "subcategory": "Floral & Calming",
-    "price": 30.00,
-    "origPrice": 38.00,
+    "price": 30,
+    "origPrice": 38,
     "rating": 4.7,
     "reviewCount": 76,
     "image": "images/glow_candle_lavender.jpg",
@@ -372,8 +507,8 @@
     "brandSlug": "glow-home",
     "category": "Candles",
     "subcategory": "Spice & Festive",
-    "price": 31.00,
-    "origPrice": 38.00,
+    "price": 31,
+    "origPrice": 38,
     "rating": 4.9,
     "reviewCount": 104,
     "image": "images/glow_candle_bergamot.jpg",
@@ -406,9 +541,9 @@
     "brandSlug": "earkart",
     "category": "Studs",
     "subcategory": "Solitaire & Classic",
-    "price": 65.00,
-    "origPrice": 85.00,
-    "rating": 5.0,
+    "price": 65,
+    "origPrice": 85,
+    "rating": 5,
     "reviewCount": 215,
     "image": "images/earkart_stud_diamond.jpg",
     "images": [
@@ -438,8 +573,8 @@
     "brandSlug": "earkart",
     "category": "Studs",
     "subcategory": "Vintage & Statement",
-    "price": 78.00,
-    "origPrice": 98.00,
+    "price": 78,
+    "origPrice": 98,
     "rating": 4.9,
     "reviewCount": 168,
     "image": "images/earkart_stud_emerald.jpg",
@@ -469,8 +604,8 @@
     "brandSlug": "earkart",
     "category": "Studs",
     "subcategory": "Pearls & Organic",
-    "price": 52.00,
-    "origPrice": 68.00,
+    "price": 52,
+    "origPrice": 68,
     "rating": 4.9,
     "reviewCount": 134,
     "image": "images/earkart_stud_pearl.jpg",
@@ -500,8 +635,8 @@
     "brandSlug": "earkart",
     "category": "Studs",
     "subcategory": "Minimalist Geometric",
-    "price": 46.00,
-    "origPrice": 58.00,
+    "price": 46,
+    "origPrice": 58,
     "rating": 4.8,
     "reviewCount": 91,
     "image": "images/earkart_cat.jpg",
@@ -531,8 +666,8 @@
     "brandSlug": "earkart",
     "category": "Studs",
     "subcategory": "Celestial & Whimsical",
-    "price": 49.00,
-    "origPrice": 62.00,
+    "price": 49,
+    "origPrice": 62,
     "rating": 4.8,
     "reviewCount": 82,
     "image": "images/earkart_stud_diamond.jpg",
@@ -561,8 +696,8 @@
     "brandSlug": "earkart",
     "category": "Studs",
     "subcategory": "Minimalist Geometric",
-    "price": 42.00,
-    "origPrice": 54.00,
+    "price": 42,
+    "origPrice": 54,
     "rating": 4.7,
     "reviewCount": 74,
     "image": "images/earkart_stud_emerald.jpg",

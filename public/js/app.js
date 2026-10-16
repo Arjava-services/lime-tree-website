@@ -142,7 +142,7 @@ function setupCategoryView(catKey) {
         btn.addEventListener('click', (e) => {
           catSubNav.querySelectorAll('.sub-pill').forEach(b => b.classList.remove('active'));
           e.target.classList.add('active');
-          filterProductsBySubcategory(e.target.dataset.subcategory, brandData.category);
+          filterProductsBySubcategory(e.target.dataset.subcategory, brandData.id);
         });
       });
     }
@@ -152,7 +152,7 @@ function setupCategoryView(catKey) {
       tab.classList.toggle('active', tab.dataset.category === catKey);
     });
 
-    filterProductsByCategory(brandData.category);
+    filterProductsByCategory(brandData.category, brandData.id);
   } else {
     // "All Marketplace Items"
     if (catTitleEl) catTitleEl.textContent = "LimeTree Unified Marketplace";
@@ -368,18 +368,27 @@ function performSearch(query) {
   renderProductGrid(filtered);
 }
 
-function filterProductsByCategory(category) {
-  currentProducts = INITIAL_PRODUCTS.filter(p => p.category.toLowerCase() === category.toLowerCase());
+function filterProductsByCategory(category, brandSlug) {
+  if (brandSlug) {
+    currentProducts = INITIAL_PRODUCTS.filter(p => p.brandSlug === brandSlug);
+  } else {
+    currentProducts = INITIAL_PRODUCTS.filter(p => 
+      p.brandSlug === category ||
+      p.category.toLowerCase() === category.toLowerCase() ||
+      p.category.toLowerCase().includes(category.toLowerCase()) ||
+      category.toLowerCase().includes(p.category.toLowerCase())
+    );
+  }
   renderProductGrid(currentProducts);
 }
 
-function filterProductsBySubcategory(subcategory, category) {
+function filterProductsBySubcategory(subcategory, brandSlugOrCat) {
   if (subcategory === 'All') {
-    filterProductsByCategory(category);
+    filterProductsByCategory('', brandSlugOrCat);
     return;
   }
   const filtered = INITIAL_PRODUCTS.filter(p => 
-    p.category.toLowerCase() === category.toLowerCase() && 
+    (p.brandSlug === brandSlugOrCat || p.category.toLowerCase() === brandSlugOrCat.toLowerCase()) && 
     p.subcategory.toLowerCase() === subcategory.toLowerCase()
   );
   renderProductGrid(filtered);

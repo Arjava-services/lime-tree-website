@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LimeTree — Curated Lifestyle Marketplace | Clothing, Candles & Ear Studs</title>
-  <meta name="description" content="Shop clothing from Riyaa Trends, hand-poured scented candles from Glow Home, and hypoallergenic ear studs from Earkart in one unified marketplace." />
+  <meta name="description" content="Shop organic kids clothing from Riyaa Trends Kids, hand-poured scented candles from Glow Home, and hypoallergenic ear studs from Earkart in one unified marketplace." />
   
   <!-- Favicon SVG -->
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
@@ -12,7 +12,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/styles.css" />
@@ -40,7 +40,7 @@
         <div class="nav-links">
           <a href="#home" class="nav-link active" id="navHome">Home</a>
           <a href="#clothing" class="nav-link" id="navClothing">
-            Clothing <span class="nav-pill-badge badge-clothing">Riyaa</span>
+            Kids Wear <span class="nav-pill-badge badge-clothing">Riyaa</span>
           </a>
           <a href="#candles" class="nav-link" id="navCandles">
             Candles <span class="nav-pill-badge badge-candles">Glow</span>
@@ -119,7 +119,7 @@
 
       <nav style="display: flex; flex-direction: column; gap: 0.5rem;">
         <a href="#home" class="nav-link mobile-nav-link">Home</a>
-        <a href="#clothing" class="nav-link mobile-nav-link">Clothing (Riyaa Trends)</a>
+        <a href="#clothing" class="nav-link mobile-nav-link">Kids Clothing (Riyaa Trends Kids)</a>
         <a href="#candles" class="nav-link mobile-nav-link">Candles (Glow Home)</a>
         <a href="#studs" class="nav-link mobile-nav-link">Ear Studs (Earkart)</a>
         <a href="#about" class="nav-link mobile-nav-link">About Us</a>
@@ -145,13 +145,13 @@
             Elegance in Every <span class="highlight">Layer, Glow,</span> and Sparkle.
           </h1>
           <p class="hero-subtitle">
-            Welcome to LimeTree. Discover effortless streetwear by <strong>Riyaa Trends</strong>, hand-poured soy candles by <strong>Glow Home</strong>, and hypoallergenic fine ear studs by <strong>Earkart</strong> — all in one unified shopping basket.
+            Welcome to LimeTree. Discover joyful organic kids wear by <strong>Riyaa Trends Kids</strong>, hand-poured soy candles by <strong>Glow Home</strong>, and hypoallergenic fine ear studs by <strong>Earkart</strong> — all in one unified shopping basket.
           </p>
 
           <div class="hero-brand-chips">
             <a href="#clothing" class="brand-chip">
               <span class="brand-chip-dot" style="background-color: var(--lime-600);"></span>
-              Riyaa Trends (Clothing)
+              Riyaa Trends Kids (Ages 2–12Y)
             </a>
             <a href="#candles" class="brand-chip">
               <span class="brand-chip-dot" style="background-color: var(--amber-500);"></span>
@@ -177,7 +177,7 @@
 
         <div class="hero-visual-wrap">
           <div class="hero-image-card">
-            <img src="images/limetree_hero.jpg" alt="LimeTree curated lifestyle: clothing, scented candle, and ear studs" />
+            <img src="images/main_page_banner.png" alt="LimeTree curated lifestyle: Riyaa Trends Clothing, Glow Home Candles, and Earkart Jewellery" />
           </div>
 
           <!-- Floating Glass Pill 1 -->
@@ -196,6 +196,21 @@
               <h4>Hypoallergenic</h4>
               <p>925 Silver & 18K Gold Vermeil</p>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- Dedicated Main Page Grand Showcase Banner (matching user artwork) -->
+    <section class="banner-showcase-section">
+      <div class="container">
+        <div class="main-artwork-banner-wrap">
+          <img src="images/main_page_banner.png" alt="LimeTree Marketplace - Riyaa Trends, Glow Home, Earkart" class="main-artwork-banner-img" />
+          <div class="banner-clickable-overlay">
+            <a href="#clothing" class="banner-hotspot" title="Shop Riyaa Trends Clothing"></a>
+            <a href="#candles" class="banner-hotspot" title="Shop Glow Home Candles"></a>
+            <a href="#studs" class="banner-hotspot" title="Shop Earkart Jewellery"></a>
           </div>
         </div>
       </div>
@@ -248,90 +263,94 @@
 
         <div class="business-trio-grid">
           <!-- Business 1: Clothing - Riyaa Trends -->
-          <div class="business-card" id="cardRiyaa">
-            <div class="business-card-media">
-              <img src="images/riyaa_trends_cat.jpg" alt="Riyaa Trends Clothing Collection" />
-              <span class="business-badge badge-clothing">Fashion</span>
+          <div class="business-card arched-business-card" id="cardRiyaa">
+            <div class="arched-media-wrap">
+              <div class="card-media-circle card-media-clothing" title="Riyaa Trends Clothing"></div>
+              <div class="pillar-floating-badge" title="Clothing">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+              </div>
             </div>
             <div class="business-card-body">
-              <div class="business-title-row">
-                <h3 class="business-name">Riyaa Trends</h3>
-                <span class="business-item-count">6 Styles</span>
-              </div>
-              <p class="business-tagline">Modern Casuals & Heavyweight Loungewear</p>
+              <h3 class="business-name serif-title">Riyaa Trends</h3>
+              <span class="business-category-tag">CLOTHING</span>
               <p class="business-desc">
-                From relaxed organic cotton tees to loopback French terry shorts and performance flex track pants. Cut for contemporary ease and enduring quality.
+                From daisy floral dresses and embroidered sun tees to French terry play shorts and cozy fleece track pants.
               </p>
               <div class="business-pills">
+                <span class="business-pill">Kids Dresses</span>
                 <span class="business-pill">T-shirts</span>
                 <span class="business-pill">Shorts</span>
-                <span class="business-pill">Track Pants</span>
-                <span class="business-pill">Sizes XS–XXL</span>
+                <span class="business-pill">Ages 2–12Y</span>
               </div>
-              <a href="#clothing" class="btn-card-cta">
-                <span>Explore Riyaa Trends</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
+              <a href="#clothing" class="pillar-circle-btn" title="Explore Riyaa Trends Clothing">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="9 18 15 12 9 6"></polyline>
                 </svg>
               </a>
             </div>
           </div>
 
           <!-- Business 2: Scented Candles - Glow Home -->
-          <div class="business-card" id="cardGlow">
-            <div class="business-card-media">
-              <img src="images/glow_home_cat.jpg" alt="Glow Home Scented Candles Collection" />
-              <span class="business-badge badge-candles">Home Sanctuary</span>
+          <div class="business-card arched-business-card" id="cardGlow">
+            <div class="arched-media-wrap">
+              <div class="card-media-circle card-media-candles" title="Glow Home Scented Candles"></div>
+              <div class="pillar-floating-badge" title="Scented Candles">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2c-.5 1.5-2 3-2 5a2 2 0 1 0 4 0c0-2-1.5-3.5-2-5z"></path>
+                  <rect x="7" y="10" width="10" height="12" rx="2"></rect>
+                  <line x1="12" y1="7" x2="12" y2="10"></line>
+                </svg>
+              </div>
             </div>
             <div class="business-card-body">
-              <div class="business-title-row">
-                <h3 class="business-name">Glow Home</h3>
-                <span class="business-item-count">6 Fragrances</span>
-              </div>
-              <p class="business-tagline">Artisanal Hand-Poured Scented Candles</p>
+              <h3 class="business-name serif-title">Glow Home</h3>
+              <span class="business-category-tag">SCENTED CANDLES</span>
               <p class="business-desc">
-                Infuse your spaces with peaceful French lavender, crisp Calabrian bergamot, smoky sandalwood, and warm bourbon vanilla. 100% natural soy wax with crackling wooden wicks.
+                Infuse your spaces with peaceful French lavender, crisp Calabrian bergamot, smoky sandalwood, and warm bourbon vanilla.
               </p>
               <div class="business-pills">
                 <span class="business-pill">Natural Soy Wax</span>
                 <span class="business-pill">Wooden Wicks</span>
                 <span class="business-pill">50-60h Burn</span>
-                <span class="business-pill">Apothecary Vessels</span>
               </div>
-              <a href="#candles" class="btn-card-cta">
-                <span>Discover Glow Home</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
+              <a href="#candles" class="pillar-circle-btn" title="Discover Glow Home Candles">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="9 18 15 12 9 6"></polyline>
                 </svg>
               </a>
             </div>
           </div>
 
-          <!-- Business 3: Ear Studs - Earkart -->
-          <div class="business-card" id="cardEarkart">
-            <div class="business-card-media">
-              <img src="images/earkart_cat.jpg" alt="Earkart Ear Studs Collection" />
-              <span class="business-badge badge-studs">Fine Jewelry</span>
+          <!-- Business 3: Jewellery - Earkart -->
+          <div class="business-card arched-business-card" id="cardEarkart">
+            <div class="arched-media-wrap">
+              <div class="card-media-circle card-media-jewellery" title="Earkart Jewellery"></div>
+              <div class="pillar-floating-badge" title="Jewellery">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 3h12l4 6-10 13L2 9z"></path>
+                  <path d="M11 3L8 9l4 13 4-13-3-6"></path>
+                  <path d="M2 9h20"></path>
+                </svg>
+              </div>
             </div>
             <div class="business-card-body">
-              <div class="business-title-row">
-                <h3 class="business-name">Earkart</h3>
-                <span class="business-item-count">6 Designs</span>
-              </div>
-              <p class="business-tagline">Hypoallergenic Gemstone & Modern Studs</p>
+              <h3 class="business-name serif-title">Earkart</h3>
+              <span class="business-category-tag">JEWELLERY</span>
               <p class="business-desc">
-                Sparkling D-color moissanites, vintage emerald-cut halos, natural freshwater baroque pearls, and sleek geometric honeycombs handcrafted for sensitive ears.
+                High-sparkle moissanite solitaires, 18K gold vermeil emerald halos, natural baroque pearls, and modern geometrics.
               </p>
               <div class="business-pills">
                 <span class="business-pill">Solid 925 Silver</span>
                 <span class="business-pill">18K Gold Vermeil</span>
-                <span class="business-pill">Moissanite & Pearls</span>
-                <span class="business-pill">Nickel-Free</span>
+                <span class="business-pill">Baroque Pearls</span>
               </div>
-              <a href="#studs" class="btn-card-cta">
-                <span>Browse Earkart Studs</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
+              <a href="#studs" class="pillar-circle-btn" title="Browse Earkart Jewellery">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="9 18 15 12 9 6"></polyline>
                 </svg>
               </a>
             </div>
@@ -376,7 +395,7 @@
             <div class="pillar-icon">🧺</div>
             <h3 style="font-family: var(--font-heading); font-size: 1.25rem;">One Consolidated Cart</h3>
             <p style="color: var(--slate-600); font-size: 0.9rem;">
-              No need to place separate orders across multiple websites. Add shorts from Riyaa Trends, a candle from Glow Home, and studs from Earkart in a single unified checkout.
+              No need to place separate orders across multiple websites. Add kids shorts from Riyaa Trends Kids, a candle from Glow Home, and studs from Earkart in a single unified checkout.
             </p>
           </div>
           <div class="pillar-card">
@@ -441,7 +460,7 @@
           <!-- Category Tabs -->
           <div class="category-tabs">
             <button class="cat-tab active" data-category="all">All Items</button>
-            <button class="cat-tab" data-category="clothing">Riyaa Trends (Clothing)</button>
+            <button class="cat-tab" data-category="clothing">Kids Wear (Riyaa Trends)</button>
             <button class="cat-tab" data-category="candles">Glow Home (Candles)</button>
             <button class="cat-tab" data-category="studs">Earkart (Studs)</button>
           </div>
@@ -509,7 +528,7 @@
             We brought together three dedicated specialist workshops:
           </p>
           <ul style="display: flex; flex-direction: column; gap: 0.75rem; color: var(--slate-700); font-size: 0.95rem;">
-            <li>👕 <strong>Riyaa Trends:</strong> Dedicated to organic textiles, comfortable relaxed silhouettes, durable stitching, and breathable loungewear.</li>
+            <li>👕 <strong>Riyaa Trends Kids:</strong> Dedicated to 100% organic cotton, comfortable child-friendly silhouettes, durable play-proof stitching, and itch-free tags.</li>
             <li>🕯️ <strong>Glow Home:</strong> Focused on clean aromatherapy, hand-poured natural soy wax, and crackling wooden wicks in reusable artisan jars.</li>
             <li>💎 <strong>Earkart:</strong> Committed to dermatologist-approved hypoallergenic metals, genuine 925 sterling silver, 18K gold vermeil, and certified lab moissanites.</li>
           </ul>
@@ -571,7 +590,7 @@
                 <span>+</span>
               </div>
               <div class="faq-answer">
-                Yes! That is the core beauty of LimeTree. You can add clothing from Riyaa Trends, candles from Glow Home, and ear studs from Earkart into one single cart and receive them in one packaged shipment.
+                Yes! That is the core beauty of LimeTree. You can add kids clothes from Riyaa Trends Kids, candles from Glow Home, and ear studs from Earkart into one single cart and receive them in one packaged shipment.
               </div>
             </div>
 
@@ -620,7 +639,7 @@
               <label>Regarding Brand / Department</label>
               <select class="form-input" id="contactBrand">
                 <option value="General">General Inquiries / LimeTree Order</option>
-                <option value="Riyaa Trends">Riyaa Trends (Clothing Sizing & Stock)</option>
+                <option value="Riyaa Trends Kids">Riyaa Trends Kids (Ages 2-12Y Sizing & Stock)</option>
                 <option value="Glow Home">Glow Home (Candle Fragrances & Gifting)</option>
                 <option value="Earkart">Earkart (Ear Stud Metals & Moissanite)</option>
               </select>
@@ -938,7 +957,7 @@
           </div>
           <h2 style="font-family: var(--font-heading); font-size: 2rem;">Order Confirmed!</h2>
           <p style="color: var(--slate-600); max-width: 440px;">
-            Thank you for choosing LimeTree. Your order with Riyaa Trends, Glow Home, and Earkart has been received and is being prepared.
+            Thank you for choosing LimeTree. Your order with Riyaa Trends Kids, Glow Home, and Earkart has been received and is being prepared.
           </p>
 
           <div id="orderSuccessReceipt" style="width: 100%;"></div>
@@ -1025,7 +1044,7 @@
             <img src="images/logo.svg" alt="LimeTree Logo" style="height: 44px; width: auto; filter: brightness(0) invert(1);" />
           </div>
           <p>
-            A unified lifestyle shopping sanctuary bringing together premium streetwear by <strong>Riyaa Trends</strong>, artisanal aromatherapy by <strong>Glow Home</strong>, and hypoallergenic studs by <strong>Earkart</strong>.
+            A unified lifestyle shopping sanctuary bringing together joyful organic kids apparel by <strong>Riyaa Trends Kids</strong>, artisanal aromatherapy by <strong>Glow Home</strong>, and hypoallergenic studs by <strong>Earkart</strong>.
           </p>
           <div class="social-links">
             <a href="#home" class="social-icon-btn" title="Instagram">📸</a>
@@ -1039,10 +1058,10 @@
         <div>
           <h4 class="footer-heading">Our Brands</h4>
           <div class="footer-links">
-            <a href="#clothing" class="footer-link">Riyaa Trends (Clothing)</a>
-            <a href="#clothing" class="footer-link">Heavyweight Organic Tees</a>
-            <a href="#clothing" class="footer-link">French Terry Shorts</a>
-            <a href="#clothing" class="footer-link">Flex Track Pants</a>
+            <a href="#clothing" class="footer-link">Riyaa Trends Kids</a>
+            <a href="#clothing" class="footer-link">Kids Organic Tees</a>
+            <a href="#clothing" class="footer-link">Play Shorts</a>
+            <a href="#clothing" class="footer-link">Kids Fleece Joggers</a>
             <a href="#candles" class="footer-link">Glow Home (Candles)</a>
             <a href="#studs" class="footer-link">Earkart (Ear Studs)</a>
           </div>

@@ -36,20 +36,20 @@ class Store {
           },
           {
             id: "RT-001",
-            name: "Heavyweight Organic Relaxed Tee",
-            brand: "Riyaa Trends",
-            size: "M",
-            color: "Sage Green",
-            price: 34.00,
+            name: "Kids Organic Cotton Embroidered Sun Tee",
+            brand: "Riyaa Trends Kids",
+            size: "4-5Y",
+            color: "Pastel Sage",
+            price: 24.00,
             quantity: 1,
-            image: "images/riyaa_tee_sage.jpg"
+            image: "images/kids_tee_sage.jpg"
           }
         ],
         totals: {
-          subtotal: 62.00,
+          subtotal: 52.00,
           shipping: 0.00,
-          discount: 6.20,
-          total: 55.80
+          discount: 5.20,
+          total: 46.80
         }
       }
     ]);
