@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Earkart — Handcrafted Minimalist Ear Studs &amp; Fine Accents | LIMETREE</title>
+  <meta name="description"
+    content="Discover Earkart at LIMETREE. Handcrafted ear studs, huggie hoops, and freshwater pearl drops made from 18K gold vermeil and recycled 925 sterling silver. 100% hypoallergenic for sensitive ears." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- STICKY SITE HEADER -->
+  <header class="site-header">
+    <div class="container header-container">
+
+      <!-- Back Navigation & Brand Logo -->
+      <div style="display: flex; align-items: center; gap: 0.85rem;">
+        <a href="index.html" class="header-back-btn" title="Back to All Houses (Home)">
+          <span class="back-arrow">&larr;</span>
+          <span class="back-text">Back to Home</span>
+        </a>
+        <a href="index.html" class="brand-logo" aria-label="Limetree Home">
+          <img src="assets/logo-transparent.png" alt="LIMETREE - Three Brands One Destination" class="site-logo-img" />
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="main-nav" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="riyaa-trends.html" class="nav-link">Riyaa Trends <span class="nav-badge-pill">Fashion</span></a>
+        <a href="glow-home.html" class="nav-link">Glow Home <span class="nav-badge-pill">Candles</span></a>
+        <a href="earkart.html" class="nav-link active">Earkart <span class="nav-badge-pill">Jewellery</span></a>
+        <a href="orders.html" class="nav-link">Order History</a>
+      </nav>
+
+      <!-- Live Search Bar -->
+      <div class="header-search">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="headerSearchInput" placeholder="Search Earkart studs & hoops..." autocomplete="off"
+          aria-label="Search Catalog" />
+        <div class="search-results-dropdown" id="searchResultsDropdown"></div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="header-actions">
+        <a href="orders.html" class="action-btn header-orders-btn" title="My Orders & History" aria-label="Order History">
+          📦
+          <span class="badge-count" id="headerOrdersCount" style="display: none;">0</span>
+        </a>
+        <button class="action-btn" id="headerWishlistBtn" title="Wishlist" aria-label="Wishlist"
+          onclick="window.limetreeStore.showToast('Your saved wishlist items are highlighted in the jewellery catalog below.', 'info')">
+          ♥
+          <span class="badge-count" id="headerWishlistCount" style="display: none;">0</span>
+        </button>
+        <button class="action-btn" id="headerCartBtn" title="Shopping Bag" aria-label="Shopping Cart">
+          🛍️
+          <span class="badge-count" id="headerCartCount" style="display: none;">0</span>
+        </button>
+        <button class="mobile-menu-toggle-btn" id="mobileMenuToggleBtn" aria-label="Open Navigation Menu">
+          <span class="menu-hamburger-icon">☰</span>
+          <span class="menu-text">Menu</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MOBILE BRAND PILLS BAR (Quick Brand Switching on Phone Screens) -->
+  <nav class="mobile-brand-pills-bar" aria-label="Mobile Brand Switcher">
+    <div class="container mobile-pills-container">
+      <a href="index.html" class="mobile-brand-pill mobile-back-pill" title="Return to Collective Store">
+        <span style="font-size: 1rem; line-height: 1;">&larr;</span> <span>Back</span>
+      </a>
+      <a href="index.html" class="mobile-brand-pill">
+        <span>🏠</span> All Houses
+      </a>
+      <a href="riyaa-trends.html" class="mobile-brand-pill">
+        <span>👕</span> Riyaa Trends
+      </a>
+      <a href="glow-home.html" class="mobile-brand-pill">
+        <span>🕯️</span> Glow Home
+      </a>
+      <a href="earkart.html" class="mobile-brand-pill active">
+        <span>✨</span> Earkart
+      </a>
+      <a href="orders.html" class="mobile-brand-pill">
+        <span>📦</span> Order History
+      </a>
+    </div>
+  </nav>
+
+  <!-- PAGE BREADCRUMB / BACK BAR (Laptop & Mobile) -->
+  <nav class="page-breadcrumb-bar" aria-label="Breadcrumb Navigation">
+    <div class="container breadcrumb-container">
+      <a href="index.html" class="breadcrumb-back-link" title="Return to Collective Storefront">
+        <span>&larr;</span> <span>Back to Collective Home</span>
+      </a>
+      <div class="breadcrumb-trail">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Earkart Artisanal Jewellery</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BOUTIQUE HERO SECTION -->
+  <section class="hero-section" style="background: linear-gradient(135deg, #0A2216 0%, #133E2B 60%, #1F4D37 100%);">
+    <div class="hero-pattern-overlay"></div>
+    <div class="container">
+      <div class="hero-grid">
+
+        <div class="hero-content reveal-slide-up">
+          <div class="hero-pill-badge">
+            <span>✨</span> <span>House of Handcrafted Ear Adornments</span>
+          </div>
+          <h1 class="hero-title">
+            Subtle Radiance &amp; <span class="text-serif-italic">Precious Metallics</span>
+          </h1>
+          <p class="hero-description">
+            Hypoallergenic ear studs, everyday huggies, and organic freshwater pearls forged from 18K thick gold vermeil
+            and recycled 925 sterling silver. Designed for sensitive lobes and lifelong wear.
+          </p>
+          <div class="hero-cta-group">
+            <a href="#boutiqueCatalog" class="btn btn-primary btn-lg">Shop Jewellery Catalog &rarr;</a>
+            <a href="#earStackGuideSection" class="btn btn-outline-light btn-lg">Ear-Stacking Guide</a>
+          </div>
+        </div>
+
+        <div class="hero-image-showcase reveal-fade">
+          <img class="hero-main-img" data-parallax="true"
+            src="assets/earkart/earkart-daisy-model-ear.jpg"
+            alt="Earkart Handcrafted White Daisy Ear Studs Promotional Banner" />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND PILLARS -->
+  <section class="section-padding" style="background: var(--color-bg-base); padding: 3rem 0; border-bottom: 1px solid var(--color-border);">
+    <div class="container">
+      <div class="reveal-stagger" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; text-align: center;">
+        <div style="padding: 1rem;">
+          <div style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--color-primary);">👑</div>
+          <h4 style="font-size: 1rem; font-weight: 700; color: var(--color-primary-dark); margin-bottom: 0.25rem;">18K Gold Vermeil</h4>
+          <p style="font-size: 0.82rem; color: var(--color-text-muted);">2.5 micron genuine 18K gold layer over solid sterling silver.</p>
+        </div>
+        <div style="padding: 1rem;">
+          <div style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--color-primary);">🥈</div>
+          <h4 style="font-size: 1rem; font-weight: 700; color: var(--color-primary-dark); margin-bottom: 0.25rem;">Recycled 925 Silver</h4>
+          <p style="font-size: 0.82rem; color: var(--color-text-muted);">Ethically reclaimed precious metals certified nickel and lead-free.</p>
+        </div>
+        <div style="padding: 1rem;">
+          <div style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--color-primary);">🛡️</div>
+          <h4 style="font-size: 1rem; font-weight: 700; color: var(--color-primary-dark); margin-bottom: 0.25rem;">100% Hypoallergenic</h4>
+          <p style="font-size: 0.82rem; color: var(--color-text-muted);">Biocompatible surgical-grade ear posts that never irritate tender lobes.</p>
+        </div>
+        <div style="padding: 1rem;">
+          <div style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--color-primary);">🎁</div>
+          <h4 style="font-size: 1rem; font-weight: 700; color: var(--color-primary-dark); margin-bottom: 0.25rem;">Gift-Ready Packaging</h4>
+          <p style="font-size: 0.82rem; color: var(--color-text-muted);">Includes velvet travel pouch, anti-tarnish card, and FSC gift box.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOUTIQUE CATALOG SECTION -->
+  <section class="section-padding" id="boutiqueCatalog">
+    <div class="container">
+
+      <div class="section-header text-center reveal-slide-up">
+        <div class="section-subtitle">Earkart Precious Accents</div>
+        <h2 class="section-title">The Complete Ear Studs &amp; Hoops Collection</h2>
+        <p class="section-desc">
+          From sparkling solitaire cz studs to architectural twisted huggies and organic baroque freshwater pearls,
+          curate your everyday ear stack.
+        </p>
+      </div>
+
+      <!-- Category Filter Pills & Controls -->
+      <div class="catalog-controls reveal-slide-up" style="margin-bottom: 2rem;">
+        <div class="filter-tabs">
+          <button class="filter-tab active" onclick="window.limetreeStore.filterByCategory(null, this)">All Jewellery</button>
+          <button class="filter-tab" onclick="window.limetreeStore.filterByCategory('ear-studs', this)">Ear Studs</button>
+          <button class="filter-tab" onclick="window.limetreeStore.filterByCategory('huggie-hoops', this)">Huggie Hoops</button>
+          <button class="filter-tab" onclick="window.limetreeStore.filterByCategory('pearl-drops', this)">Pearl Drops</button>
+        </div>
+
+        <div class="filter-actions">
+          <label class="stock-filter-toggle">
+            <input type="checkbox" id="inStockToggle" />
+            <span>In Stock Only</span>
+          </label>
+
+          <select class="sort-select" id="catalogSortSelect" aria-label="Sort Jewellery">
+            <option value="newest">Featured Newest</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Highest Rated</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Dynamic Product Grid (Populated via js/store.js) -->
+      <div class="product-grid" id="productCatalogGrid">
+        <!-- Rendered by store.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EAR-STACKING & METALLURGY GUIDE -->
+  <section class="section-padding" id="earStackGuideSection" style="background: var(--color-bg-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <div class="container">
+      <div class="section-header text-center reveal-slide-up">
+        <div class="section-subtitle">The Art of the Ear Stack</div>
+        <h2 class="section-title">Ear-Styling Guide &amp; Precious Metallurgy</h2>
+        <p class="section-desc">
+          How to build an elegant ear stack that balances proportion, metallic luster, and effortless comfort from day to evening.
+        </p>
+      </div>
+
+      <div class="reveal-stagger" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+        
+        <!-- STEP 1 -->
+        <div style="background: #FFFFFF; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 2rem; box-shadow: var(--shadow-sm);">
+          <div style="font-size: 0.82rem; font-weight: 700; color: var(--color-accent-sage); text-transform: uppercase; margin-bottom: 0.5rem;">Level 1 · The Foundation</div>
+          <h3 style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--color-primary-dark); margin-bottom: 0.85rem;">First Lobe Anchor</h3>
+          <p style="font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.6;">
+            Begin with your statement piece: an architectural huggie hoop or a pearl drop that provides vertical presence and anchors your lower ear.
+          </p>
+        </div>
+
+        <!-- STEP 2 -->
+        <div style="background: #FFFFFF; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 2rem; box-shadow: var(--shadow-sm);">
+          <div style="font-size: 0.82rem; font-weight: 700; color: var(--color-accent-sage); text-transform: uppercase; margin-bottom: 0.5rem;">Level 2 · The Complement</div>
+          <h3 style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--color-primary-dark); margin-bottom: 0.85rem;">Second Lobe Balance</h3>
+          <p style="font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.6;">
+            Pair with a minimalist ear stud such as our 18K Solitaire or Geometric Bar. Keep diameters slightly smaller to maintain harmonious gradation.
+          </p>
+        </div>
+
+        <!-- STEP 3 -->
+        <div style="background: #FFFFFF; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 2rem; box-shadow: var(--shadow-sm);">
+          <div style="font-size: 0.82rem; font-weight: 700; color: var(--color-accent-sage); text-transform: uppercase; margin-bottom: 0.5rem;">Level 3 · The Accent</div>
+          <h3 style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--color-primary-dark); margin-bottom: 0.85rem;">Helix &amp; Micro Accents</h3>
+          <p style="font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.6;">
+            Finish the composition with a petite 6mm huggie or ear cuff on the upper cartilage for a curated, modern aesthetic.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- JEWELLERY CARE INSTRUCTIONS -->
+      <div class="reveal-slide-up" style="margin-top: 3rem; background: #FFFFFF; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 2rem;">
+        <h3 style="font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 1rem; color: var(--color-primary-dark);">
+          Precious Metal Care &amp; Longevity
+        </h3>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; font-size: 0.88rem; color: var(--color-text-muted);">
+          <div>
+            <strong style="color: var(--color-primary-dark);">The Last Step Rule:</strong>
+            <p>Put your jewellery on after applying perfume, hairspray, and lotions to safeguard the 18K vermeil luster.</p>
+          </div>
+          <div>
+            <strong style="color: var(--color-primary-dark);">Water &amp; Workout Care:</strong>
+            <p>Remove prior to swimming in chlorinated pools or rigorous workouts to prevent accidental chemical discoloration.</p>
+          </div>
+          <div>
+            <strong style="color: var(--color-primary-dark);">Anti-Tarnish Storage:</strong>
+            <p>Store individual pieces in the included Limetree velvet pouch with anti-tarnish tab when not in rotation.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- JEWELLERY MACRO GALLERY -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-header text-center reveal-slide-up">
+        <div class="section-subtitle">Artisan Jewellery Showcase</div>
+        <h2 class="section-title">Handcrafted Floral Petals &amp; Precision Detailing</h2>
+        <p class="section-desc">Delicately sculpted white daisy earrings held in hand to showcase their tactile organic petals, luminous texture, and lightweight comfort.</p>
+      </div>
+
+      <div class="reveal-stagger" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
+        <div style="border-radius: var(--radius-md); overflow: hidden; height: 340px; box-shadow: var(--shadow-sm); position: relative;">
+          <img src="assets/earkart/earkart-daisy-pair-original.jpg" alt="Handcrafted White Daisy Earring Pair" style="width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform var(--transition-normal);" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'" loading="lazy" />
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 0.8rem; background: linear-gradient(transparent, rgba(10,36,24,0.85)); color: #FFFFFF; font-size: 0.78rem; font-weight: 600;">White Daisy Blossom Pair</div>
+        </div>
+        <div style="border-radius: var(--radius-md); overflow: hidden; height: 340px; box-shadow: var(--shadow-sm); position: relative;">
+          <img src="assets/earkart/earkart-daisy-single-macro.jpg" alt="Artisan Sculpted Petal Macro Detail" style="width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform var(--transition-normal);" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'" loading="lazy" />
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 0.8rem; background: linear-gradient(transparent, rgba(10,36,24,0.85)); color: #FFFFFF; font-size: 0.78rem; font-weight: 600;">Sculpted Ceramic Petals</div>
+        </div>
+        <div style="border-radius: var(--radius-md); overflow: hidden; height: 340px; box-shadow: var(--shadow-sm); position: relative;">
+          <img src="assets/earkart/earkart-daisy-velvet-box.jpg" alt="Golden Center Flower Accent & Velvet Keepsake Box" style="width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform var(--transition-normal);" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'" loading="lazy" />
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 0.8rem; background: linear-gradient(transparent, rgba(10,36,24,0.85)); color: #FFFFFF; font-size: 0.78rem; font-weight: 600;">Emerald Velvet Keepsake Box</div>
+        </div>
+        <div style="border-radius: var(--radius-md); overflow: hidden; height: 340px; box-shadow: var(--shadow-sm); position: relative;">
+          <img src="assets/earkart/earkart-mini-petal-bloom.jpg" alt="Artisan White Petal Bloom Miniature Studs" style="width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform var(--transition-normal);" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'" loading="lazy" />
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 0.8rem; background: linear-gradient(transparent, rgba(10,36,24,0.85)); color: #FFFFFF; font-size: 0.78rem; font-weight: 600;">Mini Petal Bloom Studs</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EARKART PROMOTIONAL VIDEO SECTION -->
+  <section class="section-padding reveal-slide-up" style="background: var(--color-bg-base); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <div class="container" style="max-width: 960px;">
+      <div class="section-header text-center">
+        <div class="section-subtitle">Artisan Film &amp; Motion</div>
+        <h2 class="section-title">Earkart Jewellery in Focus</h2>
+        <p class="section-desc">Experience the lustre, hand movement, and organic design of our delicate jewellery pieces in motion.</p>
+      </div>
+
+      <div style="position: relative; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-lg); background: #000000; margin-bottom: 1.5rem;">
+        <video id="earkartVideo" controls playsinline preload="metadata" poster="assets/earkart/earkart-daisy-velvet-box.jpg" style="width: 100%; display: block; max-height: 520px; object-fit: cover; border-radius: var(--radius-md);">
+          <source src="assets/videos/VID_20261015_014732_941.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <button type="button" class="btn btn-outline-light btn-sm" onclick="const v=document.getElementById('earkartVideo'); v.currentTime=0; v.play();" style="border-color: var(--color-primary); color: var(--color-primary);">
+          ▶ Play: Handcrafted Jewellery Motion
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER SIGNUP -->
+  <section class="section-padding" style="background: var(--color-primary-dark); color: #FFFFFF; text-align: center;">
+    <div class="container reveal-slide-up" style="max-width: 680px;">
+      <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-accent-sage); margin-bottom: 0.5rem;">
+        Earkart Atelier Insiders
+      </div>
+      <h2 style="font-family: var(--font-heading); font-size: 2.2rem; margin-bottom: 1rem; color: #FFFFFF;">
+        First Glimpse of Limited Edition Studs
+      </h2>
+      <p style="color: #D2DCD6; font-size: 0.95rem; margin-bottom: 2rem;">
+        Subscribers enjoy priority access to small-batch 18K vermeil ear drops and seasonal jewellery curation notes.
+      </p>
+      <form id="newsletterForm" style="display: flex; gap: 0.5rem; justify-content: center; max-width: 480px; margin: 0 auto;">
+        <input type="email" id="newsletterEmail" placeholder="Enter your email address..." required
+          style="flex: 1; padding: 0.85rem 1.2rem; border-radius: var(--radius-sm); border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.08); color: #FFFFFF; outline: none;" />
+        <button type="submit" class="btn btn-primary" style="background: var(--color-accent-sage); color: #0E291C; font-weight: 700;">Join</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand-col">
+          <div class="footer-logo">
+            <img src="assets/logo-white.png" alt="LIMETREE" style="height: 44px; width: auto; object-fit: contain; margin-bottom: 0.8rem; display: block;" />
+          </div>
+          <p class="footer-desc">
+            A harmonious multi-business retail collective bringing together Riyaa Trends fashion, Glow Home botanical
+            candles, and Earkart artisanal jewellery under one seamless destination.
+          </p>
+          <div style="font-size: 0.82rem; color: var(--color-text-muted);">
+            GSTIN: 33AAAAA0000A1Z5 · HSN: 711790
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">The Three Houses</h4>
+          <ul class="footer-links">
+            <li><a href="riyaa-trends.html">Riyaa Trends (Fashion &amp; Apparel)</a></li>
+            <li><a href="glow-home.html">Glow Home (Botanical Candles)</a></li>
+            <li><a href="earkart.html">Earkart (Artisanal Ear Studs)</a></li>
+            <li><a href="index.html#catalogSection">Collective Catalog</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Customer Concierge</h4>
+          <ul class="footer-links">
+            <li><a href="orders.html">Track Order &amp; Delivery</a></li>
+            <li><a href="orders.html">7-Day Return Request</a></li>
+            <li><a href="orders.html">Download GST Invoices</a></li>
+            <li><a href="#earStackGuideSection">Ear-Stacking Guide</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Store Management</h4>
+          <ul class="footer-links">
+            <li><a href="admin.html">Executive Admin Dashboard</a></li>
+            <li><a href="admin.html">Bulk Product CSV Upload</a></li>
+            <li><a href="admin.html">LIFO Stock Valuation</a></li>
+            <li><a href="admin.html">Sales &amp; Inventory Reports</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 LIMETREE Multi-Business Retail Platform. All rights reserved.</div>
+        <div>Complies with Indian GST, Consumer Protection E-Commerce Rules &amp; LIFO Inventory Valuation.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART DRAWER -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Bag">
+    <div class="drawer-header">
+      <h3 class="drawer-title">Shopping Bag</h3>
+      <button class="drawer-close-btn" id="cartDrawerCloseBtn" aria-label="Close Shopping Bag">&times;</button>
+    </div>
+
+    <div class="drawer-body" id="cartDrawerBody"></div>
+
+    <div class="drawer-footer">
+      <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+        <input type="text" id="couponCodeInput" placeholder="Promo code (e.g. LIMETREE10)"
+          style="flex: 1; padding: 0.5rem 0.8rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font-size: 0.85rem; text-transform: uppercase;" />
+        <button class="btn btn-secondary btn-sm" id="applyCouponBtn">Apply</button>
+      </div>
+
+      <div class="drawer-summary-row">
+        <span>Bag Subtotal:</span>
+        <span id="cartSubtotalDisplay">₹0</span>
+      </div>
+
+      <button class="btn btn-primary btn-lg" id="cartCheckoutBtn" style="width: 100%; margin-top: 0.5rem;">
+        Proceed to Secure Checkout
+      </button>
+    </div>
+  </aside>
+
+  <!-- QUICK VIEW / PRODUCT DETAIL MODAL -->
+  <div class="modal-overlay" id="quickViewModal">
+    <div class="modal-container">
+      <button class="modal-close-btn" onclick="window.limetreeStore.closeModal()"
+        aria-label="Close Product View">&times;</button>
+      <div id="quickViewModalBody"></div>
+    </div>
+  </div>
+
+  <!-- CHECKOUT MODAL -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal-container" style="max-width: 960px;">
+      <button class="modal-close-btn" onclick="window.limetreeStore.closeModal()"
+        aria-label="Close Checkout">&times;</button>
+      <div id="checkoutModalBody"></div>
+    </div>
+  </div>
+
+  <!-- TAX INVOICE MODAL -->
+  <div class="modal-overlay" id="invoiceModal">
+    <div class="modal-container" style="max-width: 860px; background: #FFFFFF;">
+      <button class="modal-close-btn no-print" onclick="window.limetreeStore.closeModal()"
+        aria-label="Close Invoice">&times;</button>
+      <div id="invoiceModalBody"></div>
+    </div>
+  </div>
+
+  <!-- CORE SCRIPTS -->
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/store.js"></script>
+
+</body>
+
+</html>

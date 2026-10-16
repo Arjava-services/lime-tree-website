@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LIMETREE — Executive Store Management & Analytics Portal</title>
+  <meta name="description" content="Central administrative operations, inventory, LIFO valuation, orders, and multi-business governance for LIMETREE." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+
+<body>
+
+  <div class="admin-layout">
+
+    <!-- ADMIN SIDEBAR -->
+    <aside class="admin-sidebar" aria-label="Admin Navigation">
+      <div class="admin-sidebar-header" style="display: flex; align-items: center; justify-content: space-between;">
+        <a href="index.html" title="Return to Storefront" style="display: inline-flex; align-items: center;">
+          <img src="assets/logo-white.png" alt="LIMETREE" style="height: 42px; width: auto; object-fit: contain;" />
+        </a>
+        <span class="admin-brand-badge">ADMIN</span>
+      </div>
+
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item active" data-tab="overview">
+          <span class="admin-nav-icon">📊</span>
+          <span>Overview</span>
+        </li>
+        <li class="admin-nav-item" data-tab="products">
+          <span class="admin-nav-icon">👗</span>
+          <span>Product Catalog</span>
+        </li>
+        <li class="admin-nav-item" data-tab="bulk-upload">
+          <span class="admin-nav-icon">📥</span>
+          <span>Bulk CSV Upload</span>
+        </li>
+        <li class="admin-nav-item" data-tab="inventory">
+          <span class="admin-nav-icon">📦</span>
+          <span>Inventory &amp; LIFO</span>
+        </li>
+        <li class="admin-nav-item" data-tab="orders">
+          <span class="admin-nav-icon">🛍️</span>
+          <span>Orders &amp; Tracking</span>
+        </li>
+        <li class="admin-nav-item" data-tab="returns">
+          <span class="admin-nav-icon">🔄</span>
+          <span>7-Day Returns</span>
+        </li>
+        <li class="admin-nav-item" data-tab="reports">
+          <span class="admin-nav-icon">📈</span>
+          <span>Financial Reports</span>
+        </li>
+        <li class="admin-nav-item" data-tab="settings">
+          <span class="admin-nav-icon">⚙️</span>
+          <span>Store Settings</span>
+        </li>
+      </ul>
+
+      <div class="admin-sidebar-footer">
+        <a href="index.html" class="store-link-btn" target="_blank">
+          <span>🏪</span>
+          <span>View Live Storefront &rarr;</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- MAIN ADMIN WORKSPACE -->
+    <main class="admin-main">
+
+      <!-- TOPBAR -->
+      <header class="admin-topbar">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <button id="adminSidebarToggle" class="btn btn-secondary btn-sm" style="display: none; padding: 0.4rem 0.6rem;" aria-label="Toggle Sidebar">☰</button>
+          <h1 class="admin-topbar-title" id="adminCurrentTabTitle">Executive Overview</h1>
+        </div>
+
+        <div class="admin-topbar-actions">
+          <a href="index.html" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600;">
+            <span style="font-size: 1.1rem; line-height: 1;">&larr;</span> <span>Back to Storefront</span>
+          </a>
+          <span class="badge badge-warning" id="pendingOrdersBadge" style="display: none;">0 Pending</span>
+          <div class="admin-user-pill">
+            <span class="admin-avatar">LT</span>
+            <span>Administrator</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- CONTENT BODY -->
+      <div class="admin-body">
+
+        <!-- TAB 1: EXECUTIVE OVERVIEW -->
+        <section class="admin-tab-pane" id="overviewTab">
+          <div class="metrics-row reveal-stagger">
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-label">Total Net Revenue</span>
+                <div class="metric-icon-wrap icon-forest">₹</div>
+              </div>
+              <div class="metric-value" id="metricTotalRevenue">₹0</div>
+              <div class="metric-meta"><span class="meta-up">▲ 14.8%</span> vs prior cycle</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-label">Orders Processed</span>
+                <div class="metric-icon-wrap icon-lavender">🛍️</div>
+              </div>
+              <div class="metric-value" id="metricTotalOrders">0</div>
+              <div class="metric-meta">Across 3 Artisan Houses</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-label">Inventory On Hand</span>
+                <div class="metric-icon-wrap icon-sage">📦</div>
+              </div>
+              <div class="metric-value" id="metricTotalUnits">0 units</div>
+              <div class="metric-meta">Physical Stock Audit</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-label">LIFO Valuation</span>
+                <div class="metric-icon-wrap icon-amber">📑</div>
+              </div>
+              <div class="metric-value" id="metricLifoValuation">₹0</div>
+              <div class="metric-meta">Last In, First Out Method</div>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+            <!-- Recent Orders -->
+            <div class="admin-panel reveal-slide-up">
+              <div class="panel-header">
+                <h2 class="panel-title">Recent Storefront Orders</h2>
+                <button class="btn btn-secondary btn-sm" onclick="window.limetreeAdmin.switchTab('orders')">View All &rarr;</button>
+              </div>
+              <div class="admin-table-wrap">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Order ID</th>
+                      <th>Date</th>
+                      <th>Customer</th>
+                      <th>Amount</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="overviewRecentOrdersTbody"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Stock Alerts -->
+            <div class="admin-panel reveal-slide-up">
+              <div class="panel-header">
+                <h2 class="panel-title">Low Stock Alerts (&le; 5 units)</h2>
+              </div>
+              <div id="overviewLowStockList"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 2: PRODUCT CATALOG -->
+        <section class="admin-tab-pane" id="productsTab" style="display: none;">
+          <div class="admin-panel">
+            <div class="panel-header">
+              <div style="display: flex; gap: 0.75rem; align-items: center; flex: 1; max-width: 600px;">
+                <input type="text" id="adminProductSearch" class="form-control" placeholder="Search by name, SKU, or category..." style="max-width: 320px;" />
+                <select id="adminProductFilterBusiness" class="form-control" style="max-width: 200px;">
+                  <option value="all">All 3 Houses</option>
+                  <option value="riyaa-trends">Riyaa Trends (Fashion)</option>
+                  <option value="glow-home">Glow Home (Candles)</option>
+                  <option value="earkart">Earkart (Jewellery)</option>
+                </select>
+              </div>
+
+              <button class="btn btn-primary" onclick="window.limetreeAdmin.openNewProductModal()">
+                + Add Artisan Product
+              </button>
+            </div>
+
+            <div class="admin-table-wrap">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Visual</th>
+                    <th>Product &amp; SKU</th>
+                    <th>House</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Inventory</th>
+                    <th>Status</th>
+                    <th>Management</th>
+                  </tr>
+                </thead>
+                <tbody id="adminProductsTbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 3: BULK CSV UPLOAD -->
+        <section class="admin-tab-pane" id="bulkUploadTab" style="display: none;">
+          <div class="admin-panel" style="padding: 2rem;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <h2 class="panel-title" style="font-size: 1.3rem;">Bulk CSV Catalog Ingestion</h2>
+                <p style="color: var(--color-text-muted); font-size: 0.88rem; margin-top: 0.3rem;">
+                  Rapidly onboard or replenish products across Riyaa Trends, Glow Home, and Earkart using a clean CSV format.
+                </p>
+              </div>
+              <button class="btn btn-secondary" onclick="window.limetreeAdmin.downloadCsvTemplate()">
+                📥 Download CSV Template
+              </button>
+            </div>
+
+            <div class="upload-drop-zone" id="csvDropZone">
+              <div class="upload-icon">📄</div>
+              <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Drag &amp; Drop your Product CSV here</h3>
+              <p style="color: var(--color-text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Supports UTF-8 CSV with valid business identifiers</p>
+              <button class="btn btn-primary btn-sm">Browse Local Files</button>
+              <input type="file" id="csvFileInput" accept=".csv" style="display: none;" />
+            </div>
+
+            <!-- CSV Preview Box -->
+            <div id="csvPreviewContainer" class="import-preview-box" style="display: none;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <div class="import-stats">
+                  <span class="stat-valid" id="csvValidCount">0 Valid Rows</span>
+                  <span class="stat-invalid" id="csvInvalidCount">0 Invalid Rows</span>
+                </div>
+                <button class="btn btn-primary" id="csvExecuteImportBtn" onclick="window.limetreeAdmin.executeCsvImport()">
+                  Execute Catalog Import
+                </button>
+              </div>
+
+              <div class="admin-table-wrap">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Business</th>
+                      <th>Product Name</th>
+                      <th>SKU</th>
+                      <th>Base Price</th>
+                      <th>Initial Stock</th>
+                      <th>Validation</th>
+                    </tr>
+                  </thead>
+                  <tbody id="csvPreviewTbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 4: INVENTORY & LIFO VALUATION -->
+        <section class="admin-tab-pane" id="inventoryTab" style="display: none;">
+          <div class="metrics-row" style="grid-template-columns: repeat(2, 1fr);">
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-label">LIFO Valuation Portfolio</span>
+                <div class="metric-icon-wrap icon-forest">📑</div>
+              </div>
+              <div class="metric-value" id="lifoTotalValuationDisplay">₹0</div>
+              <div class="metric-meta">Assessed on Last In, First Out Acquisition Costs</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-label">Total Monitored Physical Units</span>
+                <div class="metric-icon-wrap icon-sage">📦</div>
+              </div>
+              <div class="metric-value" id="lifoTotalUnitsDisplay">0 units</div>
+              <div class="metric-meta">Active unallocated warehouse stock</div>
+            </div>
+          </div>
+
+          <div class="admin-panel">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title">LIFO Inventory Batches &amp; Cost Analysis</h2>
+                <div style="font-size: 0.8rem; color: var(--color-text-muted); margin-top: 0.2rem;">
+                  When orders are fulfilled, the cost of goods sold (COGS) is deducted from the most recently received batch first.
+                </div>
+              </div>
+            </div>
+
+            <div class="admin-table-wrap">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Batch ID</th>
+                    <th>Inward Date</th>
+                    <th>SKU Code</th>
+                    <th>Units Inward</th>
+                    <th>Units Remaining</th>
+                    <th>Unit Cost</th>
+                    <th>LIFO Valuation</th>
+                  </tr>
+                </thead>
+                <tbody id="lifoBatchesTbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 5: ORDERS & FULFILLMENT -->
+        <section class="admin-tab-pane" id="ordersTab" style="display: none;">
+          <div class="admin-panel">
+            <div class="panel-header">
+              <h2 class="panel-title">Customer Orders &amp; Logistics Tracking</h2>
+              <button class="btn btn-secondary btn-sm" onclick="window.limetreeAdmin.exportOrdersCsv()">
+                📥 Export Orders CSV
+              </button>
+            </div>
+
+            <div class="admin-table-wrap">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Order &amp; Invoice</th>
+                    <th>Timestamp</th>
+                    <th>Customer</th>
+                    <th>Amount &amp; Gateway</th>
+                    <th>Fulfillment Status</th>
+                    <th>Tracking / Courier</th>
+                    <th>Invoice</th>
+                  </tr>
+                </thead>
+                <tbody id="adminOrdersTbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 6: RETURNS MANAGEMENT -->
+        <section class="admin-tab-pane" id="returnsTab" style="display: none;">
+          <div class="admin-panel">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title">7-Day Customer Return Concierge</h2>
+                <p style="font-size: 0.82rem; color: var(--color-text-muted); margin-top: 0.2rem;">
+                  Review customer return requests, inspect reasons, initiate refunds, and restock units into active catalog.
+                </p>
+              </div>
+            </div>
+
+            <div class="admin-table-wrap">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Return ID</th>
+                    <th>Order Ref</th>
+                    <th>Customer</th>
+                    <th>Reason &amp; Notes</th>
+                    <th>Refund Value</th>
+                    <th>Status</th>
+                    <th>Concierge Action</th>
+                  </tr>
+                </thead>
+                <tbody id="adminReturnsTbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 7: FINANCIAL REPORTS -->
+        <section class="admin-tab-pane" id="reportsTab" style="display: none;">
+          <div class="metrics-row" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-label">Riyaa Trends Revenue</span>
+                <div class="metric-icon-wrap icon-forest">👗</div>
+              </div>
+              <div class="metric-value" id="reportRiyaaRevenue">₹0</div>
+              <div class="metric-meta">Apparel &amp; Tailored Wear</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-label">Glow Home Revenue</span>
+                <div class="metric-icon-wrap icon-lavender">🕯️</div>
+              </div>
+              <div class="metric-value" id="reportGlowRevenue">₹0</div>
+              <div class="metric-meta">Botanical Aromas &amp; Candles</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-label">Earkart Revenue</span>
+                <div class="metric-icon-wrap icon-sage">✨</div>
+              </div>
+              <div class="metric-value" id="reportEarkartRevenue">₹0</div>
+              <div class="metric-meta">Handcrafted Ear Studs</div>
+            </div>
+          </div>
+
+          <!-- GST SUMMARY & AUDIT TRAIL -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <div class="admin-panel">
+              <div class="panel-header">
+                <h2 class="panel-title">Statutory GST Collections (India)</h2>
+              </div>
+              <div style="padding: 1.5rem;">
+                <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--color-border-subtle);">
+                  <span>Central GST (CGST):</span>
+                  <strong id="reportCgstTotal">₹0.00</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--color-border-subtle);">
+                  <span>State GST (SGST / UTGST):</span>
+                  <strong id="reportSgstTotal">₹0.00</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--color-border-subtle);">
+                  <span>Integrated GST (IGST - Inter-state):</span>
+                  <strong id="reportIgstTotal">₹0.00</strong>
+                </div>
+                <p style="font-size: 0.78rem; color: var(--color-text-muted); margin-top: 1rem;">
+                  Compliant with HSN: 610910 (Apparel 5%/12%), 340600 (Candles 18%), and 711790 (Fashion Jewellery 3%).
+                </p>
+              </div>
+            </div>
+
+            <div class="admin-panel">
+              <div class="panel-header">
+                <h2 class="panel-title">System Audit Log Trail</h2>
+              </div>
+              <div id="adminAuditLogsList" style="max-height: 280px; overflow-y: auto;"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 8: STORE SETTINGS -->
+        <section class="admin-tab-pane" id="settingsTab" style="display: none;">
+          <div class="admin-panel" style="padding: 2rem; max-width: 800px;">
+            <h2 class="panel-title" style="margin-bottom: 1.5rem;">Store Platform Configuration</h2>
+
+            <div class="form-grid">
+              <div class="form-group full-width">
+                <label class="form-label">Storefront Name</label>
+                <input type="text" id="settingStoreName" class="form-control" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">GSTIN Identification</label>
+                <input type="text" id="settingGstin" class="form-control" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Free Domestic Shipping Threshold (₹)</label>
+                <input type="number" id="settingThreshold" class="form-control" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Low Stock Warning Level</label>
+                <input type="number" id="settingLowStockThreshold" class="form-control" />
+              </div>
+
+              <div class="form-group" style="display: flex; align-items: center; justify-content: flex-start; gap: 0.75rem; margin-top: 1rem;">
+                <input type="checkbox" id="settingHideOutOfStock" style="width: 18px; height: 18px; accent-color: var(--color-primary);" />
+                <label for="settingHideOutOfStock" style="font-size: 0.9rem; cursor: pointer;">Automatically hide zero-stock items on storefront</label>
+              </div>
+
+              <div class="form-group full-width" style="margin-top: 1.5rem;">
+                <button class="btn btn-primary btn-lg" onclick="window.limetreeAdmin.saveSettingsFromForm()">
+                  Save Configuration
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- ADD / EDIT PRODUCT MODAL -->
+  <div class="modal-overlay" id="productFormModal">
+    <div class="modal-container" style="max-width: 780px;">
+      <button class="modal-close-btn" onclick="window.limetreeAdmin.closeModal('productFormModal')">&times;</button>
+      <div style="padding: 2rem;">
+        <h2 id="productFormModalTitle" style="font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--color-primary-dark);">Add New Artisan Product</h2>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Artisan House</label>
+            <select id="productFormBusiness" class="form-control">
+              <option value="riyaa-trends">Riyaa Trends (Clothing &amp; Fashion)</option>
+              <option value="glow-home">Glow Home (Scented Candles &amp; Aromas)</option>
+              <option value="earkart">Earkart (Ear Studs &amp; Fine Accents)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Category</label>
+            <input type="text" id="productFormCategory" class="form-control" placeholder="e.g. t-shirts, scented-candles, ear-studs" />
+          </div>
+
+          <div class="form-group full-width">
+            <label class="form-label">Product Name</label>
+            <input type="text" id="productFormName" class="form-control" placeholder="e.g. Forest Mist Relaxed Organic Cotton T-Shirt" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Base Price (₹)</label>
+            <input type="number" id="productFormBasePrice" class="form-control" placeholder="999" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Sale Price (₹, optional)</label>
+            <input type="number" id="productFormSalePrice" class="form-control" placeholder="Leave blank if not on sale" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">HSN Code</label>
+            <input type="text" id="productFormHsn" class="form-control" placeholder="e.g. 610910" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Customer Rating</label>
+            <input type="number" step="0.1" id="productFormRating" class="form-control" value="4.8" />
+          </div>
+
+          <div class="form-group full-width">
+            <label class="form-label">Product Description</label>
+            <textarea id="productFormDescription" class="form-control" rows="3" placeholder="Craftsmanship details, materials, and artisan care notes..."></textarea>
+          </div>
+
+          <div class="form-group full-width">
+            <label class="form-label">Image URLs (One per line)</label>
+            <textarea id="productFormImages" class="form-control" rows="3" placeholder="assets/riyaa-trends/IMG-20260222-WA0041.jpg (one path per line)"></textarea>
+          </div>
+
+          <div class="form-group full-width">
+            <label class="form-label">Inventory Variants &amp; Initial Stock</label>
+            <div id="productFormVariantsContainer"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Catalog Status</label>
+            <select id="productFormStatus" class="form-control">
+              <option value="active">Active</option>
+              <option value="archived">Archived</option>
+            </select>
+          </div>
+
+          <div class="form-group full-width" style="margin-top: 1rem; display: flex; justify-content: flex-end; gap: 0.75rem;">
+            <button class="btn btn-secondary" onclick="window.limetreeAdmin.closeModal('productFormModal')">Cancel</button>
+            <button class="btn btn-primary" onclick="window.limetreeAdmin.saveProductFromForm()">Save Product</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VARIANT STOCK ADJUSTMENT MODAL -->
+  <div class="modal-overlay" id="stockAdjustmentModal">
+    <div class="modal-container" style="max-width: 580px;">
+      <button class="modal-close-btn" onclick="window.limetreeAdmin.closeModal('stockAdjustmentModal')">&times;</button>
+      <div style="padding: 2rem;">
+        <h2 id="stockModalTitle" style="font-size: 1.25rem; margin-bottom: 1.2rem; color: var(--color-primary-dark);">Stock Adjustment</h2>
+
+        <div id="stockModalVariantsContainer" style="margin-bottom: 1.5rem;"></div>
+
+        <div class="form-group" style="margin-bottom: 1.5rem;">
+          <label class="form-label">Mandatory Reason for Stock Correction</label>
+          <input type="text" id="stockAdjustmentReason" class="form-control" value="Physical Stock Audit Verification" />
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+          <button class="btn btn-secondary" onclick="window.limetreeAdmin.closeModal('stockAdjustmentModal')">Cancel</button>
+          <button class="btn btn-primary" onclick="window.limetreeAdmin.saveStockAdjustmentFromModal()">Apply Stock Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAX INVOICE MODAL -->
+  <div class="modal-overlay" id="invoiceModal">
+    <div class="modal-container" style="max-width: 860px; background: #FFFFFF;">
+      <button class="modal-close-btn no-print" onclick="window.limetreeStore ? window.limetreeStore.closeModal() : document.getElementById('invoiceModal').classList.remove('active')">&times;</button>
+      <div id="invoiceModalBody"></div>
+    </div>
+  </div>
+
+  <!-- CORE SCRIPTS -->
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/store.js"></script>
+  <script src="js/admin.js"></script>
+
+</body>
+
+</html>

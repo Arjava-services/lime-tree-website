@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Orders &amp; Purchase History | LIMETREE</title>
+  <meta name="description"
+    content="View your complete LIMETREE order history across Riyaa Trends, Glow Home, and Earkart. Track live delivery shipments, download official GST invoices, and request hassle-free returns." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Order History Page Styles */
+    .orders-hero {
+      background: linear-gradient(135deg, #0A2418 0%, #133E2B 60%, #1D543C 100%);
+      color: #FFFFFF;
+      padding: 3.5rem 0 3rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .orders-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: 0.6;
+    }
+    .orders-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .orders-stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+      margin-top: 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius-md);
+      padding: 1.2rem;
+      backdrop-filter: blur(8px);
+    }
+    .orders-stat-item strong {
+      display: block;
+      font-size: 1.5rem;
+      color: #FFFFFF;
+      font-family: var(--font-heading);
+    }
+    .orders-stat-item span {
+      font-size: 0.78rem;
+      color: #D2E2D8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Filter & Search Controls */
+    .order-history-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .order-filter-tabs {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .order-filter-pill {
+      background: var(--color-bg-surface);
+      border: 1px solid var(--color-border);
+      padding: 0.55rem 1.1rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--color-text-main);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .order-filter-pill:hover,
+    .order-filter-pill.active {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: #FFFFFF;
+    }
+    .order-search-box {
+      position: relative;
+      min-width: 280px;
+      flex: 1;
+      max-width: 360px;
+    }
+    .order-search-box input {
+      width: 100%;
+      padding: 0.6rem 1rem 0.6rem 2.4rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--color-border);
+      background: #FFFFFF;
+      font-size: 0.88rem;
+      outline: none;
+      transition: all var(--transition-fast);
+    }
+    .order-search-box input:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(19, 62, 43, 0.1);
+    }
+    .order-search-box .search-icon {
+      position: absolute;
+      left: 0.9rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--color-text-muted);
+      pointer-events: none;
+    }
+
+    /* Order Card */
+    .order-card {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    }
+    .order-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+    .order-card-header {
+      background: var(--color-bg-base);
+      border-bottom: 1px solid var(--color-border);
+      padding: 1.2rem 1.6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .order-meta-group {
+      display: flex;
+      gap: 1.8rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .order-meta-item strong {
+      display: block;
+      font-size: 0.98rem;
+      color: var(--color-primary-dark);
+    }
+    .order-meta-item span {
+      font-size: 0.76rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .order-card-body {
+      padding: 1.6rem;
+    }
+    .order-item-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--color-border-subtle);
+      gap: 1.2rem;
+    }
+    .order-item-row:last-child {
+      border-bottom: none;
+    }
+    .order-item-info {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+    }
+    .order-item-thumb {
+      width: 62px;
+      height: 62px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      border: 1px solid var(--color-border);
+      flex-shrink: 0;
+    }
+    .order-item-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--color-text-main);
+      margin-bottom: 0.2rem;
+    }
+    .order-item-desc {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+    .order-item-price {
+      text-align: right;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--color-primary-dark);
+      white-space: nowrap;
+    }
+
+    /* Logistics & Address Strip */
+    .order-logistics-strip {
+      background: var(--color-bg-surface);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      padding: 1rem 1.6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.86rem;
+    }
+
+    /* Tracking Stepper */
+    .order-tracking-drawer {
+      display: none;
+      background: #FAFCFA;
+      border-top: 1px dashed var(--color-border);
+      padding: 1.8rem 1.6rem;
+    }
+    .order-tracking-drawer.active {
+      display: block;
+    }
+    .tracking-stepper {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      margin: 2rem 0 1.5rem 0;
+    }
+    .tracking-stepper-line {
+      position: absolute;
+      top: 18px;
+      left: 30px;
+      right: 30px;
+      height: 4px;
+      background: var(--color-border);
+      z-index: 1;
+      border-radius: 2px;
+    }
+    .tracking-stepper-progress {
+      height: 100%;
+      background: linear-gradient(90deg, #133E2B 0%, #2D7A58 100%);
+      border-radius: 2px;
+      transition: width 0.4s ease;
+    }
+    .tracking-step {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex: 1;
+    }
+    .step-circle {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 3px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--color-text-muted);
+      margin-bottom: 0.6rem;
+      transition: all var(--transition-fast);
+    }
+    .tracking-step.completed .step-circle {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: #FFFFFF;
+    }
+    .tracking-step.current .step-circle {
+      background: #FFFFFF;
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      box-shadow: 0 0 0 4px rgba(19, 62, 43, 0.15);
+    }
+    .step-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+    }
+    .tracking-step.completed .step-label,
+    .tracking-step.current .step-label {
+      color: var(--color-primary-dark);
+      font-weight: 700;
+    }
+
+    /* Card Footer Actions */
+    .order-card-footer {
+      background: #FFFFFF;
+      padding: 1.1rem 1.6rem;
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .order-actions-left {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .order-actions-right {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    /* Return Form Accordion */
+    .return-form-drawer {
+      display: none;
+      background: #FFFDF9;
+      border-top: 1px dashed #E2C08D;
+      padding: 1.6rem;
+    }
+    .return-form-drawer.active {
+      display: block;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .orders-stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+      }
+      .order-meta-group {
+        gap: 1rem;
+      }
+      .order-card-header,
+      .order-card-body,
+      .order-logistics-strip,
+      .order-card-footer {
+        padding: 1rem 1.1rem;
+      }
+      .order-item-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .order-item-price {
+        align-self: flex-end;
+      }
+      .tracking-stepper {
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+      }
+      .step-label {
+        font-size: 0.74rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- STICKY SITE HEADER -->
+  <header class="site-header">
+    <div class="container header-container">
+
+      <!-- Back Navigation & Brand Logo -->
+      <div style="display: flex; align-items: center; gap: 0.85rem;">
+        <a href="index.html" class="header-back-btn" title="Back to All Houses (Home)">
+          <span class="back-arrow">&larr;</span>
+          <span class="back-text">Back to Home</span>
+        </a>
+        <a href="index.html" class="brand-logo" aria-label="Limetree Home">
+          <img src="assets/logo-transparent.png" alt="LIMETREE - Three Brands One Destination" class="site-logo-img" />
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="main-nav" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="riyaa-trends.html" class="nav-link">Riyaa Trends <span class="nav-badge-pill">Fashion</span></a>
+        <a href="glow-home.html" class="nav-link">Glow Home <span class="nav-badge-pill">Candles</span></a>
+        <a href="earkart.html" class="nav-link">Earkart <span class="nav-badge-pill">Jewellery</span></a>
+        <a href="orders.html" class="nav-link active">Order History</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="header-actions">
+        <a href="orders.html" class="action-btn header-orders-btn active" title="My Orders & History" aria-label="Order History">
+          📦
+          <span class="badge-count" id="headerOrdersCount" style="display: none;">0</span>
+        </a>
+        <button class="action-btn" id="headerWishlistBtn" title="Wishlist" aria-label="Wishlist"
+          onclick="window.limetreeStore.showToast('Your saved wishlist items can be viewed in the catalog.', 'info')">
+          ♥
+          <span class="badge-count" id="headerWishlistCount" style="display: none;">0</span>
+        </button>
+        <button class="action-btn" id="headerCartBtn" title="Shopping Bag" aria-label="Shopping Cart">
+          🛍️
+          <span class="badge-count" id="headerCartCount" style="display: none;">0</span>
+        </button>
+        <button class="mobile-menu-toggle-btn" id="mobileMenuToggleBtn" aria-label="Open Navigation Menu">
+          <span class="menu-hamburger-icon">☰</span>
+          <span class="menu-text">Menu</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MOBILE BRAND PILLS BAR -->
+  <nav class="mobile-brand-pills-bar" aria-label="Mobile Brand Switcher">
+    <div class="container mobile-pills-container">
+      <a href="index.html" class="mobile-brand-pill mobile-back-pill" title="Return to Collective Store">
+        <span style="font-size: 1rem; line-height: 1;">&larr;</span> <span>Back</span>
+      </a>
+      <a href="index.html" class="mobile-brand-pill">
+        <span>🏠</span> All Houses
+      </a>
+      <a href="riyaa-trends.html" class="mobile-brand-pill">
+        <span>👕</span> Riyaa Trends
+      </a>
+      <a href="glow-home.html" class="mobile-brand-pill">
+        <span>🕯️</span> Glow Home
+      </a>
+      <a href="earkart.html" class="mobile-brand-pill">
+        <span>✨</span> Earkart
+      </a>
+      <a href="orders.html" class="mobile-brand-pill active">
+        <span>📦</span> Order History
+      </a>
+    </div>
+  </nav>
+
+  <!-- PAGE BREADCRUMB / BACK BAR -->
+  <nav class="page-breadcrumb-bar" aria-label="Breadcrumb Navigation">
+    <div class="container breadcrumb-container">
+      <a href="index.html" class="breadcrumb-back-link" title="Return to Collective Storefront">
+        <span>&larr;</span> <span>Back to Collective Home</span>
+      </a>
+      <div class="breadcrumb-trail">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">My Orders &amp; Purchase History</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="orders-hero">
+    <div class="container">
+      <div class="orders-hero-content reveal-slide-up">
+        <div class="hero-pill-badge" style="background: rgba(255, 255, 255, 0.16); margin: 0 auto 1.2rem auto; display: inline-flex;">
+          <span>📦</span> <span>Customer Order Concierge</span>
+        </div>
+        <h1 style="font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 0.8rem; line-height: 1.2;">
+          My Orders &amp; Purchase History
+        </h1>
+        <p style="font-size: 1rem; color: #D2E2D8; line-height: 1.6; max-width: 580px; margin: 0 auto;">
+          Track live Delhivery &amp; BlueDart shipments, download statutory GST tax invoices, and initiate 7-day hassle-free returns across all three boutique houses.
+        </p>
+
+        <!-- Stats Counter Strip -->
+        <div class="orders-stats-bar" id="ordersStatsBar">
+          <div class="orders-stat-item">
+            <strong id="statTotalOrders">0</strong>
+            <span>Total Orders</span>
+          </div>
+          <div class="orders-stat-item">
+            <strong id="statInTransit">0</strong>
+            <span>In Transit</span>
+          </div>
+          <div class="orders-stat-item">
+            <strong id="statDelivered">0</strong>
+            <span>Delivered</span>
+          </div>
+          <div class="orders-stat-item">
+            <strong id="statTotalSpent">₹0</strong>
+            <span>Total Value</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN ORDER HISTORY CONTENT -->
+  <main class="section-padding" style="background: var(--color-bg-surface); min-height: 60vh;">
+    <div class="container" style="max-width: 960px;">
+
+      <!-- CONTROLS: Filter Pills and Order Search -->
+      <div class="order-history-controls reveal-slide-up">
+        <div class="order-filter-tabs">
+          <button class="order-filter-pill active" data-filter="all" onclick="filterOrderHistory('all', this)">
+            All Orders (<span id="countAll">0</span>)
+          </button>
+          <button class="order-filter-pill" data-filter="transit" onclick="filterOrderHistory('transit', this)">
+            In Transit (<span id="countTransit">0</span>)
+          </button>
+          <button class="order-filter-pill" data-filter="delivered" onclick="filterOrderHistory('delivered', this)">
+            Delivered (<span id="countDelivered">0</span>)
+          </button>
+          <button class="order-filter-pill" data-filter="confirmed" onclick="filterOrderHistory('confirmed', this)">
+            Confirmed (<span id="countConfirmed">0</span>)
+          </button>
+        </div>
+
+        <div class="order-search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="orderSearchInput" placeholder="Search by Order ID or item..." oninput="handleOrderSearch(this.value)" autocomplete="off" />
+        </div>
+      </div>
+
+      <!-- ORDER CARDS CONTAINER -->
+      <div id="ordersCardsContainer" class="reveal-stagger">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <!-- EMPTY STATE -->
+      <div id="ordersEmptyState" style="display: none; text-align: center; padding: 4.5rem 1.5rem; background: #FFFFFF; border: 1px solid var(--color-border); border-radius: var(--radius-md);">
+        <div style="font-size: 3.5rem; margin-bottom: 1rem; color: var(--color-accent-sage);">🛍️</div>
+        <h3 style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-primary-dark); margin-bottom: 0.5rem;">
+          No Orders Placed Yet
+        </h3>
+        <p style="color: var(--color-text-muted); font-size: 0.96rem; max-width: 480px; margin: 0 auto 1.8rem auto; line-height: 1.6;">
+          When you purchase from Riyaa Trends clothing, Glow Home candles, or Earkart jewellery, your orders and trackable shipments will appear here.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="index.html#catalogSection" class="btn btn-primary btn-lg">Explore Collective Catalog &rarr;</a>
+          <button class="btn btn-secondary btn-lg" onclick="loadSampleDemoOrder()">Load Demo Order (Sample)</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand-col">
+          <div class="footer-logo">LIMETREE</div>
+          <p class="footer-desc">
+            A harmonious multi-business retail collective bringing together Riyaa Trends fashion, Glow Home botanical
+            candles, and Earkart artisanal jewellery under one seamless destination.
+          </p>
+          <div style="font-size: 0.82rem; color: var(--color-text-muted);">
+            GSTIN: 33AAAAA0000A1Z5 · 7-Day Hassle-Free Returns Active
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">The Three Houses</h4>
+          <ul class="footer-links">
+            <li><a href="riyaa-trends.html">Riyaa Trends (Fashion &amp; Apparel)</a></li>
+            <li><a href="glow-home.html">Glow Home (Botanical Candles)</a></li>
+            <li><a href="earkart.html">Earkart (Artisanal Ear Studs)</a></li>
+            <li><a href="index.html#catalogSection">Collective Catalog</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Customer Concierge</h4>
+          <ul class="footer-links">
+            <li><a href="orders.html">My Orders &amp; History</a></li>
+            <li><a href="orders.html">Track Order &amp; Delivery</a></li>
+            <li><a href="orders.html">Download GST Invoices</a></li>
+            <li><a href="orders.html">7-Day Return Request</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Store Management</h4>
+          <ul class="footer-links">
+            <li><a href="admin.html">Executive Admin Dashboard</a></li>
+            <li><a href="admin.html">Bulk Product CSV Upload</a></li>
+            <li><a href="admin.html">LIFO Stock Valuation</a></li>
+            <li><a href="admin.html">Sales &amp; Inventory Reports</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 LIMETREE Multi-Business Retail Platform. All rights reserved.</div>
+        <div>Complies with Indian GST, Consumer Protection E-Commerce Rules &amp; LIFO Inventory Valuation.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART DRAWER -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Bag">
+    <div class="drawer-header">
+      <h3 class="drawer-title">Shopping Bag</h3>
+      <button class="drawer-close-btn" id="cartDrawerCloseBtn" aria-label="Close Shopping Bag">&times;</button>
+    </div>
+
+    <div class="drawer-body" id="cartDrawerBody"></div>
+
+    <div class="drawer-footer">
+      <div class="drawer-summary-row">
+        <span>Bag Subtotal:</span>
+        <span id="cartSubtotalDisplay">₹0</span>
+      </div>
+      <button class="btn btn-primary btn-lg" id="cartCheckoutBtn" style="width: 100%; margin-top: 0.5rem;">
+        Proceed to Secure Checkout
+      </button>
+    </div>
+  </aside>
+
+  <!-- QUICK VIEW / PRODUCT DETAIL MODAL -->
+  <div class="modal-overlay" id="quickViewModal">
+    <div class="modal-container">
+      <button class="modal-close-btn" onclick="window.limetreeStore.closeModal()" aria-label="Close Product View">&times;</button>
+      <div id="quickViewModalBody"></div>
+    </div>
+  </div>
+
+  <!-- CHECKOUT MODAL -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal-container" style="max-width: 960px;">
+      <button class="modal-close-btn" onclick="window.limetreeStore.closeModal()" aria-label="Close Checkout">&times;</button>
+      <div id="checkoutModalBody"></div>
+    </div>
+  </div>
+
+  <!-- TAX INVOICE MODAL -->
+  <div class="modal-overlay" id="invoiceModal">
+    <div class="modal-container" style="max-width: 860px; background: #FFFFFF;">
+      <button class="modal-close-btn no-print" onclick="window.limetreeStore.closeModal()" aria-label="Close Invoice">&times;</button>
+      <div id="invoiceModalBody"></div>
+    </div>
+  </div>
+
+  <!-- CORE SCRIPTS -->
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/store.js"></script>
+
+  <!-- ORDER HISTORY CONTROLLER -->
+  <script>
+    let currentActiveFilter = 'all';
+    let currentSearchTerm = '';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Ensure seed demo order exists if orders are empty
+      let orders = window.limetreeStorage.getOrders();
+      if (!orders || orders.length === 0) {
+        if (window.INITIAL_ORDERS && window.INITIAL_ORDERS.length > 0) {
+          localStorage.setItem('limetree_orders_v2', JSON.stringify(window.INITIAL_ORDERS));
+          orders = window.limetreeStorage.getOrders();
+        }
+      }
+
+      // Check query parameter (e.g. ?orderId=LT-2026-8812)
+      const params = new URLSearchParams(window.location.search);
+      const qId = params.get('orderId');
+      if (qId) {
+        currentSearchTerm = qId;
+        const searchInput = document.getElementById('orderSearchInput');
+        if (searchInput) searchInput.value = qId;
+      }
+
+      renderOrderHistory();
+
+      // If specific order was requested, expand its tracking automatically
+      if (qId) {
+        setTimeout(() => {
+          toggleTrackingDrawer(qId, true);
+          const el = document.getElementById(`order-card-${qId}`);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 300);
+      }
+    });
+
+    function getFilteredOrders() {
+      let orders = window.limetreeStorage.getOrders();
+
+      // Apply tab filter
+      if (currentActiveFilter === 'transit') {
+        orders = orders.filter(o => o.fulfillmentStatus === 'Shipped' || o.fulfillmentStatus === 'Processing');
+      } else if (currentActiveFilter === 'delivered') {
+        orders = orders.filter(o => o.fulfillmentStatus === 'Delivered');
+      } else if (currentActiveFilter === 'confirmed') {
+        orders = orders.filter(o => o.fulfillmentStatus === 'Confirmed');
+      }
+
+      // Apply search term
+      if (currentSearchTerm.trim()) {
+        const term = currentSearchTerm.toLowerCase().trim();
+        orders = orders.filter(o => {
+          const matchId = o.orderId.toLowerCase().includes(term);
+          const matchInv = (o.invoiceNumber || '').toLowerCase().includes(term);
+          const matchItems = (o.items || []).some(i => i.productName.toLowerCase().includes(term));
+          const matchCustomer = (o.customer?.name || '').toLowerCase().includes(term);
+          return matchId || matchInv || matchItems || matchCustomer;
+        });
+      }
+
+      return orders;
+    }
+
+    function renderOrderHistory() {
+      const allOrders = window.limetreeStorage.getOrders();
+      const filtered = getFilteredOrders();
+      const container = document.getElementById('ordersCardsContainer');
+      const emptyState = document.getElementById('ordersEmptyState');
+
+      // Update counters
+      const inTransit = allOrders.filter(o => o.fulfillmentStatus === 'Shipped' || o.fulfillmentStatus === 'Processing').length;
+      const delivered = allOrders.filter(o => o.fulfillmentStatus === 'Delivered').length;
+      const confirmed = allOrders.filter(o => o.fulfillmentStatus === 'Confirmed').length;
+      const totalSpent = allOrders.reduce((sum, o) => sum + (o.totalAmount || 0), 0);
+
+      document.getElementById('statTotalOrders').textContent = allOrders.length;
+      document.getElementById('statInTransit').textContent = inTransit;
+      document.getElementById('statDelivered').textContent = delivered;
+      document.getElementById('statTotalSpent').textContent = `₹${Math.round(totalSpent).toLocaleString('en-IN')}`;
+
+      document.getElementById('countAll').textContent = allOrders.length;
+      document.getElementById('countTransit').textContent = inTransit;
+      document.getElementById('countDelivered').textContent = delivered;
+      document.getElementById('countConfirmed').textContent = confirmed;
+
+      if (filtered.length === 0) {
+        container.innerHTML = '';
+        emptyState.style.display = 'block';
+        return;
+      }
+
+      emptyState.style.display = 'none';
+
+      container.innerHTML = filtered.map(order => {
+        const orderDate = new Date(order.date).toLocaleDateString('en-IN', {
+          day: 'numeric',
+          month: 'short',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        });
+
+        const statusClass = `status-${(order.fulfillmentStatus || 'confirmed').toLowerCase()}`;
+
+        // Stepper calculations
+        let stageIdx = 0;
+        if (order.fulfillmentStatus === 'Confirmed') stageIdx = 1;
+        else if (order.fulfillmentStatus === 'Processing') stageIdx = 2;
+        else if (order.fulfillmentStatus === 'Shipped') stageIdx = 3;
+        else if (order.fulfillmentStatus === 'Delivered') stageIdx = 4;
+
+        let progressPercent = 10;
+        if (stageIdx === 1) progressPercent = 35;
+        else if (stageIdx === 2) progressPercent = 60;
+        else if (stageIdx === 3) progressPercent = 85;
+        else if (stageIdx >= 4) progressPercent = 100;
+
+        const returns = window.limetreeStorage.getReturns() || [];
+        const orderReturn = returns.find(r => r.orderId === order.orderId);
+
+        return `
+          <article class="order-card" id="order-card-${order.orderId}">
+            <!-- CARD TOP HEADER -->
+            <div class="order-card-header">
+              <div class="order-meta-group">
+                <div class="order-meta-item">
+                  <span>Order Number</span>
+                  <strong>${order.orderId}</strong>
+                </div>
+                <div class="order-meta-item">
+                  <span>Order Date</span>
+                  <strong>${orderDate}</strong>
+                </div>
+                <div class="order-meta-item">
+                  <span>Total Amount</span>
+                  <strong style="color: var(--color-primary-dark);">₹${(order.totalAmount || 0).toLocaleString('en-IN', { minimumFractionDigits: 2 })}</strong>
+                </div>
+                <div class="order-meta-item">
+                  <span>Payment</span>
+                  <strong style="color: var(--color-success); font-size: 0.88rem;">✓ ${order.paymentStatus || 'Paid'}</strong>
+                </div>
+              </div>
+
+              <div>
+                <span class="status-pill ${statusClass}" style="font-size: 0.85rem; padding: 0.4rem 0.95rem;">
+                  ● ${order.fulfillmentStatus || 'Confirmed'}
+                </span>
+              </div>
+            </div>
+
+            <!-- OPTIONAL RETURN STATUS BANNER -->
+            ${orderReturn ? `
+              <div style="background: #FEF7EE; border-bottom: 1px solid #F5D3A3; padding: 0.75rem 1.6rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; font-size: 0.86rem; color: #8A4C03;">
+                <div>
+                  <strong>🔄 Return Requested (${orderReturn.returnId}):</strong> ${orderReturn.reason} — Status: <strong>${orderReturn.status}</strong>
+                </div>
+                <span style="font-size: 0.78rem; color: #A66311;">Reverse pickup in progress</span>
+              </div>
+            ` : ''}
+
+            <!-- CARD ITEMS BODY -->
+            <div class="order-card-body">
+              ${(order.items || []).map(item => `
+                <div class="order-item-row">
+                  <div class="order-item-info">
+                    <img src="${item.image || 'assets/riyaa-trends/IMG-20260222-WA0041.jpg'}" alt="${item.productName}" class="order-item-thumb" />
+                    <div>
+                      <div class="order-item-title">${item.productName}</div>
+                      <div class="order-item-desc">${item.variantLabel || 'Standard Variant'} · SKU: <code>${item.sku || 'N/A'}</code></div>
+                      <div style="font-size: 0.8rem; color: var(--color-primary); margin-top: 0.25rem;">
+                        Qty: ${item.quantity} &times; ₹${(item.price || 0).toLocaleString('en-IN')}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="order-item-price">
+                    ₹${((item.price || 0) * (item.quantity || 1)).toLocaleString('en-IN', { minimumFractionDigits: 2 })}
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+
+            <!-- LOGISTICS META STRIP -->
+            <div class="order-logistics-strip">
+              <div>
+                <span style="color: var(--color-text-muted);">Courier:</span>
+                <strong>${order.carrier || 'Delhivery Express Surface'}</strong>
+              </div>
+              <div>
+                <span style="color: var(--color-text-muted);">Waybill (AWB):</span>
+                <code>${order.trackingNumber || 'DEL-882910482'}</code>
+              </div>
+              <div>
+                <span style="color: var(--color-text-muted);">Shipping To:</span>
+                <strong>${order.customer?.name || 'Valued Patron'}, ${order.customer?.city || 'India'}</strong>
+              </div>
+            </div>
+
+            <!-- EXPANDABLE LIVE TRACKING DRAWER -->
+            <div class="order-tracking-drawer" id="tracking-drawer-${order.orderId}">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                <h4 style="font-family: var(--font-heading); font-size: 1.15rem; color: var(--color-primary-dark); margin: 0;">
+                  Live Shipment Milestones
+                </h4>
+                <span style="font-size: 0.82rem; color: var(--color-text-muted);">
+                  Estimated Delivery: <strong style="color: var(--color-success);">Within 3-5 Business Days</strong>
+                </span>
+              </div>
+
+              <div class="tracking-stepper">
+                <div class="tracking-stepper-line">
+                  <div class="tracking-stepper-progress" style="width: ${progressPercent}%;"></div>
+                </div>
+                <div class="tracking-step ${stageIdx >= 0 ? 'completed' : ''}">
+                  <div class="step-circle">✓</div>
+                  <div class="step-label">Order Placed</div>
+                </div>
+                <div class="tracking-step ${stageIdx >= 1 ? (stageIdx === 1 ? 'current' : 'completed') : ''}">
+                  <div class="step-circle">${stageIdx > 1 ? '✓' : '2'}</div>
+                  <div class="step-label">Confirmed</div>
+                </div>
+                <div class="tracking-step ${stageIdx >= 2 ? (stageIdx === 2 ? 'current' : 'completed') : ''}">
+                  <div class="step-circle">${stageIdx > 2 ? '✓' : '3'}</div>
+                  <div class="step-label">Packaging</div>
+                </div>
+                <div class="tracking-step ${stageIdx >= 3 ? (stageIdx === 3 ? 'current' : 'completed') : ''}">
+                  <div class="step-circle">${stageIdx > 3 ? '✓' : '4'}</div>
+                  <div class="step-label">In Transit</div>
+                </div>
+                <div class="tracking-step ${stageIdx >= 4 ? 'completed' : ''}">
+                  <div class="step-circle">${stageIdx >= 4 ? '✓' : '5'}</div>
+                  <div class="step-label">Delivered</div>
+                </div>
+              </div>
+
+              <div style="font-size: 0.84rem; color: var(--color-text-muted); background: #FFFFFF; padding: 0.8rem 1rem; border-radius: 6px; border: 1px solid var(--color-border);">
+                📍 Destination Address: <strong>${order.customer?.address || ''}, ${order.customer?.city || ''}, ${order.customer?.state || ''} — ${order.customer?.postalCode || order.customer?.pincode || ''}</strong>
+              </div>
+            </div>
+
+            <!-- EXPANDABLE RETURN FORM DRAWER -->
+            <div class="return-form-drawer" id="return-drawer-${order.orderId}">
+              <h4 style="font-family: var(--font-heading); font-size: 1.1rem; color: #7C4A03; margin-bottom: 0.5rem;">
+                7-Day Concierge Return &amp; Exchange Request
+              </h4>
+              <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 1rem;">
+                All items from Riyaa Trends, Glow Home, and Earkart qualify for 7-day hassle-free reverse pickup.
+              </p>
+              <form onsubmit="submitReturnRequest(event, '${order.orderId}')">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                  <div>
+                    <label style="display: block; font-size: 0.78rem; font-weight: 700; margin-bottom: 0.3rem;">Reason for Return / Exchange</label>
+                    <select id="return-reason-${order.orderId}" required style="width: 100%; padding: 0.55rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font-size: 0.85rem;">
+                      <option value="Size / Fit Issue">Size / Fit Issue (Apparel)</option>
+                      <option value="Fragrance Exchange">Fragrance Exchange (Candles)</option>
+                      <option value="Defective / Damaged in Transit">Defective / Damaged in Transit</option>
+                      <option value="Wrong Item Received">Wrong Item Received</option>
+                      <option value="Changed Mind / Unopened Gift">Changed Mind / Unopened Gift</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label style="display: block; font-size: 0.78rem; font-weight: 700; margin-bottom: 0.3rem;">Pickup Pincode &amp; Contact</label>
+                    <input type="text" value="${order.customer?.phone || ''} (${order.customer?.postalCode || order.customer?.pincode || ''})" readonly style="width: 100%; padding: 0.55rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font-size: 0.85rem; background: #F5F5F5;" />
+                  </div>
+                </div>
+                <div style="margin-bottom: 1rem;">
+                  <label style="display: block; font-size: 0.78rem; font-weight: 700; margin-bottom: 0.3rem;">Notes / Instructions for Courier</label>
+                  <input type="text" id="return-notes-${order.orderId}" placeholder="Let us know how we can assist..." style="width: 100%; padding: 0.55rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font-size: 0.85rem;" />
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm">Submit Return Request</button>
+              </form>
+            </div>
+
+            <!-- CARD FOOTER ACTIONS -->
+            <div class="order-card-footer">
+              <div class="order-actions-left">
+                <button class="btn btn-secondary btn-sm" onclick="toggleTrackingDrawer('${order.orderId}')">
+                  🚚 Live Tracking
+                </button>
+                <button class="btn btn-secondary btn-sm" onclick="window.limetreeStore.openPrintableInvoice('${order.orderId}')">
+                  📄 Tax Invoice
+                </button>
+                <button class="btn btn-secondary btn-sm" onclick="toggleReturnDrawer('${order.orderId}')">
+                  ${orderReturn ? '✓ Return Filed' : '🔄 Return / Exchange'}
+                </button>
+              </div>
+
+              <div class="order-actions-right">
+                <button class="btn btn-primary btn-sm" onclick="buyOrderAgain('${order.orderId}')">
+                  🛒 Buy Again
+                </button>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function filterOrderHistory(type, btn) {
+      currentActiveFilter = type;
+      document.querySelectorAll('.order-filter-pill').forEach(p => p.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      renderOrderHistory();
+    }
+
+    function handleOrderSearch(value) {
+      currentSearchTerm = value;
+      renderOrderHistory();
+    }
+
+    function toggleTrackingDrawer(orderId, forceOpen = false) {
+      const drawer = document.getElementById(`tracking-drawer-${orderId}`);
+      if (!drawer) return;
+      if (forceOpen) {
+        drawer.classList.add('active');
+      } else {
+        drawer.classList.toggle('active');
+      }
+    }
+
+    function toggleReturnDrawer(orderId) {
+      const drawer = document.getElementById(`return-drawer-${orderId}`);
+      if (!drawer) return;
+      drawer.classList.toggle('active');
+    }
+
+    function buyOrderAgain(orderId) {
+      const order = window.limetreeStorage.getOrderById(orderId);
+      if (!order || !order.items) return;
+      let count = 0;
+      for (const item of order.items) {
+        try {
+          window.limetreeStorage.addToCart({
+            productId: item.productId,
+            variantId: item.variantId,
+            quantity: item.quantity || 1
+          });
+          count++;
+        } catch (e) {
+          console.warn('Could not re-add item:', item.productName);
+        }
+      }
+      if (count > 0) {
+        window.limetreeStore.showToast(`Added ${count} items from order ${order.orderId} to your bag!`, 'success');
+        window.limetreeStore.openCartDrawer();
+      } else {
+        window.limetreeStore.showToast('Sorry, items from this order are currently out of stock.', 'error');
+      }
+    }
+
+    function submitReturnRequest(e, orderId) {
+      e.preventDefault();
+      const reasonEl = document.getElementById(`return-reason-${orderId}`);
+      const notesEl = document.getElementById(`return-notes-${orderId}`);
+      const order = window.limetreeStorage.getOrderById(orderId);
+      if (!order) return;
+
+      try {
+        const ret = window.limetreeStorage.createReturnRequest({
+          orderId: order.orderId,
+          reason: reasonEl?.value || 'Customer Request',
+          details: notesEl?.value || 'Standard reverse pickup',
+          items: order.items,
+          refundAmount: order.totalAmount
+        });
+
+        window.limetreeStore.showToast(`Return request registered! Return ID: ${ret.returnId}. Our courier will coordinate pickup.`, 'success');
+        const drawer = document.getElementById(`return-drawer-${orderId}`);
+        if (drawer) drawer.classList.remove('active');
+        renderOrderHistory();
+      } catch (err) {
+        window.limetreeStore.showToast(err.message || 'Error creating return request.', 'error');
+      }
+    }
+
+    function loadSampleDemoOrder() {
+      if (window.INITIAL_ORDERS && window.INITIAL_ORDERS.length > 0) {
+        localStorage.setItem('limetree_orders_v2', JSON.stringify(window.INITIAL_ORDERS));
+        window.limetreeStore.showToast('Sample order loaded into your history!', 'success');
+        renderOrderHistory();
+      }
+    }
+  </script>
+
+</body>
+
+</html>
