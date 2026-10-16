@@ -142,7 +142,7 @@ function setupCategoryView(catKey) {
         btn.addEventListener('click', (e) => {
           catSubNav.querySelectorAll('.sub-pill').forEach(b => b.classList.remove('active'));
           e.target.classList.add('active');
-          filterProductsBySubcategory(e.target.dataset.subcategory, brandData.id);
+          filterProductsBySubcategory(e.target.dataset.subcategory, catKey);
         });
       });
     }
@@ -152,7 +152,7 @@ function setupCategoryView(catKey) {
       tab.classList.toggle('active', tab.dataset.category === catKey);
     });
 
-    filterProductsByCategory(brandData.category, brandData.id);
+    filterProductsByCategory(brandData.category, catKey);
   } else {
     // "All Marketplace Items"
     if (catTitleEl) catTitleEl.textContent = "LimeTree Unified Marketplace";
@@ -368,29 +368,66 @@ function performSearch(query) {
   renderProductGrid(filtered);
 }
 
-function filterProductsByCategory(category, brandSlug) {
-  if (brandSlug) {
-    currentProducts = INITIAL_PRODUCTS.filter(p => p.brandSlug === brandSlug);
+function filterProductsByCategory(category, catKey) {
+  const key = (catKey || category || 'all').toLowerCase();
+  
+  if (key === 'all' || !key) {
+    currentProducts = [...INITIAL_PRODUCTS];
+  } else if (key === 'clothing' || key.includes('cloth') || key.includes('riyaa') || key.includes('kid')) {
+    currentProducts = INITIAL_PRODUCTS.filter(p => 
+      (p.brandSlug && (p.brandSlug === 'clothing' || p.brandSlug === 'riyaa')) ||
+      (p.category && p.category.toLowerCase().includes('cloth')) ||
+      (p.brand && p.brand.toLowerCase().includes('riyaa'))
+    );
+  } else if (key === 'candles' || key.includes('candle') || key.includes('glow')) {
+    currentProducts = INITIAL_PRODUCTS.filter(p => 
+      (p.brandSlug && (p.brandSlug === 'candles' || p.brandSlug === 'glow-home')) ||
+      (p.category && p.category.toLowerCase().includes('candle')) ||
+      (p.brand && p.brand.toLowerCase().includes('glow'))
+    );
+  } else if (key === 'studs' || key.includes('stud') || key.includes('earkart') || key.includes('jewel')) {
+    currentProducts = INITIAL_PRODUCTS.filter(p => 
+      (p.brandSlug && (p.brandSlug === 'studs' || p.brandSlug === 'earkart')) ||
+      (p.category && (p.category.toLowerCase().includes('stud') || p.category.toLowerCase().includes('jewel'))) ||
+      (p.brand && p.brand.toLowerCase().includes('earkart'))
+    );
   } else {
     currentProducts = INITIAL_PRODUCTS.filter(p => 
-      p.brandSlug === category ||
-      p.category.toLowerCase() === category.toLowerCase() ||
-      p.category.toLowerCase().includes(category.toLowerCase()) ||
-      category.toLowerCase().includes(p.category.toLowerCase())
+      (p.category && p.category.toLowerCase() === key) ||
+      (p.brandSlug && p.brandSlug.toLowerCase() === key)
     );
   }
+  
   renderProductGrid(currentProducts);
 }
 
-function filterProductsBySubcategory(subcategory, brandSlugOrCat) {
-  if (subcategory === 'All') {
-    filterProductsByCategory('', brandSlugOrCat);
+function filterProductsBySubcategory(subcategory, catKey) {
+  if (!subcategory || subcategory === 'All') {
+    filterProductsByCategory('', catKey);
     return;
   }
-  const filtered = INITIAL_PRODUCTS.filter(p => 
-    (p.brandSlug === brandSlugOrCat || p.category.toLowerCase() === brandSlugOrCat.toLowerCase()) && 
-    p.subcategory.toLowerCase() === subcategory.toLowerCase()
-  );
+  
+  const key = (catKey || '').toLowerCase();
+  const sub = subcategory.toLowerCase();
+  
+  const filtered = INITIAL_PRODUCTS.filter(p => {
+    const pSlug = (p.brandSlug || '').toLowerCase();
+    const pCat = (p.category || '').toLowerCase();
+    const pBrand = (p.brand || '').toLowerCase();
+    const pSub = (p.subcategory || '').toLowerCase();
+    
+    let matchesCat = true;
+    if (key === 'clothing' || key.includes('cloth') || key.includes('kid')) {
+      matchesCat = pSlug === 'clothing' || pCat.includes('cloth') || pBrand.includes('riyaa');
+    } else if (key === 'candles' || key.includes('candle') || key.includes('glow')) {
+      matchesCat = pSlug === 'candles' || pSlug === 'glow-home' || pCat.includes('candle') || pBrand.includes('glow');
+    } else if (key === 'studs' || key.includes('stud') || key.includes('jewel')) {
+      matchesCat = pSlug === 'studs' || pSlug === 'earkart' || pCat.includes('stud') || pBrand.includes('earkart');
+    }
+    
+    return matchesCat && (pSub === sub || pSub.includes(sub) || sub.includes(pSub));
+  });
+  
   renderProductGrid(filtered);
 }
 
