@@ -20,8 +20,11 @@
   class LimetreeAnimations {
     constructor() {
       this.revealObserver = null;
+      this.parallaxObserver = null;
       this.parallaxElements = [];
+      this.visibleElements = new Set();
       this.parallaxTicking = false;
+      this.isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
       this.init();
     }
 
@@ -204,41 +207,268 @@
       });
     }
 
-    // ==================== SUBTLE SCROLL PARALLAX ====================
+    // ==================== PREMIUM UNIVERSAL SCROLL & HOVER PARALLAX ENGINE ====================
     initScrollParallax() {
-      if (prefersReducedMotion || window.innerWidth < 768) return;
+      if (prefersReducedMotion) return;
 
-      const elements = document.querySelectorAll(
-        '.hero-main-img, .editorial-showcase-img, [data-parallax]'
-      );
-      if (elements.length === 0) return;
-
-      this.parallaxElements = Array.from(elements);
-
-      const updateParallax = () => {
-        const winHeight = window.innerHeight;
-        this.parallaxElements.forEach(el => {
-          const rect = el.getBoundingClientRect();
-          if (rect.bottom > -50 && rect.top < winHeight + 50) {
-            // Normalized progress from 0 (bottom of viewport) to 1 (top of viewport)
-            const progress = (winHeight - rect.top) / (winHeight + rect.height);
-            // Gentle shift between -16px and +16px
-            const offset = (progress - 0.5) * 32;
-            el.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0)`;
+      // IntersectionObserver: Track elements entering/leaving near-viewport margin
+      // This guarantees zero overhead on off-screen elements for 60/120fps fluid scrolling
+      this.parallaxObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            this.visibleElements.add(entry.target);
+          } else {
+            this.visibleElements.delete(entry.target);
           }
         });
-        this.parallaxTicking = false;
-      };
+        this.requestParallaxUpdate();
+      }, {
+        root: null,
+        rootMargin: '120px 0px 120px 0px',
+        threshold: 0
+      });
 
+      // Passive scroll listener with requestAnimationFrame debounce
       window.addEventListener('scroll', () => {
-        if (!this.parallaxTicking) {
-          window.requestAnimationFrame(updateParallax);
-          this.parallaxTicking = true;
-        }
+        this.requestParallaxUpdate();
       }, { passive: true });
 
-      // Run once on load
-      window.requestAnimationFrame(updateParallax);
+      // Resize listener to recalculate bounds
+      window.addEventListener('resize', () => {
+        this.isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
+        this.requestParallaxUpdate();
+      }, { passive: true });
+
+      // Initial discovery of parallax elements on page load
+      this.refreshParallax();
+    }
+
+    requestParallaxUpdate() {
+      if (prefersReducedMotion || this.parallaxTicking) return;
+      this.parallaxTicking = true;
+      window.requestAnimationFrame(() => this.updateParallax());
+    }
+
+    refreshParallax() {
+      if (prefersReducedMotion || !this.parallaxObserver) return;
+
+      // 1. Decorative background elements across all pages
+      const decoSelector = '[data-parallax], .nature-leaf-corner, .card-arch-img, .card-badge-circle, .brand-parallax-deco, .nature-hero-logo-art, .video-parallax';
+      document.querySelectorAll(decoSelector).forEach(el => {
+        this.parallaxObserver.observe(el);
+      });
+
+      // 2. Homepage brand cards (arch portals & floating badges)
+      document.querySelectorAll('.nature-brand-card').forEach(card => {
+        this.parallaxObserver.observe(card);
+        this.bindHomepageBrandCardHover(card);
+      });
+
+      // 3. All brand product cards (Riyaa Trends clothing, Glow Home candles, Earkart jewellery)
+      document.querySelectorAll('.product-card').forEach(card => {
+        this.parallaxObserver.observe(card);
+        this.bindProductCardHover(card);
+      });
+
+      // 4. Modal detail gallery (if open)
+      this.bindModalParallax();
+
+      // Trigger one layout update frame
+      this.requestParallaxUpdate();
+    }
+
+    // Desktop hover parallax on product cards across all 3 brands
+    bindProductCardHover(card) {
+      if (this.isTouch || prefersReducedMotion) return;
+      if (card._hasParallaxHoverBound) return;
+      card._hasParallaxHoverBound = true;
+
+      const img = card.querySelector('.product-image-container img');
+      if (!img) return;
+
+      let isHovering = false;
+      let hoverTicking = false;
+
+      const onMouseMove = (e) => {
+        if (!isHovering) isHovering = true;
+        if (hoverTicking) return;
+        hoverTicking = true;
+
+        window.requestAnimationFrame(() => {
+          const rect = card.getBoundingClientRect();
+          if (rect.width === 0 || rect.height === 0) {
+            hoverTicking = false;
+            return;
+          }
+          // Normalized relative offset from card center (-0.5 to +0.5)
+          const relX = (e.clientX - rect.left) / rect.width - 0.5;
+          const relY = (e.clientY - rect.top) / rect.height - 0.5;
+
+          // Subtle, elegant movement (+/- 4px to +/- 5px max)
+          const hx = (relX * 9).toFixed(1);
+          const hy = (relY * 9).toFixed(1);
+
+          img.style.setProperty('--hover-x', `${hx}px`);
+          img.style.setProperty('--hover-y', `${hy}px`);
+          hoverTicking = false;
+        });
+      };
+
+      const onMouseLeave = () => {
+        isHovering = false;
+        hoverTicking = false;
+        img.style.setProperty('--hover-x', '0px');
+        img.style.setProperty('--hover-y', '0px');
+      };
+
+      card.addEventListener('mousemove', onMouseMove, { passive: true });
+      card.addEventListener('mouseleave', onMouseLeave, { passive: true });
+    }
+
+    // Desktop hover parallax on homepage brand arch portals & badges
+    bindHomepageBrandCardHover(card) {
+      if (this.isTouch || prefersReducedMotion) return;
+      if (card._hasParallaxHoverBound) return;
+      card._hasParallaxHoverBound = true;
+
+      const archImg = card.querySelector('.card-arch-img');
+      const badge = card.querySelector('.card-badge-circle');
+      if (!archImg && !badge) return;
+
+      let hoverTicking = false;
+
+      const onMouseMove = (e) => {
+        if (hoverTicking) return;
+        hoverTicking = true;
+
+        window.requestAnimationFrame(() => {
+          const rect = card.getBoundingClientRect();
+          if (rect.width === 0 || rect.height === 0) {
+            hoverTicking = false;
+            return;
+          }
+          const relX = (e.clientX - rect.left) / rect.width - 0.5;
+          const relY = (e.clientY - rect.top) / rect.height - 0.5;
+
+          if (archImg) {
+            archImg.style.setProperty('--arch-hover-x', `${(relX * 8).toFixed(1)}px`);
+            archImg.style.setProperty('--arch-hover-y', `${(relY * 8).toFixed(1)}px`);
+          }
+          if (badge) {
+            badge.style.setProperty('--badge-hover-x', `${(relX * 6).toFixed(1)}px`);
+            badge.style.setProperty('--badge-hover-y', `${(relY * 6).toFixed(1)}px`);
+          }
+          hoverTicking = false;
+        });
+      };
+
+      const onMouseLeave = () => {
+        hoverTicking = false;
+        if (archImg) {
+          archImg.style.setProperty('--arch-hover-x', '0px');
+          archImg.style.setProperty('--arch-hover-y', '0px');
+        }
+        if (badge) {
+          badge.style.setProperty('--badge-hover-x', '0px');
+          badge.style.setProperty('--badge-hover-y', '0px');
+        }
+      };
+
+      card.addEventListener('mousemove', onMouseMove, { passive: true });
+      card.addEventListener('mouseleave', onMouseLeave, { passive: true });
+    }
+
+    // Modal product detail image parallax & tactile cursor tracking
+    bindModalParallax() {
+      if (prefersReducedMotion) return;
+      const modalImg = document.getElementById('modalMainImg');
+      if (!modalImg) return;
+      const modalWrap = modalImg.closest('.modal-gallery-wrap') || modalImg.parentElement;
+      if (!modalWrap || modalWrap._hasParallaxHoverBound) return;
+      modalWrap._hasParallaxHoverBound = true;
+
+      if (!this.isTouch) {
+        let hoverTicking = false;
+        modalWrap.addEventListener('mousemove', (e) => {
+          if (hoverTicking) return;
+          hoverTicking = true;
+          window.requestAnimationFrame(() => {
+            const rect = modalWrap.getBoundingClientRect();
+            if (rect.width === 0 || rect.height === 0) {
+              hoverTicking = false;
+              return;
+            }
+            const relX = (e.clientX - rect.left) / rect.width - 0.5;
+            const relY = (e.clientY - rect.top) / rect.height - 0.5;
+            modalImg.style.setProperty('--hover-x', `${(relX * 10).toFixed(1)}px`);
+            modalImg.style.setProperty('--hover-y', `${(relY * 10).toFixed(1)}px`);
+            hoverTicking = false;
+          });
+        }, { passive: true });
+
+        modalWrap.addEventListener('mouseleave', () => {
+          hoverTicking = false;
+          modalImg.style.setProperty('--hover-x', '0px');
+          modalImg.style.setProperty('--hover-y', '0px');
+        }, { passive: true });
+      }
+    }
+
+    // Ultra-smooth, hardware-accelerated scroll update loop
+    updateParallax() {
+      if (prefersReducedMotion) {
+        this.parallaxTicking = false;
+        return;
+      }
+
+      const winHeight = window.innerHeight;
+      const isMobile = window.innerWidth < 768;
+
+      this.visibleElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        // Skip elements completely off-screen
+        if (rect.bottom < -60 || rect.top > winHeight + 60) return;
+
+        // Progress: 0 when top is at bottom of viewport, 1 when bottom is at top of viewport
+        const progress = (winHeight - rect.top) / (winHeight + rect.height);
+        const centered = progress - 0.5; // -0.5 (bottom entrance) to +0.5 (top exit)
+
+        // 1. Product cards (Riyaa Trends, Glow Home, Earkart)
+        if (el.classList.contains('product-card')) {
+          const img = el.querySelector('.product-image-container img');
+          if (img) {
+            // Gentle travel without distorting crop or layout: +/-11px on desktop, +/-5px on mobile
+            const maxTravel = isMobile ? -10 : -22;
+            const offsetY = (centered * maxTravel).toFixed(1);
+            img.style.setProperty('--parallax-y', `${offsetY}px`);
+          }
+          return;
+        }
+
+        // 2. Homepage brand cards
+        if (el.classList.contains('nature-brand-card')) {
+          const archImg = el.querySelector('.card-arch-img');
+          const badge = el.querySelector('.card-badge-circle');
+          if (archImg) {
+            const archOffset = (centered * (isMobile ? -8 : -16)).toFixed(1);
+            archImg.style.setProperty('--arch-scroll-y', `${archOffset}px`);
+          }
+          if (badge) {
+            const badgeOffset = (centered * (isMobile ? 8 : 16)).toFixed(1);
+            badge.style.setProperty('--parallax-y', `${badgeOffset}px`);
+          }
+          return;
+        }
+
+        // 3. Decorative background elements ([data-parallax], leaves, etc.)
+        const speed = parseFloat(el.getAttribute('data-parallax-speed')) || -0.15;
+        // Travel range tailored to speed factor: desktop ~ 60px max, mobile ~ 28px max
+        const baseTravel = isMobile ? 32 : 64;
+        const offsetY = (centered * baseTravel * speed).toFixed(1);
+        el.style.setProperty('--parallax-y', `${offsetY}px`);
+      });
+
+      this.parallaxTicking = false;
     }
 
     // ==================== STICKY STORYTELLING ENGINE ====================
@@ -324,7 +554,10 @@
     // ==================== DYNAMIC CATALOG OBSERVER ====================
     initDynamicObserver() {
       window.addEventListener('limetree:products-updated', () => {
-        setTimeout(() => this.observeElements(), 50);
+        setTimeout(() => {
+          this.observeElements();
+          this.refreshParallax();
+        }, 50);
       });
     }
 

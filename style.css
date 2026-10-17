@@ -992,18 +992,18 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1;
   user-select: none;
   opacity: 0.95;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease, transform 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate3d(0, var(--parallax-y, 0px), 0);
+  will-change: transform;
   animation: heroLeafEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes heroLeafEntrance {
   from {
     opacity: 0;
-    transform: scale(0.96);
   }
   to {
     opacity: 0.95;
-    transform: scale(1);
   }
 }
 
@@ -1169,11 +1169,13 @@ h1, h2, h3, h4, h5, h6 {
   object-fit: cover;
   object-position: center 20%;
   display: block;
-  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+  transform: scale(1.06) translate3d(var(--arch-hover-x, 0px), calc(var(--arch-scroll-y, 0px) + var(--arch-hover-y, 0px)), 0);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .nature-brand-card:hover .card-arch-img {
-  transform: scale(1.05);
+  transform: scale(1.10) translate3d(var(--arch-hover-x, 0px), calc(var(--arch-scroll-y, 0px) + var(--arch-hover-y, 0px)), 0);
 }
 
 /* Circular Category Icon Badge at Boundary */
@@ -1192,7 +1194,9 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: -30px;
   margin-bottom: 0.35rem;
   flex-shrink: 0;
-  transition: transform 0.35s ease, background 0.3s ease, box-shadow 0.35s ease;
+  transform: translate3d(var(--badge-hover-x, 0px), calc(var(--parallax-y, 0px) + var(--badge-hover-y, 0px)), 0);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, box-shadow 0.35s ease;
+  will-change: transform;
 }
 
 .badge-icon-svg {
@@ -2467,12 +2471,16 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Base scale (1.08) creates a subtle bleed margin to prevent edge clipping during parallax scroll */
+  transform: scale(1.08) translate3d(var(--hover-x, 0px), calc(var(--parallax-y, 0px) + var(--hover-y, 0px)), 0);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
 }
 
 .product-card:hover .product-image-container img {
-  transform: scale(1.06);
+  /* Subtle luxury zoom + hover parallax + scroll parallax */
+  transform: scale(1.12) translate3d(var(--hover-x, 0px), calc(var(--parallax-y, 0px) + var(--hover-y, 0px)), 0);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .product-badge-group {
@@ -3495,11 +3503,13 @@ body.scroll-animate-ready .reveal-slide-right.is-revealed {
 }
 
 .product-image-container img {
-  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(1.08) translate3d(var(--hover-x, 0px), calc(var(--parallax-y, 0px) + var(--hover-y, 0px)), 0);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .product-card:hover .product-image-container img {
-  transform: scale(1.08);
+  transform: scale(1.12) translate3d(var(--hover-x, 0px), calc(var(--parallax-y, 0px) + var(--hover-y, 0px)), 0);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Wishlist Button Heart Pop Animation */
@@ -4485,7 +4495,75 @@ body.scroll-animate-ready .product-card.reveal-card.is-revealed {
 .editorial-showcase-img,
 [data-parallax] {
   will-change: transform;
-  transition: transform 0.12s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: translate3d(var(--parallax-x, 0px), var(--parallax-y, 0px), 0);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Brand Decorative Parallax Elements */
+.brand-parallax-deco {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: multiply;
+  opacity: 0.10;
+  user-select: none;
+  max-width: 260px;
+  will-change: transform;
+  transform: translate3d(0, var(--parallax-y, 0px), 0);
+  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brand-deco-tl {
+  top: 1rem;
+  left: -2rem;
+  width: 240px;
+}
+.brand-deco-tr {
+  top: 2rem;
+  right: -2rem;
+  width: 260px;
+}
+.brand-deco-bl {
+  bottom: 2rem;
+  left: -1rem;
+  width: 200px;
+}
+.brand-deco-br {
+  bottom: 2rem;
+  right: -1rem;
+  width: 220px;
+}
+
+/* Ensure boutique catalog has relative positioning for decorative elements */
+#boutiqueCatalog {
+  position: relative;
+  overflow: hidden;
+}
+#boutiqueCatalog > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Modal Gallery Parallax Wrap */
+.modal-gallery-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  margin-bottom: 0.9rem;
+  background: var(--color-bg-base);
+}
+
+.modal-gallery-wrap .gallery-main-img {
+  margin-bottom: 0;
+  display: block;
+  transform: scale(1.04) translate3d(var(--hover-x, 0px), calc(var(--parallax-y, 0px) + var(--hover-y, 0px)), 0);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.modal-gallery-wrap:hover .gallery-main-img {
+  transform: scale(1.08) translate3d(var(--hover-x, 0px), calc(var(--parallax-y, 0px) + var(--hover-y, 0px)), 0);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Sticky Storytelling Section (Non-blocking) */
@@ -4559,7 +4637,10 @@ body.scroll-animate-ready .product-card.reveal-card.is-revealed {
     transform: none !important;
     transition: none !important;
   }
-  .hero-main-img, .editorial-showcase-img, [data-parallax] {
+  .hero-main-img, .editorial-showcase-img, [data-parallax], .brand-parallax-deco,
+  .nature-leaf-corner, .card-arch-img, .card-badge-circle, .gallery-main-img,
+  .product-image-container img {
     transform: none !important;
+    transition: none !important;
   }
 }

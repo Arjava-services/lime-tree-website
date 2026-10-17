@@ -508,6 +508,10 @@ class LimetreeStorefront {
       window.history.pushState({ quickViewModal: true }, '');
     } catch (e) {}
 
+    if (window.limetreeAnimations) {
+      setTimeout(() => window.limetreeAnimations.bindModalParallax(), 50);
+    }
+
     const dropdown = document.getElementById('searchResultsDropdown');
     if (dropdown) dropdown.classList.remove('active');
   }
@@ -543,7 +547,9 @@ class LimetreeStorefront {
       </div>
       <div class="product-detail-grid">
         <div class="gallery-col">
-          <img id="modalMainImg" class="gallery-main-img" src="${prod.images[0]}" alt="${prod.name}" />
+          <div class="modal-gallery-wrap">
+            <img id="modalMainImg" class="gallery-main-img" src="${prod.images[0]}" alt="${prod.name}" />
+          </div>
           <div class="gallery-thumbs">
             ${(prod.images || []).map((img, idx) => `
               <img class="gallery-thumb ${idx === 0 ? 'active' : ''}" src="${img}" alt="Thumbnail ${idx}" 
