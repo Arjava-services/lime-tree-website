@@ -36,20 +36,24 @@
           <img src="images/logo.svg" alt="LimeTree Logo" style="height: 48px; width: auto;" />
         </a>
 
-        <!-- Desktop Navigation Links -->
-        <div class="nav-links">
-          <a href="#home" class="nav-link active" id="navHome">Home</a>
-          <a href="#clothing" class="nav-link" id="navClothing">
-            Kids Wear <span class="nav-pill-badge badge-clothing">Riyaa</span>
+        <!-- Desktop Navigation Links (Custom Brand Pills & Order History) -->
+        <div class="nav-links" id="desktopNavLinks">
+          <a href="#clothing" class="brand-nav-item nav-link" id="navClothing" title="Riyaa Trends — Kids Clothing">
+            <span class="brand-nav-title">Riyaa Trends</span>
+            <span class="brand-nav-badge">Clothing</span>
           </a>
-          <a href="#candles" class="nav-link" id="navCandles">
-            Candles <span class="nav-pill-badge badge-candles">Glow</span>
+          <a href="#candles" class="brand-nav-item nav-link" id="navCandles" title="Glow Home — Scented Candles">
+            <span class="brand-nav-title">Glow Home</span>
+            <span class="brand-nav-badge">Candles</span>
           </a>
-          <a href="#studs" class="nav-link" id="navStuds">
-            Studs <span class="nav-pill-badge badge-studs">Earkart</span>
+          <a href="#studs" class="brand-nav-item nav-link" id="navStuds" title="Earkart — Hypoallergenic Jewellery">
+            <span class="brand-nav-title">Earkart</span>
+            <span class="brand-nav-badge">Jewellery</span>
           </a>
-          <a href="#about" class="nav-link" id="navAbout">About Us</a>
-          <a href="#contact" class="nav-link" id="navContact">Contact</a>
+          <a href="#account" class="brand-nav-item nav-link brand-nav-order" id="navAccount" title="View Order History">
+            <span class="brand-nav-title">Order</span>
+            <span class="brand-nav-title">History</span>
+          </a>
         </div>
 
         <!-- Search Bar with Keyboard Hint -->
@@ -708,7 +712,10 @@
               <div class="trust-icon-box" style="background: var(--lime-100); color: var(--lime-700);">✉️</div>
               <div>
                 <h4 style="font-family: var(--font-heading); font-weight: 700;">Direct Email</h4>
-                <p style="color: var(--slate-600); font-size: 0.9rem;">concierge@limetree.shop<br />orders@limetree.shop</p>
+                <p style="color: var(--slate-600); font-size: 0.9rem;">
+                  <a href="mailto:concierge@limetree.shop" class="contact-link">concierge@limetree.shop</a><br />
+                  <a href="mailto:orders@limetree.shop" class="contact-link">orders@limetree.shop</a>
+                </p>
               </div>
             </div>
 
@@ -716,7 +723,9 @@
               <div class="trust-icon-box" style="background: var(--lime-100); color: var(--lime-700);">📞</div>
               <div>
                 <h4 style="font-family: var(--font-heading); font-weight: 700;">Customer Care Hotline</h4>
-                <p style="color: var(--slate-600); font-size: 0.9rem;">+1 (800) 546-3873<br />Mon–Fri: 9 AM – 6 PM PST</p>
+                <p style="color: var(--slate-600); font-size: 0.9rem;">
+                  <a href="tel:+18005463873" class="contact-link">+1 (800) 546-3873</a><br />Mon–Fri: 9 AM – 6 PM PST
+                </p>
               </div>
             </div>
           </div>

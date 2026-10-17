@@ -263,52 +263,120 @@ ul, ol {
   color: var(--slate-500);
 }
 
-/* Nav Links */
+/* Nav Links (Matches Mockup with Brand Names, Badges, & Order History) */
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: clamp(1.25rem, 2.4vw, 2.25rem);
 }
 
-.nav-link {
-  font-weight: 600;
-  font-size: 0.925rem;
-  color: var(--slate-700);
-  padding: 0.55rem 0.95rem;
-  border-radius: var(--radius-sm);
-  transition: var(--transition);
-  position: relative;
-  display: flex;
+.brand-nav-item {
+  display: inline-flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.35rem;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-md);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+  position: relative;
+  user-select: none;
 }
 
-.nav-link:hover, .nav-link.active {
+.brand-nav-item:hover {
+  transform: translateY(-2px);
+}
+
+.brand-nav-title {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #272d22;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.brand-nav-item:hover .brand-nav-title {
   color: var(--lime-700);
-  background-color: var(--lime-100);
 }
 
-.nav-pill-badge {
-  font-size: 0.65rem;
-  font-weight: 700;
-  padding: 0.15rem 0.45rem;
+.brand-nav-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #2d551b;
+  background-color: #ebf4e3;
+  border: 1px solid #d4e8c6;
   border-radius: var(--radius-full);
-  line-height: 1;
+  padding: 2.5px 12px;
+  line-height: 1.25;
+  margin-top: 4px;
+  letter-spacing: 0.01em;
+  transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
-.badge-clothing {
-  background: var(--lime-200);
-  color: var(--lime-900);
+.brand-nav-item:hover .brand-nav-badge {
+  background-color: #dfedd3;
+  border-color: #bcdca7;
+  color: #1f4211;
 }
 
-.badge-candles {
-  background: var(--glow-bg);
-  color: var(--glow-accent);
+/* Order History (Two stacked text lines, perfectly aligned) */
+.brand-nav-order {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.15;
 }
 
-.badge-studs {
-  background: var(--earkart-bg);
-  color: var(--earkart-accent);
+.brand-nav-order .brand-nav-title {
+  line-height: 1.15;
+  text-align: center;
+}
+
+/* Active State */
+.brand-nav-item.active .brand-nav-title {
+  color: var(--lime-800);
+  font-weight: 700;
+}
+
+.brand-nav-item.active .brand-nav-badge {
+  background-color: #e0f0d6;
+  border-color: #a7d391;
+  color: #19380e;
+  box-shadow: 0 1px 3px rgba(45, 85, 27, 0.12);
+}
+
+.brand-nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 22px;
+  height: 3px;
+  border-radius: var(--radius-full);
+  background-color: var(--lime-600);
+}
+
+/* Contact link styling for mailto and tel */
+.contact-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+  color: var(--lime-700);
 }
 
 /* Search bar in nav */
