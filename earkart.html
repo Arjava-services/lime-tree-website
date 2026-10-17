@@ -7,6 +7,24 @@
   <title>Earkart — Handcrafted Minimalist Ear Studs &amp; Fine Accents | LIMETREE</title>
   <meta name="description"
     content="Discover Earkart at LIMETREE. Handcrafted ear studs, huggie hoops, and freshwater pearl drops made from 18K gold vermeil and recycled 925 sterling silver. 100% hypoallergenic for sensitive ears." />
+  <script>
+    // Ensure LIMETREE main homepage opens first on direct visit or page refresh
+    (function () {
+      try {
+        var navEntries = (window.performance && typeof window.performance.getEntriesByType === 'function') ? window.performance.getEntriesByType('navigation') : [];
+        var isReload = (navEntries.length > 0 && navEntries[0].type === 'reload') ||
+                       (window.performance && window.performance.navigation && window.performance.navigation.type === 1);
+        var fromHome = sessionStorage.getItem('limetree_brand_click') === 'true' ||
+                       (document.referrer && (document.referrer.includes('index.html') || document.referrer.endsWith('/lime-tree-website/') || document.referrer.endsWith('/')));
+        if (isReload || !fromHome) {
+          sessionStorage.removeItem('limetree_brand_click');
+          window.location.replace('index.html');
+        } else {
+          sessionStorage.removeItem('limetree_brand_click');
+        }
+      } catch (err) {}
+    })();
+  </script>
   <link rel="stylesheet" href="style.css" />
 </head>
 

@@ -305,6 +305,9 @@
   <script src="js/store.js"></script>
 
   <script>
+    // Ensure homepage is clean state
+    try { sessionStorage.removeItem('limetree_brand_click'); } catch (e) {}
+
     // Smooth Brand Carousel Navigation (Auto-Slide 3s, Continuous Loop, Touch/Click/Keyboard Controls)
     (function () {
       const grid = document.querySelector('.nature-brand-grid');

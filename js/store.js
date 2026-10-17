@@ -133,6 +133,14 @@ class LimetreeStorefront {
         if (bar) bar.style.display = 'none';
       });
     }
+
+    // Set brand click flag on legitimate intentional navigation from homepage or header/nav
+    document.addEventListener('click', (e) => {
+      const brandLink = e.target.closest('a[href*="riyaa-trends.html"], a[href*="glow-home.html"], a[href*="earkart.html"]');
+      if (brandLink) {
+        sessionStorage.setItem('limetree_brand_click', 'true');
+      }
+    }, true);
   }
 
   setupUrlRouting() {

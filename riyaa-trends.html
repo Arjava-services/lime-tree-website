@@ -7,6 +7,24 @@
   <title>Riyaa Trends — Elevated Everyday Apparel &amp; Organic Streetwear | LIMETREE</title>
   <meta name="description"
     content="Explore Riyaa Trends apparel at LIMETREE. Premium 240+ GSM combed organic cotton t-shirts, oversized tees, tailored French terry trackpants, and utility shorts in sizes XS to XXL." />
+  <script>
+    // Ensure LIMETREE main homepage opens first on direct visit or page refresh
+    (function () {
+      try {
+        var navEntries = (window.performance && typeof window.performance.getEntriesByType === 'function') ? window.performance.getEntriesByType('navigation') : [];
+        var isReload = (navEntries.length > 0 && navEntries[0].type === 'reload') ||
+                       (window.performance && window.performance.navigation && window.performance.navigation.type === 1);
+        var fromHome = sessionStorage.getItem('limetree_brand_click') === 'true' ||
+                       (document.referrer && (document.referrer.includes('index.html') || document.referrer.endsWith('/lime-tree-website/') || document.referrer.endsWith('/')));
+        if (isReload || !fromHome) {
+          sessionStorage.removeItem('limetree_brand_click');
+          window.location.replace('index.html');
+        } else {
+          sessionStorage.removeItem('limetree_brand_click');
+        }
+      } catch (err) {}
+    })();
+  </script>
   <link rel="stylesheet" href="style.css" />
 </head>
 
