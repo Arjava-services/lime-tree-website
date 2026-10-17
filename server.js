@@ -13,6 +13,12 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
+// Explicit default entry route: Always serve LIMETREE main homepage first
+app.get(['/', '/index', '/index.html'], (req, res) => {
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
 // Serve static assets from project root
 app.use(express.static(__dirname));
 

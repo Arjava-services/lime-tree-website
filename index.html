@@ -452,13 +452,24 @@
       let touchStartX = 0;
       let touchStartY = 0;
       let isTouching = false;
+      let isSwiping = false;
 
       grid.addEventListener('touchstart', function (e) {
         stopAutoSlide();
+        isSwiping = false;
         if (e.touches.length === 1) {
           touchStartX = e.touches[0].clientX;
           touchStartY = e.touches[0].clientY;
           isTouching = true;
+        }
+      }, { passive: true });
+
+      grid.addEventListener('touchmove', function (e) {
+        if (!isTouching) return;
+        const currentX = e.touches[0].clientX;
+        const currentY = e.touches[0].clientY;
+        if (Math.abs(currentX - touchStartX) > 10) {
+          isSwiping = true;
         }
       }, { passive: true });
 
@@ -472,6 +483,7 @@
 
           // Ensure horizontal intent and sufficient threshold (> 40px)
           if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+            isSwiping = true;
             if (diffX < 0) {
               // Swipe Left -> Next Card (loops 0 -> 1 -> 2 -> 0)
               scrollToCard(currentIndex + 1, true);
@@ -482,7 +494,19 @@
           }
         }
         restartAutoSlide();
+        // Reset swiping state shortly after touch to allow subsequent clean clicks
+        setTimeout(function () {
+          isSwiping = false;
+        }, 150);
       }, { passive: true });
+
+      // Open brand page only when card is intentionally clicked, never during swipe gestures
+      grid.addEventListener('click', function (e) {
+        if (isSwiping) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      }, true);
 
       // Keyboard Accessibility (Left/Right Arrows, Home, End)
       grid.addEventListener('keydown', function (e) {

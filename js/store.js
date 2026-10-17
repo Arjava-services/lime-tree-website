@@ -136,16 +136,17 @@ class LimetreeStorefront {
   }
 
   setupUrlRouting() {
-    const path = (window.location.pathname || '').toLowerCase();
-    const href = (window.location.href || '').toLowerCase();
+    const rawPath = (window.location.pathname || '').toLowerCase();
+    const filename = rawPath.split('/').pop();
     const params = new URLSearchParams(window.location.search);
     const bizParam = params.get('business');
 
-    if (path.includes('riyaa-trends') || href.includes('riyaa-trends') || bizParam === 'riyaa-trends') {
+    // Default to main homepage (null filter) unless explicitly on a boutique subpage or query
+    if (filename === 'riyaa-trends.html' || filename === 'riyaa-trends' || bizParam === 'riyaa-trends') {
       this.currentBusinessFilter = 'riyaa-trends';
-    } else if (path.includes('glow-home') || href.includes('glow-home') || bizParam === 'glow-home') {
+    } else if (filename === 'glow-home.html' || filename === 'glow-home' || bizParam === 'glow-home') {
       this.currentBusinessFilter = 'glow-home';
-    } else if (path.includes('earkart') || href.includes('earkart') || bizParam === 'earkart') {
+    } else if (filename === 'earkart.html' || filename === 'earkart' || bizParam === 'earkart') {
       this.currentBusinessFilter = 'earkart';
     } else {
       this.currentBusinessFilter = null;
