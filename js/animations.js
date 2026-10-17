@@ -141,7 +141,7 @@
     initScrollReveal() {
       if (prefersReducedMotion) {
         document.querySelectorAll(
-          '.reveal-fade, .reveal-slide-up, .reveal-slide-left, .reveal-slide-right, .reveal-scale, .reveal-stagger, .product-card.reveal-card, .section-header'
+          '.reveal-fade, .reveal-slide-up, .reveal-slide-left, .reveal-slide-right, .reveal-scale, .reveal-stagger, .product-card, .section-header, .video-showcase-container, .newsletter-section, .site-footer, .order-card'
         ).forEach(el => el.classList.add('is-revealed'));
         return;
       }
@@ -181,13 +181,23 @@
     observeElements(container = document) {
       if (!this.revealObserver) return;
 
-      const selector = '.reveal-fade, .reveal-slide-up, .reveal-slide-left, .reveal-slide-right, .reveal-scale, .reveal-stagger, .product-card.reveal-card, .section-header';
+      const selector = '.reveal-fade, .reveal-slide-up, .reveal-slide-left, .reveal-slide-right, .reveal-scale, .reveal-stagger, .product-card, .section-header, .video-showcase-container, .newsletter-section, .site-footer, .order-card';
       const targets = container.querySelectorAll(selector);
 
       targets.forEach((el, idx) => {
         if (!el.classList.contains('is-revealed')) {
-          if (el.classList.contains('reveal-card') && !el.style.getPropertyValue('--stagger-i')) {
+          if (el.classList.contains('product-card') && !el.style.getPropertyValue('--stagger-i')) {
             el.style.setProperty('--stagger-i', idx % 8);
+          }
+          if (
+            !el.classList.contains('reveal-fade') &&
+            !el.classList.contains('reveal-slide-up') &&
+            !el.classList.contains('reveal-slide-left') &&
+            !el.classList.contains('reveal-slide-right') &&
+            !el.classList.contains('reveal-scale') &&
+            !el.classList.contains('reveal-stagger')
+          ) {
+            el.classList.add('reveal-slide-up');
           }
           this.revealObserver.observe(el);
         }
@@ -340,7 +350,7 @@
         }
 
         // Close on clicking any link inside drawer (smooth navigation)
-        const drawerLink = e.target.closest('.drawer-menu-item a, .drawer-back-action');
+        const drawerLink = e.target.closest('#mobileNavDrawer a, .drawer-menu-item a, .drawer-back-action, .drawer-logo');
         if (drawerLink) {
           this.closeMobileMenu();
         }
@@ -389,7 +399,7 @@
             <li class="drawer-menu-item">
               <a href="index.html" class="${currentPage === 'index.html' || currentPage === '' ? 'active' : ''}">
                 <span class="drawer-menu-icon">🏠</span>
-                <span>All Houses (Home)</span>
+                <span>Home</span>
               </a>
             </li>
             <li class="drawer-menu-item">

@@ -1,0 +1,1265 @@
+{
+  "referencedAssetsCount": 37,
+  "assetsToKeepCount": 37,
+  "assetsToDeleteCount": 116,
+  "assetsToDeleteSizeMB": "104.84",
+  "extractedMediaCount": 70,
+  "extractedMediaSizeMB": "166.14",
+  "totalSpaceReclaimedMB": "270.98",
+  "toKeep": [
+    {
+      "relPath": "assets/earkart/earkart-baroque-pearls.jpg",
+      "sizeBytes": 784063,
+      "sizeKB": "765.7",
+      "referencedIn": [
+        "js/data.js",
+        "js/admin.js"
+      ]
+    },
+    {
+      "relPath": "assets/earkart/earkart-daisy-model-ear.jpg",
+      "sizeBytes": 718643,
+      "sizeKB": "701.8",
+      "referencedIn": [
+        "js/data.js"
+      ]
+    },
+    {
+      "relPath": "assets/earkart/earkart-daisy-pair-original.jpg",
+      "sizeBytes": 158593,
+      "sizeKB": "154.9",
+      "referencedIn": [
+        "earkart.html",
+        "js/data.js",
+        "js/store.js",
+        "js/admin.js"
+      ]
+    },
+    {
+      "relPath": "assets/earkart/earkart-daisy-single-macro.jpg",
+      "sizeBytes": 130187,
+      "sizeKB": "127.1",
+      "referencedIn": [
+        "earkart.html"
+      ]
+    },
+    {
+      "relPath": "assets/earkart/earkart-daisy-velvet-box.jpg",
+      "sizeBytes": 780814,
+      "sizeKB": "762.5",
+      "referencedIn": [
+        "earkart.html",
+        "js/data.js"
+      ]
+    },
+    {
+      "relPath": "assets/earkart/earkart-gold-huggies.jpg",
+      "sizeBytes": 616491,
+      "sizeKB": "602.0",
+      "referencedIn": [
+        "js/data.js"
+      ]
+    },
+    {
+      "relPath": "assets/earkart/earkart-mini-petal-bloom.jpg",
+      "sizeBytes": 597005,
+      "sizeKB": "583.0",
+      "referencedIn": [
+        "earkart.html",
+        "js/data.js"
+      ]
+    },
+    {
+      "relPath": "assets/earkart/earkart-solitaire-studs.jpg",
+      "sizeBytes": 609700,
+      "sizeKB": "595.4",
+      "referencedIn": [
+        "js/data.js"
+      ]
+    },
+    {
+      "relPath": "assets/glow-home/IMG_20260816_171236.jpg",
+      "sizeBytes": 3114491,
+      "sizeKB": "3041.5",
+      "referencedIn": [
+        "glow-home.html",
+        "js/data.js",
+        "js/store.js",
+        "js/admin.js"
+      ]
+    },
+    {
+      "relPath": "assets/glow-home/IMG_20260816_171313.jpg",
+      "sizeBytes": 2552578,
+      "sizeKB": "2492.8",
+      "referencedIn": [
+        "js/data.js"
+      ]
+    },
+    {
+      "relPath": "assets/glow-home/IMG_20260906_112045.jpg",
+      "sizeBytes": 2721057,
+      "sizeKB": "2657.3",
+      "referencedIn": [
+        "glow-home.html",
+        "js/data.js"
+      ]
+    },
+    {
+      "relPath": "assets/glow-home/IMG_20260906_112120.jpg",
+      "sizeBytes": 2834812,
+      "sizeKB": "2768.4",
+      "referencedIn": [
+        "js/data.js"
+      ]
+    },
+    {
+      "relPath": "assets/glow-home/IMG_20260906_121557.jpg",
+      "sizeBytes": 2948392,
+      "sizeKB": "2879.3",
+      "referencedIn": [
+        "js/data.js"
+      ]
+    },
+    {
+      "relPath": "assets/glow-home/IMG_20260927_124013.jpg",
+      "sizeBytes": 3839369,
+      "sizeKB": "3749.4",
+      "referencedIn": [
+        "glow-home.html",
+        "js/data.js"
+      ]
+    },
+    {
+      "relPath": "assets/glow-home/IMG_20260927_183306.jpg",
+      "sizeBytes": 3500502,
+      "sizeKB": "3418.5",
+      "referencedIn": [
+        "glow-home.html"
+      ]
+    },
+    {
+      "relPath": "assets/homepage-card-earkart-photo.jpg",
+      "sizeBytes": 44682,
+      "sizeKB": "43.6",
+      "referencedIn": [
+        "index.html"
+      ]
+    },
+    {
+      "relPath": "assets/homepage-card-glow-photo.jpg",
+      "sizeBytes": 42108,
+      "sizeKB": "41.1",
+      "referencedIn": [
+        "index.html"
+      ]
+    },
+    {
+      "relPath": "assets/homepage-card-riyaa-photo.jpg",
+      "sizeBytes": 59774,
+      "sizeKB": "58.4",
+      "referencedIn": [
+        "index.html"
+      ]
+    },
+    {
+      "relPath": "assets/homepage-leaf-bl.png",
+      "sizeBytes": 169017,
+      "sizeKB": "165.1",
+      "referencedIn": [
+        "index.html"
+      ]
+    },
+    {
+      "relPath": "assets/homepage-leaf-br.png",
+      "sizeBytes": 179995,
+      "sizeKB": "175.8",
+      "referencedIn": [
+        "index.html"
+      ]
+    },
+    {
+      "relPath": "assets/homepage-leaf-tl.png",
+      "sizeBytes": 366271,
+      "sizeKB": "357.7",
+      "referencedIn": [
+        "index.html"
+      ]
+    },
+    {
+      "relPath": "assets/homepage-leaf-tr.png",
+      "sizeBytes": 410616,
+      "sizeKB": "401.0",
+      "referencedIn": [
+        "index.html"
+      ]
+    },
+    {
+      "relPath": "assets/homepage-limetree-logo-trans.png",
+      "sizeBytes": 91202,
+      "sizeKB": "89.1",
+      "referencedIn": [
+        "index.html"
+      ]
+    },
+    {
+      "relPath": "assets/logo-transparent.png",
+      "sizeBytes": 91202,
+      "sizeKB": "89.1",
+      "referencedIn": [
+        "index.html",
+        "riyaa-trends.html",
+        "glow-home.html",
+        "earkart.html",
+        "orders.html",
+        "js/store.js",
+        "js/animations.js"
+      ]
+    },
+    {
+      "relPath": "assets/logo-white.png",
+      "sizeBytes": 28690,
+      "sizeKB": "28.0",
+      "referencedIn": [
+        "admin.html"
+      ]
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0041.jpg",
+      "sizeBytes": 284278,
+      "sizeKB": "277.6",
+      "referencedIn": [
+        "riyaa-trends.html",
+        "orders.html",
+        "admin.html",
+        "js/data.js",
+        "js/store.js",
+        "js/admin.js"
+      ]
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0042.jpg",
+      "sizeBytes": 197398,
+      "sizeKB": "192.8",
+      "referencedIn": [
+        "js/data.js"
+      ]
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0043.jpg",
+      "sizeBytes": 318077,
+      "sizeKB": "310.6",
+      "referencedIn": [
+        "riyaa-trends.html",
+        "js/data.js"
+      ]
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0044.jpg",
+      "sizeBytes": 350377,
+      "sizeKB": "342.2",
+      "referencedIn": [
+        "js/data.js"
+      ]
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0047.jpg",
+      "sizeBytes": 181763,
+      "sizeKB": "177.5",
+      "referencedIn": [
+        "js/data.js"
+      ]
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0048.jpg",
+      "sizeBytes": 331639,
+      "sizeKB": "323.9",
+      "referencedIn": [
+        "riyaa-trends.html"
+      ]
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0055.jpg",
+      "sizeBytes": 349274,
+      "sizeKB": "341.1",
+      "referencedIn": [
+        "riyaa-trends.html",
+        "js/data.js"
+      ]
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0060.jpg",
+      "sizeBytes": 436966,
+      "sizeKB": "426.7",
+      "referencedIn": [
+        "js/data.js"
+      ]
+    },
+    {
+      "relPath": "assets/videos/video_20260927_123941.mp4",
+      "sizeBytes": 19397503,
+      "sizeKB": "18942.9",
+      "referencedIn": [
+        "glow-home.html"
+      ]
+    },
+    {
+      "relPath": "assets/videos/video_20260927_183214.mp4",
+      "sizeBytes": 7556815,
+      "sizeKB": "7379.7",
+      "referencedIn": [
+        "glow-home.html"
+      ]
+    },
+    {
+      "relPath": "assets/videos/video_20260927_183225.mp4",
+      "sizeBytes": 8049449,
+      "sizeKB": "7860.8",
+      "referencedIn": [
+        "glow-home.html"
+      ]
+    },
+    {
+      "relPath": "assets/videos/VID_20261015_014732_941.mp4",
+      "sizeBytes": 9308459,
+      "sizeKB": "9090.3",
+      "referencedIn": [
+        "earkart.html"
+      ]
+    }
+  ],
+  "toDelete": [
+    {
+      "relPath": "assets/brand-card-earkart-clean.jpg",
+      "sizeBytes": 36223,
+      "sizeKB": "35.4"
+    },
+    {
+      "relPath": "assets/brand-card-earkart-full.png",
+      "sizeBytes": 186915,
+      "sizeKB": "182.5"
+    },
+    {
+      "relPath": "assets/brand-card-earkart-sharp.jpg",
+      "sizeBytes": 16130,
+      "sizeKB": "15.8"
+    },
+    {
+      "relPath": "assets/brand-card-earkart.jpg",
+      "sizeBytes": 42335,
+      "sizeKB": "41.3"
+    },
+    {
+      "relPath": "assets/brand-card-glow-clean.jpg",
+      "sizeBytes": 35625,
+      "sizeKB": "34.8"
+    },
+    {
+      "relPath": "assets/brand-card-glow-full.png",
+      "sizeBytes": 199953,
+      "sizeKB": "195.3"
+    },
+    {
+      "relPath": "assets/brand-card-glow-sharp.jpg",
+      "sizeBytes": 16589,
+      "sizeKB": "16.2"
+    },
+    {
+      "relPath": "assets/brand-card-glow.jpg",
+      "sizeBytes": 40990,
+      "sizeKB": "40.0"
+    },
+    {
+      "relPath": "assets/brand-card-riyaa-clean.jpg",
+      "sizeBytes": 47538,
+      "sizeKB": "46.4"
+    },
+    {
+      "relPath": "assets/brand-card-riyaa-full.png",
+      "sizeBytes": 215212,
+      "sizeKB": "210.2"
+    },
+    {
+      "relPath": "assets/brand-card-riyaa-sharp.jpg",
+      "sizeBytes": 20085,
+      "sizeKB": "19.6"
+    },
+    {
+      "relPath": "assets/brand-card-riyaa.jpg",
+      "sizeBytes": 54276,
+      "sizeKB": "53.0"
+    },
+    {
+      "relPath": "assets/brand-circle-earkart.jpg",
+      "sizeBytes": 23880,
+      "sizeKB": "23.3"
+    },
+    {
+      "relPath": "assets/brand-circle-glow.jpg",
+      "sizeBytes": 22218,
+      "sizeKB": "21.7"
+    },
+    {
+      "relPath": "assets/brand-circle-riyaa.jpg",
+      "sizeBytes": 30614,
+      "sizeKB": "29.9"
+    },
+    {
+      "relPath": "assets/card-complete-earkart.jpg",
+      "sizeBytes": 52659,
+      "sizeKB": "51.4"
+    },
+    {
+      "relPath": "assets/card-complete-glow.jpg",
+      "sizeBytes": 53503,
+      "sizeKB": "52.2"
+    },
+    {
+      "relPath": "assets/card-complete-riyaa.jpg",
+      "sizeBytes": 63582,
+      "sizeKB": "62.1"
+    },
+    {
+      "relPath": "assets/card-earkart-full.png",
+      "sizeBytes": 207882,
+      "sizeKB": "203.0"
+    },
+    {
+      "relPath": "assets/card-earkart-perfect.png",
+      "sizeBytes": 197875,
+      "sizeKB": "193.2"
+    },
+    {
+      "relPath": "assets/card-earkart.jpg",
+      "sizeBytes": 29773,
+      "sizeKB": "29.1"
+    },
+    {
+      "relPath": "assets/card-full-earkart.jpg",
+      "sizeBytes": 19628,
+      "sizeKB": "19.2"
+    },
+    {
+      "relPath": "assets/card-full-glow.jpg",
+      "sizeBytes": 20429,
+      "sizeKB": "20.0"
+    },
+    {
+      "relPath": "assets/card-full-riyaa.jpg",
+      "sizeBytes": 24673,
+      "sizeKB": "24.1"
+    },
+    {
+      "relPath": "assets/card-glow-full.png",
+      "sizeBytes": 218539,
+      "sizeKB": "213.4"
+    },
+    {
+      "relPath": "assets/card-glow-home.jpg",
+      "sizeBytes": 29142,
+      "sizeKB": "28.5"
+    },
+    {
+      "relPath": "assets/card-glow-perfect.png",
+      "sizeBytes": 209505,
+      "sizeKB": "204.6"
+    },
+    {
+      "relPath": "assets/card-riyaa-full.png",
+      "sizeBytes": 233847,
+      "sizeKB": "228.4"
+    },
+    {
+      "relPath": "assets/card-riyaa-perfect.png",
+      "sizeBytes": 228400,
+      "sizeKB": "223.0"
+    },
+    {
+      "relPath": "assets/card-riyaa-trends.jpg",
+      "sizeBytes": 40274,
+      "sizeKB": "39.3"
+    },
+    {
+      "relPath": "assets/crop_card1.jpg",
+      "sizeBytes": 90818,
+      "sizeKB": "88.7"
+    },
+    {
+      "relPath": "assets/crop_card2.jpg",
+      "sizeBytes": 69448,
+      "sizeKB": "67.8"
+    },
+    {
+      "relPath": "assets/crop_card3.jpg",
+      "sizeBytes": 69641,
+      "sizeKB": "68.0"
+    },
+    {
+      "relPath": "assets/earkart/frames/frame_001.jpg",
+      "sizeBytes": 72624,
+      "sizeKB": "70.9"
+    },
+    {
+      "relPath": "assets/earkart/frames/frame_002.jpg",
+      "sizeBytes": 72205,
+      "sizeKB": "70.5"
+    },
+    {
+      "relPath": "assets/earkart/frames/frame_003.jpg",
+      "sizeBytes": 83629,
+      "sizeKB": "81.7"
+    },
+    {
+      "relPath": "assets/earkart/frames/frame_004.jpg",
+      "sizeBytes": 70270,
+      "sizeKB": "68.6"
+    },
+    {
+      "relPath": "assets/earkart/frames/frame_005.jpg",
+      "sizeBytes": 74536,
+      "sizeKB": "72.8"
+    },
+    {
+      "relPath": "assets/earkart/frames/frame_006.jpg",
+      "sizeBytes": 60993,
+      "sizeKB": "59.6"
+    },
+    {
+      "relPath": "assets/earkart/frames/frame_007.jpg",
+      "sizeBytes": 60646,
+      "sizeKB": "59.2"
+    },
+    {
+      "relPath": "assets/earkart/frames/frame_008.jpg",
+      "sizeBytes": 67101,
+      "sizeKB": "65.5"
+    },
+    {
+      "relPath": "assets/earkart/frames/frame_009.jpg",
+      "sizeBytes": 66263,
+      "sizeKB": "64.7"
+    },
+    {
+      "relPath": "assets/earkart/frames/frame_010.jpg",
+      "sizeBytes": 82535,
+      "sizeKB": "80.6"
+    },
+    {
+      "relPath": "assets/earkart/frames/frame_011.jpg",
+      "sizeBytes": 39916,
+      "sizeKB": "39.0"
+    },
+    {
+      "relPath": "assets/earkart/frames/frame_012.jpg",
+      "sizeBytes": 40154,
+      "sizeKB": "39.2"
+    },
+    {
+      "relPath": "assets/earkart/frames/frame_013.jpg",
+      "sizeBytes": 40480,
+      "sizeKB": "39.5"
+    },
+    {
+      "relPath": "assets/earkart/frames/frame_014.jpg",
+      "sizeBytes": 39782,
+      "sizeKB": "38.8"
+    },
+    {
+      "relPath": "assets/earkart/IMG_20260804_065931.jpg",
+      "sizeBytes": 2774989,
+      "sizeKB": "2710.0"
+    },
+    {
+      "relPath": "assets/full-card-earkart.jpg",
+      "sizeBytes": 36649,
+      "sizeKB": "35.8"
+    },
+    {
+      "relPath": "assets/full-card-glow.jpg",
+      "sizeBytes": 37579,
+      "sizeKB": "36.7"
+    },
+    {
+      "relPath": "assets/full-card-riyaa.jpg",
+      "sizeBytes": 46268,
+      "sizeKB": "45.2"
+    },
+    {
+      "relPath": "assets/glow-home/IMG_20260816_171246.jpg",
+      "sizeBytes": 2456155,
+      "sizeKB": "2398.6"
+    },
+    {
+      "relPath": "assets/glow-home/IMG_20260816_171305.jpg",
+      "sizeBytes": 2460410,
+      "sizeKB": "2402.7"
+    },
+    {
+      "relPath": "assets/glow-home/IMG_20260906_112110.jpg",
+      "sizeBytes": 2868176,
+      "sizeKB": "2801.0"
+    },
+    {
+      "relPath": "assets/glow-home/IMG_20260906_121612.jpg",
+      "sizeBytes": 2837759,
+      "sizeKB": "2771.2"
+    },
+    {
+      "relPath": "assets/glow-home/IMG_20260927_124019.jpg",
+      "sizeBytes": 3477028,
+      "sizeKB": "3395.5"
+    },
+    {
+      "relPath": "assets/glow-home/IMG_20260927_164632.jpg",
+      "sizeBytes": 3403962,
+      "sizeKB": "3324.2"
+    },
+    {
+      "relPath": "assets/glow-home/IMG_20260927_164654.jpg",
+      "sizeBytes": 3606203,
+      "sizeKB": "3521.7"
+    },
+    {
+      "relPath": "assets/glow-home/IMG_20260927_183314.jpg",
+      "sizeBytes": 3430146,
+      "sizeKB": "3349.8"
+    },
+    {
+      "relPath": "assets/glow-home/IMG_20260927_183322.jpg",
+      "sizeBytes": 3177194,
+      "sizeKB": "3102.7"
+    },
+    {
+      "relPath": "assets/glow-home/IMG_20260927_183327.jpg",
+      "sizeBytes": 3294072,
+      "sizeKB": "3216.9"
+    },
+    {
+      "relPath": "assets/glow-home/IMG_20260927_183339.jpg",
+      "sizeBytes": 2728928,
+      "sizeKB": "2665.0"
+    },
+    {
+      "relPath": "assets/glow-home/IMG_20260927_183345.jpg",
+      "sizeBytes": 2944052,
+      "sizeKB": "2875.1"
+    },
+    {
+      "relPath": "assets/glow-home/IMG_20260927_183350.jpg",
+      "sizeBytes": 3482281,
+      "sizeKB": "3400.7"
+    },
+    {
+      "relPath": "assets/glow-home/IMG_20260927_183452.jpg",
+      "sizeBytes": 2947015,
+      "sizeKB": "2877.9"
+    },
+    {
+      "relPath": "assets/glow-home/IMG_20260927_185204.jpg",
+      "sizeBytes": 2689435,
+      "sizeKB": "2626.4"
+    },
+    {
+      "relPath": "assets/glow-home/IMG_20260927_185459.jpg",
+      "sizeBytes": 3772647,
+      "sizeKB": "3684.2"
+    },
+    {
+      "relPath": "assets/hero-mockup-hd.jpg",
+      "sizeBytes": 1285629,
+      "sizeKB": "1255.5"
+    },
+    {
+      "relPath": "assets/homepage-limetree-logo.png",
+      "sizeBytes": 145256,
+      "sizeKB": "141.9"
+    },
+    {
+      "relPath": "assets/leaf-corner-bl-clean.jpg",
+      "sizeBytes": 7744,
+      "sizeKB": "7.6"
+    },
+    {
+      "relPath": "assets/leaf-corner-bl.jpg",
+      "sizeBytes": 9976,
+      "sizeKB": "9.7"
+    },
+    {
+      "relPath": "assets/leaf-corner-br-clean.jpg",
+      "sizeBytes": 11343,
+      "sizeKB": "11.1"
+    },
+    {
+      "relPath": "assets/leaf-corner-br.jpg",
+      "sizeBytes": 9895,
+      "sizeKB": "9.7"
+    },
+    {
+      "relPath": "assets/leaf-corner-tl.jpg",
+      "sizeBytes": 12391,
+      "sizeKB": "12.1"
+    },
+    {
+      "relPath": "assets/leaf-corner-tr.jpg",
+      "sizeBytes": 13395,
+      "sizeKB": "13.1"
+    },
+    {
+      "relPath": "assets/leaves-bottom-left-raw.png",
+      "sizeBytes": 53371,
+      "sizeKB": "52.1"
+    },
+    {
+      "relPath": "assets/leaves-bottom-right-raw.png",
+      "sizeBytes": 51750,
+      "sizeKB": "50.5"
+    },
+    {
+      "relPath": "assets/leaves-top-left-raw.png",
+      "sizeBytes": 65660,
+      "sizeKB": "64.1"
+    },
+    {
+      "relPath": "assets/leaves-top-left.png",
+      "sizeBytes": 73365,
+      "sizeKB": "71.6"
+    },
+    {
+      "relPath": "assets/leaves-top-right-raw.png",
+      "sizeBytes": 79506,
+      "sizeKB": "77.6"
+    },
+    {
+      "relPath": "assets/limetree-header-art.jpg",
+      "sizeBytes": 14647,
+      "sizeKB": "14.3"
+    },
+    {
+      "relPath": "assets/limetree-logo-transparent.png",
+      "sizeBytes": 222912,
+      "sizeKB": "217.7"
+    },
+    {
+      "relPath": "assets/limetree-logo.png",
+      "sizeBytes": 631819,
+      "sizeKB": "617.0"
+    },
+    {
+      "relPath": "assets/limetree-title-mockup.png",
+      "sizeBytes": 141804,
+      "sizeKB": "138.5"
+    },
+    {
+      "relPath": "assets/logo.png",
+      "sizeBytes": 631819,
+      "sizeKB": "617.0"
+    },
+    {
+      "relPath": "assets/reference-mockup-hd.jpg",
+      "sizeBytes": 571938,
+      "sizeKB": "558.5"
+    },
+    {
+      "relPath": "assets/reference-mockup.jpg",
+      "sizeBytes": 287018,
+      "sizeKB": "280.3"
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0041(1).jpg",
+      "sizeBytes": 284278,
+      "sizeKB": "277.6"
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0042(1).jpg",
+      "sizeBytes": 197398,
+      "sizeKB": "192.8"
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0043(1).jpg",
+      "sizeBytes": 318077,
+      "sizeKB": "310.6"
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0044(1).jpg",
+      "sizeBytes": 350377,
+      "sizeKB": "342.2"
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0047(1).jpg",
+      "sizeBytes": 181763,
+      "sizeKB": "177.5"
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0048(1).jpg",
+      "sizeBytes": 331639,
+      "sizeKB": "323.9"
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0055(1).jpg",
+      "sizeBytes": 349274,
+      "sizeKB": "341.1"
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0056(1).jpg",
+      "sizeBytes": 302224,
+      "sizeKB": "295.1"
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0056.jpg",
+      "sizeBytes": 302224,
+      "sizeKB": "295.1"
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0057(1).jpg",
+      "sizeBytes": 343503,
+      "sizeKB": "335.5"
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0057.jpg",
+      "sizeBytes": 343503,
+      "sizeKB": "335.5"
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0058(1).jpg",
+      "sizeBytes": 374036,
+      "sizeKB": "365.3"
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0058.jpg",
+      "sizeBytes": 374036,
+      "sizeKB": "365.3"
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0059(1).jpg",
+      "sizeBytes": 417970,
+      "sizeKB": "408.2"
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0059.jpg",
+      "sizeBytes": 417970,
+      "sizeKB": "408.2"
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0060(1).jpg",
+      "sizeBytes": 436966,
+      "sizeKB": "426.7"
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0061(1).jpg",
+      "sizeBytes": 370771,
+      "sizeKB": "362.1"
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0061.jpg",
+      "sizeBytes": 370771,
+      "sizeKB": "362.1"
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0062(1).jpg",
+      "sizeBytes": 363314,
+      "sizeKB": "354.8"
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0062.jpg",
+      "sizeBytes": 363314,
+      "sizeKB": "354.8"
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0063(1).jpg",
+      "sizeBytes": 451933,
+      "sizeKB": "441.3"
+    },
+    {
+      "relPath": "assets/riyaa-trends/IMG-20260222-WA0063.jpg",
+      "sizeBytes": 451933,
+      "sizeKB": "441.3"
+    },
+    {
+      "relPath": "assets/user_uploaded_icon.png",
+      "sizeBytes": 8652,
+      "sizeKB": "8.4"
+    },
+    {
+      "relPath": "assets/videos/video_20260927_183237.mp4",
+      "sizeBytes": 9745432,
+      "sizeKB": "9517.0"
+    },
+    {
+      "relPath": "assets/videos/video_20260927_185116.mp4",
+      "sizeBytes": 8685824,
+      "sizeKB": "8482.3"
+    },
+    {
+      "relPath": "assets/videos/video_20260927_185148.mp4",
+      "sizeBytes": 1990389,
+      "sizeKB": "1943.7"
+    },
+    {
+      "relPath": "assets/videos/video_20260927_185154.mp4",
+      "sizeBytes": 4287202,
+      "sizeKB": "4186.7"
+    },
+    {
+      "relPath": "assets/videos/video_20260927_185517.mp4",
+      "sizeBytes": 7699732,
+      "sizeKB": "7519.3"
+    },
+    {
+      "relPath": "assets/videos/VID_20261015_014732_941(1).mp4",
+      "sizeBytes": 9308459,
+      "sizeKB": "9090.3"
+    }
+  ],
+  "extractedMedia": [
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0041(1).jpg",
+      "sizeBytes": 284278,
+      "sizeKB": "277.6"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0041.jpg",
+      "sizeBytes": 284278,
+      "sizeKB": "277.6"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0042(1).jpg",
+      "sizeBytes": 197398,
+      "sizeKB": "192.8"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0042.jpg",
+      "sizeBytes": 197398,
+      "sizeKB": "192.8"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0043(1).jpg",
+      "sizeBytes": 318077,
+      "sizeKB": "310.6"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0043.jpg",
+      "sizeBytes": 318077,
+      "sizeKB": "310.6"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0044(1).jpg",
+      "sizeBytes": 350377,
+      "sizeKB": "342.2"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0044.jpg",
+      "sizeBytes": 350377,
+      "sizeKB": "342.2"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0047(1).jpg",
+      "sizeBytes": 181763,
+      "sizeKB": "177.5"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0047.jpg",
+      "sizeBytes": 181763,
+      "sizeKB": "177.5"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0048(1).jpg",
+      "sizeBytes": 331639,
+      "sizeKB": "323.9"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0048.jpg",
+      "sizeBytes": 331639,
+      "sizeKB": "323.9"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0055(1).jpg",
+      "sizeBytes": 349274,
+      "sizeKB": "341.1"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0055.jpg",
+      "sizeBytes": 349274,
+      "sizeKB": "341.1"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0056(1).jpg",
+      "sizeBytes": 302224,
+      "sizeKB": "295.1"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0056.jpg",
+      "sizeBytes": 302224,
+      "sizeKB": "295.1"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0057(1).jpg",
+      "sizeBytes": 343503,
+      "sizeKB": "335.5"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0057.jpg",
+      "sizeBytes": 343503,
+      "sizeKB": "335.5"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0058(1).jpg",
+      "sizeBytes": 374036,
+      "sizeKB": "365.3"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0058.jpg",
+      "sizeBytes": 374036,
+      "sizeKB": "365.3"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0059(1).jpg",
+      "sizeBytes": 417970,
+      "sizeKB": "408.2"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0059.jpg",
+      "sizeBytes": 417970,
+      "sizeKB": "408.2"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0060(1).jpg",
+      "sizeBytes": 436966,
+      "sizeKB": "426.7"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0060.jpg",
+      "sizeBytes": 436966,
+      "sizeKB": "426.7"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0061(1).jpg",
+      "sizeBytes": 370771,
+      "sizeKB": "362.1"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0061.jpg",
+      "sizeBytes": 370771,
+      "sizeKB": "362.1"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0062(1).jpg",
+      "sizeBytes": 363314,
+      "sizeKB": "354.8"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0062.jpg",
+      "sizeBytes": 363314,
+      "sizeKB": "354.8"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0063(1).jpg",
+      "sizeBytes": 451933,
+      "sizeKB": "441.3"
+    },
+    {
+      "relPath": "extracted_media/IMG-20260222-WA0063.jpg",
+      "sizeBytes": 451933,
+      "sizeKB": "441.3"
+    },
+    {
+      "relPath": "extracted_media/IMG_20260804_065931.jpg",
+      "sizeBytes": 2774989,
+      "sizeKB": "2710.0"
+    },
+    {
+      "relPath": "extracted_media/IMG_20260816_171236.jpg",
+      "sizeBytes": 3114491,
+      "sizeKB": "3041.5"
+    },
+    {
+      "relPath": "extracted_media/IMG_20260816_171246.jpg",
+      "sizeBytes": 2456155,
+      "sizeKB": "2398.6"
+    },
+    {
+      "relPath": "extracted_media/IMG_20260816_171305.jpg",
+      "sizeBytes": 2460410,
+      "sizeKB": "2402.7"
+    },
+    {
+      "relPath": "extracted_media/IMG_20260816_171313.jpg",
+      "sizeBytes": 2552578,
+      "sizeKB": "2492.8"
+    },
+    {
+      "relPath": "extracted_media/IMG_20260906_112045.jpg",
+      "sizeBytes": 2721057,
+      "sizeKB": "2657.3"
+    },
+    {
+      "relPath": "extracted_media/IMG_20260906_112110.jpg",
+      "sizeBytes": 2868176,
+      "sizeKB": "2801.0"
+    },
+    {
+      "relPath": "extracted_media/IMG_20260906_112120.jpg",
+      "sizeBytes": 2834812,
+      "sizeKB": "2768.4"
+    },
+    {
+      "relPath": "extracted_media/IMG_20260906_121557.jpg",
+      "sizeBytes": 2948392,
+      "sizeKB": "2879.3"
+    },
+    {
+      "relPath": "extracted_media/IMG_20260906_121612.jpg",
+      "sizeBytes": 2837759,
+      "sizeKB": "2771.2"
+    },
+    {
+      "relPath": "extracted_media/IMG_20260927_124013.jpg",
+      "sizeBytes": 3839369,
+      "sizeKB": "3749.4"
+    },
+    {
+      "relPath": "extracted_media/IMG_20260927_124019.jpg",
+      "sizeBytes": 3477028,
+      "sizeKB": "3395.5"
+    },
+    {
+      "relPath": "extracted_media/IMG_20260927_164632.jpg",
+      "sizeBytes": 3403962,
+      "sizeKB": "3324.2"
+    },
+    {
+      "relPath": "extracted_media/IMG_20260927_164654.jpg",
+      "sizeBytes": 3606203,
+      "sizeKB": "3521.7"
+    },
+    {
+      "relPath": "extracted_media/IMG_20260927_183306.jpg",
+      "sizeBytes": 3500502,
+      "sizeKB": "3418.5"
+    },
+    {
+      "relPath": "extracted_media/IMG_20260927_183314.jpg",
+      "sizeBytes": 3430146,
+      "sizeKB": "3349.8"
+    },
+    {
+      "relPath": "extracted_media/IMG_20260927_183322.jpg",
+      "sizeBytes": 3177194,
+      "sizeKB": "3102.7"
+    },
+    {
+      "relPath": "extracted_media/IMG_20260927_183327.jpg",
+      "sizeBytes": 3294072,
+      "sizeKB": "3216.9"
+    },
+    {
+      "relPath": "extracted_media/IMG_20260927_183339.jpg",
+      "sizeBytes": 2728928,
+      "sizeKB": "2665.0"
+    },
+    {
+      "relPath": "extracted_media/IMG_20260927_183345.jpg",
+      "sizeBytes": 2944052,
+      "sizeKB": "2875.1"
+    },
+    {
+      "relPath": "extracted_media/IMG_20260927_183350.jpg",
+      "sizeBytes": 3482281,
+      "sizeKB": "3400.7"
+    },
+    {
+      "relPath": "extracted_media/IMG_20260927_183452.jpg",
+      "sizeBytes": 2947015,
+      "sizeKB": "2877.9"
+    },
+    {
+      "relPath": "extracted_media/IMG_20260927_185204.jpg",
+      "sizeBytes": 2689435,
+      "sizeKB": "2626.4"
+    },
+    {
+      "relPath": "extracted_media/IMG_20260927_185459.jpg",
+      "sizeBytes": 3772647,
+      "sizeKB": "3684.2"
+    },
+    {
+      "relPath": "extracted_media/Screenshot_20260929_215523.jpg",
+      "sizeBytes": 725926,
+      "sizeKB": "708.9"
+    },
+    {
+      "relPath": "extracted_media/Screenshot_20260929_215531.jpg",
+      "sizeBytes": 692035,
+      "sizeKB": "675.8"
+    },
+    {
+      "relPath": "extracted_media/Screenshot_20261010_104256(1).jpg",
+      "sizeBytes": 752266,
+      "sizeKB": "734.6"
+    },
+    {
+      "relPath": "extracted_media/Screenshot_20261010_104256.jpg",
+      "sizeBytes": 752266,
+      "sizeKB": "734.6"
+    },
+    {
+      "relPath": "extracted_media/Screenshot_20261016_125218(1).jpg",
+      "sizeBytes": 625739,
+      "sizeKB": "611.1"
+    },
+    {
+      "relPath": "extracted_media/Screenshot_20261016_125218.jpg",
+      "sizeBytes": 625739,
+      "sizeKB": "611.1"
+    },
+    {
+      "relPath": "extracted_media/video_20260927_123941.mp4",
+      "sizeBytes": 19397503,
+      "sizeKB": "18942.9"
+    },
+    {
+      "relPath": "extracted_media/video_20260927_183214.mp4",
+      "sizeBytes": 7556815,
+      "sizeKB": "7379.7"
+    },
+    {
+      "relPath": "extracted_media/video_20260927_183225.mp4",
+      "sizeBytes": 8049449,
+      "sizeKB": "7860.8"
+    },
+    {
+      "relPath": "extracted_media/video_20260927_183237.mp4",
+      "sizeBytes": 9745432,
+      "sizeKB": "9517.0"
+    },
+    {
+      "relPath": "extracted_media/video_20260927_185116.mp4",
+      "sizeBytes": 8685824,
+      "sizeKB": "8482.3"
+    },
+    {
+      "relPath": "extracted_media/video_20260927_185148.mp4",
+      "sizeBytes": 1990389,
+      "sizeKB": "1943.7"
+    },
+    {
+      "relPath": "extracted_media/video_20260927_185154.mp4",
+      "sizeBytes": 4287202,
+      "sizeKB": "4186.7"
+    },
+    {
+      "relPath": "extracted_media/video_20260927_185517.mp4",
+      "sizeBytes": 7699732,
+      "sizeKB": "7519.3"
+    },
+    {
+      "relPath": "extracted_media/VID_20261015_014732_941(1).mp4",
+      "sizeBytes": 9308459,
+      "sizeKB": "9090.3"
+    },
+    {
+      "relPath": "extracted_media/VID_20261015_014732_941.mp4",
+      "sizeBytes": 9308459,
+      "sizeKB": "9090.3"
+    }
+  ]
+}

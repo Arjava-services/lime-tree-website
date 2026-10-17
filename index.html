@@ -6,25 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LIMETREE — Luxury Multi-Business Lifestyle Collective | Fashion, Candles, Jewellery</title>
   <meta name="description"
-    content="Discover three curated artisan houses under one roof: Riyaa Trends apparel, Glow Home scented candles, and Earkart handcrafted earrings." />
+    content="Discover three curated artisan houses under one roof: Riyaa Trends apparel, Glow Home scented candles, and Earkart handcrafted jewellery." />
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body>
+<body class="home-page">
 
   <!-- STICKY SITE HEADER -->
   <header class="site-header">
     <div class="container header-container">
 
-      <!-- Brand Logo -->
-      <a href="index.html" class="brand-logo" aria-label="Limetree Home">
+      <!-- Brand Logo Prominently Featured At Center/Left -->
+      <a href="index.html" class="brand-logo" aria-label="LIMETREE Collective">
         <img src="assets/logo-transparent.png" alt="LIMETREE - Three Brands One Destination" class="site-logo-img" />
       </a>
 
-      <!-- Desktop Navigation -->
+      <!-- Desktop Navigation (No Home Button) -->
       <nav class="main-nav" aria-label="Main Navigation">
-        <a href="index.html" class="nav-link active">Home</a>
-        <a href="riyaa-trends.html" class="nav-link">Riyaa Trends <span class="nav-badge-pill">Fashion</span></a>
+        <a href="riyaa-trends.html" class="nav-link">Riyaa Trends <span class="nav-badge-pill">Clothing</span></a>
         <a href="glow-home.html" class="nav-link">Glow Home <span class="nav-badge-pill">Candles</span></a>
         <a href="earkart.html" class="nav-link">Earkart <span class="nav-badge-pill">Jewellery</span></a>
         <a href="orders.html" class="nav-link">Order History</a>
@@ -45,7 +44,7 @@
           <span class="badge-count" id="headerOrdersCount" style="display: none;">0</span>
         </a>
         <button class="action-btn" id="headerWishlistBtn" title="Wishlist" aria-label="Wishlist"
-          onclick="window.limetreeStore.showToast('Your saved wishlist items are highlighted with a red heart in the catalog below.', 'info')">
+          onclick="window.limetreeStore.showToast('Select a brand below to explore products and saved wishlist items.', 'info')">
           ♥
           <span class="badge-count" id="headerWishlistCount" style="display: none;">0</span>
         </button>
@@ -65,9 +64,6 @@
   <!-- MOBILE BRAND PILLS BAR (Quick Brand Switching on Phone Screens) -->
   <nav class="mobile-brand-pills-bar" aria-label="Mobile Brand Switcher">
     <div class="container mobile-pills-container">
-      <a href="index.html" class="mobile-brand-pill active">
-        <span>🏠</span> All Houses
-      </a>
       <a href="riyaa-trends.html" class="mobile-brand-pill">
         <span>👕</span> Riyaa Trends
       </a>
@@ -80,554 +76,147 @@
       <a href="orders.html" class="mobile-brand-pill">
         <span>📦</span> Order History
       </a>
-    </div>
+    </div> 
   </nav>
 
-  <!-- MAIN HERO SECTION -->
-  <section class="hero-section">
-    <div class="hero-pattern-overlay"></div>
-    <div class="container">
-      <div class="hero-grid">
+  <!-- NATURE HERO SECTION (RECREATED WITH HTML, CSS AND JS MATCHING REFERENCE) -->
+  <main class="nature-hero-section" id="mainContent">
+    <!-- Subtle Botanical Leaf Corner Accents (Matching Reference Design) -->
+    <img src="assets/homepage-leaf-tl.png" alt="" class="nature-leaf-corner nature-leaf-tl" aria-hidden="true" />
+    <img src="assets/homepage-leaf-tr.png" alt="" class="nature-leaf-corner nature-leaf-tr" aria-hidden="true" />
+    <img src="assets/homepage-leaf-bl.png" alt="" class="nature-leaf-corner nature-leaf-bl" aria-hidden="true" />
+    <img src="assets/homepage-leaf-br.png" alt="" class="nature-leaf-corner nature-leaf-br" aria-hidden="true" />
 
-        <div class="hero-content">
-          <div class="hero-pill-badge">
-            <span>✦</span> <span>Three Independent Curated Houses</span>
-          </div>
-          <h1 class="hero-title">
-            Artisanal Grace for Modern <span class="text-serif-italic">Living & Style</span>
-          </h1>
-          <p class="hero-description">
-            Experience the harmonious union of everyday comfort with <strong>Riyaa Trends</strong>, hand-poured
-            botanical aromas with <strong>Glow Home</strong>, and delicate fine accents with <strong>Earkart</strong>.
-          </p>
-          <div class="hero-cta-group">
-            <a href="#catalogSection" class="btn btn-primary btn-lg">Shop Now &rarr;</a>
-            <a href="#businessHubSection" class="btn btn-outline-light btn-lg">Browse The 3 Houses</a>
-          </div>
-        </div>
+    <div class="nature-hero-container">
 
-        <div class="hero-image-showcase" id="heroProductsShowcase">
-          <!-- 3-Product 3D Stage Container -->
-          <div class="hero-stage-container">
-            <!-- Slide 1: Riyaa Trends -->
-            <a href="riyaa-trends.html" class="hero-product-slide active" data-index="0" title="Explore Riyaa Trends">
-              <div class="hero-slide-media">
-                <img src="assets/riyaa-trends/IMG-20260222-WA0060.jpg" alt="Riyaa Trends Fashion" class="hero-slide-img" />
-              </div>
-            </a>
-
-            <!-- Slide 2: Glow Home -->
-            <a href="glow-home.html" class="hero-product-slide" data-index="1" title="Explore Glow Home">
-              <div class="hero-slide-media">
-                <img src="assets/glow-home/IMG_20260816_171236.jpg" alt="Glow Home Scented Candles" class="hero-slide-img" />
-              </div>
-            </a>
-
-            <!-- Slide 3: Earkart -->
-            <a href="earkart.html" class="hero-product-slide" data-index="2" title="Explore Earkart">
-              <div class="hero-slide-media">
-                <img src="assets/earkart/earkart-daisy-pair-original.jpg" alt="Earkart Handcrafted Fine Jewellery" class="hero-slide-img" />
-              </div>
-            </a>
-
-            <!-- Arrow Navigation Controls -->
-            <button class="hero-nav-arrow prev" onclick="prevHeroProduct(event)" aria-label="Previous Featured Product">&#10094;</button>
-            <button class="hero-nav-arrow next" onclick="nextHeroProduct(event)" aria-label="Next Featured Product">&#10095;</button>
-
-            <!-- Counter Indicator Dots -->
-            <div class="hero-slide-dots">
-              <span class="hero-dot active" onclick="switchHeroProduct(0, event)"></span>
-              <span class="hero-dot" onclick="switchHeroProduct(1, event)"></span>
-              <span class="hero-dot" onclick="switchHeroProduct(2, event)"></span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- THREE DISTINCT BUSINESS CARDS SECTION -->
-  <section class="section-padding" id="businessHubSection">
-    <div class="container">
-      <div class="section-header text-center reveal-slide-up">
-        <div class="section-subtitle">Our Three Independent Houses</div>
-        <h2 class="section-title">One Destination. Three Distinct Craft Stories.</h2>
-        <p class="section-desc">
-          Each brand maintains its own independent catalogue, sizing, and artisan standards, seamlessly brought together
-          for your shopping convenience.
-        </p>
+      <!-- Prominently Featured LIMETREE Logo in Upper Centre -->
+      <div class="nature-hero-header reveal-slide-up">
+        <h1 class="sr-only">LIMETREE — Riyaa Trends, Glow Home, Earkart</h1>
+        <a href="index.html" class="nature-hero-logo-link" aria-label="LIMETREE Collective Home">
+          <img src="assets/homepage-limetree-logo-trans.png" alt="LIMETREE" class="nature-hero-logo-art" width="1390" height="355" />
+        </a>
       </div>
 
-      <div class="business-cards-grid reveal-stagger">
+      <!-- Exactly Three Large, Evenly Spaced Brand Cards In One Row (Desktop Grid / Mobile Swipe Carousel) -->
+      <div class="nature-brand-grid reveal-stagger" id="brandCardsCarousel" role="region" aria-roledescription="carousel" aria-label="LIMETREE Houses Carousel" tabindex="0">
 
-        <!-- CARD 1: RIYAA TRENDS -->
-        <article class="business-hub-card" onclick="window.location.href='riyaa-trends.html'" style="cursor: pointer;">
-          <a href="riyaa-trends.html" class="business-card-img-wrap" aria-label="Riyaa Trends Apparel Boutique">
-            <img src="assets/riyaa-trends/IMG-20260222-WA0041.jpg"
-              alt="Riyaa Trends Apparel" loading="lazy" />
-            <span class="business-badge">Clothing & Fashion</span>
-          </a>
-          <div class="business-card-body">
-            <h3 class="business-card-title">
-              <a href="riyaa-trends.html" style="color: inherit; text-decoration: none;">Riyaa Trends</a>
-            </h3>
-            <div class="business-card-tagline">Everyday Comfort & Elevated Tailoring</div>
-            <p class="business-card-desc">
-              Breathable 240+ GSM combed cotton t-shirts, tailored French terry trackpants, and utility cargo shorts in
-              earthy, mindful hues.
-            </p>
-            <div class="business-card-footer">
-              <div class="business-card-features">
-                <span class="feature-tag">Kids & Youth Fashion</span>
-                <span class="feature-tag">100% Cotton</span>
-              </div>
-              <a href="riyaa-trends.html" class="btn btn-primary btn-sm">Enter Boutique &rarr;</a>
-            </div>
+        <!-- 1. Riyaa Trends — Clothing -->
+        <a href="riyaa-trends.html" class="nature-brand-card" id="cardRiyaaTrends" role="group" aria-roledescription="slide" aria-label="1 of 3: Riyaa Trends Clothing">
+          <div class="card-arch-portal">
+            <img src="assets/homepage-card-riyaa-photo.jpg" alt="Riyaa Trends Clothing" class="card-arch-img" width="680" height="535" />
           </div>
-        </article>
+          <div class="card-badge-circle" aria-hidden="true">
+            <svg viewBox="0 0 48 48" class="badge-icon-svg" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8 C18 13, 30 13, 32 8 L42 14 L38 21 L34 19 L34 38 L14 38 L14 19 L10 21 L6 14 Z" />
+              <path d="M24 12 L24 17" />
+            </svg>
+          </div>
+          <div class="card-pill-body">
+            <h2 class="card-brand-title">Riyaa Trends</h2>
+            <span class="card-brand-category">CLOTHING</span>
+            <span class="card-arrow-circle" aria-hidden="true">
+              <svg viewBox="0 0 24 24" class="card-arrow-svg" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </span>
+          </div>
+        </a>
 
-        <!-- CARD 2: GLOW HOME -->
-        <article class="business-hub-card" onclick="window.location.href='glow-home.html'" style="cursor: pointer;">
-          <a href="glow-home.html" class="business-card-img-wrap" aria-label="Glow Home Candles Boutique">
-            <img src="assets/glow-home/IMG_20260816_171236.jpg"
-              alt="Glow Home Scented Candles" loading="lazy" />
-            <span class="business-badge">Home Fragrance</span>
-          </a>
-          <div class="business-card-body">
-            <h3 class="business-card-title">
-              <a href="glow-home.html" style="color: inherit; text-decoration: none;">Glow Home</a>
-            </h3>
-            <div class="business-card-tagline">Hand-Poured Soy & Botanical Wax</div>
-            <p class="business-card-desc">
-              Hand-poured artisan candles in amber glass jars and travel tins. Infused with natural essential oils for a
-              clean soot-free burn.
-            </p>
-            <div class="business-card-footer">
-              <div class="business-card-features">
-                <span class="feature-tag">Glass & Tin Jars</span>
-                <span class="feature-tag">Soy & Beeswax</span>
-              </div>
-              <a href="glow-home.html" class="btn btn-primary btn-sm">Enter Boutique &rarr;</a>
-            </div>
+        <!-- 2. Glow Home — Scented Candles -->
+        <a href="glow-home.html" class="nature-brand-card" id="cardGlowHome" role="group" aria-roledescription="slide" aria-label="2 of 3: Glow Home Scented Candles">
+          <div class="card-arch-portal">
+            <img src="assets/homepage-card-glow-photo.jpg" alt="Glow Home Scented Candles" class="card-arch-img" width="680" height="535" />
           </div>
-        </article>
+          <div class="card-badge-circle" aria-hidden="true">
+            <svg viewBox="0 0 48 48" class="badge-icon-svg" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M24 8 C21 13, 21 16, 24 19 C27 16, 27 13, 24 8 Z" fill="#FFFFFF" />
+              <line x1="24" y1="19" x2="24" y2="23" />
+              <rect x="13" y="23" width="22" height="15" rx="3" />
+            </svg>
+          </div>
+          <div class="card-pill-body">
+            <h2 class="card-brand-title">Glow Home</h2>
+            <span class="card-brand-category">SCENTED CANDLES</span>
+            <span class="card-arrow-circle" aria-hidden="true">
+              <svg viewBox="0 0 24 24" class="card-arrow-svg" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </span>
+          </div>
+        </a>
 
-        <!-- CARD 3: EARKART -->
-        <article class="business-hub-card" onclick="window.location.href='earkart.html'" style="cursor: pointer;">
-          <a href="earkart.html" class="business-card-img-wrap" aria-label="Earkart Jewellery Boutique">
-            <img src="assets/earkart/earkart-daisy-pair-original.jpg"
-              alt="Earkart Handcrafted Earrings" loading="lazy" />
-            <span class="business-badge">Fashion Jewellery</span>
-          </a>
-          <div class="business-card-body">
-            <h3 class="business-card-title">
-              <a href="earkart.html" style="color: inherit; text-decoration: none;">Earkart</a>
-            </h3>
-            <div class="business-card-tagline">Ear Studs & Handcrafted Flora</div>
-            <p class="business-card-desc">
-              Handcrafted white daisy floral studs and delicate botanical earrings with hypoallergenic posts for sensitive ears.
-            </p>
-            <div class="business-card-footer">
-              <div class="business-card-features">
-                <span class="feature-tag">Daisy Studs</span>
-                <span class="feature-tag">Hypoallergenic</span>
-              </div>
-              <a href="earkart.html" class="btn btn-primary btn-sm">Enter Boutique &rarr;</a>
-            </div>
+        <!-- 3. Earkart — Jewellery -->
+        <a href="earkart.html" class="nature-brand-card" id="cardEarkart" role="group" aria-roledescription="slide" aria-label="3 of 3: Earkart Handcrafted Jewellery">
+          <div class="card-arch-portal">
+            <img src="assets/homepage-card-earkart-photo.jpg" alt="Earkart Handcrafted Jewellery" class="card-arch-img" width="680" height="535" />
           </div>
-        </article>
+          <div class="card-badge-circle" aria-hidden="true">
+            <svg viewBox="0 0 48 48" class="badge-icon-svg" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12,18 24,8 36,18 24,38" />
+              <line x1="12" y1="18" x2="36" y2="18" />
+              <line x1="18" y1="18" x2="24" y2="38" />
+              <line x1="30" y1="18" x2="24" y2="38" />
+              <line x1="18" y1="18" x2="24" y2="8" />
+              <line x1="30" y1="18" x2="24" y2="8" />
+            </svg>
+          </div>
+          <div class="card-pill-body">
+            <h2 class="card-brand-title">Earkart</h2>
+            <span class="card-brand-category">JEWELLERY</span>
+            <span class="card-arrow-circle" aria-hidden="true">
+              <svg viewBox="0 0 24 24" class="card-arrow-svg" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </span>
+          </div>
+        </a>
 
       </div>
-    </div>
-  </section>
 
-  <!-- EDITORIAL SHOWCASE 1: RIYAA TRENDS -->
-  <section class="editorial-showcase-section reveal-slide-up" style="background: var(--color-bg-base);">
-    <div class="container">
-      <div class="editorial-showcase-grid">
-        <div class="editorial-showcase-img-wrap reveal-slide-left">
-          <img src="assets/riyaa-trends/IMG-20260222-WA0056.jpg" alt="Riyaa Trends Organic Combed Cotton Apparel" class="editorial-showcase-img" loading="lazy" />
-        </div>
-        <div class="reveal-slide-right">
-          <div class="section-subtitle">House Showcase · 01</div>
-          <h2 class="section-title" style="text-align: left; margin-bottom: 0.8rem; font-size: 2.1rem;">
-            Riyaa Trends: The Architecture of Everyday Comfort
-          </h2>
-          <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.65; margin-bottom: 1.2rem;">
-            Rooted in minimalist street silhouettes and honest tailoring. Every piece is constructed from 240+ GSM combed organic cotton that breathes through long days, retains structural drape, and softens with every wash without pilling or shrinkage.
-          </p>
-          <div style="display: flex; gap: 1.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
-            <div>
-              <strong style="color: var(--color-primary-dark); font-size: 1.1rem; display: block;">240+ GSM</strong>
-              <span style="font-size: 0.8rem; color: var(--color-text-muted);">Combed Long-Staple Cotton</span>
-            </div>
-            <div>
-              <strong style="color: var(--color-primary-dark); font-size: 1.1rem; display: block;">XS – XXL</strong>
-              <span style="font-size: 0.8rem; color: var(--color-text-muted);">True Inclusive Sizing</span>
-            </div>
-            <div>
-              <strong style="color: var(--color-primary-dark); font-size: 1.1rem; display: block;">100% Bio-Wash</strong>
-              <span style="font-size: 0.8rem; color: var(--color-text-muted);">Zero Chemical Irritants</span>
-            </div>
-          </div>
-          <a href="riyaa-trends.html" class="btn btn-primary btn-md">Explore Riyaa Trends Boutique &rarr;</a>
-        </div>
+      <!-- Mobile Swipe Pagination Dots -->
+      <div class="brand-swipe-dots" id="brandSwipeDots" role="tablist" aria-label="Brand Carousel Pagination">
+        <button class="swipe-dot active" data-index="0" role="tab" aria-selected="true" aria-controls="cardRiyaaTrends" aria-label="Slide 1 of 3: Riyaa Trends"></button>
+        <button class="swipe-dot" data-index="1" role="tab" aria-selected="false" aria-controls="cardGlowHome" aria-label="Slide 2 of 3: Glow Home"></button>
+        <button class="swipe-dot" data-index="2" role="tab" aria-selected="false" aria-controls="cardEarkart" aria-label="Slide 3 of 3: Earkart"></button>
       </div>
-    </div>
-  </section>
-
-  <!-- EDITORIAL SHOWCASE 2: GLOW HOME -->
-  <section class="editorial-showcase-section reveal-slide-up" style="background: var(--color-bg-surface);">
-    <div class="container">
-      <div class="editorial-showcase-grid editorial-showcase-reverse">
-        <div class="editorial-showcase-img-wrap reveal-slide-right">
-          <img src="assets/glow-home/IMG_20260906_112045.jpg" alt="Glow Home Artisan Hand-Poured Wax Studio" class="editorial-showcase-img" loading="lazy" />
-        </div>
-        <div class="reveal-slide-left">
-          <div class="section-subtitle">House Showcase · 02</div>
-          <h2 class="section-title" style="text-align: left; margin-bottom: 0.8rem; font-size: 2.1rem;">
-            Glow Home: Botanical Light &amp; Meditative Sanctuaries
-          </h2>
-          <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.65; margin-bottom: 1.2rem;">
-            Hand-poured in slow, micro-batches with pure botanical soy wax and IFRA-certified therapeutic essences. Designed to burn evenly across 50+ hours without soot, filling your living room with subtle notes of French lavender, ceremonial sandalwood, and wild bergamot.
-          </p>
-          <div style="display: flex; gap: 1.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
-            <div>
-              <strong style="color: var(--color-primary-dark); font-size: 1.1rem; display: block;">50+ Hours</strong>
-              <span style="font-size: 0.8rem; color: var(--color-text-muted);">Clean Slow Burn</span>
-            </div>
-            <div>
-              <strong style="color: var(--color-primary-dark); font-size: 1.1rem; display: block;">Lead-Free</strong>
-              <span style="font-size: 0.8rem; color: var(--color-text-muted);">Braided Cotton Wicks</span>
-            </div>
-            <div>
-              <strong style="color: var(--color-primary-dark); font-size: 1.1rem; display: block;">Keepsake Jar</strong>
-              <span style="font-size: 0.8rem; color: var(--color-text-muted);">Reusable Glass &amp; Tins</span>
-            </div>
-          </div>
-          <a href="glow-home.html" class="btn btn-primary btn-md">Explore Glow Home Boutique &rarr;</a>
-        </div>
       </div>
-    </div>
-  </section>
+    </main>
 
-  <!-- EDITORIAL SHOWCASE 3: EARKART -->
-  <section class="editorial-showcase-section reveal-slide-up" style="background: var(--color-bg-base);">
-    <div class="container">
-      <div class="editorial-showcase-grid">
-        <div class="editorial-showcase-img-wrap reveal-slide-left">
-          <img src="assets/earkart/earkart-daisy-model-ear.jpg" alt="Earkart Handcrafted White Daisy Blossom Studs" class="editorial-showcase-img" loading="lazy" />
-        </div>
-        <div class="reveal-slide-right">
-          <div class="section-subtitle">House Showcase · 03</div>
-          <h2 class="section-title" style="text-align: left; margin-bottom: 0.8rem; font-size: 2.1rem;">
-            Earkart: Subtle Radiance for Sensitive Lobes
-          </h2>
-          <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.65; margin-bottom: 1.2rem;">
-            Curated ear adornments crafted for daily elegance. Utilizing 2.5-micron 18K gold vermeil over recycled 925 sterling silver and genuine cultured freshwater pearls, our pieces are rigorously hypoallergenic, nickel-free, and designed to never irritate sensitive skin.
-          </p>
-          <div style="display: flex; gap: 1.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
-            <div>
-              <strong style="color: var(--color-primary-dark); font-size: 1.1rem; display: block;">18K Vermeil</strong>
-              <span style="font-size: 0.8rem; color: var(--color-text-muted);">2.5 Micron Thick Gold</span>
-            </div>
-            <div>
-              <strong style="color: var(--color-primary-dark); font-size: 1.1rem; display: block;">925 Silver</strong>
-              <span style="font-size: 0.8rem; color: var(--color-text-muted);">100% Recycled Precious Core</span>
-            </div>
-            <div>
-              <strong style="color: var(--color-primary-dark); font-size: 1.1rem; display: block;">Zero Nickel</strong>
-              <span style="font-size: 0.8rem; color: var(--color-text-muted);">Sensitive Skin Safe</span>
-            </div>
-          </div>
-          <a href="earkart.html" class="btn btn-primary btn-md">Explore Earkart Boutique &rarr;</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- UNIFIED CATALOG SECTION -->
-  <section class="section-padding" id="catalogSection"
-    style="background-color: #FFFFFF; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
-    <div class="container">
-
-      <div class="section-header text-center">
-        <div class="section-subtitle">Curated Catalog</div>
-        <h2 class="section-title">Explore All Collections</h2>
-        <p class="section-desc">
-          Browse real-time inventory from all three businesses with live variant pricing, sizes, and instant checkout.
-        </p>
-      </div>
-
-      <!-- FILTER CONTROLS -->
-      <div class="catalog-controls">
-        <div class="filter-tabs">
-          <button class="filter-tab active" data-business="all">All Products</button>
-          <button class="filter-tab" data-business="riyaa-trends">👕 Riyaa Trends (Fashion)</button>
-          <button class="filter-tab" data-business="glow-home">🕯️ Glow Home (Candles)</button>
-          <button class="filter-tab" data-business="earkart">✨ Earkart (Jewellery)</button>
-        </div>
-
-        <div class="catalog-actions-right">
-          <label class="in-stock-toggle-label">
-            <input type="checkbox" id="inStockToggle" />
-            <span>In-Stock Only</span>
-          </label>
-          <select id="catalogSortSelect" class="sort-select" aria-label="Sort Catalog">
-            <option value="newest">Sort by: Newest Arrivals</option>
-            <option value="price-low">Price: Low to High</option>
-            <option value="price-high">Price: High to Low</option>
-            <option value="rating">Highest Customer Rating</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- PRODUCT CARDS GRID (DYNAMICALLY RENDERED) -->
-      <div class="product-grid" id="productCatalogGrid">
-        <!-- Injected via js/store.js -->
-      </div>
-
-    </div>
-  </section>
-
-  <!-- REFINED STICKY STORYTELLING SECTION: THE LIMETREE CRAFT MANIFESTO -->
-  <section class="section-padding sticky-story-section" style="background: linear-gradient(135deg, #0A2216 0%, #133E2B 100%); color: #FFFFFF;">
-    <div class="container">
-      <div class="sticky-story-grid">
-
-        <!-- Pinned Left Narrative Column -->
-        <div class="sticky-story-pinned" style="background: rgba(14, 41, 28, 0.7); border: 1px solid rgba(255, 255, 255, 0.12);">
-          <div class="hero-pill-badge" style="background: rgba(255, 255, 255, 0.15); margin-bottom: 1.2rem; display: inline-flex;">
-            <span>🌿</span> <span>The Limetree Manifesto</span>
-          </div>
-          <h2 style="font-family: var(--font-heading); font-size: 2.2rem; color: #FFFFFF; line-height: 1.25; margin-bottom: 1.2rem;">
-            Where Independent Craftsmanship Meets Modern Ease
-          </h2>
-          <p style="font-size: 0.96rem; line-height: 1.75; color: #D2DCD6; margin-bottom: 2rem;">
-            Instead of fragmenting your shopping across disparate portals, we curate three specialized artisan houses under one seamless roof with unified checkout and express delivery.
-          </p>
-          <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem; color: #E8F0EC;">
-            <div style="display: flex; align-items: center; gap: 0.6rem;">
-              <span style="color: #68D391;">✓</span> Single Combined Checkout &amp; GST Invoice
-            </div>
-            <div style="display: flex; align-items: center; gap: 0.6rem;">
-              <span style="color: #68D391;">✓</span> Free Express Courier on Orders Above ₹999
-            </div>
-            <div style="display: flex; align-items: center; gap: 0.6rem;">
-              <span style="color: #68D391;">✓</span> 7-Day Hassle-Free Returns Concierge
-            </div>
-          </div>
-        </div>
-
-        <!-- Scrolling Craft Story Cards (Right) -->
-        <div class="sticky-story-cards">
-
-          <!-- Card 1: Riyaa Trends -->
-          <div class="sticky-story-step reveal-slide-up" style="background: rgba(19, 62, 43, 0.45); border: 1px solid rgba(255, 255, 255, 0.12); color: #FFFFFF;">
-            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.8rem;">
-              <span style="font-size: 1.6rem;">👕</span>
-              <div>
-                <span style="font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-accent-sage);">House 01 · Apparel</span>
-                <h3 style="font-family: var(--font-heading); font-size: 1.35rem; color: #FFFFFF; margin: 0;">Riyaa Trends — Honest Tailoring</h3>
-              </div>
-            </div>
-            <p style="font-size: 0.92rem; line-height: 1.7; color: #D2DCD6; margin-bottom: 1.2rem;">
-              Crafted with dense 240+ GSM combed organic cotton and durable French terry weaves. Every silhouette is bio-washed for lasting touch softness, zero shrinkage, and effortless day-to-night movement.
-            </p>
-            <div style="display: flex; gap: 1rem; font-size: 0.8rem; color: var(--color-accent-sage); font-weight: 600;">
-              <span>• 100% Organic Cotton</span>
-              <span>• XS to XXL Inclusivity</span>
-              <span>• Bio-Washed Finish</span>
-            </div>
-          </div>
-
-          <!-- Card 2: Glow Home -->
-          <div class="sticky-story-step reveal-slide-up" style="background: rgba(19, 62, 43, 0.45); border: 1px solid rgba(255, 255, 255, 0.12); color: #FFFFFF;">
-            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.8rem;">
-              <span style="font-size: 1.6rem;">🕯️</span>
-              <div>
-                <span style="font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #E2B774;">House 02 · Aromatherapy</span>
-                <h3 style="font-family: var(--font-heading); font-size: 1.35rem; color: #FFFFFF; margin: 0;">Glow Home — Meditative Light</h3>
-              </div>
-            </div>
-            <p style="font-size: 0.92rem; line-height: 1.7; color: #D2DCD6; margin-bottom: 1.2rem;">
-              Slow, small-batch hand pours using 100% pure botanical soy wax and IFRA-certified therapeutic essences. Formulated with braided lead-free wicks for a 50+ hour clean, soot-free burn.
-            </p>
-            <div style="display: flex; gap: 1rem; font-size: 0.8rem; color: #E2B774; font-weight: 600;">
-              <span>• 50+ Hours Clean Burn</span>
-              <span>• Reusable Amber Glass</span>
-              <span>• Soot-Free Cotton Wick</span>
-            </div>
-          </div>
-
-          <!-- Card 3: Earkart -->
-          <div class="sticky-story-step reveal-slide-up" style="background: rgba(19, 62, 43, 0.45); border: 1px solid rgba(255, 255, 255, 0.12); color: #FFFFFF;">
-            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.8rem;">
-              <span style="font-size: 1.6rem;">✨</span>
-              <div>
-                <span style="font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #8FA89B;">House 03 · Fine Jewellery</span>
-                <h3 style="font-family: var(--font-heading); font-size: 1.35rem; color: #FFFFFF; margin: 0;">Earkart — Sensitive Lobe Luxury</h3>
-              </div>
-            </div>
-            <p style="font-size: 0.92rem; line-height: 1.7; color: #D2DCD6; margin-bottom: 1.2rem;">
-              Sculpted organic ceramic daisies, 2.5-micron 18K gold vermeil, and iridescent baroque freshwater pearls. Hypoallergenic foundations specifically engineered for tender lobes and lifelong daily comfort.
-            </p>
-            <div style="display: flex; gap: 1rem; font-size: 0.8rem; color: #8FA89B; font-weight: 600;">
-              <span>• 18K Thick Vermeil</span>
-              <span>• Recycled 925 Silver</span>
-              <span>• Zero Nickel Irritation</span>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- AUTHENTIC CUSTOMER REVIEWS -->
-  <section class="section-padding" style="background: var(--color-bg-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
-    <div class="container">
-      <div class="section-header text-center reveal-slide-up">
-        <div class="section-subtitle">Verified Patron Experiences</div>
-        <h2 class="section-title">Enduring Quality, Cherished Daily</h2>
-        <p class="section-desc">Real feedback from patrons across our three independent houses.</p>
-      </div>
-
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
-        <div style="background: #FFFFFF; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 2rem; box-shadow: var(--shadow-sm);">
-          <div style="color: #F59E0B; margin-bottom: 0.6rem;">★★★★★</div>
-          <p style="font-size: 0.92rem; color: var(--color-text-main); line-height: 1.6; margin-bottom: 1.2rem;">
-            "The 240 GSM organic cotton in the Forest Mist tee is incredible. It has proper substance and doesn't lose its shape after three washes. Will be ordering more colors."
-          </p>
-          <div style="display: flex; align-items: center; justify-content: space-between;">
-            <div>
-              <strong style="font-size: 0.88rem; color: var(--color-primary-dark);">Ananya S.</strong>
-              <div style="font-size: 0.75rem; color: var(--color-text-muted);">Bengaluru · Verified Purchase</div>
-            </div>
-            <span class="badge badge-info" style="font-size: 0.65rem;">Riyaa Trends</span>
-          </div>
-        </div>
-
-        <div style="background: #FFFFFF; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 2rem; box-shadow: var(--shadow-sm);">
-          <div style="color: #F59E0B; margin-bottom: 0.6rem;">★★★★★</div>
-          <p style="font-size: 0.92rem; color: var(--color-text-main); line-height: 1.6; margin-bottom: 1.2rem;">
-            "The French Lavender jar fills my entire living space within 20 minutes without ever feeling overpowering. The frosted glass jar looks so peaceful on my bedside table."
-          </p>
-          <div style="display: flex; align-items: center; justify-content: space-between;">
-            <div>
-              <strong style="font-size: 0.88rem; color: var(--color-primary-dark);">Vikram M.</strong>
-              <div style="font-size: 0.75rem; color: var(--color-text-muted);">Chennai · Verified Purchase</div>
-            </div>
-            <span class="badge badge-info" style="font-size: 0.65rem;">Glow Home</span>
-          </div>
-        </div>
-
-        <div style="background: #FFFFFF; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 2rem; box-shadow: var(--shadow-sm);">
-          <div style="color: #F59E0B; margin-bottom: 0.6rem;">★★★★★</div>
-          <p style="font-size: 0.92rem; color: var(--color-text-main); line-height: 1.6; margin-bottom: 1.2rem;">
-            "I have very sensitive ear piercings that react to almost everything. These 18K vermeil Solitaire studs caused zero irritation even after wearing them for 4 days straight!"
-          </p>
-          <div style="display: flex; align-items: center; justify-content: space-between;">
-            <div>
-              <strong style="font-size: 0.88rem; color: var(--color-primary-dark);">Meera R.</strong>
-              <div style="font-size: 0.75rem; color: var(--color-text-muted);">Hyderabad · Verified Purchase</div>
-            </div>
-            <span class="badge badge-info" style="font-size: 0.65rem;">Earkart</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- VALUE PROPOSITIONS (BENEFITS) -->
-  <section class="section-padding">
-    <div class="container">
-      <div class="benefits-grid">
-        <div class="benefit-card">
-          <div class="benefit-icon">🌿</div>
-          <h4 class="benefit-title">Pure Ethical Materials</h4>
-          <p class="benefit-desc">100% combed cotton, natural soy wax, and nickel-free recycled 925 sterling silver.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">🚚</div>
-          <h4 class="benefit-title">Express Courier Delivery</h4>
-          <p class="benefit-desc">Complimentary shipping on orders over ₹999. Real-time trackable courier dispatch.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">🛡️</div>
-          <h4 class="benefit-title">Verified 7-Day Returns</h4>
-          <p class="benefit-desc">Straightforward returns and exchanges managed transparently through our customer
-            portal.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">🔒</div>
-          <h4 class="benefit-title">Encrypted Payments</h4>
-          <p class="benefit-desc">Protected by Razorpay test gateway with full tax invoices conforming to GST
-            legislation.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- NEWSLETTER SIGNUP -->
-  <section class="section-padding" style="background-color: #FFFFFF; border-top: 1px solid var(--color-border);">
-    <div class="container">
-      <div class="newsletter-card">
-        <div class="section-subtitle">Limetree Journal</div>
-        <h2 class="section-title">Join The Collective</h2>
-        <p class="section-desc">
-          Receive thoughtful notes on new garment releases, seasonal fragrance drops, and jewellery styling tips.
-        </p>
-        <form id="newsletterForm" class="newsletter-form">
-          <input type="email" id="newsletterEmail" placeholder="Enter your email address..." required
-            aria-label="Email address" />
-          <button type="submit" class="btn btn-primary">Subscribe</button>
-        </form>
-        <div style="font-size: 0.76rem; color: var(--color-text-light); margin-top: 0.5rem;">
-          We respect your privacy. Unsubscribe anytime with one click.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SITE FOOTER -->
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
 
-        <div>
-          <div class="footer-brand-title">
-            <img src="assets/logo-white.png" alt="LIMETREE" style="height: 44px; width: auto; object-fit: contain; margin-bottom: 0.8rem; display: block;" />
-          </div>
+        <div class="footer-brand-col">
+          <a href="index.html" class="footer-logo" aria-label="LIMETREE Home" style="display: inline-block; text-decoration: none;">
+            <img src="assets/logo-transparent.png" alt="LIMETREE" style="height: 44px; width: auto; object-fit: contain; margin-bottom: 0.8rem; display: block; mix-blend-mode: multiply;" />
+          </a>
           <p class="footer-desc">
-            A unified multi-business retail collective bringing together Riyaa Trends fashion, Glow Home artisan
-            candles, and Earkart jewellery under one shared standard of excellence.
+            A harmonious multi-business retail collective bringing together Riyaa Trends fashion, Glow Home botanical
+            candles, and Earkart artisanal jewellery under one seamless destination.
           </p>
-          <div style="font-size: 0.82rem; color: #9CA8A2;">
-            <strong>Registered Hub:</strong> 14, Botanical Arcade, Race Course Road, Coimbatore, Tamil Nadu 641018<br />
-            <strong>GSTIN:</strong> 33AABCL1234F1Z8 (Sample Configuration)
+          <div style="font-size: 0.82rem; color: var(--color-text-muted);">
+            GSTIN: 33AAAAA0000A1Z5 · HSN: 610910
           </div>
         </div>
 
         <div>
           <h4 class="footer-col-title">The Three Houses</h4>
           <ul class="footer-links">
-            <li><a href="riyaa-trends.html">Riyaa Trends (Fashion)</a></li>
-            <li><a href="glow-home.html">Glow Home (Candles)</a></li>
-            <li><a href="earkart.html">Earkart (Jewellery)</a></li>
-            <li><a href="#catalogSection">Collective Catalog</a></li>
+            <li><a href="riyaa-trends.html">Riyaa Trends (Fashion &amp; Apparel)</a></li>
+            <li><a href="glow-home.html">Glow Home (Botanical Candles)</a></li>
+            <li><a href="earkart.html">Earkart (Artisanal Ear Studs)</a></li>
+            <li><a href="index.html#mainContent">Collective Catalog</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 class="footer-col-title">Customer Care</h4>
+          <h4 class="footer-col-title">Customer Concierge</h4>
           <ul class="footer-links">
-            <li><a href="orders.html">Track My Order</a></li>
-            <li><a href="orders.html#returnSection">7-Day Return Request</a></li>
-            <li><a href="orders.html#supportSection">Customer Support Desk</a></li>
+            <li><a href="orders.html">Track Order &amp; Delivery</a></li>
+            <li><a href="orders.html">7-Day Return Request</a></li>
             <li><a href="orders.html">Download GST Invoices</a></li>
+            <li><a href="orders.html">Help &amp; Support</a></li>
           </ul>
         </div>
 
@@ -637,7 +226,7 @@
             <li><a href="admin.html">Executive Admin Dashboard</a></li>
             <li><a href="admin.html">Bulk Product CSV Upload</a></li>
             <li><a href="admin.html">LIFO Stock Valuation</a></li>
-            <li><a href="admin.html">Sales & Inventory Reports</a></li>
+            <li><a href="admin.html">Sales &amp; Inventory Reports</a></li>
           </ul>
         </div>
 
@@ -649,6 +238,8 @@
       </div>
     </div>
   </footer>
+
+
 
   <!-- CART DRAWER -->
   <div class="drawer-backdrop" id="drawerBackdrop"></div>
@@ -712,116 +303,218 @@
   <script src="js/storage.js"></script>
   <script src="js/animations.js" defer></script>
   <script src="js/store.js"></script>
-  <!-- HERO 3-PRODUCT ANIMATED SHOWCASE CONTROLLER (4-SEC AUTO CYCLE) -->
+
   <script>
-    let currentHeroIdx = 0;
-    const totalHeroSlides = 3;
-    let heroAutoTimer = null;
-    const HERO_CYCLE_MS = 4000; // Strictly 4 seconds
+    // Smooth Brand Carousel Navigation (Auto-Slide 3s, Continuous Loop, Touch/Click/Keyboard Controls)
+    (function () {
+      const grid = document.querySelector('.nature-brand-grid');
+      const dots = document.querySelectorAll('.swipe-dot');
+      if (!grid || !dots.length) return;
+      const cards = Array.from(grid.querySelectorAll('.nature-brand-card'));
+      if (!cards.length) return;
 
-    function updateHeroShowcase(idx) {
-      currentHeroIdx = (idx + totalHeroSlides) % totalHeroSlides;
+      let currentIndex = 0;
+      let autoSlideTimer = null;
+      const SLIDE_INTERVAL = 3000; // 3 seconds per slide
 
-      const slides = document.querySelectorAll('.hero-product-slide');
-      const dots = document.querySelectorAll('.hero-dot');
+      function updateDots(activeIdx) {
+        dots.forEach(function (dot, i) {
+          const isActive = (i === activeIdx);
+          dot.classList.toggle('active', isActive);
+          dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          dot.setAttribute('tabindex', isActive ? '0' : '-1');
+        });
+        cards.forEach(function (card, i) {
+          card.classList.toggle('active-slide', i === activeIdx);
+        });
+      }
 
-      const prevIdx = (currentHeroIdx - 1 + totalHeroSlides) % totalHeroSlides;
-      const nextIdx = (currentHeroIdx + 1) % totalHeroSlides;
+      function isMobileCarousel() {
+        return window.innerWidth <= 768;
+      }
 
-      slides.forEach((slide, i) => {
-        slide.classList.remove('active', 'prev-peek', 'next-peek');
-        if (i === currentHeroIdx) {
-          slide.classList.add('active');
-        } else if (i === nextIdx) {
-          slide.classList.add('next-peek');
-        } else if (i === prevIdx) {
-          slide.classList.add('prev-peek');
+      function scrollToCard(idx, resetTimer) {
+        if (!isMobileCarousel()) return;
+        // Continuous loop through all 3 brands: 0 -> 1 -> 2 -> 0 -> 1 ...
+        if (idx < 0) {
+          idx = cards.length - 1;
+        } else if (idx >= cards.length) {
+          idx = 0;
+        }
+        currentIndex = idx;
+
+        const card = cards[idx];
+        if (card) {
+          try {
+            const gridRect = grid.getBoundingClientRect();
+            const cardRect = card.getBoundingClientRect();
+            const targetScrollLeft = grid.scrollLeft + (cardRect.left - gridRect.left) - (gridRect.width - cardRect.width) / 2;
+            grid.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
+          } catch (e) {
+            card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          }
+        }
+        updateDots(idx);
+
+        if (resetTimer) {
+          restartAutoSlide();
+        }
+      }
+
+      function nextSlide() {
+        if (!isMobileCarousel()) return;
+        scrollToCard((currentIndex + 1) % cards.length, false);
+      }
+
+      function startAutoSlide() {
+        stopAutoSlide();
+        if (isMobileCarousel()) {
+          autoSlideTimer = setInterval(nextSlide, SLIDE_INTERVAL);
+        }
+      }
+
+      function stopAutoSlide() {
+        if (autoSlideTimer) {
+          clearInterval(autoSlideTimer);
+          autoSlideTimer = null;
+        }
+      }
+
+      function restartAutoSlide() {
+        stopAutoSlide();
+        startAutoSlide();
+      }
+
+      window.addEventListener('resize', function () {
+        if (isMobileCarousel()) {
+          if (!autoSlideTimer) startAutoSlide();
+        } else {
+          stopAutoSlide();
+          grid.scrollLeft = 0;
         }
       });
 
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentHeroIdx);
-      });
-    }
-
-    function startHeroTimer() {
-      if (heroAutoTimer) clearInterval(heroAutoTimer);
-      heroAutoTimer = setInterval(() => {
-        updateHeroShowcase(currentHeroIdx + 1);
-      }, HERO_CYCLE_MS);
-    }
-
-    function switchHeroProduct(idx, event) {
-      if (event) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-      updateHeroShowcase(idx);
-      startHeroTimer();
-    }
-
-    function nextHeroProduct(event) {
-      if (event) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-      updateHeroShowcase(currentHeroIdx + 1);
-      startHeroTimer();
-    }
-
-    function prevHeroProduct(event) {
-      if (event) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-      updateHeroShowcase(currentHeroIdx - 1);
-      startHeroTimer();
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const showcase = document.getElementById('heroProductsShowcase');
-      if (showcase) {
-        updateHeroShowcase(0);
-        startHeroTimer();
-
-        // Clicking on peek cards directly switches to that card
-        const slides = document.querySelectorAll('.hero-product-slide');
-        slides.forEach((slide) => {
-          slide.addEventListener('click', (e) => {
-            if (slide.classList.contains('next-peek')) {
-              e.preventDefault();
-              e.stopPropagation();
-              nextHeroProduct();
-            } else if (slide.classList.contains('prev-peek')) {
-              e.preventDefault();
-              e.stopPropagation();
-              prevHeroProduct();
-            }
-          });
+      // Dot Click Interaction
+      dots.forEach(function (dot) {
+        dot.addEventListener('click', function (e) {
+          e.preventDefault();
+          const idx = parseInt(dot.getAttribute('data-index'), 10);
+          scrollToCard(idx, true);
         });
+      });
 
-        // Touch swipe support for mobile
-        let touchStartX = 0;
-        let touchEndX = 0;
-        showcase.addEventListener('touchstart', (e) => {
-          touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
+      // Synchronize active dot during & after scroll
+      let scrollTimer;
+      let ticking = false;
+      function onScrollUpdate() {
+        const gridBox = grid.getBoundingClientRect();
+        const gridCenter = gridBox.left + gridBox.width / 2;
+        let closestIdx = 0;
+        let minDiff = Infinity;
+        cards.forEach(function (card, idx) {
+          const cardBox = card.getBoundingClientRect();
+          const cardCenter = cardBox.left + cardBox.width / 2;
+          const diff = Math.abs(cardCenter - gridCenter);
+          if (diff < minDiff) {
+            minDiff = diff;
+            closestIdx = idx;
+          }
+        });
+        if (closestIdx !== currentIndex) {
+          currentIndex = closestIdx;
+          updateDots(closestIdx);
+        }
+      }
 
-        showcase.addEventListener('touchend', (e) => {
-          touchEndX = e.changedTouches[0].screenX;
-          const diff = touchStartX - touchEndX;
-          if (Math.abs(diff) > 40) {
-            if (diff > 0) {
-              nextHeroProduct();
+      grid.addEventListener('scroll', function () {
+        if (!ticking) {
+          window.requestAnimationFrame(function () {
+            onScrollUpdate();
+            ticking = false;
+          });
+          ticking = true;
+        }
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(onScrollUpdate, 50);
+      }, { passive: true });
+
+      // Pause on mouse hover (desktop), resume on mouse leave
+      grid.addEventListener('mouseenter', stopAutoSlide);
+      grid.addEventListener('mouseleave', startAutoSlide);
+
+      const dotsContainer = document.getElementById('brandSwipeDots');
+      if (dotsContainer) {
+        dotsContainer.addEventListener('mouseenter', stopAutoSlide);
+        dotsContainer.addEventListener('mouseleave', startAutoSlide);
+      }
+
+      // Touch Swipe Gesture Detection (Swipe Left / Right on mobile)
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let isTouching = false;
+
+      grid.addEventListener('touchstart', function (e) {
+        stopAutoSlide();
+        if (e.touches.length === 1) {
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+          isTouching = true;
+        }
+      }, { passive: true });
+
+      grid.addEventListener('touchend', function (e) {
+        if (isTouching && e.changedTouches.length > 0) {
+          isTouching = false;
+          const touchEndX = e.changedTouches[0].clientX;
+          const touchEndY = e.changedTouches[0].clientY;
+          const diffX = touchEndX - touchStartX;
+          const diffY = touchEndY - touchStartY;
+
+          // Ensure horizontal intent and sufficient threshold (> 40px)
+          if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+            if (diffX < 0) {
+              // Swipe Left -> Next Card (loops 0 -> 1 -> 2 -> 0)
+              scrollToCard(currentIndex + 1, true);
             } else {
-              prevHeroProduct();
+              // Swipe Right -> Previous Card (loops 0 -> 2 -> 1)
+              scrollToCard(currentIndex - 1, true);
             }
           }
-        }, { passive: true });
-      }
-    });
-  </script>
+        }
+        restartAutoSlide();
+      }, { passive: true });
 
+      // Keyboard Accessibility (Left/Right Arrows, Home, End)
+      grid.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          scrollToCard(currentIndex + 1, true);
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          scrollToCard(currentIndex - 1, true);
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          scrollToCard(0, true);
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          scrollToCard(cards.length - 1, true);
+        }
+      });
+
+      // Pause when browser tab is hidden, resume when visible
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) {
+          stopAutoSlide();
+        } else {
+          startAutoSlide();
+        }
+      });
+
+      // Initialize
+      updateDots(0);
+      startAutoSlide();
+    })();
+  </script>
 </body>
 
 </html>

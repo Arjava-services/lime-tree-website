@@ -16,21 +16,14 @@
   <header class="site-header">
     <div class="container header-container">
 
-      <!-- Back Navigation & Brand Logo -->
-      <div style="display: flex; align-items: center; gap: 0.85rem;">
-        <a href="index.html" class="header-back-btn" title="Back to All Houses (Home)">
-          <span class="back-arrow">&larr;</span>
-          <span class="back-text">Back to Home</span>
-        </a>
-        <a href="index.html" class="brand-logo" aria-label="Limetree Home">
-          <img src="assets/logo-transparent.png" alt="LIMETREE - Three Brands One Destination" class="site-logo-img" />
-        </a>
-      </div>
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="LIMETREE Collective">
+        <img src="assets/logo-transparent.png" alt="LIMETREE - Three Brands One Destination" class="site-logo-img" />
+      </a>
 
-      <!-- Desktop Navigation -->
+      <!-- Desktop Navigation (No Home Button) -->
       <nav class="main-nav" aria-label="Main Navigation">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="riyaa-trends.html" class="nav-link">Riyaa Trends <span class="nav-badge-pill">Fashion</span></a>
+        <a href="riyaa-trends.html" class="nav-link">Riyaa Trends <span class="nav-badge-pill">Clothing</span></a>
         <a href="glow-home.html" class="nav-link active">Glow Home <span class="nav-badge-pill">Candles</span></a>
         <a href="earkart.html" class="nav-link">Earkart <span class="nav-badge-pill">Jewellery</span></a>
         <a href="orders.html" class="nav-link">Order History</a>
@@ -71,12 +64,6 @@
   <!-- MOBILE BRAND PILLS BAR (Quick Brand Switching on Phone Screens) -->
   <nav class="mobile-brand-pills-bar" aria-label="Mobile Brand Switcher">
     <div class="container mobile-pills-container">
-      <a href="index.html" class="mobile-brand-pill mobile-back-pill" title="Return to Collective Store">
-        <span style="font-size: 1rem; line-height: 1;">&larr;</span> <span>Back</span>
-      </a>
-      <a href="index.html" class="mobile-brand-pill">
-        <span>🏠</span> All Houses
-      </a>
       <a href="riyaa-trends.html" class="mobile-brand-pill">
         <span>👕</span> Riyaa Trends
       </a>
@@ -92,80 +79,6 @@
     </div>
   </nav>
 
-  <!-- PAGE BREADCRUMB / BACK BAR (Laptop & Mobile) -->
-  <nav class="page-breadcrumb-bar" aria-label="Breadcrumb Navigation">
-    <div class="container breadcrumb-container">
-      <a href="index.html" class="breadcrumb-back-link" title="Return to Collective Storefront">
-        <span>&larr;</span> <span>Back to Collective Home</span>
-      </a>
-      <div class="breadcrumb-trail">
-        <a href="index.html">Home</a>
-        <span class="breadcrumb-sep">/</span>
-        <span class="breadcrumb-current">Glow Home Botanical Candles</span>
-      </div>
-    </div>
-  </nav>
-
-  <!-- BOUTIQUE HERO SECTION -->
-  <section class="hero-section" style="background: linear-gradient(135deg, #133E2B 0%, #1A4D36 60%, #2A5A44 100%);">
-    <div class="hero-pattern-overlay"></div>
-    <div class="container">
-      <div class="hero-grid">
-
-        <div class="hero-content reveal-slide-up">
-          <div class="hero-pill-badge">
-            <span>🕯️</span> <span>House of Botanical Home Fragrance</span>
-          </div>
-          <h1 class="hero-title">
-            Illuminating Stillness &amp; <span class="text-serif-italic">Sacred Aromas</span>
-          </h1>
-          <p class="hero-description">
-            Small-batch hand-poured candles created with 100% natural soy wax, therapeutic botanical essences, and
-            lead-free braided cotton wicks. Crafted to transform everyday rooms into tranquil sanctuaries.
-          </p>
-          <div class="hero-cta-group">
-            <a href="#boutiqueCatalog" class="btn btn-primary btn-lg">Shop Candle Catalog &rarr;</a>
-            <a href="#scentPyramidSection" class="btn btn-outline-light btn-lg">Fragrance Families</a>
-          </div>
-        </div>
-
-        <div class="hero-image-showcase reveal-fade">
-          <img class="hero-main-img" data-parallax="true"
-            src="assets/glow-home/IMG_20260816_171313.jpg"
-            alt="Glow Home Hand-Poured Artisan Glass Candle Promotional Banner" />
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- BRAND PILLARS -->
-  <section class="section-padding" style="background: var(--color-bg-base); padding: 3rem 0; border-bottom: 1px solid var(--color-border);">
-    <div class="container">
-      <div class="reveal-stagger" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; text-align: center;">
-        <div style="padding: 1rem;">
-          <div style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--color-primary);">🌱</div>
-          <h4 style="font-size: 1rem; font-weight: 700; color: var(--color-primary-dark); margin-bottom: 0.25rem;">100% Pure Soy Wax</h4>
-          <p style="font-size: 0.82rem; color: var(--color-text-muted);">Non-toxic, biodegradable, clean burning with zero petroleum paraffin.</p>
-        </div>
-        <div style="padding: 1rem;">
-          <div style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--color-primary);">🕯️</div>
-          <h4 style="font-size: 1rem; font-weight: 700; color: var(--color-primary-dark); margin-bottom: 0.25rem;">45 – 65 Hr Burn Time</h4>
-          <p style="font-size: 0.82rem; color: var(--color-text-muted);">Slow, consistent flame throw without tunneling or smoky residue.</p>
-        </div>
-        <div style="padding: 1rem;">
-          <div style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--color-primary);">🌸</div>
-          <h4 style="font-size: 1rem; font-weight: 700; color: var(--color-primary-dark); margin-bottom: 0.25rem;">Therapeutic Grade Oils</h4>
-          <p style="font-size: 0.82rem; color: var(--color-text-muted);">Complex IFRA-certified botanical olfactory pyramids that soothe the senses.</p>
-        </div>
-        <div style="padding: 1rem;">
-          <div style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--color-primary);">🏺</div>
-          <h4 style="font-size: 1rem; font-weight: 700; color: var(--color-primary-dark); margin-bottom: 0.25rem;">Keepsake Vessels</h4>
-          <p style="font-size: 0.82rem; color: var(--color-text-muted);">Frosted glass jars designed to be repurposed as planters or vanity storage.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- BOUTIQUE CATALOG SECTION -->
   <section class="section-padding" id="boutiqueCatalog">
@@ -213,123 +126,7 @@
     </div>
   </section>
 
-  <!-- FRAGRANCE FAMILIES & SCENT PYRAMID SECTION -->
-  <section class="section-padding" id="scentPyramidSection" style="background: var(--color-bg-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
-    <div class="container">
-      <div class="section-header text-center reveal-slide-up">
-        <div class="section-subtitle">The Olfactory Architecture</div>
-        <h2 class="section-title">Fragrance Families &amp; Scent Pyramids</h2>
-        <p class="section-desc">
-          Every Glow Home candle is layered with high top notes, comforting heart notes, and deep base notes that emerge
-          as the soy wax warms.
-        </p>
-      </div>
 
-      <div class="reveal-stagger" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
-        
-        <!-- CARD 1 -->
-        <div style="background: #FFFFFF; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 2rem; box-shadow: var(--shadow-sm);">
-          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
-            <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--color-accent-lavender-light); color: var(--color-accent-lavender); display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">💜</div>
-            <h3 style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--color-primary-dark);">Floral &amp; Herbal</h3>
-          </div>
-          <p style="font-size: 0.88rem; color: var(--color-text-muted); margin-bottom: 1.2rem;">
-            Calming, restorative blends formulated for evening un-winding and bedroom serenity.
-          </p>
-          <ul style="list-style: none; font-size: 0.82rem; line-height: 1.8; color: var(--color-text-main);">
-            <li><strong>Top Notes:</strong> Crisp Eucalyptus, Chamomile Blossom</li>
-            <li><strong>Heart Notes:</strong> French Lavender, Clary Sage</li>
-            <li><strong>Base Notes:</strong> White Musk, Sheer Cedarwood</li>
-          </ul>
-        </div>
-
-        <!-- CARD 2 -->
-        <div style="background: #FFFFFF; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 2rem; box-shadow: var(--shadow-sm);">
-          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
-            <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--color-primary-subtle); color: var(--color-primary); display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">🌲</div>
-            <h3 style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--color-primary-dark);">Woody &amp; Meditative</h3>
-          </div>
-          <p style="font-size: 0.88rem; color: var(--color-text-muted); margin-bottom: 1.2rem;">
-            Grounded, atmospheric compositions suited for reading rooms, desk sessions, and quiet mornings.
-          </p>
-          <ul style="list-style: none; font-size: 0.82rem; line-height: 1.8; color: var(--color-text-main);">
-            <li><strong>Top Notes:</strong> Cardamom Pod, Black Pepper</li>
-            <li><strong>Heart Notes:</strong> Mysore Sandalwood, Orris Root</li>
-            <li><strong>Base Notes:</strong> Dark Patchouli, Smoked Vetiver</li>
-          </ul>
-        </div>
-
-        <!-- CARD 3 -->
-        <div style="background: #FFFFFF; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 2rem; box-shadow: var(--shadow-sm);">
-          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
-            <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--color-warning-bg); color: var(--color-warning); display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">🍊</div>
-            <h3 style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--color-primary-dark);">Citrus &amp; Uplifting</h3>
-          </div>
-          <p style="font-size: 0.88rem; color: var(--color-text-muted); margin-bottom: 1.2rem;">
-            Vibrant, zesty infusions engineered to clear lingering kitchen aromas and refresh living areas.
-          </p>
-          <ul style="list-style: none; font-size: 0.82rem; line-height: 1.8; color: var(--color-text-main);">
-            <li><strong>Top Notes:</strong> Calabrian Bergamot, Green Mandarin</li>
-            <li><strong>Heart Notes:</strong> Crushed Basil Leaves, Lemongrass</li>
-            <li><strong>Base Notes:</strong> Amber Crystal, Oakmoss</li>
-          </ul>
-        </div>
-
-      </div>
-
-      <!-- CANDLE CARE RITUAL -->
-      <div class="reveal-slide-up" style="margin-top: 3rem; background: #FFFFFF; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 2rem;">
-        <h3 style="font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 1rem; color: var(--color-primary-dark);">
-          The Artisan Candle Care Ritual
-        </h3>
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; font-size: 0.88rem; color: var(--color-text-muted);">
-          <div>
-            <strong style="color: var(--color-primary-dark);">The Memory Burn:</strong>
-            <p>On your first lighting, allow wax to melt across the entire circumference of the jar (2–3 hours) to prevent candle tunneling.</p>
-          </div>
-          <div>
-            <strong style="color: var(--color-primary-dark);">Trim the Wick:</strong>
-            <p>Always trim the braided cotton wick to 1/4 inch (6mm) before relighting to preserve a clean, soot-free flame.</p>
-          </div>
-          <div>
-            <strong style="color: var(--color-primary-dark);">Safe Placement:</strong>
-            <p>Burn within sight on heat-resistant surfaces. Discontinue burning when 1/2 inch of wax remains to protect the glass vessel.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- HOME INTERIORS GALLERY -->
-  <section class="section-padding">
-    <div class="container">
-      <div class="section-header text-center reveal-slide-up">
-        <div class="section-subtitle">Sanctuaries of Light</div>
-        <h2 class="section-title">Glow In Modern Living Spaces</h2>
-        <p class="section-desc">Handcrafted soy and botanical wax candle vessels captured in our artisan workshop and warm ambient settings.</p>
-      </div>
-
-      <div class="reveal-stagger" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
-        <div style="border-radius: var(--radius-md); overflow: hidden; height: 340px; box-shadow: var(--shadow-sm); position: relative;">
-          <img src="assets/glow-home/IMG_20260816_171236.jpg" alt="Glow Home Golden Amber Glass Jar Scented Candle" style="width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-normal);" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'" loading="lazy" />
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 0.8rem; background: linear-gradient(transparent, rgba(10,36,24,0.85)); color: #FFFFFF; font-size: 0.78rem; font-weight: 600;">Golden Amber Jar</div>
-        </div>
-        <div style="border-radius: var(--radius-md); overflow: hidden; height: 340px; box-shadow: var(--shadow-sm); position: relative;">
-          <img src="assets/glow-home/IMG_20260906_112045.jpg" alt="Glow Home Molten Wax Artisan Tin Casting" style="width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-normal);" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'" loading="lazy" />
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 0.8rem; background: linear-gradient(transparent, rgba(10,36,24,0.85)); color: #FFFFFF; font-size: 0.78rem; font-weight: 600;">Molten Wax Tin Casting</div>
-        </div>
-        <div style="border-radius: var(--radius-md); overflow: hidden; height: 340px; box-shadow: var(--shadow-sm); position: relative;">
-          <img src="assets/glow-home/IMG_20260927_124013.jpg" alt="Glow Home Botanical Multi-Color Tealights" style="width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-normal);" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'" loading="lazy" />
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 0.8rem; background: linear-gradient(transparent, rgba(10,36,24,0.85)); color: #FFFFFF; font-size: 0.78rem; font-weight: 600;">Pastel Tealight Votives</div>
-        </div>
-        <div style="border-radius: var(--radius-md); overflow: hidden; height: 340px; box-shadow: var(--shadow-sm); position: relative;">
-          <img src="assets/glow-home/IMG_20260927_183306.jpg" alt="Glow Home Hand-Poured Candle Studio Batch" style="width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-normal);" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'" loading="lazy" />
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 0.8rem; background: linear-gradient(transparent, rgba(10,36,24,0.85)); color: #FFFFFF; font-size: 0.78rem; font-weight: 600;">Studio Batch Pouring</div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- GLOW HOME ARTISAN WORKSHOP VIDEO SECTION -->
   <section class="section-padding reveal-slide-up" style="background: var(--color-bg-base); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
@@ -362,21 +159,21 @@
   </section>
 
   <!-- NEWSLETTER SIGNUP -->
-  <section class="section-padding" style="background: var(--color-primary-dark); color: #FFFFFF; text-align: center;">
+  <section class="section-padding" style="background: var(--color-bg-surface); border-top: 1px solid var(--color-border); text-align: center;">
     <div class="container reveal-slide-up" style="max-width: 680px;">
-      <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-accent-lavender); margin-bottom: 0.5rem;">
+      <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-leaf-green); margin-bottom: 0.5rem;">
         Glow Home Fragrance Society
       </div>
-      <h2 style="font-family: var(--font-heading); font-size: 2.2rem; margin-bottom: 1rem; color: #FFFFFF;">
+      <h2 style="font-family: var(--font-heading); font-size: 2.2rem; margin-bottom: 1rem; color: var(--color-primary);">
         Receive Quarterly Aroma Discoveries
       </h2>
-      <p style="color: #D2DCD6; font-size: 0.95rem; margin-bottom: 2rem;">
+      <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 2rem;">
         Subscribe to receive early invitations to limited holiday batch pourings and botanical room diffuser launches.
       </p>
       <form id="newsletterForm" style="display: flex; gap: 0.5rem; justify-content: center; max-width: 480px; margin: 0 auto;">
         <input type="email" id="newsletterEmail" placeholder="Enter your email address..." required
-          style="flex: 1; padding: 0.85rem 1.2rem; border-radius: var(--radius-sm); border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.08); color: #FFFFFF; outline: none;" />
-        <button type="submit" class="btn btn-primary" style="background: var(--color-accent-lavender); color: #FFFFFF; font-weight: 700;">Subscribe</button>
+          style="flex: 1; padding: 0.85rem 1.2rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border); background: var(--color-bg-input); color: var(--color-text-main); outline: none;" />
+        <button type="submit" class="btn btn-primary" style="font-weight: 700;">Subscribe</button>
       </form>
     </div>
   </section>
@@ -387,9 +184,9 @@
       <div class="footer-grid">
 
         <div class="footer-brand-col">
-          <div class="footer-logo">
-            <img src="assets/logo-white.png" alt="LIMETREE" style="height: 44px; width: auto; object-fit: contain; margin-bottom: 0.8rem; display: block;" />
-          </div>
+          <a href="index.html" class="footer-logo" aria-label="LIMETREE Home" style="display: inline-block; text-decoration: none;">
+            <img src="assets/logo-transparent.png" alt="LIMETREE" style="height: 44px; width: auto; object-fit: contain; margin-bottom: 0.8rem; display: block; mix-blend-mode: multiply;" />
+          </a>
           <p class="footer-desc">
             A harmonious multi-business retail collective bringing together Riyaa Trends fashion, Glow Home botanical
             candles, and Earkart artisanal jewellery under one seamless destination.
@@ -415,7 +212,7 @@
             <li><a href="orders.html">Track Order &amp; Delivery</a></li>
             <li><a href="orders.html">7-Day Return Request</a></li>
             <li><a href="orders.html">Download GST Invoices</a></li>
-            <li><a href="#scentPyramidSection">Candle Care Ritual</a></li>
+            <li><a href="orders.html">Help &amp; Support</a></li>
           </ul>
         </div>
 

@@ -11,20 +11,21 @@
   <style>
     /* Order History Page Styles */
     .orders-hero {
-      background: linear-gradient(135deg, #0A2418 0%, #133E2B 60%, #1D543C 100%);
-      color: #FFFFFF;
+      background: radial-gradient(ellipse at 50% 30%, #FFFDF4 0%, #F8F5E8 65%, #EDF3D8 100%);
+      color: var(--color-primary);
       padding: 3.5rem 0 3rem 0;
       text-align: center;
       position: relative;
       overflow: hidden;
+      border-bottom: 1px solid var(--color-leaf-border);
     }
     .orders-hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+      background-image: radial-gradient(rgba(54, 83, 20, 0.04) 1px, transparent 1px);
       background-size: 24px 24px;
-      opacity: 0.6;
+      opacity: 0.8;
     }
     .orders-hero-content {
       position: relative;
@@ -37,21 +38,21 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 1.2rem;
       margin-top: 2rem;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: var(--color-bg-surface);
+      border: 1px solid var(--color-leaf-border);
       border-radius: var(--radius-md);
       padding: 1.2rem;
-      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow-sm);
     }
     .orders-stat-item strong {
       display: block;
       font-size: 1.5rem;
-      color: #FFFFFF;
+      color: var(--color-primary);
       font-family: var(--font-heading);
     }
     .orders-stat-item span {
       font-size: 0.78rem;
-      color: #D2E2D8;
+      color: var(--color-text-muted);
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
@@ -85,8 +86,8 @@
     }
     .order-filter-pill:hover,
     .order-filter-pill.active {
-      background: var(--color-primary);
-      border-color: var(--color-primary);
+      background: var(--color-btn-primary);
+      border-color: var(--color-btn-primary);
       color: #FFFFFF;
     }
     .order-search-box {
@@ -100,14 +101,15 @@
       padding: 0.6rem 1rem 0.6rem 2.4rem;
       border-radius: var(--radius-pill);
       border: 1px solid var(--color-border);
-      background: #FFFFFF;
+      background: var(--color-bg-input);
+      color: var(--color-text-main);
       font-size: 0.88rem;
       outline: none;
       transition: all var(--transition-fast);
     }
     .order-search-box input:focus {
       border-color: var(--color-primary);
-      box-shadow: 0 0 0 3px rgba(19, 62, 43, 0.1);
+      box-shadow: 0 0 0 3px rgba(107, 142, 35, 0.15);
     }
     .order-search-box .search-icon {
       position: absolute;
@@ -120,7 +122,7 @@
 
     /* Order Card */
     .order-card {
-      background: #FFFFFF;
+      background: var(--color-bg-card);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-md);
       margin-bottom: 2rem;
@@ -130,6 +132,7 @@
     }
     .order-card:hover {
       box-shadow: var(--shadow-md);
+      border-color: var(--color-leaf-green);
     }
     .order-card-header {
       background: var(--color-bg-base);
@@ -220,7 +223,7 @@
     /* Tracking Stepper */
     .order-tracking-drawer {
       display: none;
-      background: #FAFCFA;
+      background: var(--color-bg-base);
       border-top: 1px dashed var(--color-border);
       padding: 1.8rem 1.6rem;
     }
@@ -245,7 +248,7 @@
     }
     .tracking-stepper-progress {
       height: 100%;
-      background: linear-gradient(90deg, #133E2B 0%, #2D7A58 100%);
+      background: linear-gradient(90deg, #365314 0%, #6B8E23 100%);
       border-radius: 2px;
       transition: width 0.4s ease;
     }
@@ -262,7 +265,7 @@
       width: 38px;
       height: 38px;
       border-radius: 50%;
-      background: #FFFFFF;
+      background: var(--color-bg-surface);
       border: 3px solid var(--color-border);
       display: flex;
       align-items: center;
@@ -274,15 +277,15 @@
       transition: all var(--transition-fast);
     }
     .tracking-step.completed .step-circle {
-      background: var(--color-primary);
-      border-color: var(--color-primary);
+      background: var(--color-btn-primary);
+      border-color: var(--color-btn-primary);
       color: #FFFFFF;
     }
     .tracking-step.current .step-circle {
-      background: #FFFFFF;
+      background: var(--color-bg-surface);
       border-color: var(--color-primary);
       color: var(--color-primary);
-      box-shadow: 0 0 0 4px rgba(19, 62, 43, 0.15);
+      box-shadow: 0 0 0 4px rgba(107, 142, 35, 0.2);
     }
     .step-label {
       font-size: 0.82rem;
@@ -297,7 +300,7 @@
 
     /* Card Footer Actions */
     .order-card-footer {
-      background: #FFFFFF;
+      background: var(--color-bg-surface);
       padding: 1.1rem 1.6rem;
       border-top: 1px solid var(--color-border);
       display: flex;
@@ -320,8 +323,8 @@
     /* Return Form Accordion */
     .return-form-drawer {
       display: none;
-      background: #FFFDF9;
-      border-top: 1px dashed #E2C08D;
+      background: var(--color-bg-surface);
+      border-top: 1px dashed var(--color-leaf-border);
       padding: 1.6rem;
     }
     .return-form-drawer.active {
@@ -367,21 +370,14 @@
   <header class="site-header">
     <div class="container header-container">
 
-      <!-- Back Navigation & Brand Logo -->
-      <div style="display: flex; align-items: center; gap: 0.85rem;">
-        <a href="index.html" class="header-back-btn" title="Back to All Houses (Home)">
-          <span class="back-arrow">&larr;</span>
-          <span class="back-text">Back to Home</span>
-        </a>
-        <a href="index.html" class="brand-logo" aria-label="Limetree Home">
-          <img src="assets/logo-transparent.png" alt="LIMETREE - Three Brands One Destination" class="site-logo-img" />
-        </a>
-      </div>
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="LIMETREE Collective">
+        <img src="assets/logo-transparent.png" alt="LIMETREE - Three Brands One Destination" class="site-logo-img" />
+      </a>
 
-      <!-- Desktop Navigation -->
+      <!-- Desktop Navigation (No Home Button) -->
       <nav class="main-nav" aria-label="Main Navigation">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="riyaa-trends.html" class="nav-link">Riyaa Trends <span class="nav-badge-pill">Fashion</span></a>
+        <a href="riyaa-trends.html" class="nav-link">Riyaa Trends <span class="nav-badge-pill">Clothing</span></a>
         <a href="glow-home.html" class="nav-link">Glow Home <span class="nav-badge-pill">Candles</span></a>
         <a href="earkart.html" class="nav-link">Earkart <span class="nav-badge-pill">Jewellery</span></a>
         <a href="orders.html" class="nav-link active">Order History</a>
@@ -411,15 +407,9 @@
     </div>
   </header>
 
-  <!-- MOBILE BRAND PILLS BAR -->
+  <!-- MOBILE BRAND PILLS BAR (Quick Brand Switching on Phone Screens) -->
   <nav class="mobile-brand-pills-bar" aria-label="Mobile Brand Switcher">
     <div class="container mobile-pills-container">
-      <a href="index.html" class="mobile-brand-pill mobile-back-pill" title="Return to Collective Store">
-        <span style="font-size: 1rem; line-height: 1;">&larr;</span> <span>Back</span>
-      </a>
-      <a href="index.html" class="mobile-brand-pill">
-        <span>🏠</span> All Houses
-      </a>
       <a href="riyaa-trends.html" class="mobile-brand-pill">
         <span>👕</span> Riyaa Trends
       </a>
@@ -435,31 +425,15 @@
     </div>
   </nav>
 
-  <!-- PAGE BREADCRUMB / BACK BAR -->
-  <nav class="page-breadcrumb-bar" aria-label="Breadcrumb Navigation">
-    <div class="container breadcrumb-container">
-      <a href="index.html" class="breadcrumb-back-link" title="Return to Collective Storefront">
-        <span>&larr;</span> <span>Back to Collective Home</span>
-      </a>
-      <div class="breadcrumb-trail">
-        <a href="index.html">Home</a>
-        <span class="breadcrumb-sep">/</span>
-        <span class="breadcrumb-current">My Orders &amp; Purchase History</span>
-      </div>
-    </div>
-  </nav>
 
   <!-- PAGE HERO -->
   <section class="orders-hero">
     <div class="container">
       <div class="orders-hero-content reveal-slide-up">
-        <div class="hero-pill-badge" style="background: rgba(255, 255, 255, 0.16); margin: 0 auto 1.2rem auto; display: inline-flex;">
-          <span>📦</span> <span>Customer Order Concierge</span>
-        </div>
-        <h1 style="font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 0.8rem; line-height: 1.2;">
+        <h1 style="font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 0.8rem; line-height: 1.2; color: var(--color-primary);">
           My Orders &amp; Purchase History
         </h1>
-        <p style="font-size: 1rem; color: #D2E2D8; line-height: 1.6; max-width: 580px; margin: 0 auto;">
+        <p style="font-size: 1rem; color: var(--color-text-muted); line-height: 1.6; max-width: 580px; margin: 0 auto;">
           Track live Delhivery &amp; BlueDart shipments, download statutory GST tax invoices, and initiate 7-day hassle-free returns across all three boutique houses.
         </p>
 
@@ -529,8 +503,7 @@
           When you purchase from Riyaa Trends clothing, Glow Home candles, or Earkart jewellery, your orders and trackable shipments will appear here.
         </p>
         <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="index.html#catalogSection" class="btn btn-primary btn-lg">Explore Collective Catalog &rarr;</a>
-          <button class="btn btn-secondary btn-lg" onclick="loadSampleDemoOrder()">Load Demo Order (Sample)</button>
+          <a href="index.html" class="btn btn-primary btn-lg">Explore Collective Catalog &rarr;</a>
         </div>
       </div>
 
@@ -543,7 +516,9 @@
       <div class="footer-grid">
 
         <div class="footer-brand-col">
-          <div class="footer-logo">LIMETREE</div>
+          <a href="index.html" class="footer-logo" aria-label="LIMETREE Home" style="display: inline-block; text-decoration: none;">
+            <img src="assets/logo-transparent.png" alt="LIMETREE" style="height: 44px; width: auto; object-fit: contain; margin-bottom: 0.8rem; display: block; mix-blend-mode: multiply;" />
+          </a>
           <p class="footer-desc">
             A harmonious multi-business retail collective bringing together Riyaa Trends fashion, Glow Home botanical
             candles, and Earkart artisanal jewellery under one seamless destination.
@@ -637,6 +612,26 @@
     </div>
   </div>
 
+  <!-- DELETE ORDER CONFIRMATION MODAL -->
+  <div class="modal-overlay" id="deleteConfirmModal">
+    <div class="modal-container" style="max-width: 440px; text-align: center; padding: 2.2rem 1.8rem; background: #FFFFFF; border-radius: var(--radius-md);">
+      <button class="modal-close-btn" onclick="closeDeleteModal()" aria-label="Close Confirmation">&times;</button>
+      <div style="font-size: 2.8rem; line-height: 1; margin-bottom: 0.8rem;">⚠️</div>
+      <h3 style="font-family: var(--font-heading); font-size: 1.45rem; color: #991B1B; margin-bottom: 0.6rem;">
+        Delete Order?
+      </h3>
+      <p id="deleteConfirmMessage" style="font-size: 0.92rem; color: var(--color-text-muted); margin-bottom: 1.6rem; line-height: 1.5;">
+        Are you sure you want to permanently delete this order from your Order History?
+      </p>
+      <div style="display: flex; gap: 0.8rem; justify-content: center;">
+        <button class="btn btn-secondary" onclick="closeDeleteModal()" style="min-width: 100px;">Cancel</button>
+        <button class="btn" id="confirmDeleteActionBtn" onclick="executeDeleteOrder()" style="background: #DC2626; color: #FFFFFF; border: none; font-weight: 700; padding: 0.55rem 1.3rem; border-radius: var(--radius-sm); cursor: pointer; min-width: 120px;">
+          Delete Order
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- CORE SCRIPTS -->
   <script src="js/data.js"></script>
   <script src="js/storage.js"></script>
@@ -649,14 +644,14 @@
     let currentSearchTerm = '';
 
     document.addEventListener('DOMContentLoaded', () => {
-      // Ensure seed demo order exists if orders are empty
-      let orders = window.limetreeStorage.getOrders();
-      if (!orders || orders.length === 0) {
-        if (window.INITIAL_ORDERS && window.INITIAL_ORDERS.length > 0) {
-          localStorage.setItem('limetree_orders_v2', JSON.stringify(window.INITIAL_ORDERS));
-          orders = window.limetreeStorage.getOrders();
+      // Cleanse any legacy sample/dummy orders from localStorage
+      try {
+        let orders = window.limetreeStorage.getOrders();
+        const cleaned = (orders || []).filter(o => o.orderId !== 'LT-2026-8812' && o.orderId !== 'LT-2026-8805' && !o.isSampleOrder);
+        if (cleaned.length !== (orders || []).length) {
+          localStorage.setItem('limetree_orders_v2', JSON.stringify(cleaned));
         }
-      }
+      } catch (e) {}
 
       // Check query parameter (e.g. ?orderId=LT-2026-8812)
       const params = new URLSearchParams(window.location.search);
@@ -929,7 +924,10 @@
                 </button>
               </div>
 
-              <div class="order-actions-right">
+              <div class="order-actions-right" style="display: flex; align-items: center; gap: 0.55rem; flex-wrap: wrap;">
+                <button class="btn btn-sm delete-order-btn" onclick="confirmDeleteOrder('${order.orderId}')" title="Delete this order from history" style="color: #B91C1C; background: #FFF5F5; border: 1px solid #FCA5A5; font-weight: 600; padding: 0.4rem 0.8rem; border-radius: var(--radius-sm); cursor: pointer; transition: all var(--transition-fast);">
+                  🗑️ Delete Order
+                </button>
                 <button class="btn btn-primary btn-sm" onclick="buyOrderAgain('${order.orderId}')">
                   🛒 Buy Again
                 </button>
@@ -1017,13 +1015,55 @@
       }
     }
 
-    function loadSampleDemoOrder() {
-      if (window.INITIAL_ORDERS && window.INITIAL_ORDERS.length > 0) {
-        localStorage.setItem('limetree_orders_v2', JSON.stringify(window.INITIAL_ORDERS));
-        window.limetreeStore.showToast('Sample order loaded into your history!', 'success');
-        renderOrderHistory();
+    let orderToDeleteId = null;
+
+    function confirmDeleteOrder(orderId) {
+      orderToDeleteId = orderId;
+      const modal = document.getElementById('deleteConfirmModal');
+      const msg = document.getElementById('deleteConfirmMessage');
+      if (msg) {
+        msg.innerHTML = `Are you sure you want to permanently delete order <strong>${orderId}</strong> from your Order History? This action cannot be undone.`;
+      }
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      } else {
+        if (window.confirm(`Are you sure you want to delete order ${orderId}? This cannot be undone.`)) {
+          executeDeleteOrder(orderId);
+        }
       }
     }
+
+    function closeDeleteModal() {
+      const modal = document.getElementById('deleteConfirmModal');
+      if (modal) modal.classList.remove('active');
+      document.body.style.overflow = '';
+      orderToDeleteId = null;
+    }
+
+    function executeDeleteOrder(directId) {
+      const id = directId || orderToDeleteId;
+      if (!id) return;
+
+      const success = window.limetreeStorage.deleteOrder(id);
+      closeDeleteModal();
+
+      if (success) {
+        if (window.limetreeStore && window.limetreeStore.showToast) {
+          window.limetreeStore.showToast(`Order ${id} deleted successfully.`, 'info');
+        }
+        renderOrderHistory();
+      } else {
+        if (window.limetreeStore && window.limetreeStore.showToast) {
+          window.limetreeStore.showToast(`Failed to delete order ${id}.`, 'error');
+        }
+      }
+    }
+
+    // Reactively update orders view when orders change
+    window.addEventListener('limetree:orders-updated', () => {
+      renderOrderHistory();
+    });
   </script>
 
 </body>

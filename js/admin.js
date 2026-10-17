@@ -1069,7 +1069,7 @@ class LimetreeAdmin {
         toast.style.right = '2rem';
         toast.style.padding = '0.85rem 1.4rem';
         toast.style.borderRadius = '8px';
-        toast.style.background = '#0E291C';
+        toast.style.background = '#365314';
         toast.style.color = '#FFFFFF';
         toast.style.boxShadow = '0 10px 25px rgba(0,0,0,0.2)';
         toast.style.zIndex = '9999';

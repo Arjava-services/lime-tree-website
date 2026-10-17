@@ -16,21 +16,14 @@
   <header class="site-header">
     <div class="container header-container">
 
-      <!-- Back Navigation & Brand Logo -->
-      <div style="display: flex; align-items: center; gap: 0.85rem;">
-        <a href="index.html" class="header-back-btn" title="Back to All Houses (Home)">
-          <span class="back-arrow">&larr;</span>
-          <span class="back-text">Back to Home</span>
-        </a>
-        <a href="index.html" class="brand-logo" aria-label="Limetree Home">
-          <img src="assets/logo-transparent.png" alt="LIMETREE - Three Brands One Destination" class="site-logo-img" />
-        </a>
-      </div>
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="LIMETREE Collective">
+        <img src="assets/logo-transparent.png" alt="LIMETREE - Three Brands One Destination" class="site-logo-img" />
+      </a>
 
-      <!-- Desktop Navigation -->
+      <!-- Desktop Navigation (No Home Button) -->
       <nav class="main-nav" aria-label="Main Navigation">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="riyaa-trends.html" class="nav-link active">Riyaa Trends <span class="nav-badge-pill">Fashion</span></a>
+        <a href="riyaa-trends.html" class="nav-link active">Riyaa Trends <span class="nav-badge-pill">Clothing</span></a>
         <a href="glow-home.html" class="nav-link">Glow Home <span class="nav-badge-pill">Candles</span></a>
         <a href="earkart.html" class="nav-link">Earkart <span class="nav-badge-pill">Jewellery</span></a>
         <a href="orders.html" class="nav-link">Order History</a>
@@ -71,12 +64,6 @@
   <!-- MOBILE BRAND PILLS BAR (Quick Brand Switching on Phone Screens) -->
   <nav class="mobile-brand-pills-bar" aria-label="Mobile Brand Switcher">
     <div class="container mobile-pills-container">
-      <a href="index.html" class="mobile-brand-pill mobile-back-pill" title="Return to Collective Store">
-        <span style="font-size: 1rem; line-height: 1;">&larr;</span> <span>Back</span>
-      </a>
-      <a href="index.html" class="mobile-brand-pill">
-        <span>🏠</span> All Houses
-      </a>
       <a href="riyaa-trends.html" class="mobile-brand-pill active">
         <span>👕</span> Riyaa Trends
       </a>
@@ -92,80 +79,6 @@
     </div>
   </nav>
 
-  <!-- PAGE BREADCRUMB / BACK BAR (Laptop & Mobile) -->
-  <nav class="page-breadcrumb-bar" aria-label="Breadcrumb Navigation">
-    <div class="container breadcrumb-container">
-      <a href="index.html" class="breadcrumb-back-link" title="Return to Collective Storefront">
-        <span>&larr;</span> <span>Back to Collective Home</span>
-      </a>
-      <div class="breadcrumb-trail">
-        <a href="index.html">Home</a>
-        <span class="breadcrumb-sep">/</span>
-        <span class="breadcrumb-current">Riyaa Trends Fashion</span>
-      </div>
-    </div>
-  </nav>
-
-  <!-- BOUTIQUE HERO SECTION -->
-  <section class="hero-section" style="background: linear-gradient(135deg, #0E291C 0%, #133E2B 60%, #1A4D36 100%);">
-    <div class="hero-pattern-overlay"></div>
-    <div class="container">
-      <div class="hero-grid">
-
-        <div class="hero-content reveal-slide-up">
-          <div class="hero-pill-badge">
-            <span>👗</span> <span>House of Fashion &amp; Modern Tailoring</span>
-          </div>
-          <h1 class="hero-title">
-            Tailored Ease &amp; <span class="text-serif-italic">Mindful Fabrics</span>
-          </h1>
-          <p class="hero-description">
-            Precision-cut from dense 240+ GSM combed organic cotton and plush French terry. Designed for effortless
-            drape, breathable daily movement, and enduring silhouettes from sizes XS to XXL.
-          </p>
-          <div class="hero-cta-group">
-            <a href="#boutiqueCatalog" class="btn btn-primary btn-lg">Shop Apparel Catalog &rarr;</a>
-            <a href="#sizeGuideSection" class="btn btn-outline-light btn-lg">Size &amp; Fit Guide</a>
-          </div>
-        </div>
-
-        <div class="hero-image-showcase reveal-fade">
-          <img class="hero-main-img" data-parallax="true"
-            src="assets/riyaa-trends/IMG-20260222-WA0060.jpg"
-            alt="Riyaa Trends Fashion Kids Apparel Promotional Banner" />
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- BRAND PILLARS -->
-  <section class="section-padding" style="background: var(--color-bg-base); padding: 3rem 0; border-bottom: 1px solid var(--color-border);">
-    <div class="container">
-      <div class="reveal-stagger" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; text-align: center;">
-        <div style="padding: 1rem;">
-          <div style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--color-primary);">🌿</div>
-          <h4 style="font-size: 1rem; font-weight: 700; color: var(--color-primary-dark); margin-bottom: 0.25rem;">240+ GSM Cotton</h4>
-          <p style="font-size: 0.82rem; color: var(--color-text-muted);">Combed long-staple fibres for a rich handfeel and clean drape.</p>
-        </div>
-        <div style="padding: 1rem;">
-          <div style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--color-primary);">✨</div>
-          <h4 style="font-size: 1rem; font-weight: 700; color: var(--color-primary-dark); margin-bottom: 0.25rem;">Bio-Washed Finish</h4>
-          <p style="font-size: 0.82rem; color: var(--color-text-muted);">Enzyme wash ensures zero fabric pilling and velvety softness.</p>
-        </div>
-        <div style="padding: 1rem;">
-          <div style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--color-primary);">📐</div>
-          <h4 style="font-size: 1rem; font-weight: 700; color: var(--color-primary-dark); margin-bottom: 0.25rem;">XS to XXL Inclusivity</h4>
-          <p style="font-size: 0.82rem; color: var(--color-text-muted);">Tailored patterns engineered to flatter every frame naturally.</p>
-        </div>
-        <div style="padding: 1rem;">
-          <div style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--color-primary);">🧵</div>
-          <h4 style="font-size: 1rem; font-weight: 700; color: var(--color-primary-dark); margin-bottom: 0.25rem;">Twin-Needle Stitching</h4>
-          <p style="font-size: 0.82rem; color: var(--color-text-muted);">Reinforced neckline and hems that never lose their structure.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- BOUTIQUE CATALOG SECTION -->
   <section class="section-padding" id="boutiqueCatalog">
@@ -300,52 +213,22 @@
     </div>
   </section>
 
-  <!-- FASHION LOOKBOOK GALLERY -->
-  <section class="section-padding">
-    <div class="container">
-      <div class="section-header text-center reveal-slide-up">
-        <div class="section-subtitle">The Streetwear Gallery</div>
-        <h2 class="section-title">Seen In The Wild: Kids in Motion</h2>
-        <p class="section-desc">Authentic organic cotton apparel captured on kids and siblings across outdoor playgrounds, sports, and everyday escapes.</p>
-      </div>
-
-      <div class="reveal-stagger" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
-        <div style="border-radius: var(--radius-md); overflow: hidden; height: 340px; box-shadow: var(--shadow-sm); position: relative;">
-          <img src="assets/riyaa-trends/IMG-20260222-WA0041.jpg" alt="Boy Wearing Organic Cotton Graphic Crewneck T-Shirt" style="width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-normal);" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'" loading="lazy" />
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 0.8rem; background: linear-gradient(transparent, rgba(10,36,24,0.85)); color: #FFFFFF; font-size: 0.78rem; font-weight: 600;">Graphic Crewneck Tee</div>
-        </div>
-        <div style="border-radius: var(--radius-md); overflow: hidden; height: 340px; box-shadow: var(--shadow-sm); position: relative;">
-          <img src="assets/riyaa-trends/IMG-20260222-WA0043.jpg" alt="Girl in Navy Blue Loungewear Tracksuit Set" style="width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-normal);" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'" loading="lazy" />
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 0.8rem; background: linear-gradient(transparent, rgba(10,36,24,0.85)); color: #FFFFFF; font-size: 0.78rem; font-weight: 600;">Loungewear Tracksuit Set</div>
-        </div>
-        <div style="border-radius: var(--radius-md); overflow: hidden; height: 340px; box-shadow: var(--shadow-sm); position: relative;">
-          <img src="assets/riyaa-trends/IMG-20260222-WA0048.jpg" alt="Boy in Maroon French Terry Athletic Joggers" style="width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-normal);" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'" loading="lazy" />
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 0.8rem; background: linear-gradient(transparent, rgba(10,36,24,0.85)); color: #FFFFFF; font-size: 0.78rem; font-weight: 600;">French Terry Joggers</div>
-        </div>
-        <div style="border-radius: var(--radius-md); overflow: hidden; height: 340px; box-shadow: var(--shadow-sm); position: relative;">
-          <img src="assets/riyaa-trends/IMG-20260222-WA0055.jpg" alt="Kids in Active Ripstop Cargo Shorts & Tees" style="width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-normal);" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'" loading="lazy" />
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 0.8rem; background: linear-gradient(transparent, rgba(10,36,24,0.85)); color: #FFFFFF; font-size: 0.78rem; font-weight: 600;">Active Play Shorts Set</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- NEWSLETTER SIGNUP -->
-  <section class="section-padding" style="background: var(--color-primary-dark); color: #FFFFFF; text-align: center;">
+  <section class="section-padding" style="background: var(--color-bg-surface); border-top: 1px solid var(--color-border); text-align: center;">
     <div class="container reveal-slide-up" style="max-width: 680px;">
-      <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-accent-sage); margin-bottom: 0.5rem;">
+      <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-leaf-green); margin-bottom: 0.5rem;">
         Riyaa Trends Private Club
       </div>
-      <h2 style="font-family: var(--font-heading); font-size: 2.2rem; margin-bottom: 1rem; color: #FFFFFF;">
+      <h2 style="font-family: var(--font-heading); font-size: 2.2rem; margin-bottom: 1rem; color: var(--color-primary);">
         Be First To Access Capsule Drops
       </h2>
-      <p style="color: #D2DCD6; font-size: 0.95rem; margin-bottom: 2rem;">
+      <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 2rem;">
         Enjoy private previews of seasonal cotton drops, member styling notes, and complimentary alterations.
       </p>
       <form id="newsletterForm" style="display: flex; gap: 0.5rem; justify-content: center; max-width: 480px; margin: 0 auto;">
         <input type="email" id="newsletterEmail" placeholder="Enter your email address..." required
-          style="flex: 1; padding: 0.85rem 1.2rem; border-radius: var(--radius-sm); border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.08); color: #FFFFFF; outline: none;" />
-        <button type="submit" class="btn btn-primary" style="background: var(--color-accent-sage); color: #0E291C; font-weight: 700;">Join</button>
+          style="flex: 1; padding: 0.85rem 1.2rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border); background: var(--color-bg-input); color: var(--color-text-main); outline: none;" />
+        <button type="submit" class="btn btn-primary" style="font-weight: 700;">Join</button>
       </form>
     </div>
   </section>
@@ -356,9 +239,9 @@
       <div class="footer-grid">
 
         <div class="footer-brand-col">
-          <div class="footer-logo">
-            <img src="assets/logo-white.png" alt="LIMETREE" style="height: 44px; width: auto; object-fit: contain; margin-bottom: 0.8rem; display: block;" />
-          </div>
+          <a href="index.html" class="footer-logo" aria-label="LIMETREE Home" style="display: inline-block; text-decoration: none;">
+            <img src="assets/logo-transparent.png" alt="LIMETREE" style="height: 44px; width: auto; object-fit: contain; margin-bottom: 0.8rem; display: block; mix-blend-mode: multiply;" />
+          </a>
           <p class="footer-desc">
             A harmonious multi-business retail collective bringing together Riyaa Trends fashion, Glow Home botanical
             candles, and Earkart artisanal jewellery under one seamless destination.

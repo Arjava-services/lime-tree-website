@@ -26,11 +26,13 @@ class LimetreeStorage {
       const stored = localStorage.getItem(STORAGE_KEYS.PRODUCTS);
       if (stored) {
         const parsed = JSON.parse(stored);
-        const hasRiyaa = parsed.some(p => p.businessId === 'riyaa-trends');
-        const hasGlow = parsed.some(p => p.businessId === 'glow-home');
-        const hasEarkart = parsed.some(p => p.businessId === 'earkart');
+        const hasRiyaa = parsed.filter(p => p.businessId === 'riyaa-trends').length === 6;
+        const hasGlow = parsed.filter(p => p.businessId === 'glow-home').length === 6;
+        const hasEarkart = parsed.filter(p => p.businessId === 'earkart').length === 6;
         const hasUnsplash = parsed.some(p => (p.images || []).some(img => typeof img === 'string' && img.includes('unsplash')));
-        if (hasRiyaa && hasGlow && hasEarkart && parsed.length >= 40 && !hasUnsplash) {
+        const uniqueIds = new Set(parsed.map(p => p.id));
+        const uniqueNames = new Set(parsed.map(p => p.name));
+        if (hasRiyaa && hasGlow && hasEarkart && parsed.length === 18 && uniqueIds.size === 18 && uniqueNames.size === 18 && !hasUnsplash) {
           validProducts = true;
         }
       }
@@ -42,7 +44,15 @@ class LimetreeStorage {
       localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(window.INITIAL_PRODUCTS || []));
     }
     if (!localStorage.getItem(STORAGE_KEYS.ORDERS)) {
-      localStorage.setItem(STORAGE_KEYS.ORDERS, JSON.stringify(window.INITIAL_ORDERS || []));
+      localStorage.setItem(STORAGE_KEYS.ORDERS, JSON.stringify([]));
+    } else {
+      try {
+        const rawOrders = JSON.parse(localStorage.getItem(STORAGE_KEYS.ORDERS) || '[]');
+        const cleanedOrders = rawOrders.filter(o => o.orderId !== 'LT-2026-8812' && o.orderId !== 'LT-2026-8805' && !o.isSampleOrder);
+        if (cleanedOrders.length !== rawOrders.length) {
+          localStorage.setItem(STORAGE_KEYS.ORDERS, JSON.stringify(cleanedOrders));
+        }
+      } catch (e) {}
     }
     if (!localStorage.getItem(STORAGE_KEYS.SETTINGS)) {
       localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(window.INITIAL_SETTINGS || {}));
@@ -70,10 +80,22 @@ class LimetreeStorage {
   getProducts(filter = {}) {
     try {
       let products = JSON.parse(localStorage.getItem(STORAGE_KEYS.PRODUCTS) || '[]');
-      if (!products || products.length === 0) {
+      const uniqueIds = new Set(products.map(p => p.id));
+      if (!products || products.length !== 18 || uniqueIds.size !== 18) {
         products = window.INITIAL_PRODUCTS || [];
         localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(products));
       }
+
+      // Deduplicate to guarantee no duplicates ever slip through
+      const seenIds = new Set();
+      const seenNames = new Set();
+      products = products.filter(p => {
+        if (!p || !p.id || !p.name) return false;
+        if (seenIds.has(p.id) || seenNames.has(p.name)) return false;
+        seenIds.add(p.id);
+        seenNames.add(p.name);
+        return true;
+      });
       const settings = this.getSettings();
 
       if (settings.hideOutOfStock && !filter.includeOutOfStock) {
@@ -550,6 +572,41 @@ class LimetreeStorage {
     this.logAudit('ORDER_CANCELLED', `Order ${orderId} cancelled. Restock: ${restockItems}`);
     this.emitEvent('limetree:orders-updated');
     return order;
+  }
+
+  deleteOrder(orderId, restockItems = false) {
+    const orders = this.getOrders();
+    const index = orders.findIndex(o => o.orderId === orderId);
+    if (index === -1) return false;
+
+    const removedOrder = orders.splice(index, 1)[0];
+    localStorage.setItem(STORAGE_KEYS.ORDERS, JSON.stringify(orders));
+
+    if (restockItems && removedOrder.items && removedOrder.fulfillmentStatus !== 'Cancelled') {
+      const products = this.getProducts({ includeOutOfStock: true });
+      removedOrder.items.forEach(item => {
+        const prod = products.find(p => p.id === item.productId);
+        if (prod) {
+          const variant = (prod.variants || []).find(v => v.id === item.variantId);
+          if (variant) {
+            variant.stock += item.quantity;
+          }
+        }
+      });
+      localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(products));
+      this.emitEvent('limetree:inventory-updated');
+    }
+
+    // Also remove any return requests associated with this order
+    const returns = this.getReturns();
+    const filteredReturns = returns.filter(r => r.orderId !== orderId);
+    if (filteredReturns.length !== returns.length) {
+      localStorage.setItem(STORAGE_KEYS.RETURNS, JSON.stringify(filteredReturns));
+    }
+
+    this.logAudit('ORDER_DELETED', `Order ${orderId} was permanently deleted.`);
+    this.emitEvent('limetree:orders-updated');
+    return true;
   }
 
   // ==================== RETURNS & REFUNDS ====================

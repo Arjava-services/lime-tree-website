@@ -178,15 +178,27 @@ class LimetreeStorefront {
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     const cartCountEl = document.getElementById('headerCartCount');
     if (cartCountEl) {
+      const prevCart = parseInt(cartCountEl.textContent, 10) || 0;
       cartCountEl.textContent = totalItems;
       cartCountEl.style.display = totalItems > 0 ? 'flex' : 'none';
+      if (totalItems > 0 && totalItems !== prevCart) {
+        cartCountEl.classList.remove('badge-pop');
+        void cartCountEl.offsetWidth; // trigger reflow
+        cartCountEl.classList.add('badge-pop');
+      }
     }
 
     const wishlist = this.storage.getWishlist();
     const wishlistCountEl = document.getElementById('headerWishlistCount');
     if (wishlistCountEl) {
+      const prevWish = parseInt(wishlistCountEl.textContent, 10) || 0;
       wishlistCountEl.textContent = wishlist.length;
       wishlistCountEl.style.display = wishlist.length > 0 ? 'flex' : 'none';
+      if (wishlist.length > 0 && wishlist.length !== prevWish) {
+        wishlistCountEl.classList.remove('badge-pop');
+        void wishlistCountEl.offsetWidth;
+        wishlistCountEl.classList.add('badge-pop');
+      }
     }
 
     try {
@@ -222,6 +234,22 @@ class LimetreeStorefront {
     if (!products || products.length === 0) {
       const all = window.INITIAL_PRODUCTS || [];
       products = all.filter(p => !filter.businessId || p.businessId === filter.businessId);
+    }
+
+    // Deduplicate products to prevent any duplicate rendering
+    const seenGridIds = new Set();
+    const seenGridNames = new Set();
+    products = (products || []).filter(p => {
+      if (!p || !p.id || !p.name) return false;
+      if (seenGridIds.has(p.id) || seenGridNames.has(p.name)) return false;
+      seenGridIds.add(p.id);
+      seenGridNames.add(p.name);
+      return true;
+    });
+
+    // Enforce maximum 6 unique products when on a brand page (or filtering by brand)
+    if (filter.businessId && filter.businessId !== 'all') {
+      products = products.slice(0, 6);
     }
 
     if (!products || products.length === 0) {
@@ -488,10 +516,21 @@ class LimetreeStorefront {
       .slice(0, 3);
 
     return `
-      <div class="modal-top-actions">
-        <button type="button" class="modal-back-btn" onclick="window.limetreeStore.closeModal()" aria-label="Back to Products">
-          <span style="font-size: 1.15rem; line-height: 1;">&larr;</span> <span>Back to Products</span>
-        </button>
+      <div class="modal-top-actions" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <div style="display: flex; align-items: center; gap: 0.6rem;">
+          <a href="index.html" class="modal-back-btn modal-home-btn" onclick="window.limetreeStore.closeModal()" aria-label="LIMETREE Home" title="Return to Homepage" style="text-decoration: none;">
+            <img src="assets/logo-transparent.png" alt="LIMETREE" style="height: 20px; width: auto; mix-blend-mode: multiply; vertical-align: middle;" />
+            <span style="font-weight: 700;">Home</span>
+          </a>
+          <button type="button" class="modal-back-btn" onclick="window.limetreeStore.closeModal()" aria-label="Back to Products">
+            <span style="font-size: 1.15rem; line-height: 1;">&larr;</span> <span>Back to Products</span>
+          </button>
+        </div>
+        <div class="modal-top-breadcrumb" style="font-size: 0.82rem; color: var(--color-text-muted);">
+          <a href="index.html" onclick="window.limetreeStore.closeModal()" style="color: var(--color-leaf-green); font-weight: 600; text-decoration: none;">Home</a>
+          <span style="margin: 0 0.35rem; color: var(--color-border);">/</span>
+          <span>${business.name || 'Store'}</span>
+        </div>
       </div>
       <div class="product-detail-grid">
         <div class="gallery-col">
@@ -505,8 +544,12 @@ class LimetreeStorefront {
         </div>
 
         <div class="details-col">
-          <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-accent-sage); margin-bottom: 0.4rem;">
-            ${business.name} · ${prod.category}
+          <div class="modal-product-breadcrumb" style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-accent-sage); margin-bottom: 0.4rem;">
+            <a href="index.html" onclick="window.limetreeStore.closeModal()" style="color: var(--color-leaf-green); text-decoration: none;">Home</a>
+            <span style="margin: 0 0.35rem; color: var(--color-text-light);">/</span>
+            <a href="${prod.businessId}.html" style="color: var(--color-primary-dark); text-decoration: none;">${business.name}</a>
+            <span style="margin: 0 0.35rem; color: var(--color-text-light);">/</span>
+            <span>${prod.category}</span>
           </div>
           <h2 style="font-family: var(--font-heading); font-size: 1.8rem; color: var(--color-primary-dark); line-height: 1.25; margin-bottom: 0.6rem;">
             ${prod.name}
@@ -1253,18 +1296,18 @@ class LimetreeStorefront {
     if (!invoiceModal || !invoiceBody) return;
 
     invoiceBody.innerHTML = `
-      <div id="printableInvoice" style="padding: 2.8rem; background: #FFFFFF; color: #181C1A; font-family: var(--font-body); font-size: 0.88rem; line-height: 1.5;">
-        <div style="display: flex; justify-content: space-between; border-bottom: 2px solid #133E2B; padding-bottom: 1.3rem; margin-bottom: 1.6rem;">
+      <div id="printableInvoice" style="padding: 2.8rem; background: #FFFFFF; color: #30351F; font-family: var(--font-body); font-size: 0.88rem; line-height: 1.5;">
+        <div style="display: flex; justify-content: space-between; border-bottom: 2px solid #365314; padding-bottom: 1.3rem; margin-bottom: 1.6rem;">
           <div>
-            <h1 style="font-family: var(--font-heading); font-size: 2.2rem; color: #133E2B; font-weight: 700; margin-bottom: 0.2rem;">LIMETREE</h1>
-            <div style="font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #6B8E7D;">Multi-Business Lifestyle Collective</div>
-            <div style="font-size: 0.82rem; color: #56615B; margin-top: 0.4rem; max-width: 330px;">
+            <h1 style="font-family: var(--font-heading); font-size: 2.2rem; color: #365314; font-weight: 700; margin-bottom: 0.2rem;">LIMETREE</h1>
+            <div style="font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #6B8E23;">Multi-Business Lifestyle Collective</div>
+            <div style="font-size: 0.82rem; color: #565E3C; margin-top: 0.4rem; max-width: 330px;">
               ${settings.registeredAddress}<br/>
               <strong>GSTIN:</strong> ${settings.gstin} · <strong>State Code:</strong> ${settings.stateCode}
             </div>
           </div>
           <div style="text-align: right;">
-            <div style="font-size: 1.5rem; font-weight: 700; color: #133E2B;">TAX INVOICE</div>
+            <div style="font-size: 1.5rem; font-weight: 700; color: #365314;">TAX INVOICE</div>
             <div style="margin-top: 0.4rem;"><strong>Invoice No:</strong> ${order.invoiceNumber}</div>
             <div><strong>Order ID:</strong> ${order.orderId}</div>
             <div><strong>Date:</strong> ${new Date(order.date).toLocaleDateString('en-IN', { year: 'numeric', month: 'short', day: 'numeric' })}</div>
@@ -1272,9 +1315,9 @@ class LimetreeStorefront {
           </div>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 1.6rem; background: #FAF8F5; padding: 1.3rem; border-radius: 6px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 1.6rem; background: #FFFDF4; border: 1px solid #DDE7B7; padding: 1.3rem; border-radius: 6px;">
           <div>
-            <div style="font-weight: 700; text-transform: uppercase; font-size: 0.78rem; color: #133E2B; margin-bottom: 0.3rem;">Billed To / Consignee:</div>
+            <div style="font-weight: 700; text-transform: uppercase; font-size: 0.78rem; color: #365314; margin-bottom: 0.3rem;">Billed To / Consignee:</div>
             <div><strong>${order.customer.name}</strong></div>
             <div>${order.customer.address}</div>
             <div>${order.customer.city}, ${order.customer.state} - ${order.customer.postalCode}</div>
@@ -1282,7 +1325,7 @@ class LimetreeStorefront {
             <div>Phone: ${order.customer.phone} | Email: ${order.customer.email}</div>
           </div>
           <div>
-            <div style="font-weight: 700; text-transform: uppercase; font-size: 0.78rem; color: #133E2B; margin-bottom: 0.3rem;">Logistics &amp; Payment:</div>
+            <div style="font-weight: 700; text-transform: uppercase; font-size: 0.78rem; color: #365314; margin-bottom: 0.3rem;">Logistics &amp; Payment:</div>
             <div><strong>Carrier:</strong> ${order.carrier}</div>
             <div><strong>Tracking AWB:</strong> ${order.trackingNumber}</div>
             <div><strong>Payment Mode:</strong> ${order.paymentMethod}</div>
@@ -1293,29 +1336,29 @@ class LimetreeStorefront {
 
         <table style="width: 100%; border-collapse: collapse; margin-bottom: 1.6rem;">
           <thead>
-            <tr style="background: #E8F0EC; color: #133E2B; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.04em;">
-              <th style="padding: 0.65rem 0.8rem; text-align: left; border: 1px solid #D2DCD6;">Item Description</th>
-              <th style="padding: 0.65rem 0.8rem; text-align: center; border: 1px solid #D2DCD6;">HSN/SAC</th>
-              <th style="padding: 0.65rem 0.8rem; text-align: center; border: 1px solid #D2DCD6;">Qty</th>
-              <th style="padding: 0.65rem 0.8rem; text-align: right; border: 1px solid #D2DCD6;">Unit Rate (₹)</th>
-              <th style="padding: 0.65rem 0.8rem; text-align: right; border: 1px solid #D2DCD6;">Taxable Val (₹)</th>
-              <th style="padding: 0.65rem 0.8rem; text-align: center; border: 1px solid #D2DCD6;">GST Rate</th>
-              <th style="padding: 0.65rem 0.8rem; text-align: right; border: 1px solid #D2DCD6;">Total (₹)</th>
+            <tr style="background: #EDF3D8; color: #365314; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.04em;">
+              <th style="padding: 0.65rem 0.8rem; text-align: left; border: 1px solid #DDE7B7;">Item Description</th>
+              <th style="padding: 0.65rem 0.8rem; text-align: center; border: 1px solid #DDE7B7;">HSN/SAC</th>
+              <th style="padding: 0.65rem 0.8rem; text-align: center; border: 1px solid #DDE7B7;">Qty</th>
+              <th style="padding: 0.65rem 0.8rem; text-align: right; border: 1px solid #DDE7B7;">Unit Rate (₹)</th>
+              <th style="padding: 0.65rem 0.8rem; text-align: right; border: 1px solid #DDE7B7;">Taxable Val (₹)</th>
+              <th style="padding: 0.65rem 0.8rem; text-align: center; border: 1px solid #DDE7B7;">GST Rate</th>
+              <th style="padding: 0.65rem 0.8rem; text-align: right; border: 1px solid #DDE7B7;">Total (₹)</th>
             </tr>
           </thead>
           <tbody>
             ${order.items.map(i => `
-              <tr style="border-bottom: 1px solid #E2E6E3;">
-                <td style="padding: 0.8rem; border: 1px solid #E2E6E3;">
+              <tr style="border-bottom: 1px solid #DDE7B7;">
+                <td style="padding: 0.8rem; border: 1px solid #DDE7B7;">
                   <strong>${i.productName}</strong><br/>
-                  <span style="font-size: 0.74rem; color: #56615B;">${i.variantLabel} | SKU: ${i.sku}</span>
+                  <span style="font-size: 0.74rem; color: #565E3C;">${i.variantLabel} | SKU: ${i.sku}</span>
                 </td>
-                <td style="padding: 0.8rem; text-align: center; border: 1px solid #E2E6E3;">${i.hsnCode}</td>
-                <td style="padding: 0.8rem; text-align: center; border: 1px solid #E2E6E3;">${i.quantity}</td>
-                <td style="padding: 0.8rem; text-align: right; border: 1px solid #E2E6E3;">${i.price.toFixed(2)}</td>
-                <td style="padding: 0.8rem; text-align: right; border: 1px solid #E2E6E3;">${(i.price * i.quantity).toFixed(2)}</td>
-                <td style="padding: 0.8rem; text-align: center; border: 1px solid #E2E6E3;">${i.gstRate}%</td>
-                <td style="padding: 0.8rem; text-align: right; border: 1px solid #E2E6E3;">${(i.price * i.quantity).toFixed(2)}</td>
+                <td style="padding: 0.8rem; text-align: center; border: 1px solid #DDE7B7;">${i.hsnCode}</td>
+                <td style="padding: 0.8rem; text-align: center; border: 1px solid #DDE7B7;">${i.quantity}</td>
+                <td style="padding: 0.8rem; text-align: right; border: 1px solid #DDE7B7;">${i.price.toFixed(2)}</td>
+                <td style="padding: 0.8rem; text-align: right; border: 1px solid #DDE7B7;">${(i.price * i.quantity).toFixed(2)}</td>
+                <td style="padding: 0.8rem; text-align: center; border: 1px solid #DDE7B7;">${i.gstRate}%</td>
+                <td style="padding: 0.8rem; text-align: right; border: 1px solid #DDE7B7;">${(i.price * i.quantity).toFixed(2)}</td>
               </tr>
             `).join('')}
           </tbody>
@@ -1325,7 +1368,7 @@ class LimetreeStorefront {
           <div style="width: 330px; font-size: 0.88rem; display: flex; flex-direction: column; gap: 0.4rem;">
             <div style="display: flex; justify-content: space-between;"><span>Subtotal:</span> <span>₹${order.subtotal.toFixed(2)}</span></div>
             ${order.discountAmount > 0 ? `
-              <div style="display: flex; justify-content: space-between; color: #1E6F45;"><span>Discount (${order.couponApplied || 'Coupon'}):</span> <span>-₹${order.discountAmount.toFixed(2)}</span></div>
+              <div style="display: flex; justify-content: space-between; color: #365314;"><span>Discount (${order.couponApplied || 'Coupon'}):</span> <span>-₹${order.discountAmount.toFixed(2)}</span></div>
             ` : ''}
             <div style="display: flex; justify-content: space-between;"><span>Shipping &amp; Handling:</span> <span>${order.shippingCharge === 0 ? 'FREE' : '₹' + order.shippingCharge.toFixed(2)}</span></div>
             ${order.taxBreakdown.cgst > 0 ? `
@@ -1334,22 +1377,22 @@ class LimetreeStorefront {
             ` : `
               <div style="display: flex; justify-content: space-between;"><span>IGST:</span> <span>₹${order.taxBreakdown.igst.toFixed(2)}</span></div>
             `}
-            <div style="display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: 700; color: #133E2B; border-top: 2px solid #133E2B; padding-top: 0.5rem; margin-top: 0.4rem;">
+            <div style="display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: 700; color: #365314; border-top: 2px solid #365314; padding-top: 0.5rem; margin-top: 0.4rem;">
               <span>Total Invoice Amount:</span> <span>₹${order.totalAmount.toFixed(2)}</span>
             </div>
           </div>
         </div>
 
-        <div style="display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid #E2E6E3; padding-top: 1.6rem; margin-top: 1.6rem;">
-          <div style="font-size: 0.75rem; color: #56615B; max-width: 390px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid #DDE7B7; padding-top: 1.6rem; margin-top: 1.6rem;">
+          <div style="font-size: 0.75rem; color: #565E3C; max-width: 390px;">
             This is a computer-generated tax invoice issued in accordance with GST Rules. Goods once sold are subject to Limetree 7-day verified return policy.
           </div>
           <div style="text-align: right;">
-            <div style="font-family: var(--font-heading); font-size: 1.15rem; color: #133E2B; font-weight: 700;">For LIMETREE RETAIL</div>
-            <div style="height: 45px; display: flex; align-items: center; justify-content: flex-end; font-family: cursive; font-size: 1.2rem; color: #133E2B;">
+            <div style="font-family: var(--font-heading); font-size: 1.15rem; color: #365314; font-weight: 700;">For LIMETREE RETAIL</div>
+            <div style="height: 45px; display: flex; align-items: center; justify-content: flex-end; font-family: cursive; font-size: 1.2rem; color: #365314;">
               Authorized Signatory
             </div>
-            <div style="font-size: 0.74rem; color: #56615B;">Authorised Signatory</div>
+            <div style="font-size: 0.74rem; color: #565E3C;">Authorised Signatory</div>
           </div>
         </div>
 
