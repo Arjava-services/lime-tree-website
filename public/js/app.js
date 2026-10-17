@@ -22,6 +22,7 @@ function initApp() {
   setupContactForm();
   setupNewsletter();
   setupKeyboardShortcuts();
+  initParallaxController();
   
   // Listen to state changes
   window.store.subscribe((event, data) => {
@@ -113,6 +114,9 @@ function handleRoute() {
     if (homeSection) homeSection.style.display = 'block';
     renderFeaturedProducts();
   }
+
+  // Refresh parallax elements for newly visible page
+  setTimeout(refreshParallax, 60);
 }
 
 function setupCategoryView(catKey) {
@@ -174,6 +178,7 @@ function renderFeaturedProducts() {
   const featured = INITIAL_PRODUCTS.filter(p => p.featured).slice(0, 8);
   container.innerHTML = featured.map(createProductCardHTML).join('');
   attachProductCardEvents(container);
+  refreshParallax();
 }
 
 function renderProductGrid(products) {
@@ -199,6 +204,7 @@ function renderProductGrid(products) {
 
   container.innerHTML = products.map(createProductCardHTML).join('');
   attachProductCardEvents(container);
+  refreshParallax();
 }
 
 function createProductCardHTML(p) {
@@ -224,9 +230,9 @@ function createProductCardHTML(p) {
   }
 
   return `
-    <div class="product-card" data-id="${p.id}">
+    <div class="product-card" data-id="${p.id}" data-parallax-tilt="true">
       <div class="product-card-media" onclick="openProductModal('${p.id}')">
-        <img src="${p.image}" alt="${p.name}" loading="lazy" />
+        <img class="parallax-product-img" src="${p.image}" alt="${p.name}" loading="lazy" data-parallax-type="media" data-parallax-speed="0.12" />
         ${p.badge ? `<span class="product-card-badge">${p.badge}</span>` : ''}
         
         <button class="wishlist-btn ${isWishlisted ? 'active' : ''}" 
@@ -1349,3 +1355,130 @@ function setupKeyboardShortcuts() {
     }
   });
 }
+
+/* ==========================================================================
+   Parallax Controller Engine
+   Multi-Speed Scroll Parallax & Interactive 3D Mouse Tilt
+   ========================================================================== */
+
+let parallaxScrollElements = [];
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+function initParallaxController() {
+  if (prefersReducedMotion.matches) return;
+
+  setupParallaxScroll();
+  setupParallaxTilt();
+
+  window.addEventListener('resize', debounceParallax(refreshParallax, 150));
+}
+
+function refreshParallax() {
+  if (prefersReducedMotion.matches) return;
+
+  const scrollEls = document.querySelectorAll('[data-parallax-speed], [data-parallax-type]');
+  parallaxScrollElements = Array.from(scrollEls).filter(el => {
+    return el.offsetParent !== null;
+  });
+
+  setupParallaxTilt();
+  updateParallax();
+}
+
+function setupParallaxScroll() {
+  let ticking = false;
+
+  const onScroll = () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        updateParallax();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  setTimeout(updateParallax, 80);
+}
+
+function updateParallax() {
+  if (prefersReducedMotion.matches) return;
+
+  const windowHeight = window.innerHeight;
+  const elements = parallaxScrollElements.length > 0
+    ? parallaxScrollElements
+    : document.querySelectorAll('[data-parallax-speed], [data-parallax-type]');
+
+  elements.forEach(el => {
+    if (!el.isConnected || el.offsetParent === null) return;
+
+    const rect = el.getBoundingClientRect();
+    // Element must be somewhat near viewport (buffer of 200px)
+    if (rect.bottom < -200 || rect.top > windowHeight + 200) return;
+
+    const speed = parseFloat(el.dataset.parallaxSpeed) || 0.15;
+    const type = el.dataset.parallaxType || 'element';
+
+    // Calculate distance from viewport center
+    const elementCenter = rect.top + rect.height / 2;
+    const viewportCenter = windowHeight / 2;
+    const offsetFromCenter = elementCenter - viewportCenter;
+
+    if (type === 'hero-bg' || type === 'banner-bg') {
+      // Background images inside overflow-hidden wrappers
+      const translateY = (offsetFromCenter * speed).toFixed(1);
+      el.style.transform = `translate3d(0, ${translateY}px, 0)`;
+    } else if (type === 'media') {
+      // Product cards and story media sliding smoothly in cropped container
+      const translateY = (offsetFromCenter * speed).toFixed(1);
+      el.style.transform = `translate3d(0, ${translateY}px, 0) scale(1.06)`;
+    } else if (type === 'circle-media') {
+      // Pillar circle backgrounds
+      const shiftY = (52 + (offsetFromCenter * speed * 0.12)).toFixed(1);
+      el.style.backgroundPositionY = `${shiftY}%`;
+    } else {
+      // Floating badges, ambient orbs, text headers
+      const translateY = (offsetFromCenter * speed).toFixed(1);
+      el.style.transform = `translate3d(0, ${translateY}px, 0)`;
+    }
+  });
+}
+
+function setupParallaxTilt() {
+  if (prefersReducedMotion.matches) return;
+  // Disable 3D tilt on touch devices
+  if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
+
+  const tiltElements = document.querySelectorAll('[data-parallax-tilt="true"]');
+  tiltElements.forEach(el => {
+    if (el._hasTiltListener) return;
+    el._hasTiltListener = true;
+
+    el.addEventListener('mousemove', (e) => {
+      const rect = el.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateX = (((y - centerY) / centerY) * -5.5).toFixed(2);
+      const rotateY = (((x - centerX) / centerX) * 5.5).toFixed(2);
+
+      el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+    });
+
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+    });
+  });
+}
+
+function debounceParallax(func, wait) {
+  let timeout;
+  return function(...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), wait);
+  };
+}
+

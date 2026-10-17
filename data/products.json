@@ -1,7 +1,7 @@
 [
   {
     "id": "RT-007",
-    "name": "Kids Daisy Floral Flutter Dress & Playwear Set",
+    "name": "Kids Daisy Floral Flutter Dress & Bloomers Set",
     "brand": "Riyaa Trends Kids",
     "brandSlug": "clothing",
     "category": "Clothing",
@@ -10,14 +10,14 @@
     "origPrice": 46,
     "rating": 5,
     "reviewCount": 78,
-    "image": "images/kids_banner.jpg",
+    "image": "images/kids_dress_daisy.jpg",
     "images": [
-      "images/kids_banner.jpg",
-      "images/kids_tee_sage.jpg"
+      "images/kids_dress_daisy.jpg",
+      "images/kids_dress_tiered.jpg"
     ],
     "featured": true,
     "bestseller": true,
-    "badge": "Main Page Highlight",
+    "badge": "Bestseller Dress",
     "stock": 30,
     "sizes": [
       "2-3Y",
@@ -28,11 +28,11 @@
     ],
     "colors": [
       {
-        "name": "Daisy Floral Yellow",
+        "name": "Daisy Yellow",
         "hex": "#FEF08A"
       },
       {
-        "name": "Sage Blossom",
+        "name": "Pastel Sage",
         "hex": "#A4B89B"
       }
     ],
@@ -41,7 +41,51 @@
       "Fit": "Easy breezy flutter sleeves with matching soft bloomers",
       "Wash Care": "Machine wash gentle cold"
     },
-    "description": "The signature floral dress featured on our main page. Charming yellow daisies, flutter cap sleeves, elasticated comfort waist, and ultra-soft organic cotton gentle on sensitive skin."
+    "description": "Charming yellow daisy floral dress with flutter cap sleeves, elasticated waist, and ultra-soft organic cotton gentle on delicate skin."
+  },
+  {
+    "id": "RT-008",
+    "name": "Kids Pastel Tiered Organic Cotton Sundress",
+    "brand": "Riyaa Trends Kids",
+    "brandSlug": "clothing",
+    "category": "Clothing",
+    "subcategory": "Dresses",
+    "price": 36,
+    "origPrice": 48,
+    "rating": 4.9,
+    "reviewCount": 62,
+    "image": "images/kids_dress_tiered.jpg",
+    "images": [
+      "images/kids_dress_tiered.jpg",
+      "images/kids_dress_daisy.jpg"
+    ],
+    "featured": true,
+    "bestseller": false,
+    "badge": "New Arrival",
+    "stock": 25,
+    "sizes": [
+      "2-3Y",
+      "3-4Y",
+      "4-5Y",
+      "5-6Y",
+      "7-8Y"
+    ],
+    "colors": [
+      {
+        "name": "Sage & Blush Tiered",
+        "hex": "#A4B89B"
+      },
+      {
+        "name": "Soft Cream",
+        "hex": "#FDFBF7"
+      }
+    ],
+    "details": {
+      "Fabric": "100% GOTS-Certified Muslin Cotton (Airy & lightweight)",
+      "Fit": "Tiered ruffles with gentle wooden button placket and shoulder straps",
+      "Wash Care": "Machine wash cold gentle"
+    },
+    "description": "Delicate three-tier cotton sundress in calming sage green and blush tones with natural wooden buttons and soft lace-trimmed hems."
   },
   {
     "id": "RT-001",
@@ -57,7 +101,7 @@
     "image": "images/kids_tee_sage.jpg",
     "images": [
       "images/kids_tee_sage.jpg",
-      "images/kids_banner.jpg"
+      "images/kids_tee_pastel.jpg"
     ],
     "featured": true,
     "bestseller": true,
@@ -90,7 +134,51 @@
       "Fit": "Comfortable easy-movement play fit with tagless itch-free neck",
       "Wash Care": "Machine wash gentle cold, tumble dry low"
     },
-    "description": "Super soft, breathable organic cotton tee crafted specially for playtime and everyday giggles. Features a joyful embroidered sun on the chest and an itch-free tagless collar."
+    "description": "Super soft, breathable organic cotton tee crafted specially for playtime and everyday giggles. Features a joyful embroidered sun on the chest."
+  },
+  {
+    "id": "RT-004",
+    "name": "Kids Pastel Crewneck Play Tee",
+    "brand": "Riyaa Trends Kids",
+    "brandSlug": "clothing",
+    "category": "Clothing",
+    "subcategory": "T-shirts",
+    "price": 22,
+    "origPrice": 28,
+    "rating": 4.7,
+    "reviewCount": 83,
+    "image": "images/kids_tee_pastel.jpg",
+    "images": [
+      "images/kids_tee_pastel.jpg",
+      "images/kids_tee_sage.jpg"
+    ],
+    "featured": false,
+    "bestseller": false,
+    "badge": "Pastel Staple",
+    "stock": 28,
+    "sizes": [
+      "2-3Y",
+      "3-4Y",
+      "4-5Y",
+      "5-6Y",
+      "7-8Y"
+    ],
+    "colors": [
+      {
+        "name": "Sky Blue",
+        "hex": "#93C5FD"
+      },
+      {
+        "name": "Peach Sorbet",
+        "hex": "#FDBA74"
+      }
+    ],
+    "details": {
+      "Fabric": "100% Pre-washed Ringspun Cotton (Zero shrinkage)",
+      "Fit": "Relaxed two-tone contrast collar cut for quick dressing",
+      "Wash Care": "Machine wash cold"
+    },
+    "description": "Cheerful pastel sky-blue tee with peach neckband. Pre-washed for cloud-like softness right out of the box."
   },
   {
     "id": "RT-002",
@@ -105,8 +193,7 @@
     "reviewCount": 94,
     "image": "images/kids_shorts_sand.jpg",
     "images": [
-      "images/kids_shorts_sand.jpg",
-      "images/kids_banner.jpg"
+      "images/kids_shorts_sand.jpg"
     ],
     "featured": true,
     "bestseller": false,
@@ -126,10 +213,6 @@
         "hex": "#CBB89E"
       },
       {
-        "name": "Soft Clay",
-        "hex": "#C27D60"
-      },
-      {
         "name": "Olive Green",
         "hex": "#7E8D6F"
       }
@@ -139,104 +222,7 @@
       "Fit": "Gentle non-pinching elastic waistband with soft cotton drawcord",
       "Wash Care": "Machine wash cold, easy tumble dry"
     },
-    "description": "Designed for active little explorers. Ultra-soft French terry with rolled cuffs and a gentle, non-pinching elastic waistband that stays comfy from morning playground trips to evening bedtime."
-  },
-  {
-    "id": "RT-003",
-    "name": "Kids Cozy Fleece Tapered Track Pants",
-    "brand": "Riyaa Trends Kids",
-    "brandSlug": "clothing",
-    "category": "Clothing",
-    "subcategory": "Track Pants",
-    "price": 32,
-    "origPrice": 42,
-    "rating": 4.9,
-    "reviewCount": 156,
-    "image": "images/kids_trackpants_navy.jpg",
-    "images": [
-      "images/kids_trackpants_navy.jpg",
-      "images/kids_banner.jpg"
-    ],
-    "featured": true,
-    "bestseller": true,
-    "badge": "Bestseller",
-    "stock": 28,
-    "sizes": [
-      "2-3Y",
-      "3-4Y",
-      "4-5Y",
-      "5-6Y",
-      "7-8Y",
-      "9-10Y"
-    ],
-    "colors": [
-      {
-        "name": "Slate Blue",
-        "hex": "#3D4F66"
-      },
-      {
-        "name": "Dusty Rose",
-        "hex": "#B87D8E"
-      },
-      {
-        "name": "Warm Oatmeal",
-        "hex": "#D6CABA"
-      }
-    ],
-    "details": {
-      "Fabric": "Plush Organic Cotton Fleece with brushed cloud-soft interior",
-      "Fit": "Tapered joggers with snug ribbed ankle cuffs (prevents tripping)",
-      "Wash Care": "Machine wash cold inside-out"
-    },
-    "description": "The coziest joggers for little adventurers. Made with plush organic fleece, stretchy ankle cuffs that keep warmth in and won't get caught on shoes, and deep pockets for keeping found treasures."
-  },
-  {
-    "id": "RT-004",
-    "name": "Kids Pastel Crewneck Play Tee",
-    "brand": "Riyaa Trends Kids",
-    "brandSlug": "clothing",
-    "category": "Clothing",
-    "subcategory": "T-shirts",
-    "price": 22,
-    "origPrice": 28,
-    "rating": 4.7,
-    "reviewCount": 83,
-    "image": "images/kids_banner.jpg",
-    "images": [
-      "images/kids_banner.jpg",
-      "images/kids_tee_sage.jpg"
-    ],
-    "featured": false,
-    "bestseller": false,
-    "badge": "Pastel Rainbow",
-    "stock": 19,
-    "sizes": [
-      "2-3Y",
-      "3-4Y",
-      "4-5Y",
-      "5-6Y",
-      "7-8Y"
-    ],
-    "colors": [
-      {
-        "name": "Sky Blue",
-        "hex": "#93C5FD"
-      },
-      {
-        "name": "Peach Sorbet",
-        "hex": "#FDBA74"
-      },
-      {
-        "name": "Blush Pink",
-        "hex": "#F9A8D4"
-      }
-    ],
-    "details": {
-      "Fabric": "100% Pre-washed Ringspun Cotton (Zero shrinkage)",
-      "Fit": "Easy-on relaxed cut for quick dressing",
-      "Wash Care": "Machine wash cold"
-    },
-    "description": "Everyday staple in cheerful pastel colorways. Pre-washed for cloud-like softness right out of the box."
+    "description": "Designed for active little explorers. Ultra-soft French terry with rolled cuffs and a gentle, non-pinching elastic waistband."
   },
   {
     "id": "RT-005",
@@ -280,6 +266,50 @@
       "Wash Care": "Machine wash gentle cold"
     },
     "description": "Breezy summer shorts keeping kids cool during park visits, beach days, and family outings."
+  },
+  {
+    "id": "RT-003",
+    "name": "Kids Cozy Fleece Tapered Track Pants",
+    "brand": "Riyaa Trends Kids",
+    "brandSlug": "clothing",
+    "category": "Clothing",
+    "subcategory": "Track Pants",
+    "price": 32,
+    "origPrice": 42,
+    "rating": 4.9,
+    "reviewCount": 156,
+    "image": "images/kids_trackpants_navy.jpg",
+    "images": [
+      "images/kids_trackpants_navy.jpg"
+    ],
+    "featured": true,
+    "bestseller": true,
+    "badge": "Bestseller Jogger",
+    "stock": 28,
+    "sizes": [
+      "2-3Y",
+      "3-4Y",
+      "4-5Y",
+      "5-6Y",
+      "7-8Y",
+      "9-10Y"
+    ],
+    "colors": [
+      {
+        "name": "Slate Blue",
+        "hex": "#3D4F66"
+      },
+      {
+        "name": "Warm Oatmeal",
+        "hex": "#D6CABA"
+      }
+    ],
+    "details": {
+      "Fabric": "Plush Organic Cotton Fleece with brushed cloud-soft interior",
+      "Fit": "Tapered joggers with snug ribbed ankle cuffs (prevents tripping)",
+      "Wash Care": "Machine wash cold inside-out"
+    },
+    "description": "The coziest joggers for little adventurers. Made with plush organic fleece, stretchy ankle cuffs that keep warmth in, and deep pockets."
   },
   {
     "id": "RT-006",
@@ -338,28 +368,21 @@
     "reviewCount": 142,
     "image": "images/glow_candle_lavender.jpg",
     "images": [
-      "images/glow_candle_lavender.jpg",
-      "images/glow_home_cat.jpg",
-      "images/limetree_hero.jpg"
+      "images/glow_candle_lavender.jpg"
     ],
     "featured": true,
     "bestseller": true,
     "stock": 50,
     "fragrance": "French Lavender & Golden Amber",
     "fragranceProfile": {
-      "family": "Floral & Herbal",
-      "top": "Wild Provence Lavender, Bergamot Blossom",
-      "heart": "Chamomile Petals, French Lilac",
-      "base": "Warm Amber, Tonka Bean, Creamy Vanilla"
+      "family": "Floral & Calming"
     },
     "details": {
-      "wax": "100% Hand-Poured Natural Soy Wax",
-      "burnTime": "50-55 Hours",
-      "size": "8 oz / 226g",
-      "wick": "Pure cotton lead-free braided wick",
-      "vessel": "Amber apothecary glass jar with matte black lid"
+      "Wax": "100% Hand-Poured Natural Soy Wax",
+      "Burn Time": "50-55 Hours",
+      "Wick": "Pure cotton lead-free braided wick"
     },
-    "description": "Transform your sanctuary with this calming blend of sun-drenched French lavender fields softened by glowing golden amber and Madagascar vanilla. Hand-poured into an apothecary amber glass jar that casts a mesmerizing, soothing amber glow."
+    "description": "A serene floral blend of wild French lavender buds, fresh herbal notes, and warm comforting amber."
   },
   {
     "id": "GH-002",
@@ -374,27 +397,21 @@
     "reviewCount": 98,
     "image": "images/glow_candle_bergamot.jpg",
     "images": [
-      "images/glow_candle_bergamot.jpg",
-      "images/glow_home_cat.jpg"
+      "images/glow_candle_bergamot.jpg"
     ],
     "featured": true,
-    "bestseller": true,
-    "stock": 40,
-    "fragrance": "Bergamot & Lime Zest",
+    "bestseller": false,
+    "stock": 35,
+    "fragrance": "Calabrian Bergamot & Lime Zest",
     "fragranceProfile": {
-      "family": "Citrus & Fresh",
-      "top": "Crushed Lime Leaves, Sparkling Calabrian Bergamot, Mandarin",
-      "heart": "White Basil, Jasmine Sambac",
-      "base": "Vetiver, Blonde Woods, Sheer Musk"
+      "family": "Citrus & Uplifting"
     },
     "details": {
-      "wax": "Creamy Coconut & Soy Botanical Wax Blend",
-      "burnTime": "55-60 Hours",
-      "size": "8.5 oz / 241g",
-      "wick": "FSC-certified crackling wooden wick",
-      "vessel": "Textured off-white artisan ceramic tumbler"
+      "Wax": "Clean-Burning Botanical Soy Wax",
+      "Burn Time": "55-60 Hours",
+      "Wick": "Natural crackling wood wick"
     },
-    "description": "An energizing, sun-filled citrus explosion. Notes of crisp kaffir lime zest and sun-ripened Italian bergamot nestled in an artisanal off-white matte ceramic vessel. The natural wooden wick crackles gently like an intimate hearth."
+    "description": "Zesty Italian bergamot, fresh squeezed lime peel, and sparkling citron that invigorates and lifts your mood."
   },
   {
     "id": "GH-003",
@@ -409,27 +426,21 @@
     "reviewCount": 117,
     "image": "images/glow_candle_sandalwood.jpg",
     "images": [
-      "images/glow_candle_sandalwood.jpg",
-      "images/glow_home_cat.jpg"
+      "images/glow_candle_sandalwood.jpg"
     ],
     "featured": true,
-    "bestseller": false,
-    "stock": 34,
-    "fragrance": "Sandalwood & Smoky Amber",
+    "bestseller": true,
+    "stock": 22,
+    "fragrance": "Mysore Sandalwood & Smoky Amber",
     "fragranceProfile": {
-      "family": "Woody & Earthy",
-      "top": "Smoked Cardamom, Pink Peppercorn",
-      "heart": "Cedarwood Atlas, Tuscan Leather, Iris",
-      "base": "Mysore Sandalwood, Raw Amber, Dark Musk"
+      "family": "Woody & Sensual"
     },
     "details": {
-      "wax": "100% Natural Soy Wax with essential oils",
-      "burnTime": "60 Hours",
-      "size": "9 oz / 255g",
-      "wick": "Dual acoustic crackling wood wicks",
-      "vessel": "Matte dark charcoal stone ceramic vessel"
+      "Wax": "Dark Soy & Coconut Botanical Blend",
+      "Burn Time": "55-60 Hours",
+      "Wick": "Crackling hardwood wick"
     },
-    "description": "Intensely luxurious and grounding. Housed in a handcrafted matte slate ceramic vessel, this fragrance envelops any room in meditative warmth, rich sandalwood, and glowing amber."
+    "description": "Deep, meditative Mysore sandalwood infused with charred birch, golden resin amber, and earthy cedarwood."
   },
   {
     "id": "GH-004",
@@ -442,29 +453,23 @@
     "origPrice": 36,
     "rating": 4.8,
     "reviewCount": 89,
-    "image": "images/glow_home_cat.jpg",
+    "image": "images/glow_candle_vanilla.jpg",
     "images": [
-      "images/glow_home_cat.jpg",
-      "images/glow_candle_lavender.jpg"
+      "images/glow_candle_vanilla.jpg"
     ],
     "featured": false,
     "bestseller": false,
-    "stock": 26,
-    "fragrance": "Bourbon Vanilla & Honey",
+    "stock": 45,
+    "fragrance": "Bourbon Vanilla & Wild Honeycomb",
     "fragranceProfile": {
-      "family": "Warm Gourmand",
-      "top": "Almond Milk, Whipped Buttercream",
-      "heart": "Wild Mountain Honey, Coconut Orchid",
-      "base": "Cured Bourbon Vanilla Beans, Soft Cashmere"
+      "family": "Gourmand & Warm"
     },
     "details": {
-      "wax": "Pure Soy Wax in warm terracotta jar",
-      "burnTime": "50 Hours",
-      "size": "8 oz / 226g",
-      "wick": "Braided organic cotton wick",
-      "vessel": "Earthy terracotta vessel with raw rim"
+      "Wax": "Natural Soy & Organic Beeswax Blend",
+      "Burn Time": "50 Hours",
+      "Wick": "Organic cotton wick"
     },
-    "description": "A warm comforting hug in candle form. Rich, unctuous vanilla pods steeped in bourbon and wildflower nectar create an intoxicatingly sweet aroma that feels like coming home."
+    "description": "Warm Madagascar bourbon vanilla paired with golden raw honeycomb and sweet caramelized brown sugar."
   },
   {
     "id": "GH-005",
@@ -477,28 +482,23 @@
     "origPrice": 38,
     "rating": 4.7,
     "reviewCount": 76,
-    "image": "images/glow_candle_lavender.jpg",
+    "image": "images/glow_candle_jasmine.jpg",
     "images": [
-      "images/glow_candle_lavender.jpg"
+      "images/glow_candle_jasmine.jpg"
     ],
     "featured": false,
     "bestseller": false,
-    "stock": 22,
+    "stock": 28,
     "fragrance": "White Jasmine & Green Tea",
     "fragranceProfile": {
-      "family": "Fresh Floral",
-      "top": "Dewy Green Tea, Fresh Mint, Yuzu",
-      "heart": "Night-blooming Jasmine, White Lily",
-      "base": "Clean Cedar, Bamboo, Sheer Musk"
+      "family": "Floral & Calming"
     },
     "details": {
-      "wax": "100% Plant-Based Soy Wax",
-      "burnTime": "48 Hours",
-      "size": "7.5 oz / 212g",
-      "wick": "Cotton core lead-free wick",
-      "vessel": "Ribbed frosted glass jar"
+      "Wax": "100% Pure Soy Wax in Matte White Jar",
+      "Burn Time": "50-55 Hours",
+      "Wick": "Dual-core cotton wick"
     },
-    "description": "Delicate and ethereal, reminiscent of a quiet misty morning in a Kyoto botanical garden. Perfect for bedrooms, soothing baths, and mindfulness rituals."
+    "description": "Delicate nighttime jasmine blossoms infused with crisp steamed green tea leaves and refreshing herbal dew."
   },
   {
     "id": "GH-006",
@@ -511,28 +511,23 @@
     "origPrice": 38,
     "rating": 4.9,
     "reviewCount": 104,
-    "image": "images/glow_candle_bergamot.jpg",
+    "image": "images/glow_candle_cinnamon.jpg",
     "images": [
-      "images/glow_candle_bergamot.jpg"
+      "images/glow_candle_cinnamon.jpg"
     ],
     "featured": false,
     "bestseller": false,
-    "stock": 38,
+    "stock": 32,
     "fragrance": "Spiced Cinnamon & Clementine",
     "fragranceProfile": {
-      "family": "Warm Spice",
-      "top": "Sparkling Clementine, Blood Orange Peel",
-      "heart": "Crushed Ceylon Cinnamon, Nutmeg, Star Anise",
-      "base": "Clove Bud, Warm Vanilla, Spiced Cedar"
+      "family": "Spice & Festive"
     },
     "details": {
-      "wax": "Clean-burning Soy Wax Blend",
-      "burnTime": "52 Hours",
-      "size": "8 oz / 226g",
-      "wick": "FSC crackling wooden wick",
-      "vessel": "Classic amber glass apothecary jar"
+      "Wax": "Terracotta Vessel Natural Soy Wax",
+      "Burn Time": "52 Hours",
+      "Wick": "Crackling wood wick"
     },
-    "description": "A celebratory spice melody that infuses your space with festive cheer, crackling sounds, and heartwarming memories."
+    "description": "Festive crushed cinnamon sticks, dried clementine peel, ground clove, and a hint of warm nutmeg."
   },
   {
     "id": "EK-001",
@@ -547,24 +542,20 @@
     "reviewCount": 215,
     "image": "images/earkart_stud_diamond.jpg",
     "images": [
-      "images/earkart_stud_diamond.jpg",
-      "images/earkart_cat.jpg",
-      "images/limetree_hero.jpg"
+      "images/earkart_stud_diamond.jpg"
     ],
     "featured": true,
     "bestseller": true,
-    "stock": 45,
-    "design": "Classic 4-Prong Basket Solitaire (1.0 Carat DEW per ear)",
-    "material": "Solid 925 Sterling Silver with Rhodium Anti-Tarnish Plating",
-    "gemstone": "Color D, VVS1 Clarity Round Brilliant Lab Moissanite",
-    "backing": "Secure Double-Notch Friction Backs",
+    "stock": 35,
+    "design": "4-Prong Classic Basket Setting",
+    "material": "Solid 925 Sterling Silver with Pure Rhodium Dip",
+    "gemstone": "Certified VVS1 D-Color Lab Moissanite (1.0ct eq. each)",
     "details": {
-      "material": "Solid 925 Sterling Silver + Rhodium Finish",
-      "gemstone": "1.0ct DEW each (6.5mm) Lab-Grown Moissanite",
-      "hypoallergenic": "100% Nickel-free, Lead-free, Cadmium-free",
-      "closure": "Friction butterfly back with secure safety notch"
+      "Material": "Solid 925 Sterling Silver (Rhodium plated)",
+      "Gemstone": "D-Color Flawless Moissanite",
+      "Hypoallergenic": "100% Nickel-free, safe for daily wear"
     },
-    "description": "Unrivaled brilliance that outshines traditional diamonds with 2.4x the fire and dispersion. Each pair is handcrafted in genuine 925 sterling silver with protective rhodium finish for timeless everyday luxury that never tarnishes."
+    "description": "Exceptional brilliance with unmatched diamond-grade fire. Secure 4-prong baskets with double-notched safety posts."
   },
   {
     "id": "EK-002",
@@ -579,23 +570,20 @@
     "reviewCount": 168,
     "image": "images/earkart_stud_emerald.jpg",
     "images": [
-      "images/earkart_stud_emerald.jpg",
-      "images/earkart_cat.jpg"
+      "images/earkart_stud_emerald.jpg"
     ],
     "featured": true,
     "bestseller": true,
     "stock": 28,
-    "design": "Art Deco Emerald Cut with Micro-Pavé Halo Border",
-    "material": "18K Yellow Gold Vermeil (2.5 Micron) over 925 Silver",
-    "gemstone": "Lab-Grown Colombian Green Emerald Zirconia (8x6mm)",
-    "backing": "Custom Comfort Disk Push Backs",
+    "design": "Art Deco Emerald Cut with Micro-Pavé Halo",
+    "material": "18K Yellow Gold Vermeil over 925 Silver",
+    "gemstone": "Colombian Green Emerald Zirconia",
     "details": {
-      "material": "18K Yellow Gold Vermeil over 925 Sterling Silver",
-      "gemstone": "Emerald-cut Forest Green Crystal with Pavé Zirconia Halo",
-      "hypoallergenic": "Ultra-gentle on sensitive earlobes",
-      "closure": "Comfort silicone disc back with gold core"
+      "Material": "18K Gold Vermeil over 925 Sterling Silver",
+      "Gemstone": "Emerald-cut Forest Green Crystal",
+      "Hypoallergenic": "Ultra-gentle on sensitive earlobes"
     },
-    "description": "A regal statement inspired by vintage heirloom jewelry. Deep forest green emeralds framed by glistening pavé accents and warm 18K gold vermeil settings. Perfect for special evenings or elevating daily attire."
+    "description": "Regal vintage grandeur. Deep forest green emeralds framed by glistening pavé accents and warm 18K gold vermeil."
   },
   {
     "id": "EK-003",
@@ -610,23 +598,20 @@
     "reviewCount": 134,
     "image": "images/earkart_stud_pearl.jpg",
     "images": [
-      "images/earkart_stud_pearl.jpg",
-      "images/earkart_cat.jpg"
+      "images/earkart_stud_pearl.jpg"
     ],
     "featured": true,
     "bestseller": false,
     "stock": 32,
-    "design": "Organic Sculpted Baroque Pearl Setting",
-    "material": "14K Solid Yellow Gold Posts & Cups",
-    "gemstone": "Hand-selected AAA Grade Natural Freshwater Baroque Pearls (9-10mm)",
-    "backing": "14K Gold Butterfly Backs",
+    "design": "Organic Baroque Pearl Setting",
+    "material": "14K Solid Yellow Gold Posts",
+    "gemstone": "AAA Grade Natural Freshwater Baroque Pearls (9-10mm)",
     "details": {
-      "material": "14K Solid Gold Posts with Hand-Polished Finish",
-      "gemstone": "Natural AAA Freshwater Baroque Pearl (9-10mm)",
-      "hypoallergenic": "Naturally biocompatible for everyday wear",
-      "closure": "14K Gold Butterfly Backing"
+      "Material": "14K Solid Gold Posts",
+      "Gemstone": "Natural AAA Freshwater Baroque Pearl",
+      "Hypoallergenic": "Naturally biocompatible"
     },
-    "description": "No two pearls are identical. Naturally iridescent baroque pearls with lustrous pink-champagne undertones set on solid 14K gold posts. Understated organic elegance for weddings, work, and every day."
+    "description": "Naturally iridescent organic baroque pearls with pink-champagne undertones set on solid 14K gold posts."
   },
   {
     "id": "EK-004",
@@ -639,25 +624,22 @@
     "origPrice": 58,
     "rating": 4.8,
     "reviewCount": 91,
-    "image": "images/earkart_cat.jpg",
+    "image": "images/earkart_stud_honeycomb.jpg",
     "images": [
-      "images/earkart_cat.jpg",
-      "images/earkart_stud_emerald.jpg"
+      "images/earkart_stud_honeycomb.jpg"
     ],
     "featured": false,
     "bestseller": false,
     "stock": 38,
-    "design": "Open Honeycomb Hexagon with Center Bezel Sparkle",
-    "material": "18K Gold Plated Brass with Protective E-Coating",
-    "gemstone": "0.05ct Flawless Micro Cubic Zirconia accent",
-    "backing": "Silicone-cushioned Push Backs",
+    "design": "Open Honeycomb Hexagon with Center Micro-Diamonds",
+    "material": "18K Yellow Gold with Protective E-Coating",
+    "gemstone": "Micro-Pavé Cubic Zirconia cluster",
     "details": {
-      "material": "18K Yellow Gold with Anti-Tarnish E-Shield",
-      "gemstone": "Micro-faceted Brilliant Zirconia",
-      "hypoallergenic": "Hypoallergenic titanium post core",
-      "closure": "Soft silicone comfort backs"
+      "Material": "18K Gold Plated with Anti-Tarnish E-Shield",
+      "Gemstone": "Micro-faceted Brilliant Zirconia",
+      "Hypoallergenic": "Hypoallergenic titanium post core"
     },
-    "description": "Clean modern lines inspired by sacred geometry. Light as air and designed to be worn solo or stacked along the ear lobe alongside your favorite hoops."
+    "description": "Clean modern lines inspired by architectural geometry with sparkling cluster centers in warm 18K yellow gold."
   },
   {
     "id": "EK-005",
@@ -670,9 +652,9 @@
     "origPrice": 62,
     "rating": 4.8,
     "reviewCount": 82,
-    "image": "images/earkart_stud_diamond.jpg",
+    "image": "images/earkart_stud_starburst.jpg",
     "images": [
-      "images/earkart_stud_diamond.jpg"
+      "images/earkart_stud_starburst.jpg"
     ],
     "featured": false,
     "bestseller": false,
@@ -680,14 +662,12 @@
     "design": "Eight-Point Polaris North Star Motif",
     "material": "925 Sterling Silver with Micro-Pavé Setting",
     "gemstone": "Brilliant White Topaz Zirconia stones",
-    "backing": "Screw Backs for Extra Security",
     "details": {
-      "material": "925 Sterling Silver with Pure Rhodium Dip",
-      "gemstone": "Multi-stone Micro-Pavé Accent Array",
-      "hypoallergenic": "100% Nickel-free",
-      "closure": "Threaded screw back for worry-free security"
+      "Material": "925 Sterling Silver with Pure Rhodium Dip",
+      "Gemstone": "Multi-stone Micro-Pavé Accent Array",
+      "Hypoallergenic": "100% Nickel-free"
     },
-    "description": "Wear the starlight. Intricate 8-point celestial starbursts sparkling with pavé-set gemstones that catch the light with every turn."
+    "description": "Intricate 8-point celestial starbursts sparkling with pavé-set gemstones that catch the light with every turn."
   },
   {
     "id": "EK-006",
@@ -700,9 +680,9 @@
     "origPrice": 54,
     "rating": 4.7,
     "reviewCount": 74,
-    "image": "images/earkart_stud_emerald.jpg",
+    "image": "images/earkart_cat.jpg",
     "images": [
-      "images/earkart_stud_emerald.jpg"
+      "images/earkart_cat.jpg"
     ],
     "featured": false,
     "bestseller": false,
@@ -710,13 +690,11 @@
     "design": "Low-profile Bezel Round Studs (6mm)",
     "material": "Surgical-grade 316L Stainless Steel with Black PVD",
     "gemstone": "Natural Black Onyx Cabochon",
-    "backing": "Threaded Screw-back Post",
     "details": {
-      "material": "316L Surgical Stainless Steel",
-      "gemstone": "Natural Polished Black Onyx",
-      "hypoallergenic": "Medical-grade hypoallergenic",
-      "closure": "Smooth screw back post"
+      "Material": "316L Surgical Stainless Steel",
+      "Gemstone": "Natural Polished Black Onyx",
+      "Hypoallergenic": "Medical-grade hypoallergenic"
     },
-    "description": "Sleek, moody, and universally flattering. Genuine black onyx in a smooth protective bezel. Water-resistant, sweat-proof, and safe for 24/7 wear in gym, shower, or sleep."
+    "description": "Sleek, moody, and universally flattering. Genuine black onyx in a smooth protective bezel. Safe for 24/7 wear."
   }
 ]

@@ -133,39 +133,43 @@
        PAGE 1: HOME PAGE
        ======================================================================= -->
   <main id="homePage">
-    <!-- Hero Banner -->
+    <!-- Clean, Well-Organized Hero Section with Text Limits & Multi-Layer Parallax -->
     <section class="hero-section">
+      <!-- Background Parallax Ambient Glow Orbs -->
+      <div class="hero-parallax-orb orb-1" data-parallax-type="element" data-parallax-speed="0.22"></div>
+      <div class="hero-parallax-orb orb-2" data-parallax-type="element" data-parallax-speed="-0.18"></div>
+
       <div class="container hero-grid">
-        <div class="hero-content">
+        <div class="hero-content" data-parallax-type="element" data-parallax-speed="0.05">
           <div class="hero-tag">
             <span class="hero-tag-pulse"></span>
-            One Marketplace • Three Signature Brands
+            Curated Lifestyle Marketplace
           </div>
           <h1 class="hero-title">
-            Elegance in Every <span class="highlight">Layer, Glow,</span> and Sparkle.
+            Elegance in Every <span class="highlight">Layer, Glow</span> & Sparkle.
           </h1>
           <p class="hero-subtitle">
-            Welcome to LimeTree. Discover joyful organic kids wear by <strong>Riyaa Trends Kids</strong>, hand-poured soy candles by <strong>Glow Home</strong>, and hypoallergenic fine ear studs by <strong>Earkart</strong> — all in one unified shopping basket.
+            Three signature brands in one unified basket: organic kids wear, hand-poured soy candles, and fine ear studs.
           </p>
 
           <div class="hero-brand-chips">
             <a href="#clothing" class="brand-chip">
               <span class="brand-chip-dot" style="background-color: var(--lime-600);"></span>
-              Riyaa Trends Kids (Ages 2–12Y)
+              Kids Wear
             </a>
             <a href="#candles" class="brand-chip">
               <span class="brand-chip-dot" style="background-color: var(--amber-500);"></span>
-              Glow Home (Candles)
+              Candles
             </a>
             <a href="#studs" class="brand-chip">
               <span class="brand-chip-dot" style="background-color: var(--earkart-accent);"></span>
-              Earkart (Studs)
+              Jewellery
             </a>
           </div>
 
           <div class="hero-actions">
             <a href="#catalog" class="btn-primary" id="heroShopAllBtn">
-              Explore All Collections
+              Explore Collections
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
@@ -176,41 +180,38 @@
         </div>
 
         <div class="hero-visual-wrap">
-          <div class="hero-image-card">
-            <img src="images/main_page_banner.png" alt="LimeTree curated lifestyle: Riyaa Trends Clothing, Glow Home Candles, and Earkart Jewellery" />
-          </div>
-
-          <!-- Floating Glass Pill 1 -->
-          <div class="hero-float-card float-top-left">
-            <div class="float-icon" style="background: var(--lime-100); color: var(--lime-800);">🌿</div>
-            <div class="float-text">
-              <h4>100% Organic & Pure</h4>
-              <p>Natural cotton & clean soy wax</p>
+          <!-- Floating Multi-Speed Parallax Badges -->
+          <div class="hero-float-badge float-badge-left" data-parallax-type="element" data-parallax-speed="-0.22">
+            <span class="badge-icon">🌿</span>
+            <div class="badge-text-wrap">
+              <strong>100% Organic</strong>
+              <small>GOTS-Certified Cotton</small>
             </div>
           </div>
 
-          <!-- Floating Glass Pill 2 -->
-          <div class="hero-float-card float-bottom-right">
-            <div class="float-icon" style="background: var(--earkart-bg); color: var(--earkart-accent);">✨</div>
-            <div class="float-text">
-              <h4>Hypoallergenic</h4>
-              <p>925 Silver & 18K Gold Vermeil</p>
+          <div class="hero-float-badge float-badge-right" data-parallax-type="element" data-parallax-speed="0.26">
+            <span class="badge-icon">🕯️</span>
+            <div class="badge-text-wrap">
+              <strong>Clean Aromatherapy</strong>
+              <small>Hand-Poured Soy Wax</small>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
 
-    
-    <!-- Dedicated Main Page Grand Showcase Banner (matching user artwork) -->
-    <section class="banner-showcase-section">
-      <div class="container">
-        <div class="main-artwork-banner-wrap">
-          <img src="images/main_page_banner.png" alt="LimeTree Marketplace - Riyaa Trends, Glow Home, Earkart" class="main-artwork-banner-img" />
-          <div class="banner-clickable-overlay">
-            <a href="#clothing" class="banner-hotspot" title="Shop Riyaa Trends Clothing"></a>
-            <a href="#candles" class="banner-hotspot" title="Shop Glow Home Candles"></a>
-            <a href="#studs" class="banner-hotspot" title="Shop Earkart Jewellery"></a>
+          <div class="hero-float-badge float-badge-center" data-parallax-type="element" data-parallax-speed="0.15">
+            <span class="badge-icon">✨</span>
+            <div class="badge-text-wrap">
+              <strong>Hypoallergenic</strong>
+              <small>Solid 925 & 18K Vermeil</small>
+            </div>
+          </div>
+
+          <div class="main-artwork-banner-wrap" data-parallax-tilt="true">
+            <img src="images/main_page_banner.png" alt="LimeTree curated lifestyle: Riyaa Trends, Glow Home, Earkart" class="main-artwork-banner-img" data-parallax-type="media" data-parallax-speed="-0.08" />
+            <div class="banner-clickable-overlay">
+              <a href="#clothing" class="banner-hotspot" title="Shop Riyaa Trends Clothing"></a>
+              <a href="#candles" class="banner-hotspot" title="Shop Glow Home Candles"></a>
+              <a href="#studs" class="banner-hotspot" title="Shop Earkart Jewellery"></a>
+            </div>
           </div>
         </div>
       </div>
@@ -263,10 +264,10 @@
 
         <div class="business-trio-grid">
           <!-- Business 1: Clothing - Riyaa Trends -->
-          <div class="business-card arched-business-card" id="cardRiyaa">
+          <div class="business-card arched-business-card" id="cardRiyaa" data-parallax-tilt="true">
             <div class="arched-media-wrap">
-              <div class="card-media-circle card-media-clothing" title="Riyaa Trends Clothing"></div>
-              <div class="pillar-floating-badge" title="Clothing">
+              <div class="card-media-circle card-media-clothing" data-parallax-type="circle-media" data-parallax-speed="0.15" title="Riyaa Trends Clothing"></div>
+              <div class="pillar-floating-badge" data-parallax-type="element" data-parallax-speed="-0.18" title="Clothing">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
                   <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -278,7 +279,7 @@
               <h3 class="business-name serif-title">Riyaa Trends</h3>
               <span class="business-category-tag">CLOTHING</span>
               <p class="business-desc">
-                From daisy floral dresses and embroidered sun tees to French terry play shorts and cozy fleece track pants.
+                Organic cotton dresses, sun tees, play shorts, and cozy joggers for everyday comfort.
               </p>
               <div class="business-pills">
                 <span class="business-pill">Kids Dresses</span>
@@ -295,10 +296,10 @@
           </div>
 
           <!-- Business 2: Scented Candles - Glow Home -->
-          <div class="business-card arched-business-card" id="cardGlow">
+          <div class="business-card arched-business-card" id="cardGlow" data-parallax-tilt="true">
             <div class="arched-media-wrap">
-              <div class="card-media-circle card-media-candles" title="Glow Home Scented Candles"></div>
-              <div class="pillar-floating-badge" title="Scented Candles">
+              <div class="card-media-circle card-media-candles" data-parallax-type="circle-media" data-parallax-speed="0.15" title="Glow Home Scented Candles"></div>
+              <div class="pillar-floating-badge" data-parallax-type="element" data-parallax-speed="-0.18" title="Scented Candles">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M12 2c-.5 1.5-2 3-2 5a2 2 0 1 0 4 0c0-2-1.5-3.5-2-5z"></path>
                   <rect x="7" y="10" width="10" height="12" rx="2"></rect>
@@ -310,7 +311,7 @@
               <h3 class="business-name serif-title">Glow Home</h3>
               <span class="business-category-tag">SCENTED CANDLES</span>
               <p class="business-desc">
-                Infuse your spaces with peaceful French lavender, crisp Calabrian bergamot, smoky sandalwood, and warm bourbon vanilla.
+                Hand-poured natural soy wax candles with crackling wood wicks and serene fragrances.
               </p>
               <div class="business-pills">
                 <span class="business-pill">Natural Soy Wax</span>
@@ -326,10 +327,10 @@
           </div>
 
           <!-- Business 3: Jewellery - Earkart -->
-          <div class="business-card arched-business-card" id="cardEarkart">
+          <div class="business-card arched-business-card" id="cardEarkart" data-parallax-tilt="true">
             <div class="arched-media-wrap">
-              <div class="card-media-circle card-media-jewellery" title="Earkart Jewellery"></div>
-              <div class="pillar-floating-badge" title="Jewellery">
+              <div class="card-media-circle card-media-jewellery" data-parallax-type="circle-media" data-parallax-speed="0.15" title="Earkart Jewellery"></div>
+              <div class="pillar-floating-badge" data-parallax-type="element" data-parallax-speed="-0.18" title="Jewellery">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M6 3h12l4 6-10 13L2 9z"></path>
                   <path d="M11 3L8 9l4 13 4-13-3-6"></path>
@@ -341,7 +342,7 @@
               <h3 class="business-name serif-title">Earkart</h3>
               <span class="business-category-tag">JEWELLERY</span>
               <p class="business-desc">
-                High-sparkle moissanite solitaires, 18K gold vermeil emerald halos, natural baroque pearls, and modern geometrics.
+                Hypoallergenic moissanite, 18K gold vermeil, and baroque pearls designed for sensitive ears.
               </p>
               <div class="business-pills">
                 <span class="business-pill">Solid 925 Silver</span>
@@ -395,14 +396,14 @@
             <div class="pillar-icon">🧺</div>
             <h3 style="font-family: var(--font-heading); font-size: 1.25rem;">One Consolidated Cart</h3>
             <p style="color: var(--slate-600); font-size: 0.9rem;">
-              No need to place separate orders across multiple websites. Add kids shorts from Riyaa Trends Kids, a candle from Glow Home, and studs from Earkart in a single unified checkout.
+              Shop clothing, candles, and jewelry across all three stores in a single unified checkout.
             </p>
           </div>
           <div class="pillar-card">
             <div class="pillar-icon">🌱</div>
             <h3 style="font-family: var(--font-heading); font-size: 1.25rem;">Ethical & Sustainable</h3>
             <p style="color: var(--slate-600); font-size: 0.9rem;">
-              We prioritize organic GOTS-certified cotton, clean-burning soy and coconut botanical wax, and conflict-free recycled precious metals.
+              100% GOTS-certified organic cotton, clean-burning soy wax, and medical-grade hypoallergenic metals.
             </p>
           </div>
           <div class="pillar-card">
@@ -443,10 +444,10 @@
        ======================================================================= -->
   <main id="catalogPage" style="display: none; padding: 2.5rem 0 5rem;">
     <div class="container">
-      <!-- Category Banner Card -->
-      <div id="catalogBannerWrap" style="margin-bottom: 2.5rem; border-radius: var(--radius-xl); overflow: hidden; position: relative; max-height: 280px; box-shadow: var(--shadow-md);">
-        <img id="catalogBannerImg" src="images/limetree_hero.jpg" alt="Category Banner" style="width: 100%; height: 280px; object-fit: cover;" />
-        <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.3) 100%); display: flex; flex-direction: column; justify-content: center; padding: 2.5rem; color: var(--white);">
+      <!-- Category Banner Card with Smooth Parallax Background -->
+      <div id="catalogBannerWrap" class="catalog-parallax-banner-wrap" style="margin-bottom: 2.5rem; border-radius: var(--radius-xl); overflow: hidden; position: relative; max-height: 280px; box-shadow: var(--shadow-md);">
+        <img id="catalogBannerImg" class="catalog-parallax-banner-img" src="images/limetree_hero.jpg" alt="Category Banner" data-parallax-type="hero-bg" data-parallax-speed="0.22" style="width: 100%; height: 135%; top: -15%; position: absolute; object-fit: cover;" />
+        <div style="position: relative; z-index: 2; background: linear-gradient(90deg, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.3) 100%); display: flex; flex-direction: column; justify-content: center; padding: 2.5rem; color: var(--white); min-height: 220px;">
           <h1 id="catalogTitle" style="font-family: var(--font-heading); font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem;">Marketplace Catalog</h1>
           <p id="catalogSubtitle" style="color: rgba(255,255,255,0.85); max-width: 600px; font-size: 1rem;">
             Explore our curated collections with detailed specifications and instant cart additions.
@@ -505,39 +506,177 @@
        PAGE 3: ABOUT US
        ======================================================================= -->
   <main id="aboutPage" style="display: none; padding-bottom: 5rem;">
-    <section class="about-hero">
-      <div class="container" style="max-width: 800px;">
-        <span class="section-tag">Our Roots</span>
-        <h1 style="font-family: var(--font-heading); font-size: 3.2rem; font-weight: 800; color: var(--slate-900); margin-bottom: 1.25rem;">
-          A Refreshing Approach to Everyday Living
-        </h1>
-        <p style="font-size: 1.15rem; color: var(--slate-600); line-height: 1.8;">
-          LimeTree was founded with a singular conviction: discerning customers shouldn't have to visit three different websites and manage three separate deliveries just to curate their daily lifestyle essentials.
-        </p>
+    <!-- 1. Immersive Parallax Hero Section with Background Imagery -->
+    <section class="about-parallax-hero">
+      <div class="about-parallax-bg-wrap">
+        <img src="images/limetree_hero.jpg" alt="LimeTree Studio Atmosphere" class="about-parallax-bg-img" data-parallax-type="hero-bg" data-parallax-speed="0.32" />
+        <div class="about-hero-overlay"></div>
+      </div>
+      <div class="container about-hero-container">
+        <div class="about-hero-card" data-parallax-type="element" data-parallax-speed="0.08">
+          <span class="section-tag" style="background: rgba(236, 252, 203, 0.95); color: var(--lime-900);">Our Roots</span>
+          <h1 class="about-hero-title">A Refreshing Approach to Everyday Living</h1>
+          <p class="about-hero-subtitle">
+            LimeTree was founded with a singular conviction: discerning customers shouldn't have to visit three different websites and manage three separate deliveries just to curate their daily lifestyle essentials.
+          </p>
+          <div class="about-hero-stats">
+            <div class="about-stat">
+              <span class="stat-number">3</span>
+              <span class="stat-label">Artisan Studios</span>
+            </div>
+            <div class="about-stat-divider"></div>
+            <div class="about-stat">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Pure Natural Materials</span>
+            </div>
+            <div class="about-stat-divider"></div>
+            <div class="about-stat">
+              <span class="stat-number">1</span>
+              <span class="stat-label">Unified Basket</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <div class="container" style="margin-top: 3.5rem;">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; margin-bottom: 5rem;">
-        <div>
-          <span class="section-tag" style="background: var(--lime-100);">The Story</span>
-          <h2 style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; margin: 0.75rem 0 1.25rem;">
-            Three Crafts, One Unified Home
-          </h2>
-          <p style="color: var(--slate-600); line-height: 1.8; margin-bottom: 1rem;">
-            We brought together three dedicated specialist workshops:
-          </p>
-          <ul style="display: flex; flex-direction: column; gap: 0.75rem; color: var(--slate-700); font-size: 0.95rem;">
-            <li>👕 <strong>Riyaa Trends Kids:</strong> Dedicated to 100% organic cotton, comfortable child-friendly silhouettes, durable play-proof stitching, and itch-free tags.</li>
-            <li>🕯️ <strong>Glow Home:</strong> Focused on clean aromatherapy, hand-poured natural soy wax, and crackling wooden wicks in reusable artisan jars.</li>
-            <li>💎 <strong>Earkart:</strong> Committed to dermatologist-approved hypoallergenic metals, genuine 925 sterling silver, 18K gold vermeil, and certified lab moissanites.</li>
-          </ul>
-        </div>
-        <div style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg);">
-          <img src="images/limetree_hero.jpg" alt="LimeTree studio lifestyle" />
+    <!-- 2. Story Section with Parallax Media Window -->
+    <section class="section about-story-section">
+      <div class="container">
+        <div class="about-story-grid">
+          <div class="about-story-content">
+            <span class="section-tag" style="background: var(--lime-100);">The Story</span>
+            <h2 class="section-title" style="text-align: left; margin: 0.75rem 0 1.25rem;">
+              Three Crafts, One Unified Home
+            </h2>
+            <p style="color: var(--slate-600); line-height: 1.8; margin-bottom: 1.25rem;">
+              We brought together three dedicated specialist workshops, combining timeless artisan mastery with modern convenience:
+            </p>
+            <div class="about-craft-list">
+              <div class="about-craft-item">
+                <div class="craft-icon" style="background: var(--lime-100);">👕</div>
+                <div>
+                  <h4 style="font-family: var(--font-heading); font-weight: 700; margin-bottom: 0.25rem;">Riyaa Trends Kids</h4>
+                  <p style="color: var(--slate-600); font-size: 0.9rem; line-height: 1.6;">100% GOTS-certified organic cotton, child-friendly silhouettes, durable play-proof stitching, and itch-free tags.</p>
+                </div>
+              </div>
+              <div class="about-craft-item">
+                <div class="craft-icon" style="background: var(--glow-bg);">🕯️</div>
+                <div>
+                  <h4 style="font-family: var(--font-heading); font-weight: 700; margin-bottom: 0.25rem;">Glow Home Candles</h4>
+                  <p style="color: var(--slate-600); font-size: 0.9rem; line-height: 1.6;">Clean aromatherapy, hand-poured natural soy wax, and crackling wooden wicks in reusable artisan jars.</p>
+                </div>
+              </div>
+              <div class="about-craft-item">
+                <div class="craft-icon" style="background: var(--earkart-bg);">💎</div>
+                <div>
+                  <h4 style="font-family: var(--font-heading); font-weight: 700; margin-bottom: 0.25rem;">Earkart Jewellery</h4>
+                  <p style="color: var(--slate-600); font-size: 0.9rem; line-height: 1.6;">Dermatologist-approved hypoallergenic metals, genuine 925 sterling silver, 18K gold vermeil, and certified lab moissanites.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="about-story-media-card" data-parallax-tilt="true">
+            <div class="parallax-media-window">
+              <img src="images/limetree_hero.jpg" alt="LimeTree studio lifestyle" class="parallax-media-img" data-parallax-type="media" data-parallax-speed="0.18" />
+            </div>
+            <div class="story-floating-caption" data-parallax-type="element" data-parallax-speed="-0.15">
+              <span>🌿</span> Direct from independent artisan workshops
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- 3. Full-Width Parallax Philosophy & Values Quote Banner -->
+    <section class="about-parallax-quote-section">
+      <div class="about-quote-bg-wrap">
+        <img src="images/glow_home_cat.jpg" alt="LimeTree Serene Atmosphere" class="about-quote-bg-img" data-parallax-type="hero-bg" data-parallax-speed="0.36" />
+        <div class="about-quote-overlay"></div>
+      </div>
+      <div class="container about-quote-content" data-parallax-type="element" data-parallax-speed="0.1">
+        <span class="about-quote-badge">Our Philosophy</span>
+        <blockquote class="about-quote-text">
+          “Slow Crafting, Mindful Living. From organic cotton threads to hand-poured soy wax and hypoallergenic metals, every LimeTree piece is made to be cherished.”
+        </blockquote>
+        <div class="about-quote-badges">
+          <span class="quote-pill">🌱 100% GOTS Organic Cotton</span>
+          <span class="quote-pill">🕯️ 50-60h Clean Soy Burn</span>
+          <span class="quote-pill">✨ Solid 925 Silver & 18K Vermeil</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Three Workshops Parallax Showcase Cards -->
+    <section class="section about-workshops-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Direct From The Makers</span>
+          <h2 class="section-title">Behind Our Three Signature Studios</h2>
+          <p class="section-subtitle">
+            Explore the meticulous dedication and sustainable standards that define each workshop.
+          </p>
+        </div>
+        <div class="about-workshops-grid">
+          <!-- Card 1: Riyaa Trends -->
+          <div class="workshop-card" data-parallax-tilt="true">
+            <div class="workshop-bg-wrap">
+              <img src="images/kids_banner.jpg" alt="Riyaa Trends Atelier" class="workshop-bg-img" data-parallax-type="media" data-parallax-speed="0.14" />
+              <div class="workshop-overlay"></div>
+            </div>
+            <div class="workshop-card-body">
+              <span class="workshop-tag tag-riyaa">Clothing Studio</span>
+              <h3 class="serif-title" style="font-size: 1.5rem; margin-bottom: 0.5rem;">Riyaa Trends</h3>
+              <p style="color: var(--slate-600); font-size: 0.88rem; line-height: 1.6; margin-bottom: 1.25rem;">
+                Skin-friendly organic cotton apparel engineered for play, durability, and sensitive young skin.
+              </p>
+              <a href="#clothing" class="btn-card-cta">
+                <span>Shop Kids Wear</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2: Glow Home -->
+          <div class="workshop-card" data-parallax-tilt="true">
+            <div class="workshop-bg-wrap">
+              <img src="images/glow_candle_vanilla.jpg" alt="Glow Home Workshop" class="workshop-bg-img" data-parallax-type="media" data-parallax-speed="0.14" />
+              <div class="workshop-overlay"></div>
+            </div>
+            <div class="workshop-card-body">
+              <span class="workshop-tag tag-glow">Candle Workshop</span>
+              <h3 class="serif-title" style="font-size: 1.5rem; margin-bottom: 0.5rem;">Glow Home</h3>
+              <p style="color: var(--slate-600); font-size: 0.88rem; line-height: 1.6; margin-bottom: 1.25rem;">
+                Small-batch hand-pouring using 100% natural soy wax, crackling wooden wicks, and pure botanical scents.
+              </p>
+              <a href="#candles" class="btn-card-cta">
+                <span>Shop Candles</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3: Earkart -->
+          <div class="workshop-card" data-parallax-tilt="true">
+            <div class="workshop-bg-wrap">
+              <img src="images/earkart_cat.jpg" alt="Earkart Metalsmiths" class="workshop-bg-img" data-parallax-type="media" data-parallax-speed="0.14" />
+              <div class="workshop-overlay"></div>
+            </div>
+            <div class="workshop-card-body">
+              <span class="workshop-tag tag-earkart">Jewellery Studio</span>
+              <h3 class="serif-title" style="font-size: 1.5rem; margin-bottom: 0.5rem;">Earkart</h3>
+              <p style="color: var(--slate-600); font-size: 0.88rem; line-height: 1.6; margin-bottom: 1.25rem;">
+                Precision-set lab moissanite, certified 925 sterling silver, and 18K vermeil for sensitive and newly pierced ears.
+              </p>
+              <a href="#studs" class="btn-card-cta">
+                <span>Shop Studs</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- =======================================================================
