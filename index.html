@@ -206,7 +206,7 @@
             <li><a href="riyaa-trends.html">Riyaa Trends (Fashion &amp; Apparel)</a></li>
             <li><a href="glow-home.html">Glow Home (Botanical Candles)</a></li>
             <li><a href="earkart.html">Earkart (Artisanal Ear Studs)</a></li>
-            <li><a href="index.html#mainContent">Collective Catalog</a></li>
+            <li><a href="index.html">Collective Catalog</a></li>
           </ul>
         </div>
 
@@ -308,17 +308,18 @@
     // Ensure homepage is clean state
     try { sessionStorage.removeItem('limetree_brand_click'); } catch (e) {}
 
-    // Smooth Brand Carousel Navigation (Auto-Slide 3s, Continuous Loop, Touch/Click/Keyboard Controls)
+    // Brand Carousel Navigation — STRICTLY MANUAL ONLY (Swipe, Dots)
+    // NO AUTO-SLIDING, NO TIMERS, NO UNWANTED PAGE SCROLLING
     (function () {
       const grid = document.querySelector('.nature-brand-grid');
       const dots = document.querySelectorAll('.swipe-dot');
-      if (!grid || !dots.length) return;
+      if (!grid) return;
       const cards = Array.from(grid.querySelectorAll('.nature-brand-card'));
       if (!cards.length) return;
 
       let currentIndex = 0;
-      let autoSlideTimer = null;
-      const SLIDE_INTERVAL = 3000; // 3 seconds per slide
+      let isDragging = false;
+      let startX = 0;
 
       function updateDots(activeIdx) {
         dots.forEach(function (dot, i) {
@@ -332,214 +333,105 @@
         });
       }
 
-      function isMobileCarousel() {
+      function isMobile() {
         return window.innerWidth <= 768;
       }
 
-      function scrollToCard(idx, resetTimer) {
-        if (!isMobileCarousel()) return;
-        // Continuous loop through all 3 brands: 0 -> 1 -> 2 -> 0 -> 1 ...
-        if (idx < 0) {
-          idx = cards.length - 1;
-        } else if (idx >= cards.length) {
-          idx = 0;
-        }
+      function scrollToCard(idx) {
+        if (!isMobile()) return;
+        if (idx < 0) idx = cards.length - 1;
+        if (idx >= cards.length) idx = 0;
         currentIndex = idx;
 
         const card = cards[idx];
         if (card) {
+          const targetScrollLeft = card.offsetLeft - (grid.clientWidth - card.clientWidth) / 2;
           try {
-            const gridRect = grid.getBoundingClientRect();
-            const cardRect = card.getBoundingClientRect();
-            const targetScrollLeft = grid.scrollLeft + (cardRect.left - gridRect.left) - (gridRect.width - cardRect.width) / 2;
             grid.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
           } catch (e) {
-            card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            grid.scrollLeft = targetScrollLeft;
           }
         }
         updateDots(idx);
-
-        if (resetTimer) {
-          restartAutoSlide();
-        }
       }
 
-      function nextSlide() {
-        if (!isMobileCarousel()) return;
-        scrollToCard((currentIndex + 1) % cards.length, false);
-      }
-
-      function startAutoSlide() {
-        stopAutoSlide();
-        if (isMobileCarousel()) {
-          autoSlideTimer = setInterval(nextSlide, SLIDE_INTERVAL);
-        }
-      }
-
-      function stopAutoSlide() {
-        if (autoSlideTimer) {
-          clearInterval(autoSlideTimer);
-          autoSlideTimer = null;
-        }
-      }
-
-      function restartAutoSlide() {
-        stopAutoSlide();
-        startAutoSlide();
-      }
-
-      window.addEventListener('resize', function () {
-        if (isMobileCarousel()) {
-          if (!autoSlideTimer) startAutoSlide();
-        } else {
-          stopAutoSlide();
-          grid.scrollLeft = 0;
-        }
-      });
-
-      // Dot Click Interaction
+      // Manual Pagination Dot Buttons
       dots.forEach(function (dot) {
         dot.addEventListener('click', function (e) {
           e.preventDefault();
           const idx = parseInt(dot.getAttribute('data-index'), 10);
-          scrollToCard(idx, true);
+          scrollToCard(idx);
         });
       });
 
-      // Synchronize active dot during & after scroll
-      let scrollTimer;
-      let ticking = false;
-      function onScrollUpdate() {
-        const gridBox = grid.getBoundingClientRect();
-        const gridCenter = gridBox.left + gridBox.width / 2;
-        let closestIdx = 0;
-        let minDiff = Infinity;
-        cards.forEach(function (card, idx) {
-          const cardBox = card.getBoundingClientRect();
-          const cardCenter = cardBox.left + cardBox.width / 2;
-          const diff = Math.abs(cardCenter - gridCenter);
-          if (diff < minDiff) {
-            minDiff = diff;
-            closestIdx = idx;
-          }
-        });
-        if (closestIdx !== currentIndex) {
-          currentIndex = closestIdx;
-          updateDots(closestIdx);
-        }
-      }
-
+      // Synchronize active indicator with native touch swipe / scroll
+      let scrollTicking = false;
       grid.addEventListener('scroll', function () {
-        if (!ticking) {
+        if (!isMobile()) return;
+        if (!scrollTicking) {
           window.requestAnimationFrame(function () {
-            onScrollUpdate();
-            ticking = false;
+            const gridCenter = grid.scrollLeft + grid.clientWidth / 2;
+            let closestIdx = 0;
+            let minDiff = Infinity;
+            cards.forEach(function (card, idx) {
+              const cardCenter = card.offsetLeft + card.clientWidth / 2;
+              const diff = Math.abs(cardCenter - gridCenter);
+              if (diff < minDiff) {
+                minDiff = diff;
+                closestIdx = idx;
+              }
+            });
+            if (closestIdx !== currentIndex) {
+              currentIndex = closestIdx;
+              updateDots(closestIdx);
+            }
+            scrollTicking = false;
           });
-          ticking = true;
+          scrollTicking = true;
         }
-        clearTimeout(scrollTimer);
-        scrollTimer = setTimeout(onScrollUpdate, 50);
       }, { passive: true });
 
-      // Pause on mouse hover (desktop), resume on mouse leave
-      grid.addEventListener('mouseenter', stopAutoSlide);
-      grid.addEventListener('mouseleave', startAutoSlide);
-
-      const dotsContainer = document.getElementById('brandSwipeDots');
-      if (dotsContainer) {
-        dotsContainer.addEventListener('mouseenter', stopAutoSlide);
-        dotsContainer.addEventListener('mouseleave', startAutoSlide);
-      }
-
-      // Touch Swipe Gesture Detection (Swipe Left / Right on mobile)
-      let touchStartX = 0;
-      let touchStartY = 0;
-      let isTouching = false;
-      let isSwiping = false;
-
+      // Drag detection: prevent accidental click when swiping
       grid.addEventListener('touchstart', function (e) {
-        stopAutoSlide();
-        isSwiping = false;
+        isDragging = false;
         if (e.touches.length === 1) {
-          touchStartX = e.touches[0].clientX;
-          touchStartY = e.touches[0].clientY;
-          isTouching = true;
+          startX = e.touches[0].clientX;
         }
       }, { passive: true });
 
       grid.addEventListener('touchmove', function (e) {
-        if (!isTouching) return;
-        const currentX = e.touches[0].clientX;
-        const currentY = e.touches[0].clientY;
-        if (Math.abs(currentX - touchStartX) > 10) {
-          isSwiping = true;
+        if (e.touches.length === 1 && Math.abs(e.touches[0].clientX - startX) > 8) {
+          isDragging = true;
         }
       }, { passive: true });
 
-      grid.addEventListener('touchend', function (e) {
-        if (isTouching && e.changedTouches.length > 0) {
-          isTouching = false;
-          const touchEndX = e.changedTouches[0].clientX;
-          const touchEndY = e.changedTouches[0].clientY;
-          const diffX = touchEndX - touchStartX;
-          const diffY = touchEndY - touchStartY;
-
-          // Ensure horizontal intent and sufficient threshold (> 40px)
-          if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
-            isSwiping = true;
-            if (diffX < 0) {
-              // Swipe Left -> Next Card (loops 0 -> 1 -> 2 -> 0)
-              scrollToCard(currentIndex + 1, true);
-            } else {
-              // Swipe Right -> Previous Card (loops 0 -> 2 -> 1)
-              scrollToCard(currentIndex - 1, true);
-            }
-          }
-        }
-        restartAutoSlide();
-        // Reset swiping state shortly after touch to allow subsequent clean clicks
-        setTimeout(function () {
-          isSwiping = false;
-        }, 150);
-      }, { passive: true });
-
-      // Open brand page only when card is intentionally clicked, never during swipe gestures
       grid.addEventListener('click', function (e) {
-        if (isSwiping) {
+        if (isDragging) {
           e.preventDefault();
           e.stopPropagation();
         }
       }, true);
 
-      // Keyboard Accessibility (Left/Right Arrows, Home, End)
+      // Keyboard navigation
       grid.addEventListener('keydown', function (e) {
         if (e.key === 'ArrowRight') {
           e.preventDefault();
-          scrollToCard(currentIndex + 1, true);
+          scrollToCard(currentIndex + 1);
         } else if (e.key === 'ArrowLeft') {
           e.preventDefault();
-          scrollToCard(currentIndex - 1, true);
-        } else if (e.key === 'Home') {
-          e.preventDefault();
-          scrollToCard(0, true);
-        } else if (e.key === 'End') {
-          e.preventDefault();
-          scrollToCard(cards.length - 1, true);
+          scrollToCard(currentIndex - 1);
         }
       });
 
-      // Pause when browser tab is hidden, resume when visible
-      document.addEventListener('visibilitychange', function () {
-        if (document.hidden) {
-          stopAutoSlide();
-        } else {
-          startAutoSlide();
+      // Reset on window resize
+      window.addEventListener('resize', function () {
+        if (!isMobile()) {
+          grid.scrollLeft = 0;
         }
-      });
+      }, { passive: true });
 
-      // Initialize
+      // Initial state
       updateDots(0);
-      startAutoSlide();
     })();
   </script>
 </body>

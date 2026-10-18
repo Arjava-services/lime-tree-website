@@ -361,6 +361,41 @@
         font-size: 0.74rem;
       }
     }
+
+    @media (max-width: 480px) {
+      .orders-hero {
+        padding: 2.2rem 0 1.8rem 0;
+      }
+      .orders-stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+        padding: 0.8rem;
+      }
+      .orders-stat-item strong {
+        font-size: 1.25rem;
+      }
+      .orders-stat-item span {
+        font-size: 0.72rem;
+      }
+      .order-card-header,
+      .order-card-body,
+      .order-logistics-strip,
+      .order-card-footer,
+      .return-form-drawer {
+        padding: 0.85rem;
+      }
+      .order-actions-left,
+      .order-actions-right {
+        width: 100%;
+      }
+      .order-actions-left .btn,
+      .order-actions-right .btn {
+        flex: 1;
+        text-align: center;
+        justify-content: center;
+        font-size: 0.78rem;
+      }
+    }
   </style>
 </head>
 
@@ -538,7 +573,7 @@
             <li><a href="riyaa-trends.html">Riyaa Trends (Fashion &amp; Apparel)</a></li>
             <li><a href="glow-home.html">Glow Home (Botanical Candles)</a></li>
             <li><a href="earkart.html">Earkart (Artisanal Ear Studs)</a></li>
-            <li><a href="index.html#catalogSection">Collective Catalog</a></li>
+            <li><a href="index.html">Collective Catalog</a></li>
           </ul>
         </div>
 
@@ -670,11 +705,7 @@
 
       // If specific order was requested, expand its tracking automatically
       if (qId) {
-        setTimeout(() => {
-          toggleTrackingDrawer(qId, true);
-          const el = document.getElementById(`order-card-${qId}`);
-          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 300);
+        toggleTrackingDrawer(qId, true);
       }
     });
 

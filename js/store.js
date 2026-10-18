@@ -176,10 +176,6 @@ class LimetreeStorefront {
       activeTab.classList.add('active');
     }
     this.renderCatalog();
-    const catalogSec = document.getElementById('catalogSection') || document.getElementById('productCatalogGrid');
-    if (catalogSec) {
-      catalogSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
   }
 
   updateCounters() {
@@ -949,8 +945,8 @@ class LimetreeStorefront {
 
   buildCheckoutModalHtml() {
     return `
-      <div style="padding: 2.2rem;">
-        <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--color-border); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+      <div class="checkout-container" style="padding: 2.2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--color-border); padding-bottom: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.5rem;">
           <h2 style="font-family: var(--font-heading); font-size: 1.7rem; color: var(--color-primary-dark);">
             Secure Checkout — Limetree
           </h2>
@@ -959,7 +955,7 @@ class LimetreeStorefront {
           </span>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1.25fr 0.95fr; gap: 2.2rem;">
+        <div class="checkout-grid" style="display: grid; grid-template-columns: 1.25fr 0.95fr; gap: 2.2rem;">
           <div>
             <h4 style="font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-primary); margin-bottom: 1rem;">
               1. Delivery Address &amp; Contact
@@ -1330,7 +1326,7 @@ class LimetreeStorefront {
           </div>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 1.6rem; background: #FFFDF4; border: 1px solid #DDE7B7; padding: 1.3rem; border-radius: 6px;">
+        <div class="invoice-meta-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 1.6rem; background: #FFFDF4; border: 1px solid #DDE7B7; padding: 1.3rem; border-radius: 6px;">
           <div>
             <div style="font-weight: 700; text-transform: uppercase; font-size: 0.78rem; color: #365314; margin-bottom: 0.3rem;">Billed To / Consignee:</div>
             <div><strong>${order.customer.name}</strong></div>
@@ -1349,7 +1345,8 @@ class LimetreeStorefront {
           </div>
         </div>
 
-        <table style="width: 100%; border-collapse: collapse; margin-bottom: 1.6rem;">
+        <div class="table-responsive" style="overflow-x: auto; width: 100%; -webkit-overflow-scrolling: touch; margin-bottom: 1.6rem;">
+        <table style="width: 100%; min-width: 540px; border-collapse: collapse;">
           <thead>
             <tr style="background: #EDF3D8; color: #365314; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.04em;">
               <th style="padding: 0.65rem 0.8rem; text-align: left; border: 1px solid #DDE7B7;">Item Description</th>
@@ -1378,6 +1375,7 @@ class LimetreeStorefront {
             `).join('')}
           </tbody>
         </table>
+        </div>
 
         <div style="display: flex; justify-content: flex-end; margin-bottom: 2rem;">
           <div style="width: 330px; font-size: 0.88rem; display: flex; flex-direction: column; gap: 0.4rem;">

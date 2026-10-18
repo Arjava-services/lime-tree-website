@@ -2399,7 +2399,8 @@ h1, h2, h3, h4, h5, h6 {
   border-color: var(--color-btn-primary);
 }
 
-.catalog-actions-right {
+.catalog-actions-right,
+.filter-actions {
   display: flex;
   align-items: center;
   gap: 1.2rem;
@@ -2417,7 +2418,8 @@ h1, h2, h3, h4, h5, h6 {
   outline: none;
 }
 
-.in-stock-toggle-label {
+.in-stock-toggle-label,
+.stock-filter-toggle {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -2427,8 +2429,62 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
 }
 
-.in-stock-toggle-label input {
+.in-stock-toggle-label input,
+.stock-filter-toggle input {
   accent-color: var(--color-primary);
+}
+
+/* Forms & Modal Checkout Utilities */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-group.full-width {
+  grid-column: span 2;
+}
+
+.form-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-input);
+  font-size: 0.88rem;
+  color: var(--color-text-main);
+  outline: none;
+  box-sizing: border-box;
+}
+
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.95fr;
+  gap: 2.2rem;
+}
+
+.invoice-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* ==================== 4-COLUMN PRODUCT GRID ==================== */
@@ -3845,6 +3901,44 @@ body.scroll-animate-ready .reveal-slide-right.is-revealed {
 }
 
 @media (max-width: 768px) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .nature-brand-grid {
+    overflow-y: hidden;
+  }
+
+  /* Eliminate initial transform jumps and trailing transform lag on mobile */
+  body.scroll-animate-ready .reveal-slide-up,
+  body.scroll-animate-ready .reveal-slide-left,
+  body.scroll-animate-ready .reveal-slide-right,
+  body.scroll-animate-ready .reveal-scale,
+  body.scroll-animate-ready .reveal-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: opacity 0.25s ease !important;
+  }
+
+  .nature-hero-section .nature-brand-card:nth-child(1),
+  .nature-hero-section .nature-brand-card:nth-child(2),
+  .nature-hero-section .nature-brand-card:nth-child(3) {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .card-arch-img,
+  .brand-parallax-deco,
+  .nature-leaf-corner,
+  [data-parallax] {
+    transition: none !important;
+  }
+
   /* Compact, clean sticky header with transparent backdrop */
   .site-header {
     background: rgba(248, 245, 232, 0.96);
@@ -4056,9 +4150,85 @@ body.scroll-animate-ready .reveal-slide-right.is-revealed {
   .category-visual-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  /* Responsive Boutique Catalog Controls */
+  .catalog-controls {
+    padding: 0.85rem;
+    gap: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .filter-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    max-width: 100%;
+    padding-bottom: 0.35rem;
+    gap: 0.5rem;
+  }
+
+  .filter-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-tab {
+    flex-shrink: 0;
+    padding: 0.45rem 0.95rem;
+    font-size: 0.82rem;
+    white-space: nowrap;
+  }
+
+  .catalog-actions-right,
+  .filter-actions {
+    width: 100%;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .sort-select {
+    flex: 1;
+    min-width: 0;
+    font-size: 0.82rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .in-stock-toggle-label,
+  .stock-filter-toggle {
+    white-space: nowrap;
+    font-size: 0.82rem;
+  }
+
+  .checkout-container {
+    padding: 1.25rem 1rem !important;
+  }
+
+  .checkout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .invoice-meta-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.1rem !important;
+  }
+
+  #printableInvoice {
+    padding: 1.2rem !important;
+  }
+
+  .modal-container {
+    max-height: 94vh;
+    margin: 0.5rem;
+  }
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
   .header-container {
     height: 3.65rem;
     padding: 0 0.65rem;
@@ -4130,9 +4300,33 @@ body.scroll-animate-ready .reveal-slide-right.is-revealed {
   .brand-logo .logo-title {
     font-size: 1.5rem;
   }
+  .modal-overlay {
+    padding: 0.5rem;
+  }
+  .product-detail-grid {
+    padding: 1rem 0.75rem;
+    gap: 1rem;
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .form-group.full-width {
+    grid-column: span 1;
+  }
+  .section-title {
+    font-size: 1.6rem;
+  }
+  .section-desc {
+    font-size: 0.88rem;
+  }
 }
 
 @media (max-width: 360px) {
+  .container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
   .header-container {
     height: 3.5rem;
     padding: 0 0.45rem;
@@ -4315,7 +4509,7 @@ body.scroll-animate-ready .reveal-slide-right.is-revealed {
 @media (max-width: 768px) {
   .mobile-brand-pills-bar {
     display: block;
-    top: 4.8rem;
+    top: 3.8rem;
   }
   .brand-splash-logo-img {
     width: 230px;
@@ -4328,6 +4522,18 @@ body.scroll-animate-ready .reveal-slide-right.is-revealed {
   }
   .brand-splash-subtitle {
     font-size: 0.68rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-brand-pills-bar {
+    top: 3.65rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .mobile-brand-pills-bar {
+    top: 3.5rem;
   }
 }
 
@@ -4373,10 +4579,6 @@ body.scroll-animate-ready .reveal-slide-right.is-revealed {
 }
 
 /* ==================== CINEMATIC SCROLL REVEAL SYSTEM ==================== */
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   overflow-x: hidden;
 }
@@ -4642,5 +4844,12 @@ body.scroll-animate-ready .product-card.reveal-card.is-revealed {
   .product-image-container img {
     transform: none !important;
     transition: none !important;
+  }
+}
+
+/* Ensure mobile scroll restorations never cause unwanted animated page movement */
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: auto !important;
   }
 }

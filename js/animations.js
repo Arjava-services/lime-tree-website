@@ -29,7 +29,6 @@
     }
 
     init() {
-      this.injectBrandSplash();
       this.injectProgressBar();
       this.initPageEntrance();
       this.initScrollReveal();
@@ -416,7 +415,7 @@
 
     // Ultra-smooth, hardware-accelerated scroll update loop
     updateParallax() {
-      if (prefersReducedMotion) {
+      if (prefersReducedMotion || window.innerWidth < 768) {
         this.parallaxTicking = false;
         return;
       }
