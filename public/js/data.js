@@ -40,9 +40,13 @@ const INITIAL_PRODUCTS = [
     "details": {
       "Fabric": "100% Breathable Organic Cotton with buttercup daisy floral print",
       "Fit": "Easy breezy flutter sleeves with matching soft bloomers",
-      "Wash Care": "Machine wash gentle cold"
+      "Wash Care": "Machine wash gentle cold",
+      "Return": "Yes",
+      "Free Shipping": "Yes"
     },
-    "description": "Charming yellow daisy floral dress with flutter cap sleeves, elasticated waist, and ultra-soft organic cotton gentle on delicate skin."
+    "description": "Charming yellow daisy floral dress with flutter cap sleeves, elasticated waist, and ultra-soft organic cotton gentle on delicate skin.",
+    "returnsAllowed": true,
+    "freeShipping": true
   },
   {
     "id": "RT-008",
@@ -84,9 +88,13 @@ const INITIAL_PRODUCTS = [
     "details": {
       "Fabric": "100% GOTS-Certified Muslin Cotton (Airy & lightweight)",
       "Fit": "Tiered ruffles with gentle wooden button placket and shoulder straps",
-      "Wash Care": "Machine wash cold gentle"
+      "Wash Care": "Machine wash cold gentle",
+      "Return": "Yes",
+      "Free Shipping": "Yes"
     },
-    "description": "Delicate three-tier cotton sundress in calming sage green and blush tones with natural wooden buttons and soft lace-trimmed hems."
+    "description": "Delicate three-tier cotton sundress in calming sage green and blush tones with natural wooden buttons and soft lace-trimmed hems.",
+    "returnsAllowed": true,
+    "freeShipping": true
   },
   {
     "id": "RT-001",
@@ -133,9 +141,13 @@ const INITIAL_PRODUCTS = [
     "details": {
       "Fabric": "100% GOTS-Certified Gentle Organic Cotton (Ultra-soft for sensitive kids skin)",
       "Fit": "Comfortable easy-movement play fit with tagless itch-free neck",
-      "Wash Care": "Machine wash gentle cold, tumble dry low"
+      "Wash Care": "Machine wash gentle cold, tumble dry low",
+      "Return": "Yes",
+      "Free Shipping": "No"
     },
-    "description": "Super soft, breathable organic cotton tee crafted specially for playtime and everyday giggles. Features a joyful embroidered sun on the chest."
+    "description": "Super soft, breathable organic cotton tee crafted specially for playtime and everyday giggles. Features a joyful embroidered sun on the chest.",
+    "returnsAllowed": true,
+    "freeShipping": false
   },
   {
     "id": "RT-004",
@@ -177,9 +189,13 @@ const INITIAL_PRODUCTS = [
     "details": {
       "Fabric": "100% Pre-washed Ringspun Cotton (Zero shrinkage)",
       "Fit": "Relaxed two-tone contrast collar cut for quick dressing",
-      "Wash Care": "Machine wash cold"
+      "Wash Care": "Machine wash cold",
+      "Return": "Yes",
+      "Free Shipping": "No"
     },
-    "description": "Cheerful pastel sky-blue tee with peach neckband. Pre-washed for cloud-like softness right out of the box."
+    "description": "Cheerful pastel sky-blue tee with peach neckband. Pre-washed for cloud-like softness right out of the box.",
+    "returnsAllowed": true,
+    "freeShipping": false
   },
   {
     "id": "RT-002",
@@ -221,9 +237,13 @@ const INITIAL_PRODUCTS = [
     "details": {
       "Fabric": "100% Brushed French Terry Cotton (Lightweight & durable)",
       "Fit": "Gentle non-pinching elastic waistband with soft cotton drawcord",
-      "Wash Care": "Machine wash cold, easy tumble dry"
+      "Wash Care": "Machine wash cold, easy tumble dry",
+      "Return": "Yes",
+      "Free Shipping": "No"
     },
-    "description": "Designed for active little explorers. Ultra-soft French terry with rolled cuffs and a gentle, non-pinching elastic waistband."
+    "description": "Designed for active little explorers. Ultra-soft French terry with rolled cuffs and a gentle, non-pinching elastic waistband.",
+    "returnsAllowed": true,
+    "freeShipping": false
   },
   {
     "id": "RT-005",
@@ -264,9 +284,13 @@ const INITIAL_PRODUCTS = [
     "details": {
       "Fabric": "55% Natural European Flax Linen, 45% Organic Cotton",
       "Fit": "Breathable airy cut for hot summer days",
-      "Wash Care": "Machine wash gentle cold"
+      "Wash Care": "Machine wash gentle cold",
+      "Return": "Yes",
+      "Free Shipping": "No"
     },
-    "description": "Breezy summer shorts keeping kids cool during park visits, beach days, and family outings."
+    "description": "Breezy summer shorts keeping kids cool during park visits, beach days, and family outings.",
+    "returnsAllowed": true,
+    "freeShipping": false
   },
   {
     "id": "RT-003",
@@ -308,9 +332,13 @@ const INITIAL_PRODUCTS = [
     "details": {
       "Fabric": "Plush Organic Cotton Fleece with brushed cloud-soft interior",
       "Fit": "Tapered joggers with snug ribbed ankle cuffs (prevents tripping)",
-      "Wash Care": "Machine wash cold inside-out"
+      "Wash Care": "Machine wash cold inside-out",
+      "Return": "Yes",
+      "Free Shipping": "Yes"
     },
-    "description": "The coziest joggers for little adventurers. Made with plush organic fleece, stretchy ankle cuffs that keep warmth in, and deep pockets."
+    "description": "The coziest joggers for little adventurers. Made with plush organic fleece, stretchy ankle cuffs that keep warmth in, and deep pockets.",
+    "returnsAllowed": true,
+    "freeShipping": true
   },
   {
     "id": "RT-006",
@@ -352,9 +380,13 @@ const INITIAL_PRODUCTS = [
     "details": {
       "Fabric": "Heavyweight 380 GSM Thermal Fleece",
       "Fit": "Snug cozy jogger fit with reinforced knees",
-      "Wash Care": "Machine wash warm"
+      "Wash Care": "Machine wash warm",
+      "Return": "Yes",
+      "Free Shipping": "Yes"
     },
-    "description": "Extra-warm fleece joggers reinforced at the knees for active crawlers and climbers through chilly autumn and winter days."
+    "description": "Extra-warm fleece joggers reinforced at the knees for active crawlers and climbers through chilly autumn and winter days.",
+    "returnsAllowed": true,
+    "freeShipping": true
   },
   {
     "id": "GH-001",
@@ -381,9 +413,13 @@ const INITIAL_PRODUCTS = [
     "details": {
       "Wax": "100% Hand-Poured Natural Soy Wax",
       "Burn Time": "50-55 Hours",
-      "Wick": "Pure cotton lead-free braided wick"
+      "Wick": "Pure cotton lead-free braided wick",
+      "Return": "Yes",
+      "Free Shipping": "No"
     },
-    "description": "A serene floral blend of wild French lavender buds, fresh herbal notes, and warm comforting amber."
+    "description": "A serene floral blend of wild French lavender buds, fresh herbal notes, and warm comforting amber.",
+    "returnsAllowed": true,
+    "freeShipping": false
   },
   {
     "id": "GH-002",
@@ -410,9 +446,13 @@ const INITIAL_PRODUCTS = [
     "details": {
       "Wax": "Clean-Burning Botanical Soy Wax",
       "Burn Time": "55-60 Hours",
-      "Wick": "Natural crackling wood wick"
+      "Wick": "Natural crackling wood wick",
+      "Return": "Yes",
+      "Free Shipping": "Yes"
     },
-    "description": "Zesty Italian bergamot, fresh squeezed lime peel, and sparkling citron that invigorates and lifts your mood."
+    "description": "Zesty Italian bergamot, fresh squeezed lime peel, and sparkling citron that invigorates and lifts your mood.",
+    "returnsAllowed": true,
+    "freeShipping": true
   },
   {
     "id": "GH-003",
@@ -439,9 +479,13 @@ const INITIAL_PRODUCTS = [
     "details": {
       "Wax": "Dark Soy & Coconut Botanical Blend",
       "Burn Time": "55-60 Hours",
-      "Wick": "Crackling hardwood wick"
+      "Wick": "Crackling hardwood wick",
+      "Return": "Yes",
+      "Free Shipping": "Yes"
     },
-    "description": "Deep, meditative Mysore sandalwood infused with charred birch, golden resin amber, and earthy cedarwood."
+    "description": "Deep, meditative Mysore sandalwood infused with charred birch, golden resin amber, and earthy cedarwood.",
+    "returnsAllowed": true,
+    "freeShipping": true
   },
   {
     "id": "GH-004",
@@ -468,9 +512,13 @@ const INITIAL_PRODUCTS = [
     "details": {
       "Wax": "Natural Soy & Organic Beeswax Blend",
       "Burn Time": "50 Hours",
-      "Wick": "Organic cotton wick"
+      "Wick": "Organic cotton wick",
+      "Return": "Yes",
+      "Free Shipping": "No"
     },
-    "description": "Warm Madagascar bourbon vanilla paired with golden raw honeycomb and sweet caramelized brown sugar."
+    "description": "Warm Madagascar bourbon vanilla paired with golden raw honeycomb and sweet caramelized brown sugar.",
+    "returnsAllowed": true,
+    "freeShipping": false
   },
   {
     "id": "GH-005",
@@ -497,9 +545,13 @@ const INITIAL_PRODUCTS = [
     "details": {
       "Wax": "100% Pure Soy Wax in Matte White Jar",
       "Burn Time": "50-55 Hours",
-      "Wick": "Dual-core cotton wick"
+      "Wick": "Dual-core cotton wick",
+      "Return": "Yes",
+      "Free Shipping": "No"
     },
-    "description": "Delicate nighttime jasmine blossoms infused with crisp steamed green tea leaves and refreshing herbal dew."
+    "description": "Delicate nighttime jasmine blossoms infused with crisp steamed green tea leaves and refreshing herbal dew.",
+    "returnsAllowed": true,
+    "freeShipping": false
   },
   {
     "id": "GH-006",
@@ -526,9 +578,13 @@ const INITIAL_PRODUCTS = [
     "details": {
       "Wax": "Terracotta Vessel Natural Soy Wax",
       "Burn Time": "52 Hours",
-      "Wick": "Crackling wood wick"
+      "Wick": "Crackling wood wick",
+      "Return": "Yes",
+      "Free Shipping": "Yes"
     },
-    "description": "Festive crushed cinnamon sticks, dried clementine peel, ground clove, and a hint of warm nutmeg."
+    "description": "Festive crushed cinnamon sticks, dried clementine peel, ground clove, and a hint of warm nutmeg.",
+    "returnsAllowed": true,
+    "freeShipping": true
   },
   {
     "id": "EK-001",
@@ -554,9 +610,13 @@ const INITIAL_PRODUCTS = [
     "details": {
       "Material": "Solid 925 Sterling Silver (Rhodium plated)",
       "Gemstone": "D-Color Flawless Moissanite",
-      "Hypoallergenic": "100% Nickel-free, safe for daily wear"
+      "Hypoallergenic": "100% Nickel-free, safe for daily wear",
+      "Return": "Yes",
+      "Free Shipping": "Yes"
     },
-    "description": "Exceptional brilliance with unmatched diamond-grade fire. Secure 4-prong baskets with double-notched safety posts."
+    "description": "Exceptional brilliance with unmatched diamond-grade fire. Secure 4-prong baskets with double-notched safety posts.",
+    "returnsAllowed": true,
+    "freeShipping": true
   },
   {
     "id": "EK-002",
@@ -582,9 +642,13 @@ const INITIAL_PRODUCTS = [
     "details": {
       "Material": "18K Gold Vermeil over 925 Sterling Silver",
       "Gemstone": "Emerald-cut Forest Green Crystal",
-      "Hypoallergenic": "Ultra-gentle on sensitive earlobes"
+      "Hypoallergenic": "Ultra-gentle on sensitive earlobes",
+      "Return": "Yes",
+      "Free Shipping": "Yes"
     },
-    "description": "Regal vintage grandeur. Deep forest green emeralds framed by glistening pavé accents and warm 18K gold vermeil."
+    "description": "Regal vintage grandeur. Deep forest green emeralds framed by glistening pavé accents and warm 18K gold vermeil.",
+    "returnsAllowed": true,
+    "freeShipping": true
   },
   {
     "id": "EK-003",
@@ -610,9 +674,13 @@ const INITIAL_PRODUCTS = [
     "details": {
       "Material": "14K Solid Gold Posts",
       "Gemstone": "Natural AAA Freshwater Baroque Pearl",
-      "Hypoallergenic": "Naturally biocompatible"
+      "Hypoallergenic": "Naturally biocompatible",
+      "Return": "Yes",
+      "Free Shipping": "Yes"
     },
-    "description": "Naturally iridescent organic baroque pearls with pink-champagne undertones set on solid 14K gold posts."
+    "description": "Naturally iridescent organic baroque pearls with pink-champagne undertones set on solid 14K gold posts.",
+    "returnsAllowed": true,
+    "freeShipping": true
   },
   {
     "id": "EK-004",
@@ -638,9 +706,13 @@ const INITIAL_PRODUCTS = [
     "details": {
       "Material": "18K Gold Plated with Anti-Tarnish E-Shield",
       "Gemstone": "Micro-faceted Brilliant Zirconia",
-      "Hypoallergenic": "Hypoallergenic titanium post core"
+      "Hypoallergenic": "Hypoallergenic titanium post core",
+      "Return": "No",
+      "Free Shipping": "No"
     },
-    "description": "Clean modern lines inspired by architectural geometry with sparkling cluster centers in warm 18K yellow gold."
+    "description": "Clean modern lines inspired by architectural geometry with sparkling cluster centers in warm 18K yellow gold.",
+    "returnsAllowed": false,
+    "freeShipping": false
   },
   {
     "id": "EK-005",
@@ -666,9 +738,13 @@ const INITIAL_PRODUCTS = [
     "details": {
       "Material": "925 Sterling Silver with Pure Rhodium Dip",
       "Gemstone": "Multi-stone Micro-Pavé Accent Array",
-      "Hypoallergenic": "100% Nickel-free"
+      "Hypoallergenic": "100% Nickel-free",
+      "Return": "Yes",
+      "Free Shipping": "No"
     },
-    "description": "Intricate 8-point celestial starbursts sparkling with pavé-set gemstones that catch the light with every turn."
+    "description": "Intricate 8-point celestial starbursts sparkling with pavé-set gemstones that catch the light with every turn.",
+    "returnsAllowed": true,
+    "freeShipping": false
   },
   {
     "id": "EK-006",
@@ -694,9 +770,13 @@ const INITIAL_PRODUCTS = [
     "details": {
       "Material": "316L Surgical Stainless Steel",
       "Gemstone": "Natural Polished Black Onyx",
-      "Hypoallergenic": "Medical-grade hypoallergenic"
+      "Hypoallergenic": "Medical-grade hypoallergenic",
+      "Return": "No",
+      "Free Shipping": "No"
     },
-    "description": "Sleek, moody, and universally flattering. Genuine black onyx in a smooth protective bezel. Safe for 24/7 wear."
+    "description": "Sleek, moody, and universally flattering. Genuine black onyx in a smooth protective bezel. Safe for 24/7 wear.",
+    "returnsAllowed": false,
+    "freeShipping": false
   }
 ];
 

@@ -273,6 +273,15 @@ function createProductCardHTML(p) {
           ${variantHint}
         </div>
 
+        <div class="card-policy-chips">
+          <span class="card-policy-chip ${p.returnsAllowed ? 'chip-yes' : 'chip-no'}">
+            <span class="chip-dot"></span> Return: <strong>${p.returnsAllowed ? 'Yes' : 'No'}</strong>
+          </span>
+          <span class="card-policy-chip ${p.freeShipping ? 'chip-yes' : 'chip-no'}">
+            <span class="chip-dot"></span> Free Shipping: <strong>${p.freeShipping ? 'Yes' : 'No'}</strong>
+          </span>
+        </div>
+
         <div class="product-footer">
           <div class="price-box">
             <span class="current-price">$${p.price.toFixed(2)}</span>
@@ -578,6 +587,22 @@ window.openProductModal = function(productId) {
   if (ratingEl) ratingEl.innerHTML = `★ ${product.rating} <span style="color: var(--slate-400)">(${product.reviewCount} customer reviews)</span>`;
   if (descEl) descEl.textContent = product.description;
   if (qtyVal) qtyVal.textContent = '1';
+
+  // Return & Free Shipping Policy Badges
+  const returnBadge = document.getElementById('modalReturnBadge');
+  const shippingBadge = document.getElementById('modalShippingBadge');
+
+  if (returnBadge) {
+    const isReturnAllowed = !!product.returnsAllowed;
+    returnBadge.textContent = isReturnAllowed ? 'Yes' : 'No';
+    returnBadge.className = `policy-badge ${isReturnAllowed ? 'badge-yes' : 'badge-no'}`;
+  }
+
+  if (shippingBadge) {
+    const isFreeShip = !!product.freeShipping;
+    shippingBadge.textContent = isFreeShip ? 'Yes' : 'No';
+    shippingBadge.className = `policy-badge ${isFreeShip ? 'badge-yes' : 'badge-no'}`;
+  }
 
   // Wishlist state
   if (wishBtn) {
@@ -1208,14 +1233,18 @@ function renderAccountPage() {
         <h3 style="font-family: var(--font-heading); font-size: 1.6rem;">Order History (${orders.length})</h3>
         ${orders.length === 0 ? `
           <p style="color: var(--slate-500);">No orders placed yet.</p>
-        ` : orders.map(ord => `
+        ` : orders.map(ord => {
+          const isReturnRequested = ord.status === 'Return Requested';
+          const returnDetails = ord.returnDetails;
+
+          return `
           <div style="background: var(--white); border: 1px solid var(--beige-border); border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: var(--shadow-sm);">
             <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--beige-200); padding-bottom: 0.75rem; margin-bottom: 1rem;">
               <div>
                 <span style="font-size: 0.8rem; font-weight: 700; color: var(--lime-700);">${ord.orderId}</span>
                 <span style="color: var(--slate-400); font-size: 0.8rem;"> • ${new Date(ord.createdAt).toLocaleDateString()}</span>
               </div>
-              <span style="background: var(--lime-100); color: var(--lime-900); font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: var(--radius-full);">
+              <span style="${isReturnRequested ? 'background: #fef3c7; color: #92400e; border: 1px solid #fde68a;' : 'background: var(--lime-100); color: var(--lime-900);'} font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: var(--radius-full);">
                 ${ord.status}
               </span>
             </div>
@@ -1229,16 +1258,189 @@ function renderAccountPage() {
               `).join('')}
             </div>
 
-            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed var(--slate-200); padding-top: 0.75rem;">
+            ${isReturnRequested && returnDetails ? `
+              <div class="order-return-card">
+                <div class="return-card-header">
+                  <span class="return-card-badge">🔄 Return in Progress (${returnDetails.returnId})</span>
+                  <span class="return-pickup-text">📅 Pickup: ${returnDetails.pickupDate}</span>
+                </div>
+                <p class="return-reason-text">
+                  <strong>Reason:</strong> ${returnDetails.reason} &bull; <strong>Refund to:</strong> ${returnDetails.refundMethod}
+                </p>
+                <div class="return-actions-row">
+                  <button class="btn-secondary btn-sm" onclick="downloadReturnLabel('${ord.orderId}')">
+                    📄 Print Prepaid Label
+                  </button>
+                  <button class="btn-secondary btn-sm btn-cancel-return" onclick="cancelReturnRequest('${ord.orderId}')">
+                    Cancel Return
+                  </button>
+                </div>
+              </div>
+            ` : ''}
+
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed var(--slate-200); padding-top: 0.75rem; margin-top: 0.75rem; flex-wrap: wrap; gap: 0.75rem;">
               <span style="font-size: 0.85rem; color: var(--slate-500);">Delivery: ${ord.estimatedDelivery}</span>
-              <span style="font-size: 1.15rem; font-weight: 800; color: var(--slate-900);">$${ord.totals.total.toFixed(2)}</span>
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <span style="font-size: 1.15rem; font-weight: 800; color: var(--slate-900);">$${ord.totals.total.toFixed(2)}</span>
+                ${!isReturnRequested ? `
+                  <button class="btn-return-order" onclick="openReturnOrderModal('${ord.orderId}')" title="Return items from this order">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="1 4 1 10 7 10"></polyline>
+                      <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                    </svg>
+                    Return Order
+                  </button>
+                ` : ''}
+              </div>
             </div>
           </div>
-        `).join('')}
+        `;
+        }).join('')}
       </div>
     </div>
   `;
 }
+
+/* ==========================================================================
+   Order Return Operations
+   ========================================================================== */
+
+window.openReturnOrderModal = function(orderId) {
+  const modal = document.getElementById('returnOrderModal');
+  const order = window.store.orders.find(o => o.orderId === orderId);
+  if (!modal || !order) return;
+
+  const displayId = document.getElementById('returnOrderDisplayId');
+  const idInput = document.getElementById('returnOrderIdInput');
+  const checklist = document.getElementById('returnItemsChecklist');
+  const reasonSelect = document.getElementById('returnReasonSelect');
+  const comments = document.getElementById('returnComments');
+
+  if (displayId) displayId.textContent = '#' + order.orderId;
+  if (idInput) idInput.value = order.orderId;
+  if (reasonSelect) reasonSelect.value = '';
+  if (comments) comments.value = '';
+
+  if (checklist) {
+    checklist.innerHTML = order.items.map(item => {
+      const prod = INITIAL_PRODUCTS.find(p => p.id === item.id);
+      const isReturnable = prod ? prod.returnsAllowed !== false : true;
+      return `
+        <label class="return-item-row" style="${!isReturnable ? 'opacity: 0.65;' : ''}">
+          <input type="checkbox" name="returnItem" value="${item.id}" ${isReturnable ? 'checked' : 'disabled'} />
+          <img src="${item.image || 'images/limetree_hero.jpg'}" alt="${item.name}" class="return-item-thumb" />
+          <div class="return-item-info" style="flex: 1;">
+            <strong>${item.name}</strong>
+            <span style="display: flex; gap: 0.5rem; align-items: center;">
+              <span>Qty: ${item.quantity} &bull; $${(item.price * item.quantity).toFixed(2)}</span>
+              ${!isReturnable ? '<span style="color: #b91c1c; font-size: 0.7rem; font-weight: 700;">(Non-returnable item)</span>' : '<span style="color: #15803d; font-size: 0.7rem; font-weight: 700;">(Eligible for return)</span>'}
+            </span>
+          </div>
+        </label>
+      `;
+    }).join('');
+  }
+
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+};
+
+window.closeReturnOrderModal = function() {
+  const modal = document.getElementById('returnOrderModal');
+  if (modal) {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+};
+
+window.handleReturnFormSubmit = function(e) {
+  e.preventDefault();
+  const orderId = document.getElementById('returnOrderIdInput').value;
+  const reason = document.getElementById('returnReasonSelect').value;
+  const comments = document.getElementById('returnComments').value;
+  const refundMethodEl = document.querySelector('input[name="refundMethod"]:checked');
+  const refundMethod = refundMethodEl ? refundMethodEl.value : 'Original Payment Method';
+
+  const checkedBoxes = Array.from(document.querySelectorAll('#returnItemsChecklist input[name="returnItem"]:checked'));
+  if (!checkedBoxes.length) {
+    showToast('Please select at least one eligible item to return.');
+    return;
+  }
+
+  const selectedItemIds = checkedBoxes.map(cb => cb.value);
+  const order = window.store.orders.find(o => o.orderId === orderId);
+  const returnItems = order ? order.items.filter(it => selectedItemIds.includes(it.id)) : [];
+
+  window.store.requestReturn(orderId, {
+    reason,
+    refundMethod,
+    comments,
+    items: returnItems
+  });
+
+  closeReturnOrderModal();
+  renderAccountPage();
+  showToast(`Return requested for #${orderId}! Free courier pickup scheduled.`);
+};
+
+window.cancelReturnRequest = function(orderId) {
+  if (confirm(`Are you sure you want to cancel the return request for Order #${orderId}?`)) {
+    window.store.cancelReturn(orderId);
+    renderAccountPage();
+    showToast(`Return request cancelled for Order #${orderId}.`);
+  }
+};
+
+window.downloadReturnLabel = function(orderId) {
+  const order = window.store.orders.find(o => o.orderId === orderId);
+  if (!order || !order.returnDetails) return;
+
+  const returnDetails = order.returnDetails;
+  const printWindow = window.open('', '_blank', 'width=650,height=750');
+  if (!printWindow) {
+    showToast('Prepaid Label ID: ' + returnDetails.prepaidLabel + ' (Pop-up blocked)');
+    return;
+  }
+
+  printWindow.document.write(`
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Prepaid Return Shipping Label - ${returnDetails.returnId}</title>
+      <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding: 2rem; color: #1e293b; }
+        .label-box { border: 2.5px dashed #0f172a; padding: 2rem; border-radius: 8px; max-width: 500px; margin: 0 auto; }
+        .label-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #0f172a; padding-bottom: 1rem; margin-bottom: 1.5rem; }
+        .barcode { background: repeating-linear-gradient(90deg, #000, #000 3px, #fff 3px, #fff 6px); height: 50px; margin: 1.5rem 0; }
+        .btn-print { background: #65a30d; color: white; border: none; padding: 0.75rem 1.5rem; font-weight: bold; border-radius: 6px; cursor: pointer; margin-top: 1rem; }
+      </style>
+    </head>
+    <body>
+      <div class="label-box">
+        <div class="label-header">
+          <div>
+            <h2 style="margin: 0;">LimeTree Logistics</h2>
+            <small>Prepaid Return Merchandise Authorization</small>
+          </div>
+          <strong style="font-size: 1.25rem;">PRIORITY RETURN</strong>
+        </div>
+        <p><strong>FROM:</strong><br />Alex Morgan<br />742 Evergreen Terrace<br />Seattle, WA 98101</p>
+        <p><strong>TO:</strong><br />LimeTree Collective Returns Depot<br />Dock 4B, 452 Botanical Avenue<br />Seattle, WA 98101</p>
+        <div class="barcode"></div>
+        <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+          <span>RMA: <strong>${returnDetails.returnId}</strong></span>
+          <span>Order: <strong>${order.orderId}</strong></span>
+          <span>Carrier: <strong>UPS Ground</strong></span>
+        </div>
+        <center>
+          <button class="btn-print" onclick="window.print()">Print Shipping Label</button>
+        </center>
+      </div>
+    </body>
+    </html>
+  `);
+  printWindow.document.close();
+};
 
 /* ==========================================================================
    Wishlist Operations

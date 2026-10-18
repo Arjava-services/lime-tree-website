@@ -248,6 +248,42 @@ class Store {
     this.notify('order_placed', { order: orderData });
     return orderData;
   }
+
+  // Returns & Exchanges
+  requestReturn(orderId, returnDetails) {
+    const order = this.orders.find(o => o.orderId === orderId);
+    if (!order) return null;
+
+    const returnId = 'RET-' + Math.floor(100000 + Math.random() * 900000);
+    order.status = 'Return Requested';
+    order.returnDetails = {
+      returnId,
+      requestedAt: new Date().toISOString(),
+      reason: returnDetails.reason || 'General Return',
+      items: returnDetails.items || order.items,
+      refundMethod: returnDetails.refundMethod || 'Original Payment Method',
+      comments: returnDetails.comments || '',
+      returnStatus: 'Pickup Scheduled',
+      pickupDate: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toDateString(),
+      carrier: 'LimeTree Eco Logistics / UPS',
+      prepaidLabel: 'LBL-' + order.orderId + '-PREPAID'
+    };
+
+    this.saveStorage('limetree_orders', this.orders);
+    this.notify('order_return_requested', { order, returnDetails: order.returnDetails });
+    return order;
+  }
+
+  cancelReturn(orderId) {
+    const order = this.orders.find(o => o.orderId === orderId);
+    if (!order) return null;
+
+    order.status = 'Delivered';
+    delete order.returnDetails;
+    this.saveStorage('limetree_orders', this.orders);
+    this.notify('order_return_cancelled', { order });
+    return order;
+  }
 }
 
 // Global store instance

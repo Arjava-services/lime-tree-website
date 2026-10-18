@@ -858,6 +858,37 @@
 
           <p class="modal-desc" id="modalDesc"></p>
 
+          <!-- Product Policies: Return & Free Shipping Options -->
+          <div class="modal-policy-strip" id="modalPolicyStrip">
+            <div class="policy-card-item" id="modalReturnItem">
+              <div class="policy-icon-circle">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="1 4 1 10 7 10"></polyline>
+                  <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                </svg>
+              </div>
+              <div class="policy-content">
+                <span class="policy-title">Return:</span>
+                <span class="policy-badge" id="modalReturnBadge">Yes</span>
+              </div>
+            </div>
+
+            <div class="policy-card-item" id="modalShippingItem">
+              <div class="policy-icon-circle">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="1" y="3" width="15" height="13"></rect>
+                  <polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon>
+                  <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                  <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                </svg>
+              </div>
+              <div class="policy-content">
+                <span class="policy-title">Free Shipping:</span>
+                <span class="policy-badge" id="modalShippingBadge">Yes</span>
+              </div>
+            </div>
+          </div>
+
           <!-- Clothing Size Selector -->
           <div class="option-group" id="modalSizeGroup">
             <label class="option-label">
@@ -1177,6 +1208,101 @@
     </div>
   </div>
 
+  <!-- =======================================================================
+       ORDER RETURN MODAL
+       ======================================================================= -->
+  <div class="modal-backdrop" id="returnOrderModal">
+    <div class="checkout-modal-container" style="max-width: 560px;">
+      <button class="modal-close-btn" id="returnModalCloseBtn" onclick="closeReturnOrderModal()" title="Close">✕</button>
+
+      <div style="margin-bottom: 1.25rem;">
+        <span class="section-tag" style="background: var(--lime-100); color: var(--lime-800); font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.65rem; border-radius: var(--radius-full);">
+          Returns & Exchanges
+        </span>
+        <h2 style="font-family: var(--font-heading); font-size: 1.6rem; margin-top: 0.5rem; color: var(--slate-900);">
+          Return Order <span id="returnOrderDisplayId" style="color: var(--lime-700);"></span>
+        </h2>
+        <p style="color: var(--slate-500); font-size: 0.875rem; margin-top: 0.25rem;">
+          Select the items you would like to return and tell us why. We'll generate a prepaid return label and schedule doorstep courier pickup.
+        </p>
+      </div>
+
+      <form id="returnOrderForm" onsubmit="handleReturnFormSubmit(event)">
+        <input type="hidden" id="returnOrderIdInput" />
+
+        <!-- Order Items Selection -->
+        <div class="form-group">
+          <label style="font-weight: 700; font-size: 0.85rem; color: var(--slate-700); margin-bottom: 0.5rem; display: block;">
+            Select Items to Return:
+          </label>
+          <div id="returnItemsChecklist" style="display: flex; flex-direction: column; gap: 0.65rem; max-height: 220px; overflow-y: auto; padding: 0.25rem;">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </div>
+
+        <!-- Reason Selection -->
+        <div class="form-group" style="margin-top: 1rem;">
+          <label style="font-weight: 700; font-size: 0.85rem; color: var(--slate-700); margin-bottom: 0.5rem; display: block;">
+            Reason for Return: *
+          </label>
+          <select class="form-input" id="returnReasonSelect" required>
+            <option value="">-- Please select a reason --</option>
+            <option value="Size didn't fit (Too small / Too big)">Size didn't fit (Too small / Too big)</option>
+            <option value="Item defective or arrived damaged">Item defective or arrived damaged</option>
+            <option value="Received incorrect item or fragrance">Received incorrect item or fragrance</option>
+            <option value="Not as pictured or described">Not as pictured or described</option>
+            <option value="Changed mind / No longer needed">Changed mind / No longer needed</option>
+            <option value="Other">Other reason</option>
+          </select>
+        </div>
+
+        <!-- Refund Method -->
+        <div class="form-group" style="margin-top: 1rem;">
+          <label style="font-weight: 700; font-size: 0.85rem; color: var(--slate-700); margin-bottom: 0.5rem; display: block;">
+            Refund Preference:
+          </label>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <label style="display: flex; align-items: flex-start; gap: 0.6rem; padding: 0.75rem; border: 1px solid var(--beige-border); border-radius: var(--radius-md); cursor: pointer; background: var(--white);">
+              <input type="radio" name="refundMethod" value="Original Payment Method" checked style="margin-top: 0.2rem;" />
+              <div>
+                <strong style="font-size: 0.85rem; display: block;">Original Payment</strong>
+                <span style="font-size: 0.72rem; color: var(--slate-500);">Refunded in 3-5 business days</span>
+              </div>
+            </label>
+            <label style="display: flex; align-items: flex-start; gap: 0.6rem; padding: 0.75rem; border: 1px solid var(--beige-border); border-radius: var(--radius-md); cursor: pointer; background: var(--white);">
+              <input type="radio" name="refundMethod" value="Store Credit (+10% Bonus)" style="margin-top: 0.2rem;" />
+              <div>
+                <strong style="font-size: 0.85rem; display: block; color: var(--lime-700);">Store Credit (+10%)</strong>
+                <span style="font-size: 0.72rem; color: var(--slate-500);">Instant wallet balance + 10%</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Comments -->
+        <div class="form-group" style="margin-top: 1rem;">
+          <label style="font-weight: 700; font-size: 0.85rem; color: var(--slate-700); margin-bottom: 0.5rem; display: block;">
+            Additional Notes (Optional):
+          </label>
+          <textarea class="form-input" id="returnComments" rows="2" placeholder="Provide any details about packaging or condition..."></textarea>
+        </div>
+
+        <!-- Pickup Info Box -->
+        <div style="background: var(--beige-100); border-radius: var(--radius-md); padding: 0.85rem 1rem; margin: 1rem 0; display: flex; gap: 0.75rem; align-items: center;">
+          <div style="font-size: 1.5rem;">📦</div>
+          <div style="font-size: 0.8rem; color: var(--slate-700);">
+            <strong>Free Doorstep Pickup:</strong> Our carrier will collect the package directly with a pre-printed prepaid shipping label.
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; margin-top: 1.25rem;">
+          <button type="button" class="btn-secondary" onclick="closeReturnOrderModal()" style="flex: 1;">Cancel</button>
+          <button type="submit" class="btn-primary" style="flex: 2;">Confirm & Submit Return</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <!-- Toast Notifications Container -->
   <div class="toast-container" id="toastContainer"></div>
 
@@ -1224,6 +1350,7 @@
             <a href="#about" class="footer-link">About Us</a>
             <a href="#contact" class="footer-link">Contact & Help</a>
             <a href="#account" class="footer-link">My Account & Orders</a>
+            <a href="#account" class="footer-link" onclick="window.location.hash='#account';">Order Returns & Exchanges</a>
             <a href="#contact" class="footer-link">FAQ & Shipping</a>
           </div>
         </div>
