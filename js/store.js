@@ -446,7 +446,7 @@ class LimetreeStorefront {
     return `
       <div class="product-card reveal-card" data-product-id="${prod.id}" style="--stagger-i: ${idx % 8};">
         <div class="product-image-container" onclick="window.limetreeStore.openProductModal('${prod.id}')" style="cursor:pointer;">
-          <img src="${firstImg}" alt="${prod.name}" loading="lazy" />
+          <img src="${firstImg}" alt="${prod.name}" loading="lazy" decoding="async" />
           <div class="product-badge-group">
             <span class="badge-brand">${business.name || 'Limetree'}</span>
             ${hasDiscount ? `<span class="badge-sale">${discountPct}% OFF</span>` : ''}
