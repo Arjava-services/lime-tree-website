@@ -660,15 +660,37 @@
               <a href="orders.html" class="${currentPage === 'orders.html' ? 'active' : ''}">
                 <span class="drawer-menu-icon">📦</span>
                 <span>My Orders &amp; Purchase History</span>
+                <span class="drawer-badge" id="drawerOrdersBadge" style="display: none;">0</span>
+              </a>
+            </li>
+            <li class="drawer-menu-item">
+              <a href="#" onclick="if(window.limetreeStore){window.limetreeStore.showToast('Select a brand to explore saved wishlist items.', 'info');}return false;">
+                <span class="drawer-menu-icon">🤍</span>
+                <span>Saved Wishlist</span>
+                <span class="drawer-badge" id="drawerWishlistBadge" style="display: none;">0</span>
               </a>
             </li>
             <li class="drawer-menu-item">
               <a href="#" onclick="if(window.limetreeStore){window.limetreeStore.openCart();}return false;">
                 <span class="drawer-menu-icon">🛍️</span>
-                <span>Shopping Bag</span>
+                <span>Shopping Bag (Cart)</span>
+                <span class="drawer-badge" id="drawerCartBadge" style="display: none;">0</span>
               </a>
             </li>
           </ul>
+
+          <div class="drawer-helpline-card">
+            <div class="drawer-helpline-title">📞 Customer Care Helpline</div>
+            <div class="drawer-helpline-desc">Available Mon – Sat, 9:00 AM – 8:00 PM IST</div>
+            <div class="drawer-helpline-buttons">
+              <a href="tel:+918049201800" class="btn btn-primary btn-sm drawer-call-btn">
+                📞 Call +91 80 4920 1800
+              </a>
+              <a href="https://wa.me/919876543210?text=Hello%20Limetree%20Concierge,%20I%20need%20assistance%20with%20my%20order." target="_blank" rel="noopener" class="btn btn-secondary btn-sm drawer-wa-btn">
+                💬 Chat on WhatsApp
+              </a>
+            </div>
+          </div>
         </div>
         <div class="drawer-footer">
           <div style="font-weight: 700; color: var(--color-primary-dark); margin-bottom: 0.25rem;">LIMETREE Collective</div>

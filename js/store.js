@@ -60,14 +60,49 @@ class LimetreeStorefront {
     });
 
     const searchInput = document.getElementById('headerSearchInput');
+    const searchToggleBtn = document.getElementById('headerSearchToggleBtn');
+    const searchOverlay = document.getElementById('headerSearchOverlay');
+    const searchCloseBtn = document.getElementById('headerSearchCloseBtn');
+
+    if (searchToggleBtn && searchOverlay) {
+      searchToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = searchOverlay.classList.contains('active');
+        if (isOpen) {
+          searchOverlay.classList.remove('active');
+        } else {
+          searchOverlay.classList.add('active');
+          setTimeout(() => {
+            if (searchInput) searchInput.focus();
+          }, 80);
+        }
+      });
+    }
+
+    if (searchCloseBtn && searchOverlay) {
+      searchCloseBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        searchOverlay.classList.remove('active');
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && searchOverlay && searchOverlay.classList.contains('active')) {
+        searchOverlay.classList.remove('active');
+      }
+    });
+
     if (searchInput) {
       searchInput.addEventListener('input', (e) => {
         this.handleSearchInput(e.target.value);
       });
       document.addEventListener('click', (e) => {
-        if (!e.target.closest('.header-search')) {
+        if (!e.target.closest('.header-search') && !e.target.closest('#headerSearchToggleBtn')) {
           const dropdown = document.getElementById('searchResultsDropdown');
           if (dropdown) dropdown.classList.remove('active');
+          if (searchOverlay && !e.target.closest('.header-search-overlay')) {
+            searchOverlay.classList.remove('active');
+          }
         }
       });
     }
@@ -182,6 +217,7 @@ class LimetreeStorefront {
     const cart = this.storage.getCart();
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     const cartCountEl = document.getElementById('headerCartCount');
+    const drawerCartBadge = document.getElementById('drawerCartBadge');
     if (cartCountEl) {
       const prevCart = parseInt(cartCountEl.textContent, 10) || 0;
       cartCountEl.textContent = totalItems;
@@ -192,9 +228,14 @@ class LimetreeStorefront {
         cartCountEl.classList.add('badge-pop');
       }
     }
+    if (drawerCartBadge) {
+      drawerCartBadge.textContent = totalItems;
+      drawerCartBadge.style.display = totalItems > 0 ? 'inline-flex' : 'none';
+    }
 
     const wishlist = this.storage.getWishlist();
     const wishlistCountEl = document.getElementById('headerWishlistCount');
+    const drawerWishlistBadge = document.getElementById('drawerWishlistBadge');
     if (wishlistCountEl) {
       const prevWish = parseInt(wishlistCountEl.textContent, 10) || 0;
       wishlistCountEl.textContent = wishlist.length;
@@ -205,19 +246,93 @@ class LimetreeStorefront {
         wishlistCountEl.classList.add('badge-pop');
       }
     }
+    if (drawerWishlistBadge) {
+      drawerWishlistBadge.textContent = wishlist.length;
+      drawerWishlistBadge.style.display = wishlist.length > 0 ? 'inline-flex' : 'none';
+    }
 
     try {
       const orders = this.storage.getOrders();
       const ordersCountEl = document.getElementById('headerOrdersCount');
+      const drawerOrdersBadge = document.getElementById('drawerOrdersBadge');
       if (ordersCountEl) {
         ordersCountEl.textContent = orders.length;
         ordersCountEl.style.display = orders.length > 0 ? 'flex' : 'none';
       }
+      if (drawerOrdersBadge) {
+        drawerOrdersBadge.textContent = orders.length;
+        drawerOrdersBadge.style.display = orders.length > 0 ? 'inline-flex' : 'none';
+      }
     } catch (e) {}
+  }
+
+  // ==================== HOMEPAGE BESTSELLERS RENDERING ====================
+  renderHomepageBestsellers(targetBrand = 'all') {
+    const bestsellersGrid = document.getElementById('homepageBestsellersGrid');
+    if (!bestsellersGrid) return;
+
+    let all = [];
+    try {
+      all = (this.storage && typeof this.storage.getProducts === 'function')
+        ? this.storage.getProducts()
+        : (window.INITIAL_PRODUCTS || []);
+    } catch (e) {
+      all = window.INITIAL_PRODUCTS || [];
+    }
+    if (!all || all.length === 0) {
+      all = window.INITIAL_PRODUCTS || [];
+    }
+
+    let curated = [];
+    if (!targetBrand || targetBrand === 'all') {
+      const businesses = ['riyaa-trends', 'glow-home', 'earkart'];
+      businesses.forEach(bId => {
+        const bProds = all.filter(p => p && p.businessId === bId && p.id && p.name);
+        curated.push(...bProds.slice(0, 2));
+      });
+    } else {
+      const bProds = all.filter(p => p && p.businessId === targetBrand && p.id && p.name);
+      curated = bProds.slice(0, 6);
+    }
+
+    if (curated.length === 0) return;
+
+    bestsellersGrid.innerHTML = curated.map((prod, idx) => {
+      try {
+        return this.buildProductCardHtml(prod, idx);
+      } catch (err) {
+        console.error('Error rendering homepage bestseller card:', err, prod);
+        return '';
+      }
+    }).join('');
+
+    if (window.limetreeAnimations && typeof window.limetreeAnimations.observeElements === 'function') {
+      window.limetreeAnimations.observeElements(bestsellersGrid);
+    }
+    if (window.limetreeAnimations && typeof window.limetreeAnimations.refreshParallax === 'function') {
+      window.limetreeAnimations.refreshParallax();
+    }
+  }
+
+  filterHomepageBestsellers(brandId, event) {
+    if (event) {
+      document.querySelectorAll('.home-bestseller-pill').forEach(btn => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
+      });
+      const targetBtn = event.currentTarget || event.target;
+      if (targetBtn) {
+        targetBtn.classList.add('active');
+        targetBtn.setAttribute('aria-selected', 'true');
+      }
+    }
+    this.renderHomepageBestsellers(brandId);
   }
 
   // ==================== CATALOG RENDERING ====================
   renderCatalog() {
+    this.renderHomepageBestsellers();
+
     const grid = document.getElementById('productCatalogGrid');
     if (!grid) return;
 
@@ -642,16 +757,141 @@ class LimetreeStorefront {
 
   renderBusinessVariantSelectors(prod) {
     if (prod.businessId === 'riyaa-trends') {
+      const sizeMeasurements = {
+        'XS': { chest: '36" – 38"', length: '26.5"', shoulder: '16.5"', waist: '28" – 30"' },
+        'S':  { chest: '38" – 40"', length: '27.5"', shoulder: '17.5"', waist: '30" – 32"' },
+        'M':  { chest: '40" – 42"', length: '28.5"', shoulder: '18.5"', waist: '32" – 34"' },
+        'L':  { chest: '42" – 44"', length: '29.5"', shoulder: '19.5"', waist: '34" – 36"' },
+        'XL': { chest: '44" – 46"', length: '30.5"', shoulder: '20.5"', waist: '36" – 38"' },
+        'XXL':{ chest: '46" – 48"', length: '31.5"', shoulder: '21.5"', waist: '38" – 40"' }
+      };
+
+      const selectedSize = this.selectedVariant ? this.selectedVariant.size : 'M';
+      const selectedFit = sizeMeasurements[selectedSize] || {};
+
       return `
-        <div class="variant-selector-group">
-          <div class="variant-label"><span>Select Size &amp; Colour Variant</span></div>
-          <div class="variant-pills">
-            ${(prod.variants || []).map(v => `
-              <button class="variant-pill ${v.id === this.selectedVariant?.id ? 'active' : ''} ${v.stock <= 0 ? 'disabled' : ''}" 
-                      onclick="window.limetreeStore.selectVariant('${v.id}')">
-                ${v.size} - ${v.color} (${v.stock > 0 ? '₹' + v.price : 'Sold out'})
-              </button>
-            `).join('')}
+        <div class="variant-selector-group apparel-variant-group">
+          <!-- Size Selector Header with Size Guide Trigger -->
+          <div class="apparel-size-header">
+            <div class="apparel-size-title">
+              <span>Select Size:</span>
+              <strong id="modalSelectedSizeLabel" class="selected-size-highlight">${selectedSize}${selectedFit.chest ? ' (' + selectedFit.chest + ')' : ''}</strong>
+            </div>
+            <button type="button" class="btn-size-guide-toggle" id="modalSizeGuideBtn" onclick="window.limetreeStore.toggleModalSizeGuide()" aria-expanded="false" title="Click to view tailoring measurement guide">
+              <span class="ruler-symbol">📏</span>
+              <span>Size &amp; Fit Guide</span>
+              <span class="size-guide-arrow" id="modalSizeGuideArrow">▾</span>
+            </button>
+          </div>
+
+          <!-- Modern Size Buttons (XS, S, M, L, XL, XXL) -->
+          <div class="apparel-size-buttons-grid" id="apparelSizeButtonsGrid">
+            ${(prod.variants || []).map(v => {
+              const isSelected = v.id === this.selectedVariant?.id;
+              const isOut = v.stock <= 0;
+              const fit = sizeMeasurements[v.size] || {};
+              return `
+                <button type="button"
+                        class="apparel-size-btn ${isSelected ? 'active' : ''} ${isOut ? 'disabled' : ''}"
+                        data-variant-id="${v.id}"
+                        data-size="${v.size}"
+                        onclick="window.limetreeStore.selectVariant('${v.id}')"
+                        ${isOut ? 'disabled' : ''}
+                        title="${v.size} · Chest: ${fit.chest || 'Tailored'} · ${isOut ? 'Out of stock' : '₹' + v.price}">
+                  <span class="size-letter">${v.size}</span>
+                  ${fit.chest ? `<span class="size-subtext">${fit.chest.split('–')[0].trim()}</span>` : ''}
+                  ${isSelected ? `<span class="size-active-check">✓</span>` : ''}
+                </button>
+              `;
+            }).join('')}
+          </div>
+
+          <!-- Color & Fit Badges -->
+          <div class="apparel-meta-pills" style="margin-top: 0.75rem; display: flex; align-items: center; gap: 0.6rem; font-size: 0.82rem; color: var(--color-text-muted);">
+            <span><strong>Colour:</strong> <span id="modalColorDisplay">${this.selectedVariant?.color || 'Selected'}</span></span>
+            <span>·</span>
+            <span><strong>Fit:</strong> Tailored Comfort</span>
+            <span>·</span>
+            <span style="color: var(--color-leaf-green); font-weight: 600;">Bio-Washed Combed Cotton</span>
+          </div>
+
+          <!-- EMBEDDED PRECISION SIZE & FIT GUIDE DRAWER -->
+          <div class="modal-size-guide-drawer" id="modalSizeGuideDrawer" style="display: none;">
+            <div class="size-guide-drawer-card">
+              <div class="size-guide-card-header">
+                <div class="size-guide-kicker">Precision Tailoring Standards</div>
+                <div class="size-guide-card-title-row">
+                  <h4 class="size-guide-card-title">Comprehensive Size &amp; Fit Guide</h4>
+                  <span class="size-guide-badge">All measurements in inches</span>
+                </div>
+                <p class="size-guide-card-desc">
+                  Find your ideal fit. All measurements are taken flat across the garment. For an oversized aesthetic, choose your regular size.
+                </p>
+              </div>
+
+              <div class="modal-size-table-wrap">
+                <table class="modal-size-table">
+                  <thead>
+                    <tr>
+                      <th>Standard Size</th>
+                      <th>Chest Circumference</th>
+                      <th>Garment Length</th>
+                      <th>Shoulder Width</th>
+                      <th>Waist Fit</th>
+                      <th style="text-align: center;">Order Size</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${(prod.variants || []).map(v => {
+                      const fit = sizeMeasurements[v.size] || { chest: '—', length: '—', shoulder: '—', waist: '—' };
+                      const isSelected = v.id === this.selectedVariant?.id;
+                      const isOut = v.stock <= 0;
+                      return `
+                        <tr class="modal-size-row ${isSelected ? 'selected-row' : ''} ${isOut ? 'out-of-stock-row' : ''}"
+                            data-variant-id="${v.id}"
+                            data-size="${v.size}"
+                            onclick="window.limetreeStore.selectVariant('${v.id}')">
+                          <td>
+                            <div class="table-size-cell">
+                              <strong class="size-code">${v.size}</strong>
+                              ${isSelected ? `<span class="size-row-selected-pill">Selected</span>` : ''}
+                            </div>
+                          </td>
+                          <td>${fit.chest}</td>
+                          <td>${fit.length}</td>
+                          <td>${fit.shoulder}</td>
+                          <td>${fit.waist}</td>
+                          <td style="text-align: center;">
+                            <button type="button" 
+                                    class="table-size-select-btn ${isSelected ? 'active' : ''} ${isOut ? 'disabled' : ''}"
+                                    onclick="event.stopPropagation(); window.limetreeStore.selectVariant('${v.id}')"
+                                    ${isOut ? 'disabled' : ''}>
+                              ${isOut ? 'Out of Stock' : (isSelected ? '✓ Selected' : 'Select ' + v.size)}
+                            </button>
+                          </td>
+                        </tr>
+                      `;
+                    }).join('')}
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- 3 Measurement Points Matching Screenshot -->
+              <div class="size-guide-pointers-grid">
+                <div class="pointer-item">
+                  <strong class="pointer-title">1. Chest Measurement:</strong>
+                  <p class="pointer-desc">Measure under your arms around the fullest part of your bust/chest, keeping tape level.</p>
+                </div>
+                <div class="pointer-item">
+                  <strong class="pointer-title">2. Garment Length:</strong>
+                  <p class="pointer-desc">Measured from high-point shoulder down to bottom hemline.</p>
+                </div>
+                <div class="pointer-item">
+                  <strong class="pointer-title">3. Care Instructions:</strong>
+                  <p class="pointer-desc">Machine wash cold inside-out with like colours. Tumble dry low or line dry in shade.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       `;
@@ -732,9 +972,166 @@ class LimetreeStorefront {
       btn.textContent = v.stock <= 0 ? 'Currently Out of Stock' : 'Add to Bag';
     }
 
-    document.querySelectorAll('.variant-pill').forEach(p => p.classList.remove('active'));
-    const activePill = event?.target?.closest('.variant-pill');
-    if (activePill) activePill.classList.add('active');
+    // Update color display
+    const colorEl = document.getElementById('modalColorDisplay');
+    if (colorEl && v.color) colorEl.textContent = v.color;
+
+    // Update apparel size label
+    const sizeLabel = document.getElementById('modalSelectedSizeLabel');
+    if (sizeLabel) {
+      const chestMap = { 'XS': '36" – 38"', 'S': '38" – 40"', 'M': '40" – 42"', 'L': '42" – 44"', 'XL': '44" – 46"', 'XXL': '46" – 48"' };
+      const chest = chestMap[v.size];
+      sizeLabel.textContent = `${v.size}${chest ? ' (' + chest + ')' : ''}`;
+    }
+
+    // Synchronize apparel size buttons
+    document.querySelectorAll('.apparel-size-btn').forEach(btnEl => {
+      const isMatch = btnEl.dataset.variantId === variantId;
+      btnEl.classList.toggle('active', isMatch);
+      const existingCheck = btnEl.querySelector('.size-active-check');
+      if (isMatch && !existingCheck) {
+        const checkSpan = document.createElement('span');
+        checkSpan.className = 'size-active-check';
+        checkSpan.textContent = '✓';
+        btnEl.appendChild(checkSpan);
+      } else if (!isMatch && existingCheck) {
+        existingCheck.remove();
+      }
+    });
+
+    // Synchronize table rows in size guide
+    document.querySelectorAll('.modal-size-row').forEach(rowEl => {
+      const isMatch = rowEl.dataset.variantId === variantId;
+      rowEl.classList.toggle('selected-row', isMatch);
+      const actionBtn = rowEl.querySelector('.table-size-select-btn');
+      if (actionBtn && !actionBtn.classList.contains('disabled')) {
+        actionBtn.classList.toggle('active', isMatch);
+        actionBtn.textContent = isMatch ? '✓ Selected' : `Select ${rowEl.dataset.size}`;
+      }
+      const existingPill = rowEl.querySelector('.size-row-selected-pill');
+      if (isMatch && !existingPill) {
+        const cell = rowEl.querySelector('.table-size-cell');
+        if (cell) {
+          const pill = document.createElement('span');
+          pill.className = 'size-row-selected-pill';
+          pill.textContent = 'Selected';
+          cell.appendChild(pill);
+        }
+      } else if (!isMatch && existingPill) {
+        existingPill.remove();
+      }
+    });
+
+    // Synchronize any classic variant pills
+    document.querySelectorAll('.variant-pill').forEach(p => {
+      p.classList.toggle('active', p.getAttribute('onclick')?.includes(variantId));
+    });
+  }
+
+  toggleModalSizeGuide() {
+    const drawer = document.getElementById('modalSizeGuideDrawer');
+    const arrow = document.getElementById('modalSizeGuideArrow');
+    const btn = document.getElementById('modalSizeGuideBtn');
+    if (!drawer) return;
+
+    const isHidden = drawer.style.display === 'none' || !drawer.style.display;
+    if (isHidden) {
+      drawer.style.display = 'block';
+      if (arrow) arrow.style.transform = 'rotate(180deg)';
+      if (btn) {
+        btn.setAttribute('aria-expanded', 'true');
+        btn.classList.add('active');
+      }
+      drawer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } else {
+      drawer.style.display = 'none';
+      if (arrow) arrow.style.transform = 'rotate(0deg)';
+      if (btn) {
+        btn.setAttribute('aria-expanded', 'false');
+        btn.classList.remove('active');
+      }
+    }
+  }
+
+  openSizeGuideModal() {
+    let modal = document.getElementById('standaloneSizeGuideModal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'standaloneSizeGuideModal';
+      modal.className = 'modal-overlay size-guide-overlay';
+      modal.innerHTML = `
+        <div class="modal-container size-guide-modal-container" style="max-width: 860px; padding: 2.5rem; background: var(--color-bg-surface); border-radius: var(--radius-lg); box-shadow: var(--shadow-xl); position: relative;">
+          <button type="button" class="modal-close-btn" onclick="window.limetreeStore.closeSizeGuideModal()" aria-label="Close Size Guide">&times;</button>
+          
+          <div style="text-align: center; margin-bottom: 1.8rem;">
+            <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-leaf-green); margin-bottom: 0.35rem;">
+              Precision Tailoring Standards
+            </div>
+            <h2 style="font-family: var(--font-heading); font-size: 2.2rem; color: var(--color-primary-dark); margin-bottom: 0.6rem;">
+              Comprehensive Size &amp; Fit Guide
+            </h2>
+            <p style="font-size: 0.94rem; color: var(--color-text-muted); max-width: 620px; margin: 0 auto; line-height: 1.6;">
+              Find your ideal fit. All measurements are taken flat across the garment. For an oversized aesthetic, choose your regular size.
+            </p>
+          </div>
+
+          <div style="overflow-x: auto; margin-bottom: 1.8rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: #FFFFFF;">
+            <table class="modal-size-table" style="width: 100%; margin: 0;">
+              <thead>
+                <tr>
+                  <th>Standard Size</th>
+                  <th>Chest Circumference (Inches)</th>
+                  <th>Garment Length (Inches)</th>
+                  <th>Shoulder Width (Inches)</th>
+                  <th>Waist Fit (Trackpants / Shorts)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>XS</strong></td><td>36" – 38"</td><td>26.5"</td><td>16.5"</td><td>28" – 30"</td></tr>
+                <tr><td><strong>S</strong></td><td>38" – 40"</td><td>27.5"</td><td>17.5"</td><td>30" – 32"</td></tr>
+                <tr><td><strong>M</strong></td><td>40" – 42"</td><td>28.5"</td><td>18.5"</td><td>32" – 34"</td></tr>
+                <tr><td><strong>L</strong></td><td>42" – 44"</td><td>29.5"</td><td>19.5"</td><td>34" – 36"</td></tr>
+                <tr><td><strong>XL</strong></td><td>44" – 46"</td><td>30.5"</td><td>20.5"</td><td>36" – 38"</td></tr>
+                <tr><td><strong>XXL</strong></td><td>46" – 48"</td><td>31.5"</td><td>21.5"</td><td>38" – 40"</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="size-guide-pointers-grid" style="margin-bottom: 2rem;">
+            <div class="pointer-item">
+              <strong class="pointer-title">1. Chest Measurement:</strong>
+              <p class="pointer-desc">Measure under your arms around the fullest part of your bust/chest, keeping tape level.</p>
+            </div>
+            <div class="pointer-item">
+              <strong class="pointer-title">2. Garment Length:</strong>
+              <p class="pointer-desc">Measured from high-point shoulder down to bottom hemline.</p>
+            </div>
+            <div class="pointer-item">
+              <strong class="pointer-title">3. Care Instructions:</strong>
+              <p class="pointer-desc">Machine wash cold inside-out with like colours. Tumble dry low or line dry in shade.</p>
+            </div>
+          </div>
+
+          <div style="text-align: center; border-top: 1px solid var(--color-border); padding-top: 1.4rem;">
+            <a href="riyaa-trends.html" class="btn btn-primary" onclick="window.limetreeStore.closeSizeGuideModal()">
+              Browse Riyaa Trends Apparel
+            </a>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(modal);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) this.closeSizeGuideModal();
+      });
+    }
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeSizeGuideModal() {
+    const modal = document.getElementById('standaloneSizeGuideModal');
+    if (modal) modal.classList.remove('active');
+    document.body.style.overflow = '';
   }
 
   adjustModalQty(delta) {
@@ -762,7 +1159,7 @@ class LimetreeStorefront {
         quantity: qty
       });
       this.closeModal();
-      this.showToast(`Added ${this.activeProductModal.name} to your bag!`, 'success');
+      this.showToast(`Added ${this.activeProductModal.name} (${this.selectedVariant.size}) to your bag!`, 'success');
       this.openCartDrawer();
     } catch (err) {
       this.showToast(err.message, 'error');
@@ -782,6 +1179,8 @@ class LimetreeStorefront {
     if (checkoutModal) checkoutModal.classList.remove('active');
     const invoiceModal = document.getElementById('invoiceModal');
     if (invoiceModal) invoiceModal.classList.remove('active');
+    const sizeModal = document.getElementById('standaloneSizeGuideModal');
+    if (sizeModal) sizeModal.classList.remove('active');
     document.body.style.overflow = '';
   }
 
@@ -1261,6 +1660,11 @@ class LimetreeStorefront {
             <span style="font-weight: 600; color: var(--color-success);">Within 3-5 Business Days</span>
           </div>
 
+          <div style="margin-top: 1rem; padding: 0.8rem 1rem; background: var(--color-bg-base); border-radius: 8px; border: 1px solid var(--color-border); font-size: 0.82rem; color: var(--color-text-muted); text-align: left; line-height: 1.5;">
+            📞 <strong>Need assistance with this order?</strong><br/>
+            Call our Customer Helpline: <a href="tel:+918049201800" style="color: var(--color-primary); font-weight: 700; text-decoration: underline;">+91 80 4920 1800</a> (9 AM – 8 PM IST) or <a href="https://wa.me/919876543210?text=Hello%20Limetree,%20my%20order%20is%20${order.orderId}." target="_blank" rel="noopener" style="color: #25D366; font-weight: 700;">WhatsApp Concierge</a>.
+          </div>
+
           <div style="border-top: 1px solid var(--color-border); margin-top: 1rem; padding-top: 1rem;">
             <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); margin-bottom: 0.65rem;">
               Items In This Order (${order.items.length})
@@ -1397,8 +1801,9 @@ class LimetreeStorefront {
         </div>
 
         <div style="display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid #DDE7B7; padding-top: 1.6rem; margin-top: 1.6rem;">
-          <div style="font-size: 0.75rem; color: #565E3C; max-width: 390px;">
-            This is a computer-generated tax invoice issued in accordance with GST Rules. Goods once sold are subject to Limetree 7-day verified return policy.
+          <div style="font-size: 0.75rem; color: #565E3C; max-width: 440px; line-height: 1.5;">
+            This is a computer-generated tax invoice issued in accordance with GST Rules. Goods once sold are subject to Limetree 7-day verified return policy.<br/>
+            <strong>Customer Helpline:</strong> ${settings.supportPhone || '+91 80 4920 1800'} | <strong>WhatsApp:</strong> ${settings.supportWhatsApp || '+91 98765 43210'} | <strong>Email:</strong> ${settings.supportEmail || 'care@limetree.in'}
           </div>
           <div style="text-align: right;">
             <div style="font-family: var(--font-heading); font-size: 1.15rem; color: #365314; font-weight: 700;">For LIMETREE RETAIL</div>

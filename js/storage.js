@@ -5,7 +5,7 @@
  */
 
 const STORAGE_KEYS = {
-  PRODUCTS: 'limetree_products_v10',
+  PRODUCTS: 'limetree_products_v11',
   ORDERS: 'limetree_orders_v2',
   CART: 'limetree_cart_v2',
   WISHLIST: 'limetree_wishlist_v2',
@@ -32,7 +32,8 @@ class LimetreeStorage {
         const hasUnsplash = parsed.some(p => (p.images || []).some(img => typeof img === 'string' && img.includes('unsplash')));
         const uniqueIds = new Set(parsed.map(p => p.id));
         const uniqueNames = new Set(parsed.map(p => p.name));
-        if (hasRiyaa && hasGlow && hasEarkart && parsed.length === 18 && uniqueIds.size === 18 && uniqueNames.size === 18 && !hasUnsplash) {
+        const hasApparelSizes = (parsed.find(p => p.id === 'rt-001')?.variants || []).some(v => v.size === 'XS');
+        if (hasRiyaa && hasGlow && hasEarkart && parsed.length === 18 && uniqueIds.size === 18 && uniqueNames.size === 18 && !hasUnsplash && hasApparelSizes) {
           validProducts = true;
         }
       }

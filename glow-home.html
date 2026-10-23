@@ -10,7 +10,8 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body>
+<body class="brand-page-glow">
+
 
   <!-- STICKY SITE HEADER -->
   <header class="site-header">
@@ -21,43 +22,75 @@
         <img src="assets/logo-transparent.png" alt="LIMETREE - Three Brands One Destination" class="site-logo-img" />
       </a>
 
-      <!-- Desktop Navigation (No Home Button) -->
+      <!-- Desktop Navigation: Single-Line Refined Luxury Links -->
       <nav class="main-nav" aria-label="Main Navigation">
-        <a href="riyaa-trends.html" class="nav-link">Riyaa Trends <span class="nav-badge-pill">Clothing</span></a>
-        <a href="glow-home.html" class="nav-link active">Glow Home <span class="nav-badge-pill">Candles</span></a>
-        <a href="earkart.html" class="nav-link">Earkart <span class="nav-badge-pill">Jewellery</span></a>
+        <a href="riyaa-trends.html" class="nav-link">Riyaa Trends</a>
+        <a href="glow-home.html" class="nav-link active">Glow Home</a>
+        <a href="earkart.html" class="nav-link">Earkart</a>
         <a href="orders.html" class="nav-link">Order History</a>
       </nav>
 
-      <!-- Live Search Bar -->
-      <div class="header-search">
-        <span class="search-icon">🔍</span>
-        <input type="text" id="headerSearchInput" placeholder="Search Glow Home candles & aromas..." autocomplete="off"
-          aria-label="Search Catalog" />
-        <div class="search-results-dropdown" id="searchResultsDropdown"></div>
-      </div>
-
-      <!-- Action Buttons -->
+      <!-- Action Buttons with Bespoke Stroke SVGs -->
       <div class="header-actions">
-        <a href="orders.html" class="action-btn header-orders-btn" title="My Orders & History" aria-label="Order History">
-          📦
+        <!-- Search Toggle Action Button (Icon Only on Desktop & Phone) -->
+        <button class="action-btn header-search-toggle-btn" id="headerSearchToggleBtn" title="Search Catalog" aria-label="Search Catalog">
+          <svg class="search-svg-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+
+        <!-- Order Box Icon with stroke parcel SVG -->
+        <a href="orders.html" class="action-btn header-orders-btn" title="Track Orders & Deliveries" aria-label="Order History">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+          </svg>
           <span class="badge-count" id="headerOrdersCount" style="display: none;">0</span>
         </a>
+
+        <!-- Wishlist Icon with stroke heart SVG -->
         <button class="action-btn" id="headerWishlistBtn" title="Wishlist" aria-label="Wishlist"
           onclick="window.limetreeStore.showToast('Your saved wishlist items are highlighted in the candle catalog below.', 'info')">
-          ♥
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
           <span class="badge-count" id="headerWishlistCount" style="display: none;">0</span>
         </button>
+
+        <!-- Shopping Bag Icon with stroke shopping bag SVG -->
         <button class="action-btn" id="headerCartBtn" title="Shopping Bag" aria-label="Shopping Cart">
-          🛍️
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
           <span class="badge-count" id="headerCartCount" style="display: none;">0</span>
         </button>
+
         <button class="mobile-menu-toggle-btn" id="mobileMenuToggleBtn" aria-label="Open Navigation Menu">
           <span class="menu-hamburger-icon">☰</span>
           <span class="menu-text">Menu</span>
         </button>
       </div>
 
+    </div>
+
+    <!-- Expandable Search Overlay (Opens smoothly on clicking Search Icon) -->
+    <div class="header-search-overlay" id="headerSearchOverlay">
+      <div class="container header-search-inner">
+        <div class="header-search">
+          <svg class="search-svg-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="headerSearchInput" placeholder="Search Glow Home candles & aromas..." autocomplete="off" aria-label="Search Catalog" />
+          <button class="search-close-btn" id="headerSearchCloseBtn" aria-label="Close search">✕</button>
+          <div class="search-results-dropdown" id="searchResultsDropdown"></div>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -213,10 +246,21 @@
         <div>
           <h4 class="footer-col-title">Customer Concierge</h4>
           <ul class="footer-links">
+            <li>
+              <a href="tel:+918049201800" class="footer-helpline-link" style="color: var(--color-leaf-green); font-weight: 700;">
+                📞 Helpline: +91 80 4920 1800
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/919876543210?text=Hello%20Limetree%20Concierge,%20I%20need%20assistance." target="_blank" rel="noopener" style="color: #25D366; font-weight: 600;">
+                💬 WhatsApp: +91 98765 43210
+              </a>
+            </li>
+            <li><a href="mailto:care@limetree.in">✉️ care@limetree.in</a></li>
+            <li style="font-size: 0.78rem; color: var(--color-text-muted); margin: 0.2rem 0 0.5rem 0;">⏱️ Mon – Sat: 9:00 AM – 8:00 PM IST</li>
             <li><a href="orders.html">Track Order &amp; Delivery</a></li>
             <li><a href="orders.html">7-Day Return Request</a></li>
             <li><a href="orders.html">Download GST Invoices</a></li>
-            <li><a href="orders.html">Help &amp; Support</a></li>
           </ul>
         </div>
 
@@ -238,6 +282,17 @@
       </div>
     </div>
   </footer>
+
+  <!-- FLOATING HELPLINE & CONCIERGE WIDGET -->
+  <aside class="floating-helpline-widget" id="floatingHelplineWidget" aria-label="Quick Customer Support">
+    <a href="tel:+918049201800" class="floating-helpline-btn" aria-label="Call Customer Helpline at +91 80 4920 1800" title="Call Helpline: +91 80 4920 1800">
+      <span class="floating-helpline-icon">📞</span>
+      <span class="floating-helpline-text">Helpline · <strong>+91 80 4920 1800</strong></span>
+    </a>
+    <a href="https://wa.me/919876543210?text=Hello%20Limetree%20Concierge,%20I%20would%20like%20assistance." target="_blank" rel="noopener" class="floating-wa-btn" aria-label="Chat on WhatsApp" title="WhatsApp Concierge">
+      <span class="floating-wa-icon">💬</span>
+    </a>
+  </aside>
 
   <!-- CART DRAWER -->
   <div class="drawer-backdrop" id="drawerBackdrop"></div>

@@ -83,8 +83,24 @@ const RIYAA_TRENDS_PRODUCTS = [
     ],
     "variants": [
       {
+        "id": "rt-001-v0",
+        "size": "XS",
+        "chest": "36\" – 38\"",
+        "length": "26.5\"",
+        "shoulder": "16.5\"",
+        "waist": "28\" – 30\"",
+        "color": "Navy Graphic",
+        "price": 699,
+        "stock": 15,
+        "sku": "RT-TSH-001-XS-NVY"
+      },
+      {
         "id": "rt-001-v1",
-        "size": "S (4-5 Yrs)",
+        "size": "S",
+        "chest": "38\" – 40\"",
+        "length": "27.5\"",
+        "shoulder": "17.5\"",
+        "waist": "30\" – 32\"",
         "color": "Navy Graphic",
         "price": 699,
         "stock": 20,
@@ -92,7 +108,11 @@ const RIYAA_TRENDS_PRODUCTS = [
       },
       {
         "id": "rt-001-v2",
-        "size": "M (6-7 Yrs)",
+        "size": "M",
+        "chest": "40\" – 42\"",
+        "length": "28.5\"",
+        "shoulder": "18.5\"",
+        "waist": "32\" – 34\"",
         "color": "Navy Graphic",
         "price": 699,
         "stock": 25,
@@ -100,11 +120,39 @@ const RIYAA_TRENDS_PRODUCTS = [
       },
       {
         "id": "rt-001-v3",
-        "size": "L (8-9 Yrs)",
+        "size": "L",
+        "chest": "42\" – 44\"",
+        "length": "29.5\"",
+        "shoulder": "19.5\"",
+        "waist": "34\" – 36\"",
         "color": "Navy Graphic",
         "price": 749,
         "stock": 18,
         "sku": "RT-TSH-001-L-NVY"
+      },
+      {
+        "id": "rt-001-v4",
+        "size": "XL",
+        "chest": "44\" – 46\"",
+        "length": "30.5\"",
+        "shoulder": "20.5\"",
+        "waist": "36\" – 38\"",
+        "color": "Navy Graphic",
+        "price": 749,
+        "stock": 14,
+        "sku": "RT-TSH-001-XL-NVY"
+      },
+      {
+        "id": "rt-001-v5",
+        "size": "XXL",
+        "chest": "46\" – 48\"",
+        "length": "31.5\"",
+        "shoulder": "21.5\"",
+        "waist": "38\" – 40\"",
+        "color": "Navy Graphic",
+        "price": 799,
+        "stock": 10,
+        "sku": "RT-TSH-001-XXL-NVY"
       }
     ]
   },
@@ -132,8 +180,24 @@ const RIYAA_TRENDS_PRODUCTS = [
     ],
     "variants": [
       {
+        "id": "rt-002-v0",
+        "size": "XS",
+        "chest": "36\" – 38\"",
+        "length": "26.5\"",
+        "shoulder": "16.5\"",
+        "waist": "28\" – 30\"",
+        "color": "Sunshine Yellow",
+        "price": 649,
+        "stock": 12,
+        "sku": "RT-TSH-002-XS-YLW"
+      },
+      {
         "id": "rt-002-v1",
-        "size": "S (4-5 Yrs)",
+        "size": "S",
+        "chest": "38\" – 40\"",
+        "length": "27.5\"",
+        "shoulder": "17.5\"",
+        "waist": "30\" – 32\"",
         "color": "Sunshine Yellow",
         "price": 649,
         "stock": 15,
@@ -141,7 +205,11 @@ const RIYAA_TRENDS_PRODUCTS = [
       },
       {
         "id": "rt-002-v2",
-        "size": "M (6-7 Yrs)",
+        "size": "M",
+        "chest": "40\" – 42\"",
+        "length": "28.5\"",
+        "shoulder": "18.5\"",
+        "waist": "32\" – 34\"",
         "color": "Sunshine Yellow",
         "price": 649,
         "stock": 22,
@@ -149,11 +217,39 @@ const RIYAA_TRENDS_PRODUCTS = [
       },
       {
         "id": "rt-002-v3",
-        "size": "L (8-9 Yrs)",
+        "size": "L",
+        "chest": "42\" – 44\"",
+        "length": "29.5\"",
+        "shoulder": "19.5\"",
+        "waist": "34\" – 36\"",
         "color": "Sunshine Yellow",
         "price": 699,
         "stock": 14,
         "sku": "RT-TSH-002-L-YLW"
+      },
+      {
+        "id": "rt-002-v4",
+        "size": "XL",
+        "chest": "44\" – 46\"",
+        "length": "30.5\"",
+        "shoulder": "20.5\"",
+        "waist": "36\" – 38\"",
+        "color": "Sunshine Yellow",
+        "price": 699,
+        "stock": 10,
+        "sku": "RT-TSH-002-XL-YLW"
+      },
+      {
+        "id": "rt-002-v5",
+        "size": "XXL",
+        "chest": "46\" – 48\"",
+        "length": "31.5\"",
+        "shoulder": "21.5\"",
+        "waist": "38\" – 40\"",
+        "color": "Sunshine Yellow",
+        "price": 749,
+        "stock": 8,
+        "sku": "RT-TSH-002-XXL-YLW"
       }
     ]
   },
@@ -181,8 +277,24 @@ const RIYAA_TRENDS_PRODUCTS = [
     ],
     "variants": [
       {
+        "id": "rt-003-v0",
+        "size": "XS",
+        "chest": "36\" – 38\"",
+        "length": "26.5\"",
+        "shoulder": "16.5\"",
+        "waist": "28\" – 30\"",
+        "color": "Navy Blue",
+        "price": 1299,
+        "stock": 12,
+        "sku": "RT-TRK-003-XS-NVY"
+      },
+      {
         "id": "rt-003-v1",
-        "size": "S (4-5 Yrs)",
+        "size": "S",
+        "chest": "38\" – 40\"",
+        "length": "27.5\"",
+        "shoulder": "17.5\"",
+        "waist": "30\" – 32\"",
         "color": "Navy Blue",
         "price": 1299,
         "stock": 16,
@@ -190,7 +302,11 @@ const RIYAA_TRENDS_PRODUCTS = [
       },
       {
         "id": "rt-003-v2",
-        "size": "M (6-7 Yrs)",
+        "size": "M",
+        "chest": "40\" – 42\"",
+        "length": "28.5\"",
+        "shoulder": "18.5\"",
+        "waist": "32\" – 34\"",
         "color": "Navy Blue",
         "price": 1299,
         "stock": 24,
@@ -198,11 +314,39 @@ const RIYAA_TRENDS_PRODUCTS = [
       },
       {
         "id": "rt-003-v3",
-        "size": "L (8-9 Yrs)",
+        "size": "L",
+        "chest": "42\" – 44\"",
+        "length": "29.5\"",
+        "shoulder": "19.5\"",
+        "waist": "34\" – 36\"",
         "color": "Navy Blue",
         "price": 1349,
         "stock": 12,
         "sku": "RT-TRK-003-L-NVY"
+      },
+      {
+        "id": "rt-003-v4",
+        "size": "XL",
+        "chest": "44\" – 46\"",
+        "length": "30.5\"",
+        "shoulder": "20.5\"",
+        "waist": "36\" – 38\"",
+        "color": "Navy Blue",
+        "price": 1349,
+        "stock": 10,
+        "sku": "RT-TRK-003-XL-NVY"
+      },
+      {
+        "id": "rt-003-v5",
+        "size": "XXL",
+        "chest": "46\" – 48\"",
+        "length": "31.5\"",
+        "shoulder": "21.5\"",
+        "waist": "38\" – 40\"",
+        "color": "Navy Blue",
+        "price": 1399,
+        "stock": 8,
+        "sku": "RT-TRK-003-XXL-NVY"
       }
     ]
   },
@@ -230,8 +374,24 @@ const RIYAA_TRENDS_PRODUCTS = [
     ],
     "variants": [
       {
+        "id": "rt-004-v0",
+        "size": "XS",
+        "chest": "36\" – 38\"",
+        "length": "26.5\"",
+        "shoulder": "16.5\"",
+        "waist": "28\" – 30\"",
+        "color": "Maroon Berry",
+        "price": 1249,
+        "stock": 10,
+        "sku": "RT-TRK-004-XS-MRN"
+      },
+      {
         "id": "rt-004-v1",
-        "size": "S (4-5 Yrs)",
+        "size": "S",
+        "chest": "38\" – 40\"",
+        "length": "27.5\"",
+        "shoulder": "17.5\"",
+        "waist": "30\" – 32\"",
         "color": "Maroon Berry",
         "price": 1249,
         "stock": 14,
@@ -239,7 +399,11 @@ const RIYAA_TRENDS_PRODUCTS = [
       },
       {
         "id": "rt-004-v2",
-        "size": "M (6-7 Yrs)",
+        "size": "M",
+        "chest": "40\" – 42\"",
+        "length": "28.5\"",
+        "shoulder": "18.5\"",
+        "waist": "32\" – 34\"",
         "color": "Maroon Berry",
         "price": 1249,
         "stock": 20,
@@ -247,11 +411,39 @@ const RIYAA_TRENDS_PRODUCTS = [
       },
       {
         "id": "rt-004-v3",
-        "size": "L (8-9 Yrs)",
+        "size": "L",
+        "chest": "42\" – 44\"",
+        "length": "29.5\"",
+        "shoulder": "19.5\"",
+        "waist": "34\" – 36\"",
         "color": "Maroon Berry",
         "price": 1299,
         "stock": 15,
         "sku": "RT-TRK-004-L-MRN"
+      },
+      {
+        "id": "rt-004-v4",
+        "size": "XL",
+        "chest": "44\" – 46\"",
+        "length": "30.5\"",
+        "shoulder": "20.5\"",
+        "waist": "36\" – 38\"",
+        "color": "Maroon Berry",
+        "price": 1299,
+        "stock": 11,
+        "sku": "RT-TRK-004-XL-MRN"
+      },
+      {
+        "id": "rt-004-v5",
+        "size": "XXL",
+        "chest": "46\" – 48\"",
+        "length": "31.5\"",
+        "shoulder": "21.5\"",
+        "waist": "38\" – 40\"",
+        "color": "Maroon Berry",
+        "price": 1349,
+        "stock": 6,
+        "sku": "RT-TRK-004-XXL-MRN"
       }
     ]
   },
@@ -279,8 +471,24 @@ const RIYAA_TRENDS_PRODUCTS = [
     ],
     "variants": [
       {
+        "id": "rt-005-v0",
+        "size": "XS",
+        "chest": "36\" – 38\"",
+        "length": "26.5\"",
+        "shoulder": "16.5\"",
+        "waist": "28\" – 30\"",
+        "color": "Sunshine Yellow",
+        "price": 1099,
+        "stock": 10,
+        "sku": "RT-TRK-005-XS-YLW"
+      },
+      {
         "id": "rt-005-v1",
-        "size": "S (4-5 Yrs)",
+        "size": "S",
+        "chest": "38\" – 40\"",
+        "length": "27.5\"",
+        "shoulder": "17.5\"",
+        "waist": "30\" – 32\"",
         "color": "Sunshine Yellow",
         "price": 1099,
         "stock": 18,
@@ -288,7 +496,11 @@ const RIYAA_TRENDS_PRODUCTS = [
       },
       {
         "id": "rt-005-v2",
-        "size": "M (6-7 Yrs)",
+        "size": "M",
+        "chest": "40\" – 42\"",
+        "length": "28.5\"",
+        "shoulder": "18.5\"",
+        "waist": "32\" – 34\"",
         "color": "Sunshine Yellow",
         "price": 1099,
         "stock": 22,
@@ -296,11 +508,39 @@ const RIYAA_TRENDS_PRODUCTS = [
       },
       {
         "id": "rt-005-v3",
-        "size": "L (8-9 Yrs)",
+        "size": "L",
+        "chest": "42\" – 44\"",
+        "length": "29.5\"",
+        "shoulder": "19.5\"",
+        "waist": "34\" – 36\"",
         "color": "Sunshine Yellow",
         "price": 1149,
         "stock": 10,
         "sku": "RT-TRK-005-L-YLW"
+      },
+      {
+        "id": "rt-005-v4",
+        "size": "XL",
+        "chest": "44\" – 46\"",
+        "length": "30.5\"",
+        "shoulder": "20.5\"",
+        "waist": "36\" – 38\"",
+        "color": "Sunshine Yellow",
+        "price": 1149,
+        "stock": 8,
+        "sku": "RT-TRK-005-XL-YLW"
+      },
+      {
+        "id": "rt-005-v5",
+        "size": "XXL",
+        "chest": "46\" – 48\"",
+        "length": "31.5\"",
+        "shoulder": "21.5\"",
+        "waist": "38\" – 40\"",
+        "color": "Sunshine Yellow",
+        "price": 1199,
+        "stock": 5,
+        "sku": "RT-TRK-005-XXL-YLW"
       }
     ]
   },
@@ -328,8 +568,24 @@ const RIYAA_TRENDS_PRODUCTS = [
     ],
     "variants": [
       {
+        "id": "rt-006-v0",
+        "size": "XS",
+        "chest": "36\" – 38\"",
+        "length": "26.5\"",
+        "shoulder": "16.5\"",
+        "waist": "28\" – 30\"",
+        "color": "Multi Active",
+        "price": 899,
+        "stock": 12,
+        "sku": "RT-SHR-006-XS-ACT"
+      },
+      {
         "id": "rt-006-v1",
-        "size": "S (4-5 Yrs)",
+        "size": "S",
+        "chest": "38\" – 40\"",
+        "length": "27.5\"",
+        "shoulder": "17.5\"",
+        "waist": "30\" – 32\"",
         "color": "Multi Active",
         "price": 899,
         "stock": 18,
@@ -337,7 +593,11 @@ const RIYAA_TRENDS_PRODUCTS = [
       },
       {
         "id": "rt-006-v2",
-        "size": "M (6-7 Yrs)",
+        "size": "M",
+        "chest": "40\" – 42\"",
+        "length": "28.5\"",
+        "shoulder": "18.5\"",
+        "waist": "32\" – 34\"",
         "color": "Multi Active",
         "price": 899,
         "stock": 26,
@@ -345,11 +605,39 @@ const RIYAA_TRENDS_PRODUCTS = [
       },
       {
         "id": "rt-006-v3",
-        "size": "L (8-9 Yrs)",
+        "size": "L",
+        "chest": "42\" – 44\"",
+        "length": "29.5\"",
+        "shoulder": "19.5\"",
+        "waist": "34\" – 36\"",
         "color": "Multi Active",
         "price": 949,
         "stock": 15,
         "sku": "RT-SHR-006-L-ACT"
+      },
+      {
+        "id": "rt-006-v4",
+        "size": "XL",
+        "chest": "44\" – 46\"",
+        "length": "30.5\"",
+        "shoulder": "20.5\"",
+        "waist": "36\" – 38\"",
+        "color": "Multi Active",
+        "price": 949,
+        "stock": 11,
+        "sku": "RT-SHR-006-XL-ACT"
+      },
+      {
+        "id": "rt-006-v5",
+        "size": "XXL",
+        "chest": "46\" – 48\"",
+        "length": "31.5\"",
+        "shoulder": "21.5\"",
+        "waist": "38\" – 40\"",
+        "color": "Multi Active",
+        "price": 999,
+        "stock": 7,
+        "sku": "RT-SHR-006-XXL-ACT"
       }
     ]
   }
@@ -1258,6 +1546,8 @@ const INITIAL_SETTINGS = {
   "tagline": "Multi-Business Lifestyle & Craft Collective",
   "supportEmail": "care@limetree.in",
   "supportPhone": "+91 80 4920 1800",
+  "supportWhatsApp": "+91 98765 43210",
+  "supportHours": "Mon – Sat: 9:00 AM – 8:00 PM IST",
   "legalEntity": "Limetree Retail LLP (Sample Configuration)",
   "gstin": "33AABCL1234F1Z8",
   "registeredState": "Tamil Nadu",
