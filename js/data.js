@@ -73,7 +73,49 @@ const RIYAA_TRENDS_PRODUCTS = [
     "reviewsCount": 52,
     "hsnCode": "61091000",
     "images": [
-      "assets/riyaa-trends/IMG-20260222-WA0041.jpg"
+      "assets/riyaa-trends/IMG-20260222-WA0041.jpg",
+      "assets/riyaa-trends/rt001-front.jpg",
+      "assets/riyaa-trends/rt001-side.jpg",
+      "assets/riyaa-trends/rt001-back.jpg",
+      "assets/riyaa-trends/rt001-pant.jpg"
+    ],
+    "components": {
+      "fullOutfit": {
+        "id": "rt-001-full",
+        "title": "Full Coordinated Playwear Set",
+        "tamilTitle": "முழு ஆடை தொகுப்பு (Full Set)",
+        "badge": "2-Piece Set",
+        "image": "assets/riyaa-trends/IMG-20260222-WA0041.jpg",
+        "desc": "Complete activewear ensemble featuring the cartoon graphic tee paired with soft French terry joggers."
+      },
+      "top": {
+        "id": "rt-001-top",
+        "title": "Crewneck Graphic T-Shirt",
+        "tamilTitle": "மேல் பனியன் (Top / T-Shirt)",
+        "badge": "Combed Cotton Top",
+        "front": "assets/riyaa-trends/rt001-front.jpg",
+        "side": "assets/riyaa-trends/rt001-side.jpg",
+        "back": "assets/riyaa-trends/rt001-back.jpg",
+        "image": "assets/riyaa-trends/rt001-front.jpg",
+        "fabric": "240 GSM Ring-Spun Organic Cotton",
+        "desc": "'Focus On Big Boss' cartoon boy graphic, ribbed Lycra collar, and anti-shrink combed cotton."
+      },
+      "bottom": {
+        "id": "rt-001-bottom",
+        "title": "Tailored Playwear Joggers",
+        "tamilTitle": "கீழ் பேண்ட் (Pants / Trackpants)",
+        "badge": "French Terry Bottom",
+        "front": "assets/riyaa-trends/rt001-pant.jpg",
+        "image": "assets/riyaa-trends/rt001-pant.jpg",
+        "fabric": "280 GSM French Terry Cotton",
+        "desc": "Matching pastel yellow joggers with cheerful 'DO IT!' print, elastic drawstring waist, and rib cuffs."
+      }
+    },
+    "spin360": [
+      { "angle": 0, "img": "assets/riyaa-trends/rt001-front.jpg", "label": "0° Front View" },
+      { "angle": 90, "img": "assets/riyaa-trends/rt001-side.jpg", "label": "90° Right Profile" },
+      { "angle": 180, "img": "assets/riyaa-trends/rt001-back.jpg", "label": "180° Back View" },
+      { "angle": 270, "img": "assets/riyaa-trends/rt001-side.jpg", "label": "270° Left Profile" }
     ],
     "features": [
       "240 GSM 100% Combed Cotton",
@@ -170,7 +212,49 @@ const RIYAA_TRENDS_PRODUCTS = [
     "reviewsCount": 34,
     "hsnCode": "61091000",
     "images": [
-      "assets/riyaa-trends/IMG-20260222-WA0042.jpg"
+      "assets/riyaa-trends/IMG-20260222-WA0042.jpg",
+      "assets/riyaa-trends/rt002-front.jpg",
+      "assets/riyaa-trends/rt002-side.jpg",
+      "assets/riyaa-trends/rt002-back.jpg",
+      "assets/riyaa-trends/rt002-pant.jpg"
+    ],
+    "components": {
+      "fullOutfit": {
+        "id": "rt-002-full",
+        "title": "Sunshine Walk Coordinated Set",
+        "tamilTitle": "முழு ஆடை தொகுப்பு (Full Set)",
+        "badge": "2-Piece Playwear Set",
+        "image": "assets/riyaa-trends/IMG-20260222-WA0042.jpg",
+        "desc": "Complete sunshine yellow matching set featuring skateboard dino tee and Red Panda joggers."
+      },
+      "top": {
+        "id": "rt-002-top",
+        "title": "Dinosaur Skateboard Oversized Tee",
+        "tamilTitle": "மேல் பனியன் (Top / T-Shirt)",
+        "badge": "Oversized Cotton Tee",
+        "front": "assets/riyaa-trends/rt002-front.jpg",
+        "side": "assets/riyaa-trends/rt002-side.jpg",
+        "back": "assets/riyaa-trends/rt002-back.jpg",
+        "image": "assets/riyaa-trends/rt002-front.jpg",
+        "fabric": "100% Bio-Washed Combed Cotton",
+        "desc": "Skateboarding dinosaur graphic with drop shoulders, relaxed comfort collar, and vibrant mustard color."
+      },
+      "bottom": {
+        "id": "rt-002-bottom",
+        "title": "Red Panda Comfort Joggers",
+        "tamilTitle": "கீழ் பேண்ட் (Pants / Trackpants)",
+        "badge": "Coordinated Joggers",
+        "front": "assets/riyaa-trends/rt002-pant.jpg",
+        "image": "assets/riyaa-trends/rt002-pant.jpg",
+        "fabric": "Breathable French Terry",
+        "desc": "Mustard yellow joggers with 'Just A Boy Who Loves Red Pandas' graphic, soft waistband, and flexible cuffs."
+      }
+    },
+    "spin360": [
+      { "angle": 0, "img": "assets/riyaa-trends/rt002-front.jpg", "label": "0° Front View" },
+      { "angle": 90, "img": "assets/riyaa-trends/rt002-side.jpg", "label": "90° Right Profile" },
+      { "angle": 180, "img": "assets/riyaa-trends/rt002-back.jpg", "label": "180° Back View" },
+      { "angle": 270, "img": "assets/riyaa-trends/rt002-side.jpg", "label": "270° Left Profile" }
     ],
     "features": [
       "100% Bio-Washed Combed Cotton",
@@ -267,7 +351,49 @@ const RIYAA_TRENDS_PRODUCTS = [
     "reviewsCount": 42,
     "hsnCode": "61034200",
     "images": [
-      "assets/riyaa-trends/IMG-20260222-WA0043.jpg"
+      "assets/riyaa-trends/IMG-20260222-WA0043.jpg",
+      "assets/riyaa-trends/rt003-front.jpg",
+      "assets/riyaa-trends/rt003-side.jpg",
+      "assets/riyaa-trends/rt003-back.jpg",
+      "assets/riyaa-trends/rt003-pant.jpg"
+    ],
+    "components": {
+      "fullOutfit": {
+        "id": "rt-003-full",
+        "title": "Navy Sporty Active Tracksuit Set",
+        "tamilTitle": "முழு ஆடை தொகுப்பு (Full Set)",
+        "badge": "2-Piece Athletic Set",
+        "image": "assets/riyaa-trends/IMG-20260222-WA0043.jpg",
+        "desc": "Coordinated athletic outfit pairing anime martial-arts tee with deep navy bear graphic trackpants."
+      },
+      "top": {
+        "id": "rt-003-top",
+        "title": "Anime Hero Graphic Tee",
+        "tamilTitle": "மேல் பனியன் (Top / T-Shirt)",
+        "badge": "Combed Cotton Tee",
+        "front": "assets/riyaa-trends/rt003-front.jpg",
+        "side": "assets/riyaa-trends/rt003-side.jpg",
+        "back": "assets/riyaa-trends/rt003-back.jpg",
+        "image": "assets/riyaa-trends/rt003-front.jpg",
+        "fabric": "240 GSM Combed Ring-Spun Cotton",
+        "desc": "Naruto Uzumaki hero art in vibrant comic palette on deep navy bio-washed fabric."
+      },
+      "bottom": {
+        "id": "rt-003-bottom",
+        "title": "Navy French Terry Trackpants",
+        "tamilTitle": "கீழ் பேண்ட் (Pants / Trackpants)",
+        "badge": "French Terry Joggers",
+        "front": "assets/riyaa-trends/rt003-pant.jpg",
+        "image": "assets/riyaa-trends/rt003-pant.jpg",
+        "fabric": "320 GSM French Terry Cotton",
+        "desc": "Heavyweight French terry joggers with 'Fridauer Bear' graphic, elastic waist, and ribbed cuffs."
+      }
+    },
+    "spin360": [
+      { "angle": 0, "img": "assets/riyaa-trends/rt003-front.jpg", "label": "0° Front View" },
+      { "angle": 90, "img": "assets/riyaa-trends/rt003-side.jpg", "label": "90° Right Profile" },
+      { "angle": 180, "img": "assets/riyaa-trends/rt003-back.jpg", "label": "180° Back View" },
+      { "angle": 270, "img": "assets/riyaa-trends/rt003-side.jpg", "label": "270° Left Profile" }
     ],
     "features": [
       "320 GSM French Terry Cotton",
@@ -364,7 +490,46 @@ const RIYAA_TRENDS_PRODUCTS = [
     "reviewsCount": 29,
     "hsnCode": "61034200",
     "images": [
-      "assets/riyaa-trends/IMG-20260222-WA0044.jpg"
+      "assets/riyaa-trends/IMG-20260222-WA0044.jpg",
+      "assets/riyaa-trends/rt004-top.jpg",
+      "assets/riyaa-trends/IMG-20260222-WA0048.jpg",
+      "assets/riyaa-trends/rt004-pant.jpg"
+    ],
+    "components": {
+      "fullOutfit": {
+        "id": "rt-004-full",
+        "title": "Maroon Urban Performance Set",
+        "tamilTitle": "முழு ஆடை தொகுப்பு (Full Set)",
+        "badge": "2-Piece Jogger Set",
+        "image": "assets/riyaa-trends/IMG-20260222-WA0044.jpg",
+        "desc": "Deep maroon performance ensemble with bunny DJ tee and Bear Big Bro joggers."
+      },
+      "top": {
+        "id": "rt-004-top",
+        "title": "Imagine Bunny Graphic Tee",
+        "tamilTitle": "மேல் பனியன் (Top / T-Shirt)",
+        "badge": "Bio-Washed Tee",
+        "front": "assets/riyaa-trends/rt004-top.jpg",
+        "image": "assets/riyaa-trends/rt004-top.jpg",
+        "fabric": "240 GSM Combed Cotton",
+        "desc": "Artisan bunny DJ graphic with sunglasses on rich maroon cotton knit."
+      },
+      "bottom": {
+        "id": "rt-004-bottom",
+        "title": "Bear Big Bro Performance Joggers",
+        "tamilTitle": "கீழ் பேண்ட் (Pants / Trackpants)",
+        "badge": "Performance Terry",
+        "front": "assets/riyaa-trends/rt004-pant.jpg",
+        "image": "assets/riyaa-trends/rt004-pant.jpg",
+        "fabric": "300 GSM French Terry Cotton",
+        "desc": "Concealed side pockets, ribbed ankle cuffs, and high-density knee graphic."
+      }
+    },
+    "spin360": [
+      { "angle": 0, "img": "assets/riyaa-trends/rt004-top.jpg", "label": "0° Top Front" },
+      { "angle": 90, "img": "assets/riyaa-trends/IMG-20260222-WA0048.jpg", "label": "90° Dynamic Fit" },
+      { "angle": 180, "img": "assets/riyaa-trends/rt004-pant.jpg", "label": "180° Joggers View" },
+      { "angle": 270, "img": "assets/riyaa-trends/IMG-20260222-WA0044.jpg", "label": "270° Full Outfit" }
     ],
     "features": [
       "Anti-Pilling Terry Weave",
@@ -461,7 +626,45 @@ const RIYAA_TRENDS_PRODUCTS = [
     "reviewsCount": 21,
     "hsnCode": "61034200",
     "images": [
-      "assets/riyaa-trends/IMG-20260222-WA0047.jpg"
+      "assets/riyaa-trends/IMG-20260222-WA0047.jpg",
+      "assets/riyaa-trends/rt005-top.jpg",
+      "assets/riyaa-trends/rt005-pant.jpg"
+    ],
+    "components": {
+      "fullOutfit": {
+        "id": "rt-005-full",
+        "title": "Athletic Play Coordinated Set",
+        "tamilTitle": "முழு ஆடை தொகுப்பு (Full Set)",
+        "badge": "2-Piece Active Set",
+        "image": "assets/riyaa-trends/IMG-20260222-WA0047.jpg",
+        "desc": "Everyday active tracksuit with cartoon basketball tee and Super Dragon Ball joggers."
+      },
+      "top": {
+        "id": "rt-005-top",
+        "title": "Basketball Slam Dunk Tee",
+        "tamilTitle": "மேல் பனியன் (Top / T-Shirt)",
+        "badge": "Combed Cotton",
+        "front": "assets/riyaa-trends/rt005-top.jpg",
+        "image": "assets/riyaa-trends/rt005-top.jpg",
+        "fabric": "240 GSM 100% Combed Cotton",
+        "desc": "Vibrant basketball dunk artwork on navy breathable cotton."
+      },
+      "bottom": {
+        "id": "rt-005-bottom",
+        "title": "Super Dragon Ball Athletic Joggers",
+        "tamilTitle": "கீழ் பேண்ட் (Pants / Trackpants)",
+        "badge": "Athletic French Terry",
+        "front": "assets/riyaa-trends/rt005-pant.jpg",
+        "image": "assets/riyaa-trends/rt005-pant.jpg",
+        "fabric": "300 GSM French Terry",
+        "desc": "Dual utility pockets, anti-static bio-wash, and durable ankle cuffs."
+      }
+    },
+    "spin360": [
+      { "angle": 0, "img": "assets/riyaa-trends/rt005-top.jpg", "label": "0° Top View" },
+      { "angle": 90, "img": "assets/riyaa-trends/IMG-20260222-WA0047.jpg", "label": "90° Full Outfit" },
+      { "angle": 180, "img": "assets/riyaa-trends/rt005-pant.jpg", "label": "180° Joggers View" },
+      { "angle": 270, "img": "assets/riyaa-trends/rt005-top.jpg", "label": "270° Reversible Profile" }
     ],
     "features": [
       "Breathable Combed French Terry",
@@ -558,7 +761,46 @@ const RIYAA_TRENDS_PRODUCTS = [
     "reviewsCount": 48,
     "hsnCode": "62034200",
     "images": [
-      "assets/riyaa-trends/IMG-20260222-WA0055.jpg"
+      "assets/riyaa-trends/IMG-20260222-WA0055.jpg",
+      "assets/riyaa-trends/rt006-top.jpg",
+      "assets/riyaa-trends/rt006-pant.jpg",
+      "assets/riyaa-trends/IMG-20260222-WA0060.jpg"
+    ],
+    "components": {
+      "fullOutfit": {
+        "id": "rt-006-full",
+        "title": "Trampoline Play Shorts & Tees Set",
+        "tamilTitle": "முழு ஆடை தொகுப்பு (Full Set)",
+        "badge": "2-Piece Playwear Set",
+        "image": "assets/riyaa-trends/IMG-20260222-WA0055.jpg",
+        "desc": "Lightweight ripstop cotton active shorts matched with high-breathability tee."
+      },
+      "top": {
+        "id": "rt-006-top",
+        "title": "Lightweight Active Tee",
+        "tamilTitle": "மேல் பனியன் (Top / T-Shirt)",
+        "badge": "Breathable Active Tee",
+        "front": "assets/riyaa-trends/rt006-top.jpg",
+        "image": "assets/riyaa-trends/rt006-top.jpg",
+        "fabric": "Cooling Mesh Combed Cotton",
+        "desc": "Designed for free movement, high jumps, and playground agility."
+      },
+      "bottom": {
+        "id": "rt-006-bottom",
+        "title": "Ripstop Cotton Play Shorts",
+        "tamilTitle": "கீழ் பேண்ட் (Shorts / Pants)",
+        "badge": "Ripstop Play Shorts",
+        "front": "assets/riyaa-trends/rt006-pant.jpg",
+        "image": "assets/riyaa-trends/rt006-pant.jpg",
+        "fabric": "Tear-Resistant Ripstop Cotton",
+        "desc": "Stretchy flex waistband and comfort hem length."
+      }
+    },
+    "spin360": [
+      { "angle": 0, "img": "assets/riyaa-trends/rt006-top.jpg", "label": "0° Active Top" },
+      { "angle": 90, "img": "assets/riyaa-trends/IMG-20260222-WA0055.jpg", "label": "90° Dynamic Movement" },
+      { "angle": 180, "img": "assets/riyaa-trends/rt006-pant.jpg", "label": "180° Play Shorts" },
+      { "angle": 270, "img": "assets/riyaa-trends/IMG-20260222-WA0060.jpg", "label": "270° Play Friends View" }
     ],
     "features": [
       "Ripstop Cotton Active Shorts",

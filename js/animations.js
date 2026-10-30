@@ -15,7 +15,7 @@
   'use strict';
 
   // Check user motion preferences
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const prefersReducedMotion = false; // Always enabled for full luxury experience
 
   class LimetreeAnimations {
     constructor() {
@@ -180,6 +180,10 @@
       this.observeElements();
     }
 
+    bindAllProductHovers() {
+      document.querySelectorAll('.product-card').forEach(card => this.bindProductCardHover(card));
+    }
+
     observeElements(container = document) {
       if (!this.revealObserver) return;
 
@@ -277,19 +281,23 @@
     }
 
     // Desktop hover parallax on product cards across all 3 brands
+    // Desktop 3D magnetic gyroscopic tilt + specular glare on product cards
+    // Desktop smooth specular sheen & gentle elevation for product cards
     bindProductCardHover(card) {
-      if (this.isTouch || prefersReducedMotion) return;
-      if (card._hasParallaxHoverBound) return;
+      if (!card || card._hasParallaxHoverBound) return;
       card._hasParallaxHoverBound = true;
 
-      const img = card.querySelector('.product-image-container img');
-      if (!img) return;
+      // Add specular glare overlay if not present
+      let glare = card.querySelector('.card-specular-glare');
+      if (!glare) {
+        glare = document.createElement('div');
+        glare.className = 'card-specular-glare';
+        card.appendChild(glare);
+      }
 
-      let isHovering = false;
       let hoverTicking = false;
 
       const onMouseMove = (e) => {
-        if (!isHovering) isHovering = true;
         if (hoverTicking) return;
         hoverTicking = true;
 
@@ -299,25 +307,25 @@
             hoverTicking = false;
             return;
           }
-          // Normalized relative offset from card center (-0.5 to +0.5)
-          const relX = (e.clientX - rect.left) / rect.width - 0.5;
-          const relY = (e.clientY - rect.top) / rect.height - 0.5;
+          const relX = (e.clientX - rect.left) / rect.width;
+          const relY = (e.clientY - rect.top) / rect.height;
 
-          // Subtle, elegant movement (+/- 4px to +/- 5px max)
-          const hx = (relX * 9).toFixed(1);
-          const hy = (relY * 9).toFixed(1);
+          if (glare) {
+            const gx = (relX * 100).toFixed(1);
+            const gy = (relY * 100).toFixed(1);
+            glare.style.background = `radial-gradient(circle at ${gx}% ${gy}%, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0) 65%)`;
+            glare.style.opacity = '1';
+          }
 
-          img.style.setProperty('--hover-x', `${hx}px`);
-          img.style.setProperty('--hover-y', `${hy}px`);
           hoverTicking = false;
         });
       };
 
       const onMouseLeave = () => {
-        isHovering = false;
         hoverTicking = false;
-        img.style.setProperty('--hover-x', '0px');
-        img.style.setProperty('--hover-y', '0px');
+        if (glare) {
+          glare.style.opacity = '0';
+        }
       };
 
       card.addEventListener('mousemove', onMouseMove, { passive: true });
@@ -432,15 +440,8 @@
         const progress = (winHeight - rect.top) / (winHeight + rect.height);
         const centered = progress - 0.5; // -0.5 (bottom entrance) to +0.5 (top exit)
 
-        // 1. Product cards (Riyaa Trends, Glow Home, Earkart)
-        if (el.classList.contains('product-card')) {
-          const img = el.querySelector('.product-image-container img');
-          if (img) {
-            // Gentle travel without distorting crop or layout: +/-11px on desktop, +/-5px on mobile
-            const maxTravel = isMobile ? -10 : -22;
-            const offsetY = (centered * maxTravel).toFixed(1);
-            img.style.setProperty('--parallax-y', `${offsetY}px`);
-          }
+        // 1. Product cards: remain stable & crisp on scroll
+        if (el.classList.contains("product-card")) {
           return;
         }
 
@@ -765,18 +766,142 @@
       });
     }
 
-    // Button micro-interaction trigger
+    // ==================== "WOW" LUXURY BUTTON & PARTICLE ANIMATIONS ====================
+    // 1. Add to Cart: Success morph + Flying particle to header cart + Cart pop
+    playAddToCartAnimation(btn, event) {
+      if (!btn) return;
+
+      // 1. Success checkmark morph on button
+      const originalHtml = btn.innerHTML;
+      btn.classList.add('btn-cart-success');
+      btn.innerHTML = `<span class="cart-anim-check">✓</span> <span>Added to Bag!</span>`;
+
+      // 2. Flying Particle Arc towards Header Cart Icon
+      try {
+        const btnRect = btn.getBoundingClientRect();
+        const startX = btnRect.left + btnRect.width / 2;
+        const startY = btnRect.top + btnRect.height / 2;
+
+        const cartTarget = document.getElementById('headerOrdersCount') || 
+                           document.querySelector('.header-orders-btn') || 
+                           document.querySelector('.header-actions');
+
+        let targetX = window.innerWidth - 60;
+        let targetY = 30;
+
+        if (cartTarget) {
+          const targetRect = cartTarget.getBoundingClientRect();
+          targetX = targetRect.left + targetRect.width / 2;
+          targetY = targetRect.top + targetRect.height / 2;
+        }
+
+        const particle = document.createElement('div');
+        particle.className = 'flying-cart-particle';
+        particle.innerHTML = '🛍️';
+        particle.style.left = `${startX}px`;
+        particle.style.top = `${startY}px`;
+        particle.style.transform = 'translate(-50%, -50%) scale(1)';
+        document.body.appendChild(particle);
+
+        // Animate parabolic arc towards header
+        requestAnimationFrame(() => {
+          particle.style.transform = `translate(${targetX - startX}px, ${targetY - startY}px) scale(0.4)`;
+          particle.style.opacity = '0.7';
+
+          setTimeout(() => {
+            particle.remove();
+            this.bounceCartBadge();
+          }, 700);
+        });
+
+        // 3. Sparkle Confetti Burst around the button
+        this.spawnButtonSparks(startX, startY);
+      } catch (err) {
+        console.error('Animation particle error:', err);
+      }
+
+      // Restore button text after 1350ms
+      setTimeout(() => {
+        btn.innerHTML = originalHtml;
+        btn.classList.remove('btn-cart-success');
+      }, 1350);
+    }
+
+    // Bounce & ping the Cart Icon in site header
+    bounceCartBadge() {
+      const target = document.querySelector('.header-orders-btn') || document.getElementById('headerOrdersCount');
+      if (!target) return;
+      target.classList.remove('cart-bounce-ping');
+      void target.offsetWidth; // Trigger reflow
+      target.classList.add('cart-bounce-ping');
+      setTimeout(() => target.classList.remove('cart-bounce-ping'), 600);
+    }
+
+    // Sparkle particles shooting outward on Add-to-Cart
+    spawnButtonSparks(x, y) {
+      const colors = ['#C5E063', '#25D366', '#FFD700', '#5B7222'];
+      for (let i = 0; i < 8; i++) {
+        const spark = document.createElement('div');
+        spark.className = 'flying-cart-particle';
+        spark.style.width = '7px';
+        spark.style.height = '7px';
+        spark.style.background = colors[i % colors.length];
+        spark.style.boxShadow = `0 0 8px ${colors[i % colors.length]}`;
+        spark.style.left = `${x}px`;
+        spark.style.top = `${y}px`;
+        spark.style.zIndex = '999999';
+        document.body.appendChild(spark);
+
+        const angle = (i / 8) * Math.PI * 2;
+        const dist = 35 + Math.random() * 25;
+        const tx = Math.cos(angle) * dist;
+        const ty = Math.sin(angle) * dist;
+
+        requestAnimationFrame(() => {
+          spark.style.transform = `translate(${tx}px, ${ty}px) scale(0)`;
+          spark.style.opacity = '0';
+          setTimeout(() => spark.remove(), 600);
+        });
+      }
+    }
+
+    // Wishlist Heart Explosion with particle burst
+    popHeart(heartBtn) {
+      if (!heartBtn) return;
+      heartBtn.classList.add('heart-pop');
+      setTimeout(() => heartBtn.classList.remove('heart-pop'), 500);
+
+      const rect = heartBtn.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+
+      const symbols = ['♥', '✨', '💖', '★', '🌸', '♥'];
+      symbols.forEach((sym, idx) => {
+        const p = document.createElement('div');
+        p.className = 'heart-sparkle-particle';
+        p.textContent = sym;
+        p.style.color = (idx % 2 === 0) ? '#E53E3E' : '#D69E2E';
+        p.style.left = `${cx}px`;
+        p.style.top = `${cy}px`;
+        document.body.appendChild(p);
+
+        const angle = (idx / symbols.length) * Math.PI * 2;
+        const dist = 30 + Math.random() * 20;
+        const destX = Math.cos(angle) * dist;
+        const destY = Math.sin(angle) * dist - 15;
+
+        requestAnimationFrame(() => {
+          p.style.transform = `translate(${destX}px, ${destY}px) scale(1.3)`;
+          p.style.opacity = '0';
+          setTimeout(() => p.remove(), 650);
+        });
+      });
+    }
+
     pulseButton(btn) {
       if (!btn) return;
       btn.classList.add('btn-pulse');
       setTimeout(() => btn.classList.remove('btn-pulse'), 450);
-    }
-
-    // Wishlist heart pop trigger
-    popHeart(heartBtn) {
-      if (!heartBtn) return;
-      heartBtn.classList.add('heart-pop');
-      setTimeout(() => heartBtn.classList.remove('heart-pop'), 450);
     }
   }
 

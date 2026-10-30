@@ -447,22 +447,20 @@ class LimetreeStorefront {
       <div class="product-card reveal-card" data-product-id="${prod.id}" style="--stagger-i: ${idx % 8};">
         <div class="product-image-container" onclick="window.limetreeStore.openProductModal('${prod.id}')" style="cursor:pointer;">
           <img src="${firstImg}" alt="${prod.name}" loading="lazy" decoding="async" />
-          <div class="product-badge-group">
-            <span class="badge-brand">${business.name || 'Limetree'}</span>
-            ${hasDiscount ? `<span class="badge-sale">${discountPct}% OFF</span>` : ''}
-            ${isOutOfStock ? `<span class="badge-out-of-stock">Out of Stock</span>` : ''}
-          </div>
+          ${hasDiscount ? `<span class="badge-discount-chip"><span class="chip-spark">⚡</span> ${discountPct}% OFF</span>` : ''}
+          ${isOutOfStock ? `<span class="badge-stock-chip">Sold Out</span>` : ''}
           <button class="wishlist-btn ${isWishlisted ? 'active' : ''}" 
                   onclick="window.limetreeStore.toggleWishlist('${prod.id}', event)" 
                   title="Save to Wishlist">
             ♥
           </button>
-          <button class="quick-view-overlay-btn" onclick="event.stopPropagation(); window.limetreeStore.openProductModal('${prod.id}')">
-            Quick View
-          </button>
         </div>
         <div class="product-info">
-          <span class="product-category">${prod.category}</span>
+          <div class="product-meta-header">
+            <span class="product-brand-tag">${business.name || 'Limetree'}</span>
+            <span class="product-meta-dot">•</span>
+            <span class="product-category">${prod.category}</span>
+          </div>
           <h3 class="product-name" onclick="window.limetreeStore.openProductModal('${prod.id}')" style="cursor:pointer;" title="${prod.name}">
             ${prod.name}
           </h3>
@@ -481,7 +479,7 @@ class LimetreeStorefront {
           <button class="btn btn-primary product-card-action-btn" 
                   ${isOutOfStock ? 'disabled' : ''} 
                   onclick="window.limetreeStore.handleProductCardAction('${prod.id}', event)">
-            ${isOutOfStock ? 'Sold Out' : '🛒 Add to Cart'}
+            <span class="btn-cart-icon">🛒</span> <span class="btn-text">${isOutOfStock ? 'Sold Out' : 'Add to Cart'}</span>
           </button>
         </div>
       </div>
@@ -576,7 +574,7 @@ class LimetreeStorefront {
     if (event) event.stopPropagation();
     const btn = event ? (event.currentTarget || event.target) : null;
     if (btn && window.limetreeAnimations) {
-      window.limetreeAnimations.pulseButton(btn);
+      window.limetreeAnimations.playAddToCartAnimation(btn, event);
     }
     const prod = this.storage.getProductById(productId);
     if (!prod) return;
@@ -593,18 +591,20 @@ class LimetreeStorefront {
       });
       const varLabel = inStockVar.size || inStockVar.material || inStockVar.fragrance || 'Standard';
       this.showToast(`Added ${prod.name} (${varLabel}) to your bag!`, 'success');
-      this.openCartDrawer();
     } catch (err) {
       this.showToast(err.message || 'Could not add to cart.', 'error');
     }
   }
 
   // ==================== PRODUCT DETAIL / QUICK VIEW MODAL ====================
-  openProductModal(productId) {
+  openProductModal(productId, initialMode = 'gallery') {
     const prod = this.storage.getProductById(productId);
     if (!prod) return;
 
     this.activeProductModal = prod;
+    this.activeModalMode = initialMode;
+    this.loupeActive = false;
+
     const inStockVar = (prod.variants || []).find(v => v.stock > 0);
     this.selectedVariant = inStockVar || (prod.variants && prod.variants[0]) || null;
 
@@ -612,12 +612,17 @@ class LimetreeStorefront {
     const container = document.getElementById('quickViewModalBody');
     if (!modal || !container) return;
 
-    container.innerHTML = this.buildProductModalHtml(prod);
+    container.innerHTML = this.buildProductModalHtml(prod, initialMode);
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
     try {
       window.history.pushState({ quickViewModal: true }, '');
     } catch (e) {}
+
+    // Initialize interactive view based on initialMode
+    setTimeout(() => {
+      this.setupModalView(prod, initialMode);
+    }, 60);
 
     if (window.limetreeAnimations) {
       setTimeout(() => window.limetreeAnimations.bindModalParallax(), 50);
@@ -627,12 +632,13 @@ class LimetreeStorefront {
     if (dropdown) dropdown.classList.remove('active');
   }
 
-  buildProductModalHtml(prod) {
+  buildProductModalHtml(prod, initialMode = 'gallery') {
     const business = window.LIMETREE_BUSINESSES[prod.businessId] || {};
     const currentVar = this.selectedVariant;
     const currentPrice = currentVar ? currentVar.price : (prod.salePrice || prod.basePrice);
     const stockQty = currentVar ? currentVar.stock : 0;
     const isOutOfStock = stockQty <= 0;
+    const hasComponents = !!prod.components;
 
     // Related products from the same business
     const related = this.storage.getProducts({ businessId: prod.businessId })
@@ -640,31 +646,71 @@ class LimetreeStorefront {
       .slice(0, 3);
 
     return `
-      <div class="modal-top-actions" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-        <div style="display: flex; align-items: center; gap: 0.6rem;">
-          <a href="index.html" class="modal-back-btn modal-home-btn" onclick="window.limetreeStore.closeModal()" aria-label="LIMETREE Home" title="Return to Homepage" style="text-decoration: none;">
-            <img src="assets/logo-transparent.png" alt="LIMETREE" style="height: 20px; width: auto; mix-blend-mode: multiply; vertical-align: middle;" />
-            <span style="font-weight: 700;">Home</span>
-          </a>
-          <button type="button" class="modal-back-btn" onclick="window.limetreeStore.closeModal()" aria-label="Back to Products">
-            <span style="font-size: 1.15rem; line-height: 1;">&larr;</span> <span>Back to Products</span>
-          </button>
-        </div>
-        <div class="modal-top-breadcrumb" style="font-size: 0.82rem; color: var(--color-text-muted);">
-          <a href="index.html" onclick="window.limetreeStore.closeModal()" style="color: var(--color-leaf-green); font-weight: 600; text-decoration: none;">Home</a>
-          <span style="margin: 0 0.35rem; color: var(--color-border);">/</span>
-          <span>${business.name || 'Store'}</span>
-        </div>
+      <div class="modal-top-actions">
+        <button type="button" class="modal-back-btn" onclick="window.limetreeStore.closeModal()" aria-label="Back to Products">
+          <span style="font-size: 1.15rem; line-height: 1;">&larr;</span> <span>Back to Products</span>
+        </button>
       </div>
       <div class="product-detail-grid">
         <div class="gallery-col">
-          <div class="modal-gallery-wrap">
+          ${hasComponents ? `
+            <!-- INTERACTIVE STAGE MODE SELECTOR TABS -->
+            <div class="modal-view-mode-bar" role="tablist">
+              <button type="button" class="mode-tab-btn ${initialMode === 'gallery' ? 'active' : ''}" 
+                      id="modeTab-gallery" onclick="window.limetreeStore.switchModalMode('gallery')">
+                <span>📸</span> Photo Gallery
+              </button>
+              <button type="button" class="mode-tab-btn ${initialMode === 'pieces' ? 'active' : ''}" 
+                      id="modeTab-pieces" onclick="window.limetreeStore.switchModalMode('pieces')">
+                <span>👔</span> 2-Piece Breakdown
+              </button>
+            </div>
+          ` : ''}
+
+          <!-- 1. HIGH-RES PHOTO GALLERY WITH FABRIC LOUPE -->
+          <div class="modal-gallery-wrap gallery-zoom-container" id="modalGalleryWrap" style="display: block;">
+            <button type="button" class="loupe-toggle-pill" id="modalLoupeToggleBtn" onclick="window.limetreeStore.toggleFabricLoupe()" title="Toggle fabric weave magnifier">
+              <span>🔍</span> <span>Inspect Weave</span>
+            </button>
             <img id="modalMainImg" class="gallery-main-img" src="${prod.images[0]}" alt="${prod.name}" />
+            <div id="modalFabricLoupe" class="fabric-loupe-lens"></div>
           </div>
-          <div class="gallery-thumbs">
+
+          <!-- 4. 2-PIECE SET BREAKDOWN VIEW -->
+          ${hasComponents ? `
+            <div class="pieces-breakdown-container" id="modalPiecesContainer" style="${initialMode === 'pieces' ? 'display: block;' : 'display: none;'}">
+              <div class="pieces-grid">
+                <div class="piece-item-card active-piece" onclick="window.limetreeStore.inspectPiece('top')">
+                  <div class="piece-thumb-wrap">
+                    <img class="piece-thumb-img" src="${prod.components.top?.front || prod.images[1]}" alt="Top piece" />
+                  </div>
+                  <div class="piece-info-wrap">
+                    <div class="piece-tamil-badge">மேல் பனியன் (Top / T-Shirt)</div>
+                    <div class="piece-name">${prod.components.top?.title || 'Graphic T-Shirt'}</div>
+                    <div class="piece-fabric">${prod.components.top?.fabric || '240 GSM Combed Cotton'}</div>
+                    <button type="button" class="piece-view-btn">Inspect Weave 🔍</button>
+                  </div>
+                </div>
+                <div class="piece-item-card" onclick="window.limetreeStore.inspectPiece('bottom')">
+                  <div class="piece-thumb-wrap">
+                    <img class="piece-thumb-img" src="${prod.components.bottom?.front || prod.images[prod.images.length - 1]}" alt="Pants piece" />
+                  </div>
+                  <div class="piece-info-wrap">
+                    <div class="piece-tamil-badge">கீழ் பேண்ட் (Pants / Trackpants)</div>
+                    <div class="piece-name">${prod.components.bottom?.title || 'Joggers'}</div>
+                    <div class="piece-fabric">${prod.components.bottom?.fabric || 'French Terry Cotton'}</div>
+                    <button type="button" class="piece-view-btn">Inspect Weave 🔍</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ` : ''}
+
+          <!-- THUMBNAILS ROW -->
+          <div class="gallery-thumbs" id="modalGalleryThumbs" style="${initialMode === 'pieces' ? 'display: none;' : 'display: flex;'}">
             ${(prod.images || []).map((img, idx) => `
               <img class="gallery-thumb ${idx === 0 ? 'active' : ''}" src="${img}" alt="Thumbnail ${idx}" 
-                   onclick="window.limetreeStore.switchModalImg('${img}', this)" />
+                   data-img="${img}" onclick="window.limetreeStore.switchModalImg('${img}', this)" />
             `).join('')}
           </div>
         </div>
@@ -938,16 +984,106 @@ class LimetreeStorefront {
   }
 
   switchModalImg(src, thumbEl) {
+    // If in 3D or 360 mode, switch back to gallery
+    if (this.activeModalMode && this.activeModalMode !== 'gallery') {
+      this.switchModalMode('gallery');
+    }
+
     const mainImg = document.getElementById('modalMainImg');
     if (mainImg) {
       mainImg.classList.add('fade-out');
       setTimeout(() => {
         mainImg.src = src;
         mainImg.classList.remove('fade-out');
+        const loupe = document.getElementById('modalFabricLoupe');
+        if (loupe) loupe.style.backgroundImage = `url('${src}')`;
       }, 150);
     }
     document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
     if (thumbEl) thumbEl.classList.add('active');
+  }
+
+  // ==================== MODAL GALLERY & PIECES CONTROLLERS ====================
+  setupModalView(prod, mode = 'gallery') {
+    this.activeModalMode = mode;
+    this.initFabricLoupe();
+  }
+
+  switchModalMode(modeKey) {
+    this.activeModalMode = modeKey;
+    const prod = this.activeProductModal;
+    if (!prod) return;
+
+    // Update active tab button in segmented bar
+    document.querySelectorAll('.mode-tab-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.id === `modeTab-${modeKey}`);
+    });
+
+    const galleryWrap = document.getElementById('modalGalleryWrap');
+    const piecesWrap = document.getElementById('modalPiecesContainer');
+    const thumbsWrap = document.getElementById('modalGalleryThumbs');
+
+    if (galleryWrap) galleryWrap.style.display = (modeKey === 'gallery') ? 'block' : 'none';
+    if (piecesWrap) piecesWrap.style.display = (modeKey === 'pieces') ? 'block' : 'none';
+    if (thumbsWrap) thumbsWrap.style.display = (modeKey === 'pieces') ? 'none' : 'flex';
+  }
+
+  inspectPiece(pieceKey) {
+    const prod = this.activeProductModal;
+    if (!prod || !prod.components) return;
+    const piece = prod.components[pieceKey];
+    if (piece && piece.front) {
+      this.switchModalMode('gallery');
+      const mainImg = document.getElementById('modalMainImg');
+      if (mainImg) mainImg.src = piece.front;
+      const loupe = document.getElementById('modalFabricLoupe');
+      if (loupe) loupe.style.backgroundImage = `url('${piece.front}')`;
+      this.showToast(`Viewing ${piece.title || pieceKey} details`, 'info');
+    }
+  }
+
+  initFabricLoupe() {
+    const wrap = document.getElementById('modalGalleryWrap');
+    const img = document.getElementById('modalMainImg');
+    const loupe = document.getElementById('modalFabricLoupe');
+    if (!wrap || !img || !loupe) return;
+
+    loupe.style.backgroundImage = `url('${img.src}')`;
+
+    const onMouseMove = (e) => {
+      if (!this.loupeActive) return;
+      const rect = img.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      if (x < 0 || y < 0 || x > rect.width || y > rect.height) {
+        loupe.classList.remove('active');
+        return;
+      }
+
+      loupe.classList.add('active');
+      loupe.style.left = `${x}px`;
+      loupe.style.top = `${y}px`;
+
+      const zoomFactor = 2.4;
+      loupe.style.backgroundSize = `${rect.width * zoomFactor}px ${rect.height * zoomFactor}px`;
+      loupe.style.backgroundPosition = `-${x * zoomFactor - 70}px -${y * zoomFactor - 70}px`;
+    };
+
+    wrap.addEventListener('mousemove', onMouseMove);
+    wrap.addEventListener('mouseleave', () => {
+      if (loupe) loupe.classList.remove('active');
+    });
+  }
+
+  toggleFabricLoupe() {
+    this.loupeActive = !this.loupeActive;
+    const btn = document.getElementById('modalLoupeToggleBtn');
+    const loupe = document.getElementById('modalFabricLoupe');
+    if (btn) btn.classList.toggle('active', this.loupeActive);
+    if (!this.loupeActive && loupe) {
+      loupe.classList.remove('active');
+    }
   }
 
   selectVariant(variantId) {
@@ -1026,6 +1162,7 @@ class LimetreeStorefront {
     document.querySelectorAll('.variant-pill').forEach(p => {
       p.classList.toggle('active', p.getAttribute('onclick')?.includes(variantId));
     });
+
   }
 
   toggleModalSizeGuide() {

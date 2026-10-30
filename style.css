@@ -62,7 +62,7 @@
   --color-text-inverse: #FFFFFF;     /* Pure White for Contrast */
 
   /* Footer Theme */
-  --color-footer-bg: #FFFDF4;        /* Cream White */
+  --color-footer-bg: #FFFFFF;        /* Pure Clean White */
   --color-footer-text: #30351F;      /* Dark Olive */
 
   /* Natural Supporting Accents */
@@ -350,7 +350,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Floating Luxury Concierge & Helpline Widget */
+/* Floating Luxury Concierge & Helpline Widget with Sonar Radar Wave */
 .floating-helpline-widget {
   position: fixed;
   bottom: 1.5rem;
@@ -358,35 +358,40 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 998;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  filter: drop-shadow(0 8px 24px rgba(45, 65, 30, 0.2));
+  gap: 0.55rem;
+  filter: drop-shadow(0 8px 24px rgba(45, 65, 30, 0.22));
+  animation: conciergeFloat 3.6s ease-in-out infinite;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .floating-helpline-widget:hover {
-  transform: translateY(-3px);
+  animation-play-state: paused;
+  transform: translateY(-4px) scale(1.02);
 }
 
 .floating-helpline-btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: linear-gradient(150deg, #5B7222 0%, #46591A 100%);
+  background: linear-gradient(135deg, #5B7222 0%, #3F5218 100%);
   color: #FAF8F5;
-  padding: 0.65rem 1.15rem;
+  padding: 0.68rem 1.25rem;
   border-radius: var(--radius-pill);
   text-decoration: none;
   font-family: var(--font-body);
   font-size: 0.84rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.02em;
-  box-shadow: 0 4px 16px rgba(70, 89, 26, 0.3);
-  transition: all 0.25s ease;
+  box-shadow: 0 4px 18px rgba(70, 89, 26, 0.38);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: helplineRadar 2.8s infinite;
 }
 
 .floating-helpline-btn:hover {
-  background: linear-gradient(150deg, #6B8E23 0%, #52681E 100%);
+  background: linear-gradient(135deg, #6B8E23 0%, #4D641B 100%);
   color: #FFFFFF;
+  box-shadow: 0 6px 22px rgba(91, 114, 34, 0.5);
 }
 
 .floating-helpline-icon {
@@ -395,24 +400,60 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .floating-wa-btn {
-  width: 42px;
-  height: 42px;
+  position: relative;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: #25D366;
+  background: linear-gradient(135deg, #25D366 0%, #1DA851 100%);
   color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
-  font-size: 1.25rem;
-  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+  font-size: 1.3rem;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
   flex-shrink: 0;
+  animation: waRadar 2.8s 0.6s infinite;
 }
 
 .floating-wa-btn:hover {
-  transform: scale(1.08);
+  transform: scale(1.12);
+  box-shadow: 0 6px 22px rgba(37, 211, 102, 0.6);
   background: #20BA5A;
+}
+
+@keyframes helplineRadar {
+  0% {
+    box-shadow: 0 4px 18px rgba(70, 89, 26, 0.38), 0 0 0 0 rgba(107, 142, 35, 0.6);
+  }
+  70% {
+    box-shadow: 0 4px 18px rgba(70, 89, 26, 0.38), 0 0 0 16px rgba(107, 142, 35, 0);
+  }
+  100% {
+    box-shadow: 0 4px 18px rgba(70, 89, 26, 0.38), 0 0 0 0 rgba(107, 142, 35, 0);
+  }
+}
+
+@keyframes waRadar {
+  0% {
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.65);
+  }
+  70% {
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4), 0 0 0 16px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+@keyframes conciergeFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
 }
 
 @media (max-width: 600px) {
@@ -426,8 +467,8 @@ h1, h2, h3, h4, h5, h6 {
   .floating-helpline-btn {
     padding: 0.65rem;
     border-radius: 50%;
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     justify-content: center;
   }
 }
@@ -501,17 +542,66 @@ h1, h2, h3, h4, h5, h6 {
    - The top navigation bar is 100% transparent and seamlessly integrated into the canvas
    - Scoped strictly to Desktop & Laptop screens; Phone screens retain their dedicated mobile layout
    ================================================================================================== */
+/* ==================== LIVING BOTANICAL FULL-BACKGROUND CANVAS (PHONE & DESKTOP) ====================
+   Pure single seamless background canvas. No photo boxes. No cutouts.
+   The leaves in the background sway naturally in place with an organic breeze on BOTH Phone & Desktop.
+   =================================================================================================== */
+body.home-page {
+  background-color: #FFFFFF;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.botanical-full-bg {
+  position: fixed;
+  top: -4%;
+  left: -4%;
+  width: 108%;
+  height: 108%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  display: block !important;
+}
+
+.botanical-sway-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Mobile-first: dedicated mobile botanical background */
+  background-image: url('assets/homepage-botanical-bg-mobile.jpg');
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  will-change: transform;
+  filter: url('#botanicalBreezeWave');
+  animation: naturalLeafSwayFull 9s ease-in-out infinite alternate;
+}
+
+.botanical-vignette-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse 85% 72% at 50% 50%, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.94) 30%, rgba(255, 255, 255, 0.6) 55%, rgba(255, 255, 255, 0) 85%);
+  pointer-events: none;
+}
+
 @media (min-width: 769px) {
   body.home-page {
     background-color: #FFFFFF;
-    background-image:
-      radial-gradient(ellipse 75% 68% at 50% 50%, #FFFFFF 0%, #FFFFFF 36%, rgba(255, 255, 255, 0.96) 52%, rgba(255, 255, 255, 0.45) 72%, rgba(255, 255, 255, 0) 90%),
-      url('assets/homepage-botanical-bg.jpg');
-    background-position: center top;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    min-height: 100vh;
+  }
+
+  .botanical-sway-layer {
+    background-image: url('assets/homepage-botanical-bg.jpg');
+  }
+
+  .botanical-vignette-layer {
+    background: radial-gradient(ellipse 75% 68% at 50% 50%, #FFFFFF 0%, #FFFFFF 36%, rgba(255, 255, 255, 0.96) 52%, rgba(255, 255, 255, 0.45) 72%, rgba(255, 255, 255, 0) 90%);
   }
 
   .home-page .site-header {
@@ -1543,46 +1633,201 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-/* Botanical Leaf Framing (Integrated with High-Res Background) */
+/* ==================== BOTANICAL LEAF FRAMING & SWAY ANIMATIONS ====================
+   Lush, realistic, organic wind breeze: corner branches gently sway, flex, and rustle.
+   Each corner moves with an independent cycle and transform origin.
+   ================================================================================== */
 .nature-leaf-corner {
   position: absolute;
   pointer-events: none;
-  mix-blend-mode: multiply;
-  z-index: 1;
+  z-index: 2;
   user-select: none;
-  opacity: 0;
-  display: none;
-  transition: opacity 0.4s ease, transform 0.24s cubic-bezier(0.16, 1, 0.3, 1);
-  transform: translate3d(0, var(--parallax-y, 0px), 0);
+  opacity: 0.96 !important;
+  display: block !important;
   will-change: transform;
+  filter: drop-shadow(0 4px 18px rgba(45, 65, 30, 0.08));
 }
 
 .nature-leaf-tl {
   top: 0;
   left: 0;
-  width: 320px;
-  max-width: 25vw;
+  width: 440px;
+  max-width: 28vw;
+  transform-origin: 0% 0%;
+  animation: leafWindSwayTL 7.2s cubic-bezier(0.42, 0, 0.58, 1) infinite alternate;
 }
 
 .nature-leaf-tr {
   top: 0;
   right: 0;
-  width: 340px;
-  max-width: 26vw;
+  width: 460px;
+  max-width: 30vw;
+  transform-origin: 100% 0%;
+  animation: leafWindSwayTR 8.5s cubic-bezier(0.42, 0, 0.58, 1) infinite alternate;
 }
 
 .nature-leaf-bl {
   bottom: 0;
   left: 0;
-  width: 175px;
-  max-width: 15vw;
+  width: 230px;
+  max-width: 16vw;
+  transform-origin: 0% 100%;
+  animation: leafWindSwayBL 9.4s cubic-bezier(0.42, 0, 0.58, 1) infinite alternate;
 }
 
 .nature-leaf-br {
   bottom: 0;
   right: 0;
-  width: 180px;
-  max-width: 15vw;
+  width: 230px;
+  max-width: 16vw;
+  transform-origin: 100% 100%;
+  animation: leafWindSwayBR 7.8s cubic-bezier(0.42, 0, 0.58, 1) infinite alternate;
+}
+
+/* Ambient Floating Breeze Leaves */
+.ambient-wind-leaves {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.wind-leaf {
+  position: absolute;
+  top: -40px;
+  width: 24px;
+  height: 24px;
+  background-image: url('assets/card-botanical-leaf.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.55;
+  filter: drop-shadow(0 2px 6px rgba(54, 83, 20, 0.15));
+  will-change: transform, opacity;
+  animation: windLeafFall linear infinite;
+}
+
+.leaf-item-1 { left: 8%; animation-duration: 14s; animation-delay: 0s; width: 22px; height: 22px; }
+.leaf-item-2 { left: 24%; animation-duration: 18s; animation-delay: 3.5s; width: 18px; height: 18px; opacity: 0.4; }
+.leaf-item-3 { left: 45%; animation-duration: 16s; animation-delay: 7s; width: 26px; height: 26px; opacity: 0.6; }
+.leaf-item-4 { left: 68%; animation-duration: 19s; animation-delay: 1.5s; width: 20px; height: 20px; opacity: 0.45; }
+.leaf-item-5 { left: 85%; animation-duration: 15s; animation-delay: 5s; width: 24px; height: 24px; opacity: 0.5; }
+.leaf-item-6 { left: 92%; animation-duration: 21s; animation-delay: 9s; width: 19px; height: 19px; opacity: 0.35; }
+
+@keyframes botanicalBackgroundBreeze {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0) rotate(0deg);
+  }
+  28% {
+    transform: scale(1.022) translate3d(-8px, 5px, 0) rotate(0.35deg);
+  }
+  62% {
+    transform: scale(1.015) translate3d(6px, -4px, 0) rotate(-0.3deg);
+  }
+  100% {
+    transform: scale(1.028) translate3d(-5px, 7px, 0) rotate(0.4deg);
+  }
+}
+
+@keyframes leafWindSwayTL {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0) skewX(0deg);
+  }
+  24% {
+    transform: rotate(3deg) translate3d(7px, 3px, 0) skewX(-1.2deg);
+  }
+  58% {
+    transform: rotate(-2.2deg) translate3d(-4px, 6px, 0) skewX(0.8deg);
+  }
+  82% {
+    transform: rotate(3.8deg) translate3d(10px, 2px, 0) skewX(-1.4deg);
+  }
+  100% {
+    transform: rotate(0.8deg) translate3d(2px, 4px, 0) skewX(-0.3deg);
+  }
+}
+
+@keyframes leafWindSwayTR {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0) skewX(0deg);
+  }
+  28% {
+    transform: rotate(-3.4deg) translate3d(-8px, 4px, 0) skewX(1.3deg);
+  }
+  62% {
+    transform: rotate(2.4deg) translate3d(5px, 7px, 0) skewX(-0.9deg);
+  }
+  84% {
+    transform: rotate(-3.9deg) translate3d(-10px, 2px, 0) skewX(1.6deg);
+  }
+  100% {
+    transform: rotate(-1deg) translate3d(-3px, 5px, 0) skewX(0.4deg);
+  }
+}
+
+@keyframes leafWindSwayBL {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0) skewX(0deg);
+  }
+  32% {
+    transform: rotate(-2.6deg) translate3d(6px, -6px, 0) skewX(1deg);
+  }
+  68% {
+    transform: rotate(2.2deg) translate3d(-4px, -3px, 0) skewX(-0.7deg);
+  }
+  100% {
+    transform: rotate(-3.2deg) translate3d(8px, -8px, 0) skewX(1.2deg);
+  }
+}
+
+@keyframes leafWindSwayBR {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0) scale(1);
+  }
+  30% {
+    transform: rotate(3.2deg) translate3d(-7px, -5px, 0) scale(1.015);
+  }
+  65% {
+    transform: rotate(-2deg) translate3d(4px, -3px, 0) scale(0.992);
+  }
+  100% {
+    transform: rotate(3.8deg) translate3d(-9px, -7px, 0) scale(1.02);
+  }
+}
+
+@keyframes windLeafFall {
+  0% {
+    transform: translate3d(0, -30px, 0) rotate(0deg) rotateY(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  30% {
+    transform: translate3d(25px, 28vh, 0) rotate(80deg) rotateY(180deg);
+  }
+  55% {
+    transform: translate3d(-15px, 55vh, 0) rotate(190deg) rotateY(360deg);
+  }
+  80% {
+    transform: translate3d(30px, 82vh, 0) rotate(290deg) rotateY(540deg);
+    opacity: 0.55;
+  }
+  100% {
+    transform: translate3d(10px, 108vh, 0) rotate(380deg) rotateY(720deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .nature-leaf-tl { width: 170px; max-width: 38vw; }
+  .nature-leaf-tr { width: 180px; max-width: 40vw; }
+  .nature-leaf-bl { width: 110px; max-width: 25vw; }
+  .nature-leaf-br { width: 110px; max-width: 25vw; }
+  .ambient-wind-leaves { display: none; }
 }
 
 .nature-hero-container {
@@ -1692,25 +1937,18 @@ h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
-.nature-hero-section .nature-brand-card:nth-child(1) {
-  animation: heroCardEntrance 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+/* Smooth static load - No jumping, bouncing, or leaping on page load */
+.nature-hero-section .nature-brand-card {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none;
 }
-.nature-hero-section .nature-brand-card:nth-child(2) {
-  animation: heroCardEntrance 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
-}
+.nature-hero-section .nature-brand-card:nth-child(1),
+.nature-hero-section .nature-brand-card:nth-child(2),
 .nature-hero-section .nature-brand-card:nth-child(3) {
-  animation: heroCardEntrance 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.32s both;
-}
-
-@keyframes heroCardEntrance {
-  from {
-    opacity: 0;
-    transform: translateY(28px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none;
 }
 
 /* Lift on hover with deep subtle shadow */
@@ -2189,19 +2427,15 @@ h1, h2, h3, h4, h5, h6 {
     display: none !important;
   }
 
-  /* Compact hero section with clean spacing & dedicated mobile botanical background */
+  /* Compact hero section with clean spacing - transparent to let animated background sway through */
   .nature-hero-section {
     padding: 0.6rem 0.5rem 1.4rem 0.5rem;
     min-height: calc(100vh - 3.8rem);
     max-width: 100vw;
     overflow: hidden;
     justify-content: center;
-    background-image:
-      url('assets/homepage-botanical-bg-mobile.jpg'),
-      radial-gradient(ellipse 90% 65% at 50% 25%, #FDFBF7 0%, #F9F6ED 45%, #F3EFE2 75%, #E9E5D2 100%);
-    background-position: center top;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: transparent !important;
+    background-image: none !important;
   }
 
   /* Foliage sizing to strictly eliminate horizontal overflow */
@@ -3389,76 +3623,72 @@ h1, h2, h3, h4, h5, h6 {
 .product-image-container {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1 / 1.06;
   background: var(--color-bg-surface);
   border-bottom: 1px solid var(--color-border-subtle);
   overflow: hidden;
+  border-top-left-radius: var(--radius-sm);
+  border-top-right-radius: var(--radius-sm);
 }
 
 .product-image-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
   display: block;
-  /* Base scale (1.08) creates a subtle bleed margin to prevent edge clipping during parallax scroll */
-  transform: scale(1.08) translate3d(var(--hover-x, 0px), calc(var(--parallax-y, 0px) + var(--hover-y, 0px)), 0);
-  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Base scale creates a subtle bleed margin to prevent edge clipping during parallax scroll */
+  transform: scale(1.04) translate3d(var(--hover-x, 0px), calc(var(--parallax-y, 0px) + var(--hover-y, 0px)), 0);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
 }
 
 .product-card:hover .product-image-container img {
   /* Subtle luxury zoom + hover parallax + scroll parallax */
-  transform: scale(1.12) translate3d(var(--hover-x, 0px), calc(var(--parallax-y, 0px) + var(--hover-y, 0px)), 0);
-  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(1.09) translate3d(var(--hover-x, 0px), calc(var(--parallax-y, 0px) + var(--hover-y, 0px)), 0);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.product-badge-group {
+/* Elegant Minimalist Corner Chips - Never obscures the garment or kid's model */
+.badge-discount-chip {
   position: absolute;
-  top: 0.85rem;
-  left: 0.85rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
+  top: 0.75rem;
+  left: 0.75rem;
   z-index: 3;
-}
-
-.badge-brand {
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-size: 0.70rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
   padding: 0.25rem 0.65rem;
   border-radius: var(--radius-pill);
-  background: var(--color-primary-subtle);
-  backdrop-filter: blur(4px);
-  color: var(--color-primary);
-  border: 1px solid var(--color-border);
+  background: linear-gradient(135deg, #78A82A 0%, #4D7318 100%);
+  color: #FFFFFF;
+  box-shadow: 0 3px 10px rgba(77, 115, 24, 0.35);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  pointer-events: none;
 }
 
-.badge-out-of-stock {
-  font-size: 0.68rem;
+.badge-stock-chip {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 3;
+  font-size: 0.70rem;
   font-weight: 700;
   text-transform: uppercase;
   padding: 0.25rem 0.65rem;
   border-radius: var(--radius-pill);
   background: var(--color-danger);
   color: #FFFFFF;
+  pointer-events: none;
 }
 
-.badge-sale {
-  font-size: 0.68rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 0.25rem 0.65rem;
-  border-radius: var(--radius-pill);
-  background: var(--color-accent-lime);
-  color: var(--color-primary-dark);
-}
 
 .wishlist-btn {
   position: absolute;
-  top: 0.85rem;
-  right: 0.85rem;
+  top: 0.75rem;
+  right: 0.75rem;
   width: 2.3rem;
   height: 2.3rem;
   background: rgba(255, 253, 244, 0.94);
@@ -3515,13 +3745,37 @@ h1, h2, h3, h4, h5, h6 {
   flex: 1;
 }
 
-.product-category {
-  font-size: 0.75rem;
+.product-meta-header {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
+  flex-wrap: wrap;
+}
+
+.product-brand-tag {
   color: var(--color-leaf-green);
+  background: rgba(91, 114, 34, 0.1);
+  padding: 0.12rem 0.5rem;
+  border-radius: var(--radius-pill);
+  font-weight: 800;
+}
+
+.product-meta-dot {
+  color: var(--color-text-light);
+  font-size: 0.6rem;
+}
+
+.product-category {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
   font-weight: 600;
-  margin-bottom: 0.25rem;
 }
 
 .product-name {
@@ -3589,9 +3843,10 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius-xs);
 }
 
+/* Product Card Action Button: Full-width 🛒 Add to Cart */
 .product-card-action-btn {
   width: 100%;
-  padding: 0.65rem 1rem;
+  padding: 0.65rem 0.95rem;
   font-size: 0.86rem;
   font-weight: 600;
   border-radius: var(--radius-pill);
@@ -3599,15 +3854,24 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
+  white-space: nowrap;
   background: var(--color-btn-primary);
   color: #FFFFFF;
   border: 1px solid var(--color-btn-primary);
   transition: all var(--transition-fast);
+  cursor: pointer;
+  box-sizing: border-box;
 }
 
 .product-card-action-btn:hover {
   background: var(--color-btn-hover);
   border-color: var(--color-btn-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(70, 89, 26, 0.35);
+}
+
+.product-card-action-btn:active {
+  transform: scale(0.97);
 }
 
 .product-card-action-btn:disabled {
@@ -3820,6 +4084,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .home-page .site-footer {
   margin-top: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.88) 100%) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(221, 231, 183, 0.45);
+  position: relative;
+  z-index: 2;
 }
 
 .footer-grid {
@@ -5018,35 +5288,7 @@ body.scroll-animate-ready .reveal-slide-right.is-revealed {
 }
 
 /* Reduced Motion Preference Accessibility */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-  .hero-floating-card {
-    animation: none !important;
-  }
-  body.scroll-animate-ready .reveal-fade,
-  body.scroll-animate-ready .reveal-slide-up,
-  body.scroll-animate-ready .reveal-slide-left,
-  body.scroll-animate-ready .reveal-slide-right,
-  body.scroll-animate-ready .reveal-stagger > *,
-  body.scroll-animate-ready .product-card,
-  body.scroll-animate-ready .order-card,
-  .nature-hero-header,
-  .nature-brand-card,
-  .nature-leaf-corner,
-  .btn,
-  .action-btn,
-  .badge-count {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-    animation: none !important;
-  }
-}
+/* Motion enabled */
 
 /* ==================== RESPONSIVE BREAKPOINTS ==================== */
 @media (max-width: 1200px) {
@@ -6747,30 +6989,805 @@ body.scroll-animate-ready .product-card.reveal-card.is-revealed {
 }
 
 /* Prefers Reduced Motion Accessibility Compliance */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-  .reveal-slide-up, .reveal-fade, .reveal-slide-left, .reveal-slide-right, .reveal-scale,
-  .reveal-stagger > *, .product-card.reveal-card {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-  .hero-main-img, .editorial-showcase-img, [data-parallax], .brand-parallax-deco,
-  .nature-leaf-corner, .card-arch-img, .card-badge-circle, .gallery-main-img,
-  .product-image-container img {
-    transform: none !important;
-    transition: none !important;
-  }
-}
+/* Motion enabled */
 
 /* Ensure mobile scroll restorations never cause unwanted animated page movement */
 @media (max-width: 768px) {
   html {
     scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   3D / 360° INTERACTIVE GARMENT TURNTABLE & COMPONENT PIECE VIEWER
+   ========================================================================== */
+
+/* Product Card 360 Badge & Overlay Buttons */
+.badge-360 {
+  background: linear-gradient(135deg, #2D5A27, #4A7C3F);
+  color: #FFFFFF;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.22rem 0.6rem;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  box-shadow: 0 2px 6px rgba(45, 90, 39, 0.25);
+}
+
+.product-overlay-actions {
+  position: absolute;
+  bottom: 0.9rem;
+  left: 0.9rem;
+  right: 0.9rem;
+  display: flex;
+  gap: 0.45rem;
+  z-index: 4;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-card:hover .product-overlay-actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.quick-360-overlay-btn {
+  flex: 1;
+  background: rgba(30, 41, 31, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  transition: all 0.2s ease;
+}
+
+.quick-360-overlay-btn:hover {
+  background: var(--color-leaf-green);
+  color: #FFFFFF;
+  border-color: var(--color-leaf-green);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(45, 90, 39, 0.35);
+}
+
+/* Modal Component Switcher Tabs */
+.modal-component-tabs-bar {
+  display: flex;
+  gap: 0.45rem;
+  padding: 0.35rem;
+  background: #F1F4EE;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(45, 90, 39, 0.12);
+  margin-bottom: 0.85rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.modal-component-tabs-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.component-tab-btn {
+  flex: 1;
+  white-space: nowrap;
+  background: transparent;
+  border: none;
+  padding: 0.55rem 0.95rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.component-tab-btn:hover {
+  color: var(--color-primary-dark);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.component-tab-btn.active {
+  background: #FFFFFF;
+  color: var(--color-leaf-green);
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.component-tab-btn.tab-360-special.active {
+  background: linear-gradient(135deg, #2D5A27, #3D7234);
+  color: #FFFFFF;
+  box-shadow: 0 3px 10px rgba(45, 90, 39, 0.3);
+}
+
+
+/* Piece-by-Piece Coordinated Set Breakdown Section */
+.outfit-pieces-breakdown {
+  margin: 1.4rem 0;
+  padding: 1.2rem;
+  background: #F9FAF7;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.outfit-pieces-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.outfit-pieces-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.outfit-pieces-sub {
+  font-size: 0.76rem;
+  color: var(--color-leaf-green);
+  font-weight: 600;
+}
+
+.pieces-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+}
+
+.piece-item-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.piece-item-card:hover {
+  border-color: var(--color-leaf-green);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+}
+
+.piece-item-card.active-piece {
+  border-color: var(--color-leaf-green);
+  background: #F4F8F1;
+  box-shadow: 0 0 0 1px var(--color-leaf-green);
+}
+
+.piece-thumb-wrap {
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+  background: var(--color-bg-base);
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.piece-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.piece-info-wrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.piece-tamil-badge {
+  font-size: 0.70rem;
+  font-weight: 700;
+  color: var(--color-leaf-green);
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+
+.piece-name {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.25;
+}
+
+.piece-fabric {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  margin-top: 0.2rem;
+}
+
+.piece-view-btn {
+  background: transparent;
+  border: 1px solid rgba(45, 90, 39, 0.2);
+  color: var(--color-leaf-green);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.22rem 0.55rem;
+  border-radius: var(--radius-pill);
+  margin-top: 0.4rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.piece-view-btn:hover {
+  background: var(--color-leaf-green);
+  color: #FFFFFF;
+}
+
+/* Fabric Zoom / Loupe Lens */
+.gallery-zoom-container {
+  position: relative;
+  overflow: hidden;
+  cursor: crosshair;
+}
+
+.fabric-loupe-lens {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), inset 0 0 10px rgba(0,0,0,0.15);
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.8);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  background-repeat: no-repeat;
+  z-index: 10;
+}
+
+.fabric-loupe-lens.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.loupe-toggle-pill {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-main);
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.74rem;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.18s ease;
+}
+
+.loupe-toggle-pill:hover, .loupe-toggle-pill.active {
+  background: var(--color-leaf-green);
+  color: #FFFFFF;
+  border-color: var(--color-leaf-green);
+}
+
+/* Thumbnails with contextual angle badges */
+.gallery-thumb-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.thumb-angle-label {
+  position: absolute;
+  bottom: 3px;
+  left: 2px;
+  right: 2px;
+  background: rgba(30, 41, 31, 0.85);
+  color: #FFFFFF;
+  font-size: 0.60rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 1px 0;
+  border-radius: 2px;
+  pointer-events: none;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* ==================== 3D MODEL STUDIO & TURNTABLE SUITE ==================== */
+.modal-view-mode-bar {
+  display: flex;
+  gap: 0.45rem;
+  padding: 0.35rem;
+  background: #F1F4EE;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(45, 90, 39, 0.12);
+  margin-bottom: 0.95rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.modal-view-mode-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.mode-tab-btn {
+  flex: 1;
+  white-space: nowrap;
+  background: transparent;
+  border: none;
+  padding: 0.55rem 0.95rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mode-tab-btn:hover {
+  color: var(--color-primary-dark);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.mode-tab-btn.active {
+  background: #FFFFFF;
+  color: var(--color-leaf-green);
+  font-weight: 700;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ==================== "WOW" LUXURY ANIMATIONS ==================== */
+/* 1. Specular Glare Overlay for 3D Magnetic Card Hover */
+.card-specular-glare {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  mix-blend-mode: overlay;
+}
+
+.product-card:hover .card-specular-glare {
+  opacity: 1;
+}
+
+/* 2. Add to Cart Button Success Transformation */
+.btn-cart-success {
+  background: linear-gradient(135deg, #25D366 0%, #17A34A 100%) !important;
+  border-color: #17A34A !important;
+  color: #FFFFFF !important;
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45) !important;
+  animation: buttonSuccessPulse 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes buttonSuccessPulse {
+  0% { transform: scale(0.94); }
+  60% { transform: scale(1.08); }
+  100% { transform: scale(1.03); }
+}
+
+.cart-anim-check {
+  display: inline-block;
+  font-weight: 900;
+  animation: checkPop 0.35s ease;
+}
+
+@keyframes checkPop {
+  0% { transform: scale(0); opacity: 0; }
+  70% { transform: scale(1.4); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* 3. Flying Item Arc Particle */
+.flying-cart-particle {
+  position: fixed;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #C5E063, #5B7222);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  box-shadow: 0 4px 14px rgba(91, 114, 34, 0.5), 0 0 12px rgba(197, 224, 99, 0.8);
+  pointer-events: none;
+  z-index: 99999;
+  transition: transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.75s ease;
+}
+
+/* 4. Cart Icon Bounce & Ping in Header */
+.cart-bounce-ping {
+  animation: cartPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+@keyframes cartPop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.5) rotate(-8deg); }
+  70% { transform: scale(0.9) rotate(4deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* 5. Heart Fireworks Particles */
+.heart-sparkle-particle {
+  position: fixed;
+  font-size: 14px;
+  pointer-events: none;
+  z-index: 99999;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.65s ease;
+}
+
+/* Mobile responsive refinements */
+@media (max-width: 640px) {
+  .product-overlay-actions {
+    display: none !important;
+  }
+  .product-card-action-btn {
+    width: 100% !important;
+    padding: 0.55rem 0.5rem !important;
+    font-size: 0.80rem !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+  }
+  .product-image-container {
+    aspect-ratio: 1 / 1.10;
+  }
+}
+
+
+/* ==========================================================================
+   LIMETREE MASTER LUXURY ANIMATION & INTERACTION SUITE
+   - Ultra-smooth, hardware-accelerated, natural luxury feel
+   - Clean proximity zoom & elevation without aggressive displacement
+   - Pure CSS reliability + micro-interactions
+   ========================================================================== */
+
+/* Universal Product Card Elevation */
+.product-card,
+body.scroll-animate-ready .product-card,
+body.scroll-animate-ready .product-card.reveal-card,
+body.scroll-animate-ready .product-card.reveal-card.is-revealed {
+  position: relative !important;
+  background: var(--color-bg-card, #FFFFFF) !important;
+  border: 1px solid rgba(77, 115, 24, 0.14) !important;
+  border-radius: var(--radius-md, 14px) !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 18px -4px rgba(45, 90, 39, 0.08), 0 1px 3px rgba(0, 0, 0, 0.03) !important;
+  transition: transform 0.42s cubic-bezier(0.2, 0.8, 0.2, 1),
+              box-shadow 0.42s cubic-bezier(0.2, 0.8, 0.2, 1),
+              border-color 0.3s ease !important;
+  will-change: transform, box-shadow;
+}
+
+/* Subtle, Classy Elevation on Hover */
+.product-card:hover,
+body.scroll-animate-ready .product-card:hover,
+body.scroll-animate-ready .product-card.reveal-card:hover,
+body.scroll-animate-ready .product-card.reveal-card.is-revealed:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 22px 45px -10px rgba(45, 90, 39, 0.20), 0 0 0 1px rgba(77, 115, 24, 0.32) !important;
+  border-color: rgba(77, 115, 24, 0.50) !important;
+}
+
+/* Image Container & Specular Sunlight Sheen */
+.product-image-container {
+  position: relative !important;
+  width: 100% !important;
+  aspect-ratio: 1 / 1.06 !important;
+  background: #F7F9F5 !important;
+  overflow: hidden !important;
+  border-top-left-radius: var(--radius-md, 14px) !important;
+  border-top-right-radius: var(--radius-md, 14px) !important;
+}
+
+/* Specular diagonal sunlight gleam on hover */
+.product-image-container::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -130% !important;
+  width: 70% !important;
+  height: 100% !important;
+  background: linear-gradient(
+    105deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.32) 50%,
+    rgba(255, 255, 255, 0) 100%
+  ) !important;
+  transform: skewX(-22deg) !important;
+  transition: left 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  pointer-events: none !important;
+  z-index: 3 !important;
+}
+
+.product-card:hover .product-image-container::after {
+  left: 170% !important;
+}
+
+/* Product Image: Clean Base & Silky Cinematic Zoom */
+.product-image-container img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: top center !important;
+  display: block !important;
+  transform: scale(1) !important;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease !important;
+  will-change: transform;
+}
+
+.product-card:hover .product-image-container img,
+body.scroll-animate-ready .product-card.reveal-card.is-revealed:hover .product-image-container img {
+  transform: scale(1.08) !important;
+}
+
+/* Wishlist Button Luxury Micro-interaction */
+.wishlist-btn {
+  position: absolute !important;
+  top: 0.75rem !important;
+  right: 0.75rem !important;
+  z-index: 5 !important;
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.94) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              background-color 0.25s ease,
+              box-shadow 0.25s ease !important;
+}
+
+.wishlist-btn:hover {
+  transform: scale(1.18) !important;
+  background: #FFFFFF !important;
+  box-shadow: 0 6px 20px rgba(225, 29, 72, 0.25) !important;
+}
+
+.wishlist-btn:active {
+  transform: scale(0.92) !important;
+}
+
+.wishlist-btn.active {
+  background: #FFF1F2 !important;
+  border-color: #FECDD3 !important;
+  animation: heartPopPulse 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.wishlist-btn.active svg {
+  fill: #E11D48 !important;
+  stroke: #E11D48 !important;
+}
+
+@keyframes heartPopPulse {
+  0% { transform: scale(0.85); }
+  50% { transform: scale(1.26); }
+  100% { transform: scale(1); }
+}
+
+/* Action Button ("Add to Bag" / "View Details") Shimmer & Elevation */
+.product-card-action-btn {
+  position: relative !important;
+  overflow: hidden !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.25s ease !important;
+}
+
+.product-card-action-btn::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 50% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent) !important;
+  transform: skewX(-20deg) !important;
+  transition: left 0.6s ease !important;
+  pointer-events: none !important;
+}
+
+.product-card-action-btn:hover::before {
+  left: 150% !important;
+}
+
+.product-card-action-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 22px rgba(77, 115, 24, 0.28) !important;
+}
+
+.product-card-action-btn:active {
+  transform: translateY(0) scale(0.98) !important;
+}
+
+/* Homepage Brand Portals (Arjava, Totties, Vaahini) */
+.nature-brand-card {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease !important;
+}
+
+.nature-brand-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 24px 50px -12px rgba(45, 90, 39, 0.18) !important;
+}
+
+.nature-brand-card .card-arch-img {
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.nature-brand-card:hover .card-arch-img {
+  transform: scale(1.07) !important;
+}
+
+.nature-brand-card:hover .luxury-arrow-svg-dark {
+  transform: translateX(6px) !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Botanical Leaves Organic Breeze Animation */
+.nature-leaf-tl {
+  animation: organicLeafBreezeLeft 9s ease-in-out infinite alternate !important;
+  transform-origin: top left !important;
+  pointer-events: none !important;
+}
+
+.nature-leaf-tr {
+  animation: organicLeafBreezeRight 11s ease-in-out infinite alternate !important;
+  transform-origin: top right !important;
+  pointer-events: none !important;
+}
+
+@keyframes organicLeafBreezeLeft {
+  0% { transform: rotate(0deg) translate3d(0, 0, 0); }
+  50% { transform: rotate(2.4deg) translate3d(4px, 6px, 0); }
+  100% { transform: rotate(-1.5deg) translate3d(-3px, 8px, 0); }
+}
+
+@keyframes organicLeafBreezeRight {
+  0% { transform: rotate(0deg) translate3d(0, 0, 0); }
+  50% { transform: rotate(-2.8deg) translate3d(-5px, 7px, 0); }
+  100% { transform: rotate(1.8deg) translate3d(3px, 9px, 0); }
+}
+
+/* Graceful Scroll Reveal - Never Jerky or Broken */
+body.scroll-animate-ready .reveal-slide-up {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+body.scroll-animate-ready .reveal-slide-up.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body.scroll-animate-ready .product-card.reveal-card {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--stagger-i, 0) * 45ms);
+  will-change: opacity, transform;
+}
+
+body.scroll-animate-ready .product-card.reveal-card.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Category Filter Pill Transitions */
+.category-filter-btn {
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.category-filter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(77, 115, 24, 0.15);
+}
+
+/* Modal Smooth Entrance */
+.product-detail-modal-overlay {
+  transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.32s ease !important;
+}
+
+.product-detail-modal-container {
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.32s ease !important;
+}
+
+.product-detail-modal-overlay:not(.active) .product-detail-modal-container {
+  transform: scale(0.97) translateY(10px) !important;
+  opacity: 0 !important;
+}
+
+.product-detail-modal-overlay.active .product-detail-modal-container {
+  transform: scale(1) translateY(0) !important;
+  opacity: 1 !important;
+}
+
+.modal-back-btn {
+  transition: transform 0.25s ease, background-color 0.25s ease !important;
+}
+
+.modal-back-btn:hover {
+  transform: translateX(-4px) !important;
+}
+
+
+/* Hide any standalone corner photo cutouts permanently */
+.nature-leaf-corner {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+@keyframes naturalLeafSwayFull {
+  0% {
+    transform: scale(1.02) translate3d(0, 0, 0) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.035) translate3d(-12px, 7px, 0) rotate(0.55deg);
+  }
+  50% {
+    transform: scale(1.025) translate3d(10px, -5px, 0) rotate(-0.45deg);
+  }
+  75% {
+    transform: scale(1.04) translate3d(-8px, 12px, 0) rotate(0.7deg);
+  }
+  100% {
+    transform: scale(1.03) translate3d(7px, -4px, 0) rotate(-0.35deg);
   }
 }
